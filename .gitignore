@@ -1,0 +1,14 @@
+# 忽略 Python 編譯檔案
+*.pyc
+
+# 忽略虛擬環境資料夾
+venv/
+.env
+
+# 忽略操作系統檔案
+.DS_Store
+Thumbs.db
+
+# 忽略 IDE 配置資料夾
+.vscode/
+.idea/
