@@ -7,7 +7,7 @@ export default {
     loading: false,
     error: null,
   },
-  mutations: {
+  mutations: { 
     SET_DATA(state, data) {
       state.yearlyData = data;
     },

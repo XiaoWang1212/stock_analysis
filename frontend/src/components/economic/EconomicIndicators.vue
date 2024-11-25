@@ -114,12 +114,14 @@ export default {
     },
     
     gdpTrend() {
+      if (!this.gdpData || this.gdpData.length < 2) return '數據不足';
       // 計算GDP年增率
       return ((this.gdpData[this.gdpData.length - 1]?.value || 0) - 
               (this.gdpData[this.gdpData.length - 2]?.value || 0)).toFixed(1)
     },
     
     unemploymentTrend() {
+      if (!this.unemploymentData || this.unemploymentData.length < 2) return '數據不足';
       // 計算失業率變化
       return ((this.unemploymentData[this.unemploymentData.length - 1]?.value || 0) - 
               (this.unemploymentData[this.unemploymentData.length - 2]?.value || 0)).toFixed(1)

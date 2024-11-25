@@ -17,6 +17,16 @@ const routes = [
     name: 'DeathRate',
     component: () => import('../views/DeathRateView.vue')
   },
+  {
+    path: '/economic-impact',
+    name: 'EconomicImpact',
+    component: () => import('../views/EconomicView.vue')
+  },
+  {
+    path: '/stock-app',
+    name: 'StockApp',
+    component: () => import('../views/StockApp.vue')
+  },
 ]
 
 const router = createRouter({
