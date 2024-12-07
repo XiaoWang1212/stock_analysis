@@ -1,4 +1,4 @@
-import axios from "axios";
+import { apiService } from "@/services/api";
 
 const state = {
   loading: false,
@@ -30,12 +30,24 @@ const mutations = {
 };
 
 const actions = {
+  async fetchStockCategories({ commit }) {
+    commit("SET_LOADING", true);
+    commit("SET_ERROR", null);
+    try {
+      const data = await apiService.stock.getStockCategories();
+      commit("SET_STOCK_DATA", data);
+    } catch (error) {
+      commit("SET_ERROR", "Failed to fetch stock categories");
+    } finally {
+      commit("SET_LOADING", false);
+    }
+  },
   async fetchStockData({ commit }) {
     commit("SET_LOADING", true);
     commit("SET_ERROR", null);
     try {
-      const response = await axios.get("/stock_app/api/data");
-      commit("SET_STOCK_DATA", response.data.stocks);
+      const data = await apiService.stock.getStocks();
+      commit("SET_STOCK_DATA", data.stocks);
     } catch (error) {
       commit("SET_ERROR", "Failed to fetch stock data");
     } finally {
@@ -46,13 +58,12 @@ const actions = {
     commit("SET_LOADING", true);
     commit("SET_ERROR", null);
     try {
-      const response = await axios.get(`stock_app/api/stock_data/${symbol}`);
-      if (response.data.error) {
-        commit("SET_ERROR", response.data.error);
-        return response.data;
+      const data = await apiService.stock.getStockData(symbol);
+      if (data.error) {
+        commit("SET_ERROR", data.error);
+        return data;
       } else {
-        commit("SET_CHART_DATA", response.data);
-        return response.data;
+        commit("SET_CHART_DATA", data);
       }
     } catch (error) {
       commit("SET_ERROR", "Failed to fetch stock chart data");
@@ -60,25 +71,59 @@ const actions = {
       commit("SET_LOADING", false);
     }
   },
-  async predictStockPrice({ commit }, symbol) {
-    commit('SET_LOADING', true);
-    commit('SET_ERROR', null);
+  async fetchSMAChartData({ commit }, symbol) {
+    commit("SET_LOADING", true);
+    commit("SET_ERROR", null);
     try {
-      const response = await axios.get(`stock_app/api/predict/${symbol}`);
-      if (response.data.error) {
-        commit('SET_ERROR', response.data.error);
-        return response.data;
+      const data = await apiService.stock.getSMAData(symbol);
+      if (data.error) {
+        commit("SET_ERROR", data.error);
+        return data;
       } else {
-        commit('SET_PREDICTED_PRICE', response.data.predicted_price);
+        commit("SET_CHART_DATA", data);
       }
     } catch (error) {
-      commit('SET_ERROR', 'Failed to predict stock price');
+      commit("SET_ERROR", "Failed to fetch SMA chart data");
     } finally {
-      commit('SET_LOADING', false);
+      commit("SET_LOADING", false);
+    }
+  },
+  async fetchBIASChartData({ commit }, symbol) {
+    commit("SET_LOADING", true);
+    commit("SET_ERROR", null);
+    try {
+      const data = await apiService.stock.getBIASData(symbol);
+      if (data.error) {
+        commit("SET_ERROR", data.error);
+        return data;
+      } else {
+        commit("SET_CHART_DATA", data);
+      }
+    } catch (error) {
+      commit("SET_ERROR", "Failed to fetch BIAS chart data");
+    } finally {
+      commit("SET_LOADING", false);
+    }
+  },
+  async predictStockPrice({ commit }, symbol) {
+    commit("SET_LOADING", true);
+    commit("SET_ERROR", null);
+    try {
+      const data = await apiService.stock.predictStockPrice(symbol);
+      if (data.error) {
+        commit("SET_ERROR", data.error);
+        return data;
+      } else {
+        commit("SET_PREDICTED_PRICE", data.predicted_price);
+      }
+    } catch (error) {
+      commit("SET_ERROR", "Failed to predict stock price");
+    } finally {
+      commit("SET_LOADING", false);
     }
   },
   resetPredictedPrice({ commit }) {
-    commit('RESET_PREDICTED_PRICE');
+    commit("RESET_PREDICTED_PRICE");
   },
 };
 
@@ -87,7 +132,7 @@ const getters = {
   error: (state) => state.error,
   stockData: (state) => state.stockData,
   chartData: (state) => state.chartData,
-  predictedPrice: (state) => state.predictedPrice
+  predictedPrice: (state) => state.predictedPrice,
 };
 
 export default {

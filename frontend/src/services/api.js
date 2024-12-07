@@ -1,5 +1,5 @@
 // src/services/api.js
-const API_BASE_URL = process.env.VUE_APP_API_BASE_URL || 'http://localhost:5000/api'
+const API_BASE_URL = process.env.VUE_APP_API_BASE_URL || 'http://localhost:5000'
 
 export const apiService = {
   async get(endpoint) {
@@ -30,5 +30,15 @@ export const apiService = {
     getGDP: () => apiService.get('/economic/gdp'),
     getUnemployment: () => apiService.get('/economic/unemployment'),
     getIndicators: () => apiService.get('/economic/indicators')
+  },
+
+  // Stock endpoints
+  stock: {
+    getStocks: () => apiService.get('/stock_app/api/data'),
+    getStockData: (symbol) => apiService.get(`/stock_app/api/stock_data/${symbol}`),
+    getSMAData: (symbol) => apiService.get(`/stock_app/api/ma/${symbol}`),
+    getBIASData: (symbol) => apiService.get(`/stock_app/api/bias/${symbol}`),
+    predictStockPrice: (symbol) => apiService.get(`/stock_app/api/predict/${symbol}`),
+    getStockCategories: () => apiService.get('/stock_app/api/categories'),
   }
 }

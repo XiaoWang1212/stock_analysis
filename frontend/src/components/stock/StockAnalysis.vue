@@ -7,7 +7,7 @@
       <li
         v-for="stock in stockData"
         :key="stock.symbol"
-        @click="handleStockClick(stock.symbol)"
+        @click="handleStockClick(stock)"
         class="stock-item"
       >
         {{ stock.symbol }} - ${{ stock.price !== null ? stock.price : 'N/A' }}
@@ -22,6 +22,7 @@
     <div v-if="selectedStock" class="selected-stock">
       <h2>Selected Stock</h2>
       <p>{{ selectedStock.symbol }}: ${{ selectedStock.price }}</p>
+      <button @click="navigateToSMAChart(selectedStock.symbol)" class="deep-analysis-button">Deep Analysis</button>
     </div>
 
     <!-- 股票符號輸入 -->
@@ -70,10 +71,11 @@ export default {
   },
   methods: {
     ...mapActions('stockApp', ['fetchStockChartData', 'predictStockPrice', 'resetPredictedPrice']),
-    async handleStockClick(symbol) {
+    async handleStockClick(stock) {
       this.resetPredictedPrice(); // 重置預測價格
-      this.stockSymbol = symbol;
-      await this.fetchStockChartData(symbol);
+      this.selectedStock = stock; // 更新選中的股票
+      this.stockSymbol = stock.symbol;
+      await this.fetchStockChartData(stock.symbol);
     },
     async fetchStockChartData(symbol) {
       if (!symbol) {
@@ -92,6 +94,9 @@ export default {
         return;
       }
       await this.$store.dispatch('stockApp/predictStockPrice', symbol);
+    },
+    navigateToSMAChart(symbol) {
+      this.$router.push({ name: 'MovingAvgChart', params: { symbol } });
     }
   },
   mounted() {
@@ -143,6 +148,20 @@ h1 {
   padding: 10px;
   background-color: #f1f1f1;
   border: 1px solid #ccc;
+}
+
+.deep-analysis-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.deep-analysis-button:hover {
+  background-color: #218838;
 }
 
 .stock-input {

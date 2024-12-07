@@ -1,0 +1,1384 @@
+Market,Symbol,Chinese name,English name,Currency,Product Risk,Industry,Dividend Yield(%),P/E Ratio,YTD Performance,ESG Product
+US,A,安捷倫科技公司,AGILENT TECHNOLOGIES INC,USD,3,醫療保健,0.71,25.90,(15.61),ESG增強型
+US,AA,美國鋁業公司,ALCOA CORP,USD,4,原材料,1.11,36.12,(20.61),n.a.
+US,AAL,美國航空集團公司,AMERICAN AIRLINES GROUP INC,USD,5,工業,n.a.,5.19,11.64,n.a.
+US,AAOI,祥茂光電科技股份有限公司,APPLIED OPTOELECTRONICS INC,USD,5,資訊技術,n.a.,n.a.,(8.47),n.a.
+US,AAP,前進汽車零件公司,ADVANCE AUTO PARTS INC,USD,3,非核心消費,5.11,10.69,(20.19),n.a.
+US,AAPL,蘋果公司,APPLE INC,USD,3,資訊技術,0.56,29.21,32.43,n.a.
+US,ABBV,艾伯維公司,ABBVIE INC,USD,3,醫療保健,4.13,14.66,(11.34),n.a.
+US,ABG,阿斯伯雷汽車集團公司,ASBURY AUTOMOTIVE GROUP,USD,4,非核心消費,n.a.,5.37,10.20,n.a.
+US,ABLV,Able View Global Inc,ABLE VIEW GLOBAL INC-B,USD,5,-,-,-,-,n.a.
+US,ABNB,愛彼迎公司,AIRBNB INC-CLASS A,USD,4,非核心消費,n.a.,32.96,23.29,n.a.
+US,ABR,Arbor Realty Trust Inc,ARBOR REALTY TRUST INC,USD,4,金融,13.48,7.02,(5.53),n.a.
+US,ABT,亞培,ABBOTT LABORATORIES,USD,3,醫療保健,1.86,29.84,(0.36),n.a.
+US,ACAD,阿卡迪亞製藥公司,ACADIA PHARMACEUTICALS INC,USD,4,醫療保健,n.a.,n.a.,37.44,n.a.
+US,ACGL,艾奇資本集團有限公司,ARCH CAPITAL GROUP LTD,USD,3,金融,n.a.,13.16,18.70,n.a.
+US,ACGLO,艾奇資本集團有限公司,ARCH CAPITAL GROUP LTD,USD,5,金融,n.a.,12.39,14.14,n.a.
+US,ACHC,阿卡迪亞醫療保健公司,ACADIA HEALTHCARE CO INC,USD,3,醫療保健,n.a.,17.08,(14.02),n.a.
+US,ACM,艾奕康,AECOM,USD,3,工業,0.92,23.30,(7.57),n.a.
+US,ACMR,ACM Research Inc,ACM RESEARCH INC-CLASS A,USD,5,資訊技術,n.a.,10.50,25.81,n.a.
+US,ACRE,戰神商業不動產公司,ARES COMMERCIAL REAL ESTATE,USD,5,金融,15.64,72.07,(17.80),n.a.
+US,ADBE,奧多比系統公司,ADOBE INC,USD,3,資訊技術,n.a.,33.50,2.55,n.a.
+US,ADC,同意不動產公司,AGREE REALTY CORP,USD,3,房地產,4.46,37.27,(7.88),n.a.
+US,ADI,亞德諾公司,ANALOG DEVICES INC,USD,3,資訊技術,1.88,17.45,11.44,n.a.
+US,ADM,Archer-Daniels-Midland Co,ARCHER-DANIELS-MIDLAND CO,USD,3,核心消費,2.46,9.15,(21.22),n.a.
+US,ADP,自動資料處理公司,AUTOMATIC DATA PROCESSING,USD,3,工業,2.35,26.93,(11.10),ESG增強型
+US,ADSK,歐特克,AUTODESK INC,USD,3,資訊技術,n.a.,49.99,3.41,ESG增強型
+US,AEE,阿莫林公司,AMEREN CORPORATION,USD,3,公用事業,3.02,20.03,(6.07),n.a.
+US,AEIS,艾儀有限公司,ADVANCED ENERGY INDUSTRIES,USD,4,資訊技術,0.46,16.10,2.25,n.a.
+US,AEM,阿哥尼可老鷹礦場公司,AGNICO EAGLE MINES LTD,USD,3,原材料,2.86,n.a.,7.46,n.a.
+US,AEO,美國老鷹休閒用品公司,AMERICAN EAGLE OUTFITTERS,USD,4,非核心消費,3.16,12.95,(9.24),n.a.
+US,AEP,美國電力公司,AMERICAN ELECTRIC POWER,USD,3,公用事業,3.77,17.66,(7.22),ESG增強型
+US,AES,愛伊斯公司,AES CORP,USD,3,公用事業,3.18,8.19,(27.50),ESG增強型
+US,AFL,美國家庭人壽保險公司,AFLAC INC,USD,3,金融,2.58,12.90,(9.42),n.a.
+US,AFRM,Affirm控股公司,AFFIRM HOLDINGS INC,USD,5,金融,n.a.,n.a.,28.13,n.a.
+US,AG,第一銀業公司,FIRST MAJESTIC SILVER CORP,USD,4,原材料,0.36,n.a.,(24.94),n.a.
+US,AGCO,AGCO公司,AGCO CORP,USD,3,工業,0.97,8.85,(13.63),n.a.
+US,AGI,阿拉莫斯黃金公司,ALAMOS GOLD INC-CLASS A,USD,3,原材料,0.77,n.a.,29.28,n.a.
+US,AGIO,Agios Pharmaceuticals Inc,AGIOS PHARMACEUTICALS INC,USD,4,醫療保健,n.a.,n.a.,(9.51),n.a.
+US,AGNC,AGNC投資公司,AGNC INVESTMENT CORP,USD,3,金融,15.96,n.a.,(12.85),n.a.
+US,AGO,Assured Guaranty有限公司,ASSURED GUARANTY LTD,USD,4,金融,2.15,13.04,(16.37),n.a.
+US,AHT,阿什福德信託公司,ASHFORD HOSPITALITY TRUST,USD,5,房地產,n.a.,n.a.,(17.45),n.a.
+US,AI,C3.ai Inc,C3.AI INC-A,USD,5,資訊技術,n.a.,n.a.,110.55,n.a.
+US,AIG,美國國際集團,AMERICAN INTERNATIONAL GROUP,USD,3,金融,2.75,10.87,(17.28),n.a.
+US,AIN,奧巴尼國際公司,ALBANY INTL CORP-CL A,USD,4,工業,1.12,31.62,(9.15),n.a.
+US,AIR,AAR公司,AAR CORP,USD,4,工業,n.a.,18.87,17.22,n.a.
+US,AIRG,Airgain公司,AIRGAIN INC,USD,5,-,-,-,-,n.a.
+US,AIV,公寓投資管理,APARTMENT INVT & MGMT CO -A,USD,4,房地產,n.a.,11.23,16.29,n.a.
+US,AIZ,安信龍公司,ASSURANT INC,USD,3,金融,2.16,15.99,3.53,n.a.
+US,AJG,Arthur J Gallagher & Co,ARTHUR J GALLAGHER & CO,USD,3,金融,1.01,33.80,15.10,n.a.
+US,AKAM,Akamai科技公司,AKAMAI TECHNOLOGIES INC,USD,3,資訊技術,n.a.,23.20,3.05,n.a.
+US,AL,航空租賃公司,AIR LEASE CORP,USD,4,工業,2.11,8.52,(1.41),n.a.
+US,ALAB,Astera Labs Inc,ASTERA LABS INC,USD,5,資訊技術,,,,n.a.
+US,ALB,雅保公司,ALBEMARLE CORP,USD,4,原材料,0.78,6.69,(5.16),n.a.
+US,ALE,阿里特公司,ALLETE INC,USD,4,公用事業,4.45,19.15,(5.58),n.a.
+US,ALGN,艾利科技公司,ALIGN TECHNOLOGY INC,USD,4,醫療保健,n.a.,61.79,38.60,n.a.
+US,ALGT,忠實旅遊公司,ALLEGIANT TRAVEL CO,USD,4,工業,n.a.,18.64,44.76,n.a.
+US,ALK,阿拉斯加航空集團公司,ALASKA AIR GROUP INC,USD,3,工業,n.a.,8.79,(0.70),n.a.
+US,ALL,好事達保險公司,ALLSTATE CORP,USD,3,金融,3.05,n.a.,(13.86),n.a.
+US,ALLK,Allakos Inc,ALLAKOS INC,USD,5,醫療保健,n.a.,n.a.,(43.71),n.a.
+US,ALLO,Allogene Therapeutics Inc,ALLOGENE THERAPEUTICS INC,USD,5,醫療保健,n.a.,n.a.,(2.54),n.a.
+US,ALNY,阿里拉姆製藥公司,ALNYLAM PHARMACEUTICALS INC,USD,5,醫療保健,n.a.,n.a.,(19.64),n.a.
+US,ALRM,Alarm.com控股公司,ALARM.COM HOLDINGS INC,USD,4,資訊技術,n.a.,35.98,(2.12),n.a.
+US,ALSN,Allison Transmission控股公司,ALLISON TRANSMISSION HOLDING,USD,4,工業,1.92,7.98,15.12,n.a.
+US,ALTM,Arcadium Lithium PLC,ARCADIUM LITHIUM PLC,USD,5,-,-,-,-,n.a.
+US,ALTO,奧拓配料公司,ALTO INGREDIENTS INC,USD,5,原材料,n.a.,n.a.,(34.03),n.a.
+US,ALV,奧托立夫,AUTOLIV INC,USD,3,非核心消費,3.11,17.47,10.89,n.a.
+US,AMAT,應用材料,APPLIED MATERIALS INC,USD,3,資訊技術,1.06,15.92,24.17,n.a.
+US,AMBA,安霸股份有限公司,AMBARELLA INC,USD,4,資訊技術,n.a.,n.a.,(17.80),n.a.
+US,AMC,AMC娛樂控股公司,AMC ENTERTAINMENT HLDS-CL A,USD,5,通訊服務,n.a.,n.a.,21.87,n.a.
+US,AMCX,AMC網路公司,AMC NETWORKS INC-A,USD,4,通訊服務,n.a.,1.56,(14.61),n.a.
+US,AMD,超微半導體公司,ADVANCED MICRO DEVICES,USD,5,資訊技術,n.a.,233.55,56.68,n.a.
+US,AME,得邁斯,AMETEK INC,USD,3,工業,0.69,28.08,3.46,n.a.
+US,AMG,聯營投資管理集團公司,AFFILIATED MANAGERS GROUP,USD,4,金融,0.03,10.47,(11.32),n.a.
+US,AMGN,安進公司,AMGEN INC,USD,3,醫療保健,3.74,15.19,(13.23),n.a.
+US,AMP,阿默普萊斯金融公司,AMERIPRISE FINANCIAL INC,USD,3,金融,1.83,13.45,(5.44),n.a.
+US,AMPL,Amplitude Inc,AMPLITUDE INC-CLASS A,USD,5,資訊技術,n.a.,n.a.,(25.58),n.a.
+US,AMRN,Amarin Corp PLC,AMARIN CORP PLC -ADR,USD,5,醫療保健,n.a.,n.a.,3.31,n.a.
+US,AMS,美國共享醫院服務公司,AMERICAN SHARED HOSPITAL SER,USD,5,醫療保健,n.a.,14.00,(4.44),n.a.
+US,AMSC,美國超導公司,"AMERICAN SUPERCONDUCTOR
+CORP",USD,5,工業,n.a.,n.a.,138.18,n.a.
+US,AMT,美國電塔,AMERICAN TOWER CORP,USD,3,房地產,3.27,63.66,(9.83),ESG增強型
+US,AMZN,亞馬遜公司,AMAZON.COM INC,USD,3,非核心消費,n.a.,122.25,35.00,n.a.
+US,ANET,Arista網路公司,ARISTA NETWORKS INC,USD,3,資訊技術,n.a.,29.44,12.19,n.a.
+US,ANF,Abercrombie & Fitch公司,ABERCROMBIE & FITCH CO-CL A,USD,4,非核心消費,n.a.,125.23,0.70,n.a.
+US,ANGI,Angi Inc,ANGI INC,USD,5,通訊服務,n.a.,n.a.,31.91,n.a.
+US,ANSS,ANSYS公司,ANSYS INC,USD,3,資訊技術,n.a.,46.53,23.83,n.a.
+US,ANY,Sphere 3D Corp,SPHERE 3D CORP,USD,5,資訊技術,n.a.,n.a.,21.45,n.a.
+US,AOS,A.O.史密斯公司,SMITH (A.O.) CORP,USD,3,工業,1.79,20.50,17.42,n.a.
+US,AOSL,萬有半導體有限公司,ALPHA & OMEGA SEMICONDUCTOR,USD,4,資訊技術,n.a.,25.69,(13.65),n.a.
+US,APA,阿帕奇公司,APA CORP,USD,5,能源,3.16,4.50,(32.24),n.a.
+US,APD,氣體產品與化學,AIR PRODUCTS & CHEMICALS INC,USD,3,原材料,2.54,25.79,(10.60),n.a.
+US,APH,安費諾,AMPHENOL CORP-CL A,USD,3,資訊技術,1.12,24.48,(1.83),n.a.
+US,API,上海兆言網路科技有限公司,AGORA INC-ADR,USD,5,資訊技術,n.a.,n.a.,(24.30),n.a.
+US,APLE,Apple酒店不動產投資信託公司,APPLE HOSPITALITY REIT INC,USD,4,房地產,6.30,18.93,(3.42),n.a.
+US,APLS,Apellis製藥公司,APELLIS PHARMACEUTICALS INC,USD,5,醫療保健,n.a.,n.a.,69.56,n.a.
+US,APPN,Appian公司,APPIAN CORP-A,USD,5,資訊技術,n.a.,n.a.,10.26,n.a.
+US,APT,阿爾法博特科技有限公司,ALPHA PRO TECH LTD,USD,5,工業,n.a.,17.73,(2.99),n.a.
+US,APTV,安波福公開有限公司,APTIV PLC,USD,3,非核心消費,n.a.,28.97,(2.39),n.a.
+US,AQB,水賞科技公司,AQUABOUNTY TECHNOLOGIES,USD,5,醫療保健,n.a.,n.a.,(36.52),n.a.
+US,AR,Antero Resources Corp,ANTERO RESOURCES CORP,USD,4,能源,n.a.,5.45,(28.94),n.a.
+US,ARCC,Ares Capital Corp,ARES CAPITAL CORP,USD,3,金融,10.60,7.82,(1.95),n.a.
+US,ARE,亞歷山卓不動產股份公司,ALEXANDRIA REAL ESTATE EQUIT,USD,3,房地產,4.12,54.64,(19.34),n.a.
+US,ARM,安謀控股公開有限公司,ARM HOLDINGS PLC,USD,5,資訊技術,,,70.79,n.a.
+US,ARQT,Arcutis Biotherapeutics Inc,ARCUTIS BIOTHERAPEUTICS INC,USD,5,醫療保健,,,239.01,n.a.
+US,ARR,ARMOUR住宅REIT公司,ARMOUR RESIDENTIAL REIT INC,USD,4,金融,20.17,n.a.,(15.45),n.a.
+US,ARW,艾睿電子,ARROW ELECTRONICS INC,USD,3,資訊技術,n.a.,5.59,13.94,n.a.
+US,ARWR,箭頭製藥公司,"ARROWHEAD PHARMACEUTICALS
+IN",USD,4,醫療保健,n.a.,n.a.,(7.20),n.a.
+US,ASAN,Asana Inc,ASANA INC - CL A,USD,5,資訊技術,n.a.,n.a.,32.53,n.a.
+US,ASB,聯合銀行公司,ASSOCIATED BANC-CORP,USD,4,金融,5.80,5.71,(37.29),n.a.
+US,ASGN,盎塞公司,ASGN INC,USD,4,工業,n.a.,12.69,(21.64),n.a.
+US,ASH,亞仕蘭公司,ASHLAND INC,USD,4,原材料,1.69,19.17,(15.51),n.a.
+US,ASR,Grupo Aeroportuario del Sure,GRUPO AEROPORTUARIO SUR-ADR,USD,3,工業,2.62,n.a.,25.37,n.a.
+US,ASTS,AST SpaceMobile Inc,AST SPACEMOBILE INC,USD,5,通訊服務,n.a.,n.a.,2.28,n.a.
+US,ASX,日月光投資控股公司,ASE TECHNOLOGY HOLDING -ADR,USD,3,資訊技術,6.68,n.a.,11.48,n.a.
+US,ATER,Aterian Inc,ATERIAN INC,USD,5,非核心消費,n.a.,n.a.,(27.90),n.a.
+US,ATKR,艾特柯爾公司,ATKORE INC,USD,4,工業,n.a.,6.04,4.09,n.a.
+US,ATMU,Atmus Filtration Technologie,ATMUS FILTRATION TECHNOLOGIE,USD,5,非核心消費,,,14.22,n.a.
+US,ATO,Atmos能源公司,ATMOS ENERGY CORP,USD,3,公用事業,2.55,19.93,3.50,n.a.
+US,ATR,阿普達集團公司,APTARGROUP INC,USD,3,原材料,1.28,32.17,7.58,n.a.
+US,AUPH,歐瑞尼亞製藥公司,AURINIA PHARMACEUTICALS INC,USD,5,醫療保健,n.a.,n.a.,136.34,n.a.
+US,AVAV,宇航環境公司,AEROVIRONMENT INC,USD,4,工業,n.a.,n.a.,21.53,n.a.
+US,AVB,AvalonBay Communities Inc,AVALONBAY COMMUNITIES INC,USD,3,房地產,3.77,19.60,8.52,n.a.
+US,AVD,美國先鋒公司,AMERICAN VANGUARD CORP,USD,5,原材料,0.72,24.05,(23.31),n.a.
+US,AVGO,博通公司,BROADCOM INC,USD,3,資訊技術,2.87,21.12,14.72,n.a.
+US,AVIR,Atea Pharmaceuticals Inc,ATEA PHARMACEUTICALS INC,USD,5,醫療保健,n.a.,n.a.,(28.07),n.a.
+US,AVT,安富利公司,AVNET INC,USD,4,資訊技術,2.82,5.15,(1.11),n.a.
+US,AVY,艾利丹尼森,AVERY DENNISON CORP,USD,3,原材料,1.93,20.11,(7.08),n.a.
+US,AWI,阿姆斯壯世界工業公司,ARMSTRONG WORLD INDUSTRIES,USD,4,工業,1.58,13.28,(6.43),n.a.
+US,AWK,美國水處理公司,AMERICAN WATER WORKS CO INC,USD,3,公用事業,1.96,32.41,(5.06),主題型
+US,AWR,美洲水力公司,AMERICAN STATES WATER CO,USD,4,公用事業,1.77,33.76,(3.01),n.a.
+US,AXL,美國輪軸製造控股公司,AMERICAN AXLE & MFG HOLDINGS,USD,4,非核心消費,n.a.,12.13,(12.15),n.a.
+US,AXNX,愛索尼科公司,AXONICS INC,USD,4,醫療保健,n.a.,n.a.,(15.24),n.a.
+US,AXON,泰瑟國際公司,AXON ENTERPRISE INC,USD,3,工業,,113.93,20.47,n.a.
+US,AXP,美國運通,AMERICAN EXPRESS CO,USD,3,金融,1.62,15.61,0.45,n.a.
+US,AXS,Axis資本控股有限公司,AXIS CAPITAL HOLDINGS LTD,USD,4,金融,3.22,3.94,1.02,n.a.
+US,AXSM,Axsome治療公司,AXSOME THERAPEUTICS INC,USD,5,醫療保健,n.a.,n.a.,(0.06),n.a.
+US,AXTA,艾仕得塗料系統有限公司,AXALTA COATING SYSTEMS LTD,USD,3,原材料,n.a.,18.98,17.98,n.a.
+US,AXTI,AXT公司,AXT INC,USD,5,資訊技術,n.a.,15.22,(26.71),n.a.
+US,AYI,敏銳品牌公司,ACUITY BRANDS INC,USD,3,工業,0.34,12.89,(6.29),n.a.
+US,AYRO,AYRO公司,AYRO INC,USD,5,非核心消費,n.a.,n.a.,50.14,n.a.
+US,AZN,阿斯特捷利康公開有限公司,ASTRAZENECA PLC-SPONS ADR,USD,3,醫療保健,2.62,n.a.,11.03,n.a.
+US,AZO,汽車地帶公司,AUTOZONE INC,USD,3,非核心消費,n.a.,21.98,8.40,n.a.
+US,BA,波音公司,BOEING CO/THE,USD,3,工業,n.a.,n.a.,5.45,n.a.
+US,BABA,阿里巴巴集團控股有限公司,ALIBABA GROUP HOLDING-SP ADR,USD,4,非核心消費,n.a.,13.64,0.76,n.a.
+US,BAC,美國銀行,BANK OF AMERICA CORP,USD,3,金融,3.22,7.93,(17.39),n.a.
+US,BAH,博思艾倫漢密爾頓控股公司,BOOZ ALLEN HAMILTON HOLDINGS,USD,3,工業,2.05,24.38,(12.27),n.a.
+US,BALL,包爾公司,BALL CORP,USD,3,原材料,1.43,23.29,9.01,n.a.
+US,BAM,Brookfield Asset Management,BROOKFIELD ASSET MGMT-A,USD,5,金融,4.10,n.a.,8.93,n.a.
+US,BANC,加州銀行,BANC OF CALIFORNIA INC,USD,4,金融,2.86,7.35,(12.24),n.a.
+US,BAND,Bandwidth Inc,BANDWIDTH INC-CLASS A,USD,5,通訊服務,n.a.,n.a.,(53.64),n.a.
+US,BAP,Credicorp Ltd,CREDICORP LTD,USD,3,金融,5.04,8.22,(0.64),n.a.
+US,BAX,百特醫療產品有限公司,BAXTER INTERNATIONAL INC,USD,3,醫療保健,2.70,20.56,(15.62),n.a.
+US,BB,黑莓公司,BLACKBERRY LTD,USD,4,資訊技術,n.a.,n.a.,55.83,n.a.
+US,BBD,Banco Bradesco SA,BANCO BRADESCO-ADR,USD,5,金融,n.a.,n.a.,10.42,n.a.
+US,BBIO,Bridgebio Pharma Inc,BRIDGEBIO PHARMA INC,USD,5,醫療保健,n.a.,n.a.,84.91,n.a.
+US,BBWI,Bath & Body Works公司,BATH & BODY WORKS INC,USD,5,非核心消費,1.71,14.44,8.32,n.a.
+US,BBY,百思買公司,BEST BUY CO INC,USD,3,非核心消費,5.20,10.41,(11.81),n.a.
+US,BC,布朗斯威克公司(德拉瓦),BRUNSWICK CORP,USD,3,非核心消費,2.11,8.19,5.08,n.a.
+US,BCE,BCE Inc,BCE INC,USD,3,通訊服務,6.09,n.a.,7.21,n.a.
+US,BCRX,生晶製藥公司,BIOCRYST PHARMACEUTICALS INC,USD,5,醫療保健,n.a.,n.a.,(26.31),n.a.
+US,BDX,必帝公司,BECTON DICKINSON AND CO,USD,3,醫療保健,1.45,22.29,(1.55),n.a.
+US,BE,布魯姆能源公司,BLOOM ENERGY CORP- A,USD,5,工業,n.a.,n.a.,(31.38),n.a.
+US,BEAM,Beam Therapeutics Inc,BEAM THERAPEUTICS INC,USD,4,醫療保健,n.a.,n.a.,(34.67),n.a.
+US,BEEM,Beam Global,BEAM GLOBAL,USD,5,工業,n.a.,n.a.,(39.61),n.a.
+US,BEKE,貝殼－Ｗ,KE HOLDINGS INC-ADR,USD,5,房地產,n.a.,n.a.,20.70,n.a.
+US,BEN,富蘭克林資源公司,FRANKLIN RESOURCES INC,USD,3,金融,5.00,11.01,(8.95),n.a.
+US,BERY,貝里全球集團公司,BERRY GLOBAL GROUP INC,USD,3,原材料,1.73,9.43,(4.45),n.a.
+US,BG,邦吉有限公司,BUNGE LTD,USD,3,核心消費,2.97,7.10,(10.68),n.a.
+US,BGNE,百濟神州,BEIGENE LTD-ADR,USD,4,醫療保健,n.a.,n.a.,8.62,n.a.
+US,BGS,B&G食品公司,B&G FOODS INC,USD,4,核心消費,5.81,15.23,17.22,n.a.
+US,BHC,博士康公司,BAUSCH HEALTH COS INC,USD,5,醫療保健,n.a.,n.a.,(4.14),n.a.
+US,BHF,明屋金融公司,BRIGHTHOUSE FINANCIAL INC,USD,4,金融,n.a.,7.93,(22.16),n.a.
+US,BHP,必和必拓集團有限公司,BHP GROUP LTD-SPON ADR,USD,3,原材料,6.19,n.a.,(6.32),n.a.
+US,BIDU,百度股份有限公司,BAIDU INC - SPON ADR,USD,4,通訊服務,n.a.,19.20,16.00,n.a.
+US,BIGC,BigCommerce Holdings Inc,BIGCOMMERCE HOLDINGS-SER 1,USD,5,資訊技術,n.a.,n.a.,(16.93),n.a.
+US,BIIB,百健公司,BIOGEN INC,USD,3,醫療保健,n.a.,12.55,11.08,ESG增強型
+US,BILI,嗶哩嗶哩－Ｗ,BILIBILI INC-SPONSORED ADR,USD,5,通訊服務,n.a.,n.a.,(19.76),n.a.
+US,BIO,伯瑞股份有限公司,BIO-RAD LABORATORIES-A,USD,3,醫療保健,n.a.,32.11,(8.52),n.a.
+US,BJ,BJ批發俱樂部控股公司,BJ'S WHOLESALE CLUB HOLDINGS,USD,3,核心消費,n.a.,17.48,7.22,n.a.
+US,BK,紐約梅隆銀行,BANK OF NEW YORK MELLON CORP,USD,3,金融,3.73,11.18,(12.85),ESG增強型
+US,BKE,巴克爾公司,BUCKLE INC/THE,USD,4,非核心消費,4.30,12.27,(24.19),n.a.
+US,BKNG,繽客控股公司,BOOKING HOLDINGS INC,USD,3,非核心消費,n.a.,26.86,31.31,n.a.
+US,BKR,貝克休斯公司,BAKER HUGHES CO,USD,3,能源,2.77,25.94,(7.08),n.a.
+US,BKU,BankUnited公司,BANKUNITED INC,USD,4,金融,6.37,4.90,(50.13),n.a.
+US,BL,黑線公司,BLACKLINE INC,USD,5,資訊技術,n.a.,n.a.,(22.88),n.a.
+US,BLD,TopBuild公司,TOPBUILD CORP,USD,3,非核心消費,n.a.,15.64,34.63,n.a.
+US,BLDP,巴拉德動力系統公司,BALLARD POWER SYSTEMS INC,USD,4,工業,n.a.,n.a.,(9.60),主題型
+US,BLDR,Builders FirstSource Inc,BUILDERS FIRSTSOURCE INC,USD,3,工業,n.a.,7.45,83.72,n.a.
+US,BLK,貝萊德公司,BLACKROCK INC,USD,3,金融,3.15,20.10,(10.56),ESG增強型
+US,BLKB,布萊克波特科技公司,BLACKBAUD INC,USD,4,資訊技術,n.a.,n.a.,20.86,n.a.
+US,BLMN,Bloomin' Brands公司,BLOOMIN' BRANDS INC,USD,4,非核心消費,4.07,9.89,17.15,n.a.
+US,BLND,Blend Labs Inc,BLEND LABS INC-A,USD,5,資訊技術,n.a.,n.a.,(29.86),n.a.
+US,BLNK,Blink充電公司,BLINK CHARGING CO,USD,5,工業,n.a.,n.a.,(35.73),n.a.
+US,BLTE,Belite Bio Inc,BELITE BIO INC - ADR,USD,5,醫療保健,n.a.,n.a.,(24.50),n.a.
+US,BLUE,藍鳥生物公司,BLUEBIRD BIO INC,USD,5,醫療保健,n.a.,n.a.,(46.82),n.a.
+US,BMR,Beamr Imaging Ltd,BEAMR IMAGING LTD,USD,5,資訊技術,,,835.86,n.a.
+US,BMRN,BioMarin製藥公司,BIOMARIN PHARMACEUTICAL INC,USD,3,醫療保健,n.a.,197.17,(11.08),n.a.
+US,BMY,必治妥施貴寶公司,BRISTOL-MYERS SQUIBB CO,USD,3,醫療保健,3.40,16.80,(6.85),n.a.
+US,BN,布魯克菲爾德公司,BROOKFIELD CORP,USD,3,金融,0.93,19.17,(3.88),n.a.
+US,BNGO,Bionano Genomics Inc,BIONANO GENOMICS INC,USD,5,醫療保健,n.a.,n.a.,(55.08),n.a.
+US,BOOT,Boot Barn控股公司,BOOT BARN HOLDINGS INC,USD,4,非核心消費,n.a.,12.91,14.99,n.a.
+US,BOX,Box公司,BOX INC - CLASS A,USD,5,資訊技術,n.a.,498.74,(14.20),n.a.
+US,BP,BP公開有限公司,BP PLC-SPONS ADR,USD,3,能源,4.46,n.a.,1.75,n.a.
+US,BPMC,藍圖醫藥公司,BLUEPRINT MEDICINES CORP,USD,4,醫療保健,n.a.,n.a.,22.89,n.a.
+US,BPOP,Popular Inc,POPULAR INC,USD,4,金融,4.03,3.82,(17.67),n.a.
+US,BQ,波奇控股有限公司,BOQII HOLDING LTD,USD,5,非核心消費,n.a.,n.a.,47.52,n.a.
+US,BR,Broadridge財務解決方案公司,BROADRIDGE FINANCIAL SOLUTIO,USD,3,工業,1.90,27.50,13.71,n.a.
+US,BRO,Brown & Brown Inc,BROWN & BROWN INC,USD,3,金融,0.70,28.63,15.34,n.a.
+US,BRX,布里克斯摩爾房地產集團公司,BRIXMOR PROPERTY GROUP INC,USD,3,房地產,5.18,24.49,(11.38),n.a.
+US,BSX,波士頓科學公司,BOSTON SCIENTIFIC CORP,USD,3,醫療保健,n.a.,42.54,16.21,n.a.
+US,BTI,英美菸草公開有限公司,BRITISH AMERICAN TOB-SP ADR,USD,3,核心消費,8.34,n.a.,(15.91),n.a.
+US,BTU,皮博迪能源集團,PEABODY ENERGY CORP,USD,4,能源,1.41,2.43,(19.42),n.a.
+US,BURL,伯靈頓商店公司,BURLINGTON STORES INC,USD,4,非核心消費,n.a.,40.29,(15.62),n.a.
+US,BWA,博格華納,BORGWARNER INC,USD,3,非核心消費,1.56,9.34,8.35,n.a.
+US,BWXT,BWX科技股份有限公司,BWX TECHNOLOGIES INC,USD,3,工業,1.38,23.83,15.17,n.a.
+US,BX,黑石公司,BLACKSTONE INC,USD,3,金融,4.08,92.60,8.37,n.a.
+US,BXMT,百仕通抵押信託公司,BLACKSTONE MORTGAGE TRU-CL A,USD,4,金融,14.60,11.18,(19.74),n.a.
+US,BXP,波士頓地產公司,BOSTON PROPERTIES INC,USD,3,房地產,8.33,16.10,(30.36),n.a.
+US,BYD,波伊德博彩公司,BOYD GAMING CORP,USD,4,非核心消費,0.97,6.73,21.05,n.a.
+US,BYND,超越肉類公司,BEYOND MEAT INC,USD,5,核心消費,n.a.,n.a.,(18.60),n.a.
+US,BYON,Beyond公司,BEYOND INC,USD,4,非核心消費,n.a.,n.a.,(19.83),n.a.
+US,BZ,看準科技有限公司,KANZHUN LTD - ADR,USD,5,通訊服務,n.a.,"1,065.74",(10.26),n.a.
+US,BZUN,寶尊電商－Ｗ,BAOZUN INC-SPN ADR,USD,5,非核心消費,n.a.,n.a.,(12.64),n.a.
+US,C,花旗集團,CITIGROUP INC,USD,3,金融,4.51,5.94,0.11,n.a.
+US,CACI,CACI國際公司,CACI INTERNATIONAL INC -CL A,USD,3,工業,n.a.,19.25,0.56,n.a.
+US,CAG,康尼格拉品牌公司,CONAGRA BRANDS INC,USD,3,核心消費,3.62,12.96,(5.84),n.a.
+US,CAH,嘉德諾健康集團,CARDINAL HEALTH INC,USD,3,醫療保健,2.33,12.84,11.62,n.a.
+US,CAKE,芝樂坊餐廳公司,CHEESECAKE FACTORY INC/THE,USD,4,非核心消費,3.39,18.46,0.50,n.a.
+US,CAR,Avis預算集團公司,AVIS BUDGET GROUP INC,USD,5,工業,n.a.,3.40,(3.75),n.a.
+US,CARG,Cargurus Inc,CARGURUS INC,USD,4,通訊服務,n.a.,54.59,37.26,n.a.
+US,CARR,開利全球公司,CARRIER GLOBAL CORP,USD,3,工業,1.76,18.82,2.18,主題型
+US,CASY,凱西便利商店公司,CASEY'S GENERAL STORES INC,USD,3,核心消費,0.67,18.67,1.12,n.a.
+US,CAT,卡特彼勒公司,CATERPILLAR INC,USD,3,工業,2.32,12.14,(13.51),n.a.
+US,CB,丘博有限公司,CHUBB LTD,USD,3,金融,1.66,12.83,(9.52),n.a.
+US,CBOE,芝加哥選擇權交易所全球市場公,CBOE GLOBAL MARKETS INC,USD,3,金融,1.21,25.87,2.13,n.a.
+US,CBRE,世邦魏理仕集團公司,CBRE GROUP INC - A,USD,3,房地產,n.a.,13.44,(4.40),n.a.
+US,CBRL,餅乾桶老鄉村商店公司,CRACKER BARREL OLD COUNTRY,USD,4,非核心消費,4.90,21.30,11.93,n.a.
+US,CC,科慕公司,CHEMOURS CO/THE,USD,4,原材料,3.59,6.81,(8.98),n.a.
+US,CCEP,可口可樂歐洲合夥公開有限公司,COCA-COLA EUROPACIFIC PARTNE,USD,3,核心消費,3.69,16.82,3.15,n.a.
+US,CCI,皇冠城堡公司,CROWN CASTLE INC,USD,3,房地產,5.62,28.48,(17.83),ESG增強型
+US,CCJ,卡梅科公司,CAMECO CORP,USD,3,能源,n.a.,n.a.,19.32,主題型
+US,CCK,皇冠控股,CROWN HOLDINGS INC,USD,3,原材料,1.19,15.40,(2.13),n.a.
+US,CCL,嘉年華集團,CARNIVAL CORP,USD,4,非核心消費,n.a.,n.a.,28.54,n.a.
+US,CDE,科爾礦業公司,COEUR MINING INC,USD,5,原材料,n.a.,n.a.,(3.57),n.a.
+US,CDLX,Cardlytics Inc,CARDLYTICS INC,USD,5,通訊服務,n.a.,n.a.,(8.48),n.a.
+US,CDMO,Avid生物科技服務公司,AVID BIOSERVICES INC,USD,4,醫療保健,n.a.,416.91,26.51,n.a.
+US,CDNA,CareDx Inc,CAREDX INC,USD,5,醫療保健,n.a.,n.a.,(31.90),n.a.
+US,CDNS,Cadence設計系統公司,CADENCE DESIGN SYS INC,USD,3,資訊技術,n.a.,59.43,26.03,ESG增強型
+US,CDW,CDW Corp/DE,CDW CORP/DE,USD,3,資訊技術,1.39,20.45,(4.79),n.a.
+US,CE,塞拉尼斯公司,CELANESE CORP,USD,3,原材料,2.72,8.42,0.57,n.a.
+US,CEG,星座能源公司,CONSTELLATION ENERGY,USD,5,公用事業,1.43,n.a.,(8.36),n.a.
+US,CELH,Celsius控股公司,CELSIUS HOLDINGS INC,USD,5,核心消費,,96.18,43.67,n.a.
+US,CF,CF工業控股公司,CF INDUSTRIES HOLDINGS INC,USD,3,原材料,2.46,4.11,(23.79),n.a.
+US,CFG,公民金融集團公司,CITIZENS FINANCIAL GROUP,USD,3,金融,6.71,5.17,(36.37),n.a.
+US,CFR,Cullen/Frost Bankers Inc,CULLEN/FROST BANKERS INC,USD,5,金融,3.62,9.62,(28.01),n.a.
+US,CG,凱雷集團公司,CARLYLE GROUP INC/THE,USD,3,金融,5.32,10.54,(11.86),n.a.
+US,CGNX,康耐視公司,COGNEX CORP,USD,3,資訊技術,0.55,45.14,7.41,n.a.
+US,CHD,丘奇及德懷特公司,CHURCH & DWIGHT CO INC,USD,3,核心消費,1.14,57.63,18.68,n.a.
+US,CHDN,邱吉爾唐斯公司,CHURCHILL DOWNS INC,USD,3,非核心消費,0.25,17.83,35.61,n.a.
+US,CHE,Chemed公司,CHEMED CORP,USD,3,醫療保健,0.28,33.69,6.58,n.a.
+US,CHGG,Chegg公司,CHEGG INC,USD,5,非核心消費,n.a.,4.42,(63.51),n.a.
+US,CHH,精品國際酒店公司,CHOICE HOTELS INTL INC,USD,5,非核心消費,0.94,22.59,8.26,n.a.
+US,CHKP,Check Point軟體技術有限公司,CHECK POINT SOFTWARE TECH,USD,3,資訊技術,n.a.,18.32,(4.89),n.a.
+US,CHPT,充電點控股公司,CHARGEPOINT HOLDINGS INC,USD,5,工業,n.a.,n.a.,(15.95),n.a.
+US,CHRW,羅賓昇國際聯運股份有限公司,C.H. ROBINSON WORLDWIDE INC,USD,3,工業,2.49,15.09,7.00,ESG增強型
+US,CHT,中華電,"CHUNGHWA TELECOM LT-SPON
+ADR",USD,3,通訊服務,3.76,n.a.,11.31,n.a.
+US,CHTR,特許通訊公司,CHARTER COMMUNICATIONS INC-A,USD,3,通訊服務,n.a.,10.03,(1.11),n.a.
+US,CHWY,Chewy公司,CHEWY INC - CLASS A,USD,5,非核心消費,n.a.,287.28,(9.36),n.a.
+US,CI,信諾集團,THE CIGNA GROUP,USD,3,醫療保健,1.93,13.89,(22.89),n.a.
+US,CIEN,喜雅納公司,CIENA CORP,USD,3,資訊技術,n.a.,30.45,(14.87),n.a.
+US,CIM,奇拉美投資公司,CHIMERA INVESTMENT CORP,USD,4,金融,19.13,n.a.,(12.55),n.a.
+US,CINF,辛辛那提金融公司,CINCINNATI FINANCIAL CORP,USD,3,金融,2.95,28.79,(0.56),n.a.
+US,CL,高露潔-棕欖公司,COLGATE-PALMOLIVE CO,USD,3,核心消費,2.38,28.27,2.51,n.a.
+US,CLF,克里夫蘭克里夫公司,CLEVELAND-CLIFFS INC,USD,4,原材料,n.a.,14.62,(9.12),n.a.
+US,CLH,Clean Harbors公司,CLEAN HARBORS INC,USD,3,工業,n.a.,17.81,23.20,n.a.
+US,CLS,Celestica Inc,CELESTICA INC,USD,4,資訊技術,n.a.,8.88,(1.06),n.a.
+US,CLX,高樂氏公司,CLOROX COMPANY,USD,3,核心消費,2.79,40.97,20.44,n.a.
+US,CMA,科馬里卡公司,COMERICA INC,USD,3,金融,8.38,3.57,(49.27),n.a.
+US,CMC,商業金屬公司,COMMERCIAL METALS CO,USD,3,原材料,1.46,4.98,(9.52),n.a.
+US,CMCSA,康卡斯特公司,COMCAST CORP-CLASS A,USD,3,通訊服務,2.92,11.79,13.64,n.a.
+US,CME,芝加哥商品期貨交易所集團,CME GROUP INC,USD,3,金融,2.42,23.62,7.99,n.a.
+US,CMG,奇波雷墨西哥燒烤公司,CHIPOTLE MEXICAN GRILL INC,USD,3,非核心消費,n.a.,54.09,47.76,n.a.
+US,CMI,康明斯公司,CUMMINS INC,USD,3,工業,2.95,11.78,(12.24),n.a.
+US,CMS,CMS能源,CMS ENERGY CORP,USD,3,公用事業,3.29,25.71,(6.27),ESG增強型
+US,CNC,聖丁公司,CENTENE CORP,USD,3,醫療保健,n.a.,12.03,(20.19),n.a.
+US,CNI,加拿大國家鐵路公司,CANADIAN NATL RAILWAY CO,USD,3,工業,1.96,n.a.,0.86,n.a.
+US,CNK,喜滿客控股公司,CINEMARK HOLDINGS INC,USD,4,通訊服務,n.a.,n.a.,90.53,n.a.
+US,CNMD,CONMED公司,CONMED CORP,USD,4,醫療保健,0.67,44.45,34.54,n.a.
+US,CNNE,Cannae Holdings Inc,CANNAE HOLDINGS INC,USD,4,金融,n.a.,n.a.,(8.77),n.a.
+US,CNO,康塞科金融集團公司,CNO FINANCIAL GROUP INC,USD,4,金融,2.84,5.68,(7.53),n.a.
+US,CNP,Centerpoint能源,CENTERPOINT ENERGY INC,USD,3,公用事業,2.63,17.25,(3.50),n.a.
+US,CNX,CNX資源公司,CNX RESOURCES CORP,USD,4,能源,n.a.,7.08,(7.90),n.a.
+US,CODX,Co-Diagnostics Inc,CO-DIAGNOSTICS INC,USD,5,醫療保健,n.a.,n.a.,(45.24),n.a.
+US,COF,第一資本金融公司,CAPITAL ONE FINANCIAL CORP,USD,3,金融,2.64,6.36,(2.16),n.a.
+US,COHR,連貫公司,COHERENT CORP,USD,3,資訊技術,n.a.,469.07,(21.20),n.a.
+US,COKE,可口可樂聯合公司,COCA-COLA CONSOLIDATED INC,USD,4,核心消費,0.31,11.91,25.07,n.a.
+US,COLD,Americold Realty Trust Inc,AMERICOLD REALTY TRUST INC,USD,3,房地產,3.03,181.30,2.72,n.a.
+US,COLM,哥倫比亞運動服裝公司,COLUMBIA SPORTSWEAR CO,USD,4,非核心消費,1.58,13.57,(13.22),n.a.
+US,COMM,CommScope控股公司,COMMSCOPE HOLDING CO INC,USD,5,資訊技術,n.a.,n.a.,(44.76),n.a.
+US,COO,Cooper Cos Inc/The,COOPER COS INC/THE,USD,3,醫療保健,0.02,51.32,17.25,n.a.
+US,COP,康菲石油,CONOCOPHILLIPS,USD,3,能源,0.61,7.87,(16.89),n.a.
+US,COST,好市多公司,COSTCO WHOLESALE CORP,USD,3,核心消費,0.82,36.11,8.69,n.a.
+US,COTY,科蒂公司,COTY INC-CL A,USD,4,核心消費,n.a.,574.44,30.72,n.a.
+US,CP,加拿大太平洋鐵路公司,CANADIAN PACIFIC KANSAS CITY,USD,3,工業,0.68,n.a.,11.02,n.a.
+US,CPAY,Corpay公司,CORPAY INC,USD,3,金融,,22.88,8.58,n.a.
+US,CPB,金寶湯公司,CAMPBELL SOUP CO,USD,3,核心消費,2.79,17.92,(6.57),n.a.
+US,CPNG,酷澎公司,COUPANG INC,USD,4,非核心消費,n.a.,132.00,7.68,n.a.
+US,CPRI,卡布里控股有限公司,CAPRI HOLDINGS LTD,USD,4,非核心消費,n.a.,6.40,(31.79),n.a.
+US,CPRT,科派特公司,COPART INC,USD,3,工業,n.a.,35.78,33.36,n.a.
+US,CPT,卡姆登房地產信託,CAMDEN PROPERTY TRUST,USD,3,房地產,3.77,18.88,(5.17),n.a.
+US,CRC,加州資源公司,CALIFORNIA RESOURCES CORP,USD,4,能源,2.92,8.99,(11.17),n.a.
+US,CRCT,Cricut Inc,CRICUT INC - CLASS A,USD,5,非核心消費,n.a.,35.63,(12.73),n.a.
+US,CRDO,"Credo Technology Group
+Holdi",CREDO TECHNOLOGY GROUP HOLDI,USD,5,資訊技術,n.a.,n.a.,(32.83),n.a.
+US,CRI,卡特公司,CARTER'S INC,USD,4,非核心消費,4.77,9.93,(15.72),n.a.
+US,CRL,查爾斯河實驗室國際公司,CHARLES RIVER LABORATORIES,USD,3,醫療保健,n.a.,17.50,(13.64),n.a.
+US,CRM,賽富時公司,SALESFORCE INC,USD,3,資訊技術,n.a.,185.07,54.28,n.a.
+US,CROX,卡駱馳公司,CROCS INC,USD,4,非核心消費,n.a.,10.09,4.63,n.a.
+US,CRSP,CRISPR治療公司,CRISPR THERAPEUTICS AG,USD,4,醫療保健,n.a.,n.a.,51.78,n.a.
+US,CRSR,Corsair Gaming Inc,CORSAIR GAMING INC,USD,4,資訊技術,n.a.,n.a.,38.17,n.a.
+US,CRUS,凌雲邏輯公司,CIRRUS LOGIC INC,USD,3,資訊技術,n.a.,16.35,4.14,n.a.
+US,CRWD,Crowdstrike控股公司,CROWDSTRIKE HOLDINGS INC - A,USD,5,資訊技術,n.a.,n.a.,27.28,n.a.
+US,CSCO,思科系統股份有限公司,CISCO SYSTEMS INC,USD,5,資訊技術,3.32,16.70,(1.51),n.a.
+US,CSGP,科斯塔集團公司,COSTAR GROUP INC,USD,3,工業,n.a.,80.65,(1.82),n.a.
+US,CSIQ,阿斯特陽光電力,CANADIAN SOLAR INC,USD,4,資訊技術,n.a.,8.54,16.93,主題型
+US,CSTL,Castle Biosciences Inc,CASTLE BIOSCIENCES INC,USD,4,醫療保健,n.a.,n.a.,(3.74),n.a.
+US,CSX,CSX Corp,CSX CORP,USD,3,工業,1.39,16.48,2.26,n.a.
+US,CTAS,信達思公司,CINTAS CORP,USD,3,工業,0.99,37.37,3.18,n.a.
+US,CTLT,康泰倫特公司,CATALENT INC,USD,4,醫療保健,n.a.,13.18,(29.22),n.a.
+US,CTRA,科特拉能源公司,COTERRA ENERGY INC,USD,3,能源,3.23,5.25,0.85,n.a.
+US,CTRE,CareTrust REIT公司,CARETRUST REIT INC,USD,4,房地產,5.75,22.22,4.79,n.a.
+US,CTRN,Citi潮流公司,CITI TRENDS INC,USD,5,非核心消費,n.a.,14.34,(39.88),n.a.
+US,CTSH,高知特科技公司,COGNIZANT TECH SOLUTIONS-A,USD,3,資訊技術,1.87,13.80,8.38,n.a.
+US,CTVA,科迪華公司,CORTEVA INC,USD,3,原材料,1.05,27.68,(3.08),主題型
+US,CUBE,CubeSmart,CUBESMART,USD,3,房地產,4.33,29.14,12.45,n.a.
+US,CUK,嘉年華公開有限公司,CARNIVAL PLC-ADR,USD,4,非核心消費,n.a.,n.a.,28.37,n.a.
+US,CUZ,卡斯津不動產公司,COUSINS PROPERTIES INC,USD,4,房地產,6.66,27.84,(24.00),n.a.
+US,CVI,CVR Energy Inc,CVR ENERGY INC,USD,4,能源,8.31,3.24,(23.20),n.a.
+US,CVLT,CommVault Systems Inc,COMMVAULT SYSTEMS INC,USD,4,資訊技術,n.a.,105.90,0.83,n.a.
+US,CVM,CEL-SCI公司,CEL-SCI CORP,USD,5,醫療保健,n.a.,n.a.,12.34,n.a.
+US,CVNA,卡爾瓦納公司,CARVANA CO,USD,5,非核心消費,n.a.,n.a.,123.63,n.a.
+US,CVS,CVS保健公司,CVS HEALTH CORP,USD,3,醫療保健,3.61,8.83,(28.00),n.a.
+US,CVX,雪佛龍公司,CHEVRON CORP,USD,3,能源,3.93,7.85,(14.47),n.a.
+US,CW,柯蒂斯-萊特公司,CURTISS-WRIGHT CORP,USD,3,工業,0.49,20.15,(2.17),n.a.
+US,CWK,Cushman & Wakefield PLC,CUSHMAN & WAKEFIELD PLC,USD,4,房地產,n.a.,5.04,(40.53),n.a.
+US,CX,西麥斯,CEMEX SAB-SPONS ADR PART CER,USD,3,原材料,n.a.,n.a.,63.21,n.a.
+US,CXW,核心公民公司,CORECIVIC INC,USD,4,工業,n.a.,16.58,(23.18),n.a.
+US,CYBR,CyberArk軟體有限公司,CYBERARK SOFTWARE LTD/ISRAEL,USD,4,資訊技術,n.a.,n.a.,11.56,n.a.
+US,CYRX,CryoPort公司,CRYOPORT INC,USD,4,醫療保健,n.a.,n.a.,12.39,n.a.
+US,CZR,凱撒娛樂公司,CAESARS ENTERTAINMENT INC,USD,4,非核心消費,n.a.,60.58,(0.53),n.a.
+US,D,道明尼能源公司,DOMINION ENERGY INC,USD,3,公用事業,5.05,13.43,(13.83),n.a.
+US,DAC,Danaos Corp,DANAOS CORP,USD,5,工業,4.86,2.17,17.17,n.a.
+US,DAL,達美航空,DELTA AIR LINES INC,USD,3,工業,n.a.,10.34,2.92,n.a.
+US,DASH,DoorDash公司,DOORDASH INC - A,USD,4,非核心消費,n.a.,n.a.,31.46,n.a.
+US,DAY,Dayforce公司,DAYFORCE INC,USD,3,工業,,139.36,(6.81),n.a.
+US,DBX,多寶箱公司,DROPBOX INC-CLASS A,USD,3,資訊技術,n.a.,11.30,(1.39),n.a.
+US,DCFC,Tritium DCFC Ltd,TRITIUM DCFC LTD,USD,5,工業,n.a.,n.a.,(38.69),n.a.
+US,DCI,唐納森公司,DONALDSON CO INC,USD,3,工業,1.46,20.94,6.91,n.a.
+US,DD,新杜邦公司,DUPONT DE NEMOURS INC,USD,3,原材料,2.22,24.89,(5.29),n.a.
+US,DDD,3D系統公司,3D SYSTEMS CORP,USD,4,工業,n.a.,n.a.,12.03,n.a.
+US,DDL,叮咚買菜,DINGDONG CAYMAN LTD -SPN ADR,USD,5,核心消費,n.a.,n.a.,(22.48),n.a.
+US,DDOG,數據狗公司,DATADOG INC - CLASS A,USD,4,資訊技術,n.a.,n.a.,19.82,n.a.
+US,DDS,迪拉德百貨公司,DILLARDS INC-CL A,USD,4,非核心消費,0.29,5.79,(13.49),n.a.
+US,DE,迪爾,DEERE & CO,USD,3,工業,1.38,13.62,(15.41),n.a.
+US,DECK,德克斯戶外用品公司,DECKERS OUTDOOR CORP,USD,3,非核心消費,n.a.,25.65,18.58,n.a.
+US,DELL,戴爾科技公司,DELL TECHNOLOGIES -C,USD,3,資訊技術,3.26,7.60,12.83,n.a.
+US,DEO,帝亞吉歐公開有限公司,DIAGEO PLC-SPONSORED ADR,USD,3,核心消費,1.72,n.a.,0.37,n.a.
+US,DERM,Journey Medical Corp,JOURNEY MEDICAL CORP,USD,5,-,-,-,-,n.a.
+US,DFS,發現金融服務公司,DISCOVER FINANCIAL SERVICES,USD,3,金融,2.91,6.49,(1.55),n.a.
+US,DG,達樂公司,DOLLAR GENERAL CORP,USD,3,核心消費,1.10,20.13,(12.71),n.a.
+US,DGX,奎斯特診斷公司,QUEST DIAGNOSTICS INC,USD,3,醫療保健,2.18,17.62,(16.54),ESG增強型
+US,DHI,D.R. Horton公司,DR HORTON INC,USD,3,非核心消費,0.89,7.42,25.42,n.a.
+US,DHR,丹納赫集團,DANAHER CORP,USD,3,醫療保健,0.48,23.30,(15.23),n.a.
+US,DIN,餐飲品牌全球公司,DINE BRANDS GLOBAL INC,USD,5,非核心消費,3.19,11.40,(1.10),n.a.
+US,DIOD,達爾科技股份有限公司,DIODES INC,USD,4,資訊技術,n.a.,12.87,18.20,n.a.
+US,DIS,華特迪士尼公司,WALT DISNEY CO/THE,USD,3,通訊服務,n.a.,37.70,4.72,n.a.
+US,DJT,"Trump Media & Technology
+Gro",TRUMP MEDIA & TECHNOLOGY GRO,USD,5,,,,112.40,n.a.
+US,DK,德雷克(美國)控股公司,DELEK US HOLDINGS INC,USD,4,能源,4.31,3.21,(20.89),n.a.
+US,DKNG,DraftKings公司,DRAFTKINGS INC-CL A,USD,5,非核心消費,n.a.,n.a.,101.23,n.a.
+US,DKS,Dick's體育用品公司,DICK'S SPORTING GOODS INC,USD,3,非核心消費,3.04,11.92,9.25,n.a.
+US,DLB,杜比實驗室,DOLBY LABORATORIES INC-CL A,USD,4,資訊技術,1.29,33.20,18.23,n.a.
+US,DLR,數位不動產信託公司,DIGITAL REALTY TRUST INC,USD,3,房地產,5.21,109.70,(6.65),n.a.
+US,DLTR,錢樹商店公司,DOLLAR TREE INC,USD,3,核心消費,n.a.,22.03,12.29,n.a.
+US,DM,Desktop Metal Inc,DESKTOP METAL INC-A,USD,5,工業,n.a.,n.a.,27.94,n.a.
+US,DNLI,Denali Therapeutics Inc,DENALI THERAPEUTICS INC,USD,4,醫療保健,n.a.,n.a.,5.36,n.a.
+US,DOC,Physicians房地產信託,PHYSICIANS REALTY TRUST,USD,4,房地產,6.57,75.83,(3.18),n.a.
+US,DOCU,DocuSign公司,DOCUSIGN INC,USD,5,資訊技術,n.a.,n.a.,(9.31),n.a.
+US,DOGZ,多尼斯智能科技（東莞）有限公,DOGNESS INTERNATIONAL CORP-A,USD,5,非核心消費,n.a.,8.61,(8.91),n.a.
+US,DOMO,Domo Inc,DOMO INC - CLASS B,USD,5,資訊技術,n.a.,n.a.,(1.62),n.a.
+US,DOV,多佛公司,DOVER CORP,USD,3,工業,1.47,18.14,1.56,n.a.
+US,DOW,陶氏,DOW INC,USD,3,原材料,5.48,11.26,1.33,n.a.
+US,DOX,Amdocs Ltd,AMDOCS LTD,USD,3,資訊技術,1.86,20.56,3.18,n.a.
+US,DOYU,鬥魚國際控股有限公司,DOUYU INTERNATIONAL HOLD-ADR,USD,5,通訊服務,n.a.,"1,231.02",(27.86),n.a.
+US,DPZ,達美樂披薩股份有限公司,DOMINO'S PIZZA INC,USD,3,非核心消費,1.60,24.06,(12.86),n.a.
+US,DRI,達登餐廳公司,DARDEN RESTAURANTS INC,USD,3,非核心消費,3.16,22.08,10.72,n.a.
+US,DTE,DTE能源,DTE ENERGY COMPANY,USD,3,公用事業,3.46,18.23,(6.19),ESG增強型
+US,DTST,Data Storage Corp,DATA STORAGE CORP,USD,5,資訊技術,,114.80,99.31,n.a.
+US,DUK,杜克能源公司,DUKE ENERGY CORP,USD,3,公用事業,4.28,17.66,(8.72),ESG增強型
+US,DVA,德維特公司,DAVITA INC,USD,4,醫療保健,n.a.,15.31,31.94,n.a.
+US,DVAX,Dynavax科技公司,DYNAVAX TECHNOLOGIES CORP,USD,4,醫療保健,n.a.,7.18,4.98,n.a.
+US,DVN,戴文能源,DEVON ENERGY CORP,USD,4,能源,6.24,5.86,(25.00),n.a.
+US,DXC,易思資訊科技股份有限公司,DXC TECHNOLOGY CO,USD,3,資訊技術,n.a.,11.22,(13.47),n.a.
+US,DXCM,德康醫療公司,DEXCOM INC,USD,3,醫療保健,n.a.,132.74,4.74,n.a.
+US,DY,Dycom工業公司,DYCOM INDUSTRIES INC,USD,4,工業,n.a.,22.52,3.44,n.a.
+US,EA,美商藝電公司,ELECTRONIC ARTS INC,USD,3,通訊服務,0.61,30.42,2.41,ESG增強型
+US,EAF,GrafTech國際有限公司,GRAFTECH INTERNATIONAL LTD,USD,4,工業,0.93,4.53,(9.87),n.a.
+US,EAT,布爾克國際公司,BRINKER INTERNATIONAL INC,USD,5,非核心消費,n.a.,14.82,17.64,n.a.
+US,EB,Eventbrite Inc,EVENTBRITE INC-CLASS A,USD,4,通訊服務,n.a.,n.a.,24.06,n.a.
+US,EBAY,電子灣拍賣網站公司,EBAY INC,USD,3,非核心消費,2.32,13.99,3.76,n.a.
+US,ECL,藝康集團,ECOLAB INC,USD,3,原材料,1.23,39.33,18.55,n.a.
+US,ED,聯合愛迪生,CONSOLIDATED EDISON INC,USD,3,公用事業,3.36,19.85,1.25,n.a.
+US,EDIT,艾迪達斯醫藥公司,EDITAS MEDICINE INC,USD,5,醫療保健,n.a.,n.a.,7.67,n.a.
+US,EDR,奮進集團控股公司,ENDEAVOR GROUP HOLD-CLASS A,USD,4,通訊服務,n.a.,6.06,5.63,n.a.
+US,EDU,新東方,NEW ORIENTAL EDUCATIO-SP ADR,USD,5,非核心消費,n.a.,n.a.,13.44,n.a.
+US,EFC,艾靈頓金融公司,ELLINGTON FINANCIAL INC,USD,4,-,-,-,-,n.a.
+US,EFX,易速傳真公司,EQUIFAX INC,USD,3,工業,0.77,37.56,4.51,n.a.
+US,EG,Everest集團有限公司,EVEREST GROUP LTD,USD,3,金融,1.84,5.65,7.79,n.a.
+US,EGHT,8x8公司,8X8 INC,USD,5,資訊技術,n.a.,n.a.,(27.78),n.a.
+US,EH,億航智能,EHANG HOLDINGS LTD-SPS ADR,USD,5,工業,n.a.,n.a.,30.77,n.a.
+US,EHC,恩康博思保健公司,ENCOMPASS HEALTH CORP,USD,3,醫療保健,0.99,18.12,0.84,n.a.
+US,EHTH,易康公司,EHEALTH INC,USD,5,金融,n.a.,n.a.,45.45,n.a.
+US,EIX,愛迪生國際,EDISON INTERNATIONAL,USD,3,公用事業,4.20,16.59,10.50,n.a.
+US,EL,雅詩蘭黛,ESTEE LAUDER COMPANIES-CL A,USD,3,核心消費,1.35,51.38,(21.43),n.a.
+US,ELAN,伊蘭科動物保健公司,ELANCO ANIMAL HEALTH INC,USD,4,醫療保健,n.a.,25.78,(30.11),n.a.
+US,ELF,elf美妝公司,ELF BEAUTY INC,USD,3,核心消費,,87.74,44.77,n.a.
+US,ELV,Elevance健康公司,ELEVANCE HEALTH INC,USD,3,醫療保健,1.33,16.07,(13.08),ESG增強型
+US,EME,EMCOR集團公司,EMCOR GROUP INC,USD,3,工業,0.44,18.05,10.92,n.a.
+US,EMN,伊士曼化學有限公司,EASTMAN CHEMICAL CO,USD,3,原材料,4.01,11.22,(3.23),n.a.
+US,EMR,艾默生電氣,EMERSON ELECTRIC CO,USD,3,工業,2.56,32.72,(15.52),n.a.
+US,ENB,Enbridge Inc,ENBRIDGE INC,USD,3,能源,7.05,n.a.,(5.04),n.a.
+US,ENPH,Enphase能源公司,ENPHASE ENERGY INC,USD,5,資訊技術,n.a.,46.75,(39.25),主題型
+US,ENR,勁量控股公司,ENERGIZER HOLDINGS INC,USD,4,核心消費,3.42,11.86,4.44,n.a.
+US,ENTG,英特格公司,ENTEGRIS INC,USD,4,資訊技術,0.44,71.41,39.67,n.a.
+US,ENV,Envestnet公司,ENVESTNET INC,USD,4,資訊技術,n.a.,n.a.,(8.98),n.a.
+US,ENVX,Enovix Corp,ENOVIX CORP,USD,5,工業,n.a.,n.a.,(0.48),n.a.
+US,EOG,依歐格資源,EOG RESOURCES INC,USD,3,能源,3.07,8.61,(16.13),n.a.
+US,EPAM,億磐系統公司,EPAM SYSTEMS INC,USD,3,資訊技術,,33.32,(9.19),n.a.
+US,EPR,EPR房地產,EPR PROPERTIES,USD,4,房地產,7.93,16.38,10.37,n.a.
+US,EPRT,要素物業不動產信託公司,ESSENTIAL PROPERTIES REALTY,USD,4,房地產,4.49,25.90,4.47,n.a.
+US,EQH,公平控股公司,EQUITABLE HOLDINGS INC,USD,3,金融,3.75,5.45,(18.29),n.a.
+US,EQIX,Equinix公司,EQUINIX INC,USD,3,房地產,1.90,84.30,9.35,主題型
+US,EQR,公平住屋公司,EQUITY RESIDENTIAL,USD,3,房地產,4.34,45.14,3.61,n.a.
+US,EQT,EQT公司,EQT CORP,USD,4,能源,1.73,8.84,2.90,n.a.
+US,ERJ,巴西航空工業公司,EMBRAER SA-SPON ADR,USD,4,工業,n.a.,n.a.,31.38,n.a.
+US,ES,Eversource能源,EVERSOURCE ENERGY,USD,3,公用事業,3.62,17.77,(11.12),ESG增強型
+US,ESNT,Essent集團有限公司,ESSENT GROUP LTD,USD,4,金融,2.29,6.39,12.19,n.a.
+US,ESPR,Esperion治療公司,ESPERION THERAPEUTICS INC,USD,5,醫療保健,n.a.,n.a.,(72.71),n.a.
+US,ESRT,帝國房地產信託公司,EMPIRE STATE REALTY TRUST-A,USD,4,房地產,2.55,303.73,(18.40),n.a.
+US,ESS,埃塞克斯不動產信託公司,ESSEX PROPERTY TRUST INC,USD,3,房地產,4.42,42.75,(1.31),n.a.
+US,ETR,安特吉公司,ENTERGY CORP,USD,3,公用事業,4.15,21.73,(8.44),ESG增強型
+US,ETSY,Etsy公司,ETSY INC,USD,5,非核心消費,n.a.,37.49,(22.65),n.a.
+US,EVER,EverQuote Inc,EVERQUOTE INC - CLASS A,USD,5,通訊服務,n.a.,n.a.,(53.66),n.a.
+US,EVGO,EVgo Inc,EVGO INC,USD,5,非核心消費,n.a.,n.a.,28.19,n.a.
+US,EVH,伊福倫特健康公司,EVOLENT HEALTH INC - A,USD,4,醫療保健,n.a.,n.a.,20.94,n.a.
+US,EVR,艾弗考爾公司,EVERCORE INC - A,USD,4,金融,2.87,10.68,(3.06),n.a.
+US,EVRG,Evergy公司,EVERGY INC,USD,3,公用事業,4.06,17.92,(4.16),n.a.
+US,EVRI,Everi控股有限公司,EVERI HOLDINGS INC,USD,4,非核心消費,n.a.,12.08,1.46,n.a.
+US,EW,愛德華生命科學,EDWARDS LIFESCIENCES CORP,USD,3,醫療保健,n.a.,35.43,18.83,ESG增強型
+US,EWBC,華美銀行集團,EAST WEST BANCORP INC,USD,3,金融,4.15,5.43,(29.71),n.a.
+US,EXAS,精密科學公司,EXACT SCIENCES CORP,USD,4,醫療保健,n.a.,n.a.,61.46,n.a.
+US,EXC,愛克斯龍公司,EXELON CORP,USD,3,公用事業,3.66,17.23,(8.93),n.a.
+US,EXEL,Exelixis公司,EXELIXIS INC,USD,3,醫療保健,n.a.,39.85,19.26,n.a.
+US,EXP,Eagle Materials Inc,EAGLE MATERIALS INC,USD,4,原材料,0.63,13.69,19.19,n.a.
+US,EXPD,Expeditors International of,EXPEDITORS INTL WASH INC,USD,3,工業,1.24,14.57,7.12,ESG增強型
+US,EXPE,智遊網集團公司,EXPEDIA GROUP INC,USD,3,非核心消費,n.a.,23.86,5.83,n.a.
+US,EXPI,eXp World Holdings Inc,EXP WORLD HOLDINGS INC,USD,4,房地產,1.34,268.20,21.03,n.a.
+US,EXR,額外空間倉儲公司,EXTRA SPACE STORAGE INC,USD,3,房地產,4.35,23.68,1.32,n.a.
+US,F,福特汽車公司,FORD MOTOR CO,USD,3,非核心消費,5.33,5.31,1.69,n.a.
+US,FAF,第一美國金融公司,FIRST AMERICAN FINANCIAL,USD,3,金融,3.73,10.01,6.42,n.a.
+US,FLNC,通量能源公司,FLUENCE ENERGY INC,USD,5,工業,n.a.,n.a.,32.01,主題型
+US,FLO,花卉食品公司,FLOWERS FOODS INC,USD,4,核心消費,3.09,22.47,(0.87),n.a.
+US,FLR,福陸公司,FLUOR CORP,USD,4,工業,n.a.,n.a.,(23.17),n.a.
+US,FLS,Flowserve Corp,FLOWSERVE CORP,USD,4,工業,2.31,24.53,12.71,n.a.
+US,FMC,FMC公司,FMC CORP,USD,3,原材料,2.14,14.12,(13.22),主題型
+US,FN,Fabrinet,FABRINET,USD,4,-,-,-,-,n.a.
+US,FNB,FNB公司(賓州),FNB CORP,USD,4,金融,4.54,7.01,(19.00),n.a.
+US,FND,Floor & Decor控股公司,FLOOR & DECOR HOLDINGS INC-A,USD,4,非核心消費,n.a.,31.75,27.92,n.a.
+US,FNKO,Funko Inc,FUNKO INC-CLASS A,USD,5,非核心消費,n.a.,n.a.,5.87,n.a.
+US,FNV,弗蘭克-內華達公司,FRANCO-NEVADA CORP,USD,3,原材料,0.88,n.a.,12.92,n.a.
+US,FOLD,亞米克斯治療公司,AMICUS THERAPEUTICS INC,USD,5,醫療保健,n.a.,n.a.,(12.20),n.a.
+US,FORM,福達電子公司,FORMFACTOR INC,USD,5,資訊技術,n.a.,65.30,31.71,n.a.
+US,FOX,福斯公司,FOX CORP - CLASS B,USD,5,通訊服務,1.82,"#N/A Field
+Not",3.54,n.a.
+US,FOXA,福斯公司,FOX CORP - CLASS A,USD,3,通訊服務,1.64,9.04,0.53,n.a.
+US,FR,第一產業不動產投資信託公司,FIRST INDUSTRIAL REALTY TR,USD,3,房地產,2.49,27.30,6.71,n.a.
+US,FRO,前線公開有限公司,FRONTLINE PLC,USD,4,能源,2.03,6.86,21.99,n.a.
+US,FSLR,第一太陽能,FIRST SOLAR INC,USD,3,資訊技術,n.a.,n.a.,42.07,主題型
+US,FSLY,Fastly公司,FASTLY INC - CLASS A,USD,5,資訊技術,n.a.,n.a.,57.02,n.a.
+US,FTDR,前門公司,FRONTDOOR INC,USD,5,非核心消費,n.a.,21.99,51.63,n.a.
+US,FTI,TechnipFMC公開有限公司,TECHNIPFMC PLC,USD,5,能源,n.a.,104.50,10.50,n.a.
+US,FTNT,防特網公司,FORTINET INC,USD,3,資訊技術,n.a.,55.73,39.72,n.a.
+US,FTV,Fortive公司,FORTIVE CORP,USD,3,工業,0.43,27.95,0.40,n.a.
+US,FUBO,fuboTV Inc,FUBOTV INC,USD,5,通訊服務,n.a.,n.a.,0.57,n.a.
+US,FUL,富樂公司,H.B. FULLER CO.,USD,4,原材料,1.27,16.40,(9.70),n.a.
+US,FUTU,富途控股有限公司,FUTU HOLDINGS LTD-ADR,USD,5,金融,n.a.,15.83,1.45,n.a.
+US,FUV,Arcimoto Inc,ARCIMOTO INC,USD,5,非核心消費,n.a.,n.a.,(54.24),n.a.
+US,FVRR,Fiverr International Ltd,FIVERR INTERNATIONAL LTD,USD,4,工業,n.a.,n.a.,(3.53),n.a.
+US,FWRD,福沃運輸公司,FORWARD AIR CORP,USD,4,工業,1.00,13.74,(8.91),n.a.
+US,GCI,甘尼特公司,GANNETT CO INC,USD,5,通訊服務,n.a.,6.23,-,n.a.
+US,GCO,吉內斯可公司,GENESCO INC,USD,5,非核心消費,n.a.,5.15,(35.22),n.a.
+US,GCT,和信雲端科技公司,GIGACLOUD TECHNOLOGY INC - A,USD,5,-,-,-,-,n.a.
+US,GD,通用動力公司,GENERAL DYNAMICS CORP,USD,3,工業,2.54,16.97,(16.33),n.a.
+US,GDDY,GoDaddy公司,GODADDY INC - CLASS A,USD,3,資訊技術,n.a.,28.25,(3.96),n.a.
+US,GE,奇異公司,GENERAL ELECTRIC CO,USD,3,工業,0.32,36.29,54.67,n.a.
+US,GEHC,GE HealthCare Technologies I,GE HEALTHCARE TECHNOLOGY,USD,5,醫療保健,0.15,24.00,33.23,n.a.
+US,GEN,數位世代公司,GEN DIGITAL INC,USD,3,資訊技術,2.24,15.19,(2.41),n.a.
+US,GES,Guess?公司,GUESS? INC,USD,4,非核心消費,5.04,7.33,(13.63),n.a.
+US,GEV,GE Vernova Inc,GE VERNOVA INC,USD,5,工業,,,,n.a.
+US,GEVO,Gevo Inc,GEVO INC,USD,5,能源,n.a.,n.a.,(41.05),n.a.
+US,GFI,金田有限公司,GOLD FIELDS LTD-SPONS ADR,USD,4,原材料,3.06,n.a.,51.59,n.a.
+US,GFS,格羅方德公司,GLOBALFOUNDRIES INC,USD,4,資訊技術,n.a.,23.00,0.63,n.a.
+US,GGAL,Grupo Financiero Galicia SA,GRUPO FINANCIERO GALICIA-ADR,USD,4,金融,n.a.,n.a.,17.29,n.a.
+US,GGB,Gerdau SA,GERDAU SA -SPON ADR,USD,3,原材料,3.08,n.a.,(11.49),n.a.
+US,GGR,睿能創意公司,GOGORO INC,USD,5,非核心消費,n.a.,n.a.,-,n.a.
+US,GH,衛士健康公司,GUARDANT HEALTH INC,USD,5,醫療保健,n.a.,n.a.,0.18,n.a.
+US,GIII,G-III服飾集團有限公司,G-III APPAREL GROUP LTD,USD,4,非核心消費,n.a.,5.89,18.67,n.a.
+US,GIL,吉爾登運動服公司,GILDAN ACTIVEWEAR INC,USD,3,非核心消費,2.53,10.42,7.12,ESG增強型
+US,GILD,吉利德科學公司,GILEAD SCIENCES INC,USD,3,醫療保健,3.83,12.56,(8.77),ESG增強型
+US,GILT,Gilat Satellite Networks Ltd,GILAT SATELLITE NETWORKS LTD,USD,5,資訊技術,n.a.,n.a.,(3.79),n.a.
+US,GIS,通用磨坊公司,GENERAL MILLS INC,USD,3,核心消費,2.39,20.84,7.64,ESG增強型
+US,GKOS,Glaukos公司,GLAUKOS CORP,USD,4,醫療保健,n.a.,n.a.,37.13,n.a.
+US,GL,環球人壽公司,GLOBE LIFE INC,USD,3,金融,0.85,11.90,(11.83),n.a.
+US,GLBE,Global-e Online Ltd,GLOBAL-E ONLINE LTD,USD,5,非核心消費,n.a.,n.a.,51.65,n.a.
+US,GLNG,Golar液態天然氣有限公司,GOLAR LNG LTD,USD,4,能源,n.a.,2.67,(5.35),n.a.
+US,GLPI,Gaming and Leisure Propertie,GAMING AND LEISURE PROPERTIE,USD,3,房地產,5.97,17.69,(6.96),n.a.
+US,GLW,康寧公司,CORNING INC,USD,3,資訊技術,3.66,14.38,(4.10),n.a.
+US,GM,通用汽車公司,GENERAL MOTORS CO,USD,3,非核心消費,1.14,4.32,(6.24),n.a.
+US,GME,遊戲驛站公司,GAMESTOP CORP-CLASS A,USD,5,非核心消費,n.a.,n.a.,19.12,n.a.
+US,GMED,Globus醫療公司,GLOBUS MEDICAL INC - A,USD,4,醫療保健,n.a.,28.20,(23.98),n.a.
+US,GMS,GMS公司,GMS INC,USD,4,工業,n.a.,7.96,24.50,n.a.
+US,GNRC,基內瑞克控股公司,GENERAC HOLDINGS INC,USD,4,工業,n.a.,22.99,11.60,n.a.
+US,GNTX,鏡泰公司,GENTEX CORP,USD,3,非核心消費,1.73,19.67,1.94,n.a.
+US,GNW,簡沃瑟金融公司,GENWORTH FINANCIAL INC-CL A,USD,5,金融,n.a.,4.93,2.84,n.a.
+US,GOEV,Canoo Inc,CANOO INC,USD,5,非核心消費,n.a.,n.a.,(49.59),n.a.
+US,GOGL,黃金海洋集團有限公司,GOLDEN OCEAN GROUP LTD,USD,4,工業,4.73,5.82,(2.76),n.a.
+US,GOLD,Barrick金礦公司,BARRICK GOLD CORP,USD,3,原材料,2.13,25.61,9.20,n.a.
+US,GOLF,高仕利控股公司,ACUSHNET HOLDINGS CORP,USD,4,n.a.,1.69,15.50,8.78,n.a.
+US,GOOG,Alphabet公司,ALPHABET INC-CL C,USD,3,通訊服務,n.a.,n.a.,35.34,n.a.
+US,GOOGL,Alphabet公司,ALPHABET INC-CL A,USD,3,通訊服務,n.a.,24.66,35.45,n.a.
+US,GOOS,加拿大鵝控股公司,CANADA GOOSE HOLDINGS INC,USD,4,非核心消費,n.a.,n.a.,12.52,n.a.
+US,GP,GreenPower Motor Co Inc,GREENPOWER MOTOR CO INC,USD,5,工業,n.a.,n.a.,56.65,n.a.
+US,GPC,純正零件公司,GENUINE PARTS CO,USD,3,非核心消費,2.30,19.30,(4.58),n.a.
+US,GPK,Graphic包裝材料控股公司,GRAPHIC PACKAGING HOLDING CO,USD,3,原材料,1.57,10.73,14.61,n.a.
+US,GPN,環匯公司,GLOBAL PAYMENTS INC,USD,3,金融,0.99,18.36,1.20,n.a.
+US,GPRO,GoPro公司,GOPRO INC-CLASS A,USD,4,非核心消費,n.a.,n.a.,(23.09),n.a.
+US,GRAB,Grab控股有限公司,GRAB HOLDINGS LTD - CL A,USD,5,工業,n.a.,n.a.,(1.86),n.a.
+US,GRMN,國際航電股份有限公司,GARMIN LTD,USD,3,非核心消費,2.84,20.52,11.26,n.a.
+US,GRVY,重力社有限公司,GRAVITY CO LTD-SPONSORED ADR,USD,5,通訊服務,n.a.,6.42,47.57,n.a.
+US,GS,高盛集團,GOLDMAN SACHS GROUP INC,USD,3,金融,3.12,10.97,(6.57),n.a.
+US,GSIT,GSI科技公司,GSI TECHNOLOGY INC,USD,5,資訊技術,n.a.,n.a.,430.64,n.a.
+US,GSK,葛蘭素史克公開有限公司,GSK PLC-SPON ADR,USD,3,醫療保健,3.81,n.a.,3.78,n.a.
+US,GT,固特異輪胎公司,GOODYEAR TIRE & RUBBER CO,USD,4,非核心消費,n.a.,25.47,43.94,n.a.
+US,GTLS,查爾特工業公司,CHART INDUSTRIES INC,USD,4,工業,n.a.,21.12,(2.40),n.a.
+US,GTN,Gray電視公司,GRAY TELEVISION INC,USD,5,通訊服務,4.28,1.69,(33.15),n.a.
+US,GVA,花崗岩建築公司,GRANITE CONSTRUCTION INC,USD,4,工業,1.42,25.72,4.08,n.a.
+US,GWH,ESS Tech Inc,ESS TECH INC,USD,5,工業,n.a.,n.a.,(67.48),n.a.
+US,GWRE,凱德維亞軟體公司,GUIDEWIRE SOFTWARE INC,USD,3,資訊技術,n.a.,n.a.,26.39,n.a.
+US,GWW,格雷杰公司,WW GRAINGER INC,USD,3,工業,1.12,20.63,19.42,n.a.
+US,HAE,良衛股份有限公司,HAEMONETICS CORP/MASS,USD,4,醫療保健,n.a.,34.63,13.43,n.a.
+US,HAIN,海恩時富集團公司,HAIN CELESTIAL GROUP INC,USD,5,核心消費,n.a.,25.81,(16.56),n.a.
+US,HAL,哈里伯頓公司,HALLIBURTON CO,USD,3,能源,2.30,12.37,(29.15),n.a.
+US,HALO,Halozyme治療公司,HALOZYME THERAPEUTICS INC,USD,5,醫療保健,n.a.,25.18,(41.48),n.a.
+US,HAS,孩之寶公司,HASBRO INC,USD,3,非核心消費,4.53,11.37,1.33,ESG增強型
+US,HBAN,杭庭頓,HUNTINGTON BANCSHARES INC,USD,3,金融,6.54,6.01,(32.77),n.a.
+US,HBI,哈尼斯品牌公司,HANESBRANDS INC,USD,4,非核心消費,n.a.,6.19,(39.15),n.a.
+US,HCA,HCA醫療保健公司,HCA HEALTHCARE INC,USD,3,醫療保健,0.87,15.60,14.84,n.a.
+US,HCC,戰士冶金煤公司,WARRIOR MET COAL INC,USD,4,原材料,0.78,2.59,5.67,n.a.
+US,HD,家得寶公司,HOME DEPOT INC,USD,3,非核心消費,2.96,17.20,(10.62),n.a.
+US,HDB,HDFC Bank Ltd,HDFC BANK LTD-ADR,USD,3,金融,1.04,n.a.,(2.06),n.a.
+US,HEAR,烏龜海岸公司,TURTLE BEACH CORP,USD,5,資訊技術,n.a.,n.a.,51.46,n.a.
+US,HES,赫斯公司,HESS CORP,USD,3,能源,1.35,19.84,(8.26),n.a.
+US,HGV,希爾頓分時度假俱樂部公司,HILTON GRAND VACATIONS INC,USD,4,非核心消費,n.a.,10.30,10.04,n.a.
+US,HI,Hillenbrand Inc,HILLENBRAND INC,USD,4,工業,1.90,14.71,8.69,n.a.
+US,HIG,哈特福德金融服務集團,HARTFORD FINANCIAL SVCS GRP,USD,3,金融,2.44,9.86,(8.29),n.a.
+US,HII,Huntington Ingalls Industrie,HUNTINGTON INGALLS INDUSTRIE,USD,3,工業,2.52,14.76,(14.83),n.a.
+US,HIMS,Hims & Hers Health Inc,HIMS & HERS HEALTH INC,USD,4,醫療保健,n.a.,n.a.,63.49,n.a.
+US,HIMX,奇景,HIMAX TECHNOLOGIES INC-ADR,USD,4,資訊技術,7.27,8.52,6.28,n.a.
+US,HIW,Highwoods房地產公司,HIGHWOODS PROPERTIES INC,USD,4,房地產,9.96,16.96,(28.23),n.a.
+US,HL,赫克拉礦業公司,HECLA MINING CO,USD,4,-,-,-,-,n.a.
+US,HLF,賀寶芙有限公司,HERBALIFE LTD,USD,5,核心消費,n.a.,5.57,(6.85),n.a.
+US,HLN,Haleon PLC,HALEON PLC-ADR,USD,3,核心消費,0.68,n.a.,9.13,n.a.
+US,HLT,希爾頓全球控股公司,HILTON WORLDWIDE HOLDINGS IN,USD,3,非核心消費,0.42,29.06,12.75,n.a.
+US,HMC,本田汽車,"HONDA MOTOR CO LTD-SPONS
+ADR",USD,3,非核心消費,3.17,n.a.,22.05,n.a.
+US,HNRG,Hallador Energy Co,HALLADOR ENERGY CO,USD,5,能源,n.a.,7.06,(8.61),n.a.
+US,HOG,哈雷戴維森公司,HARLEY-DAVIDSON INC,USD,4,非核心消費,2.08,5.70,(23.80),n.a.
+US,HOLX,Hologic公司,HOLOGIC INC,USD,3,醫療保健,n.a.,27.53,8.73,ESG增強型
+US,HON,漢威聯合國際公司,HONEYWELL INTERNATIONAL INC,USD,3,工業,2.15,19.94,(10.59),n.a.
+US,HOOD,Robinhood Markets Inc,ROBINHOOD MARKETS INC - A,USD,4,金融,n.a.,n.a.,2.58,n.a.
+US,HP,赫爾默里奇和佩恩材料公司,HELMERICH & PAYNE,USD,4,能源,3.23,10.88,(37.16),n.a.
+US,HPE,慧與,HEWLETT PACKARD ENTERPRISE,USD,3,資訊技術,3.42,8.14,(12.03),n.a.
+US,HPP,哈德遜太平洋房地產公司,HUDSON PACIFIC PROPERTIES IN,USD,5,房地產,24.27,n.a.,(57.66),n.a.
+US,HPQ,惠普公司,HP INC,USD,3,資訊技術,3.54,8.18,10.38,n.a.
+US,HQY,HealthEquity公司,HEALTHEQUITY INC,USD,4,醫療保健,n.a.,n.a.,(9.69),n.a.
+US,HRB,H&R布洛克稅務公司,H&R BLOCK INC,USD,3,非核心消費,3.84,9.92,(17.34),n.a.
+US,HRL,霍梅爾食品,HORMEL FOODS CORP,USD,3,核心消費,2.82,22.59,(14.31),n.a.
+US,HRTX,赫倫治療公司,HERON THERAPEUTICS INC,USD,5,醫療保健,n.a.,n.a.,(49.60),n.a.
+US,HSBC,匯豐控股,HSBC HOLDINGS PLC-SPONS ADR,USD,3,金融,5.29,n.a.,21.44,n.a.
+US,HSCS,Heart Test Laboratories Inc,HEART TEST LABORATORIES INC,USD,5,醫療保健,n.a.,n.a.,2.60,n.a.
+US,HSIC,漢瑞祥公司,HENRY SCHEIN INC,USD,3,醫療保健,n.a.,16.77,(3.48),n.a.
+US,HST,Host旅館及度假村公司,HOST HOTELS & RESORTS INC,USD,3,房地產,2.83,15.49,5.67,n.a.
+US,HSY,好時公司,HERSHEY CO/THE,USD,3,核心消費,1.54,30.38,16.26,n.a.
+US,HTZ,赫茲全球控股公司,HERTZ GLOBAL HLDGS INC,USD,4,工業,n.a.,4.09,1.49,n.a.
+US,HUBB,安柏,HUBBELL INC,USD,3,工業,1.17,28.77,26.39,n.a.
+US,HUBS,HubSpot公司,HUBSPOT INC,USD,5,資訊技術,n.a.,n.a.,64.10,n.a.
+US,HUM,哈門那公司,HUMANA INC,USD,3,醫療保健,0.68,19.48,1.20,n.a.
+US,HUN,亨斯邁,HUNTSMAN CORP,USD,4,原材料,3.83,13.09,(9.79),n.a.
+US,HUYA,虎牙公司,HUYA INC-ADR,USD,5,通訊服務,n.a.,n.a.,(18.73),n.a.
+US,HWC,漢考克惠特尼公司,HANCOCK WHITNEY CORP,USD,4,金融,3.63,5.48,(31.74),n.a.
+US,HWM,Howmet航太公司,HOWMET AEROSPACE INC,USD,3,工業,0.30,36.46,23.30,n.a.
+US,HXL,赫氏公司,HEXCEL CORP,USD,3,工業,0.70,45.87,21.19,n.a.
+US,HYZN,Hyzon Motors Inc,HYZON MOTORS INC,USD,5,工業,n.a.,n.a.,(65.52),n.a.
+US,HZO,MarineMax公司,MARINEMAX INC,USD,4,非核心消費,n.a.,3.92,(11.21),n.a.
+US,IAC,IAC公司,IAC INC,USD,4,通訊服務,n.a.,n.a.,31.94,n.a.
+US,IBM,國際商業機器,INTL BUSINESS MACHINES CORP,USD,3,資訊技術,5.38,14.26,(12.37),n.a.
+US,IBTX,Independent Bank Group Inc,INDEPENDENT BANK GROUP INC,USD,4,金融,4.90,6.31,(48.37),n.a.
+US,ICE,洲際交易所,INTERCONTINENTAL EXCHANGE IN,USD,3,金融,1.54,35.96,6.25,n.a.
+US,ICUI,ICU醫療公司,ICU MEDICAL INC,USD,4,醫療保健,n.a.,n.a.,24.86,n.a.
+US,IDA,IDACORP公司,IDACORP INC,USD,3,公用事業,2.93,20.29,(0.10),n.a.
+US,IDCC,InterDigital公司,INTERDIGITAL INC,USD,4,資訊技術,1.68,12.93,68.07,n.a.
+US,IDXX,IDEXX實驗室公司,IDEXX LABORATORIES INC,USD,3,醫療保健,n.a.,59.20,20.58,ESG增強型
+US,IEX,IDEX公司,IDEX CORP,USD,3,工業,1.07,33.22,10.03,n.a.
+US,IFF,國際香料香精,INTL FLAVORS & FRAGRANCES,USD,3,原材料,3.99,32.59,(22.62),n.a.
+US,IGT,國際遊戲科技公司,"INTERNATIONAL GAME
+TECHNOLOG",USD,4,非核心消費,3.14,399.18,12.26,n.a.
+US,IIPR,創新工業資產公司,INNOVATIVE INDUSTRIAL PROPER,USD,4,房地產,10.41,12.34,(31.76),n.a.
+US,ILMN,伊魯米納公司,ILLUMINA INC,USD,4,醫療保健,n.a.,n.a.,(0.14),ESG增強型
+US,IMAX,IMAX公司,IMAX CORP,USD,4,通訊服務,n.a.,n.a.,30.90,n.a.
+US,IMMR,Immersion公司,IMMERSION CORPORATION,USD,5,資訊技術,1.70,8.11,1.77,n.a.
+US,IMOS,南茂科技,CHIPMOS TECHNOLOGIES INC-ADR,USD,5,資訊技術,11.74,n.a.,14.33,n.a.
+US,INCY,英賽德公司,INCYTE CORP,USD,3,醫療保健,n.a.,35.12,(19.45),n.a.
+US,INDI,indie Semiconductor Inc,INDIE SEMICONDUCTOR INC-A,USD,4,資訊技術,n.a.,n.a.,46.66,n.a.
+US,INDO,Indonesia Energy Corp Ltd,INDONESIA ENERGY CORP LTD,USD,5,能源,n.a.,n.a.,(0.86),n.a.
+US,INFY,印福思股份有限公司,INFOSYS LTD-SP ADR,USD,3,資訊技術,2.82,n.a.,(16.10),n.a.
+US,INGN,Inogen公司,INOGEN INC,USD,5,醫療保健,n.a.,n.a.,(44.95),n.a.
+US,INGR,Ingredion公司,INGREDION INC,USD,3,核心消費,2.59,13.31,11.86,n.a.
+US,INMD,Inmode Ltd,INMODE LTD,USD,4,醫療保健,n.a.,16.40,(7.65),n.a.
+US,INO,因諾維歐製藥,INOVIO PHARMACEUTICALS INC,USD,5,醫療保健,n.a.,n.a.,(55.13),n.a.
+US,INSG,因繫哥公司,INSEEGO CORP,USD,5,資訊技術,n.a.,n.a.,19.88,n.a.
+US,INTC,英特爾,INTEL CORP,USD,3,資訊技術,1.71,n.a.,10.56,n.a.
+US,INTU,直覺公司,INTUIT INC,USD,3,資訊技術,0.74,61.86,8.27,n.a.
+US,INVH,邀請回家公司,INVITATION HOMES INC,USD,3,房地產,3.13,52.81,12.04,n.a.
+US,INVZ,Innoviz Technologies Ltd,INNOVIZ TECHNOLOGIES LTD,USD,5,資訊技術,n.a.,n.a.,(30.79),n.a.
+US,IONQ,IonQ Inc,IONQ INC,USD,5,資訊技術,n.a.,n.a.,131.59,n.a.
+US,IOVA,Iovance生物治療公司,IOVANCE BIOTHERAPEUTICS INC,USD,5,醫療保健,n.a.,n.a.,17.21,n.a.
+US,IP,國際紙業,INTERNATIONAL PAPER CO,USD,3,原材料,5.88,5.50,(9.10),n.a.
+US,IPG,埃培智集團,INTERPUBLIC GROUP OF COS INC,USD,3,通訊服務,3.43,14.51,8.62,n.a.
+US,IPGP,IPG光子公司,IPG PHOTONICS CORP,USD,4,資訊技術,n.a.,34.47,17.46,n.a.
+US,IQ,愛奇藝公司,IQIYI INC-ADR,USD,5,通訊服務,n.a.,32.11,3.68,n.a.
+US,IQV,艾昆緯控股公司,IQVIA HOLDINGS INC,USD,3,醫療保健,n.a.,28.60,(6.68),n.a.
+US,IR,英格索蘭公司,INGERSOLL-RAND INC,USD,3,工業,0.14,29.96,12.02,n.a.
+US,IRBT,iRobot公司,IROBOT CORP,USD,4,非核心消費,n.a.,n.a.,(29.30),n.a.
+US,IRDM,銥通訊公司,IRIDIUM COMMUNICATIONS INC,USD,3,通訊服務,0.84,460.89,19.94,n.a.
+US,IRM,鐵山公司,IRON MOUNTAIN INC,USD,3,房地產,4.55,27.84,9.03,n.a.
+US,IRTC,iRhythm科技公司,IRHYTHM TECHNOLOGIES INC,USD,4,醫療保健,n.a.,n.a.,33.91,n.a.
+US,IRWD,Ironwood製藥公司,"IRONWOOD PHARMACEUTICALS
+INC",USD,4,醫療保健,n.a.,9.96,(18.48),n.a.
+US,ISPR,Ispire Technology Inc,ISPIRE TECHNOLOGY INC,USD,5,-,-,-,-,n.a.
+US,ISRG,直覺外科公司,INTUITIVE SURGICAL INC,USD,3,醫療保健,n.a.,81.97,15.55,n.a.
+US,IT,高德納公司,GARTNER INC,USD,3,資訊技術,n.a.,26.55,(4.44),n.a.
+US,ITCI,Intra-Cellular Therapies Inc,INTRA-CELLULAR THERAPIES INC,USD,3,醫療保健,n.a.,n.a.,19.31,n.a.
+US,ITGR,Integer控股公司,INTEGER HOLDINGS CORP,USD,4,醫療保健,n.a.,29.52,17.41,n.a.
+US,ITT,ITT公司,ITT INC,USD,3,工業,1.43,17.63,(0.23),n.a.
+US,ITUB,伊塔烏聯合集團,ITAU UNIBANCO H-SPON PRF ADR,USD,3,金融,n.a.,n.a.,14.86,n.a.
+US,ITW,伊利諾工具公司,ILLINOIS TOOL WORKS,USD,3,工業,2.32,23.29,2.59,n.a.
+US,IVR,景順抵押資本有限公司,INVESCO MORTGAGE CAPITAL,USD,5,金融,15.14,2.85,(16.97),n.a.
+US,IVZ,景順有限公司,INVESCO LTD,USD,3,金融,5.34,9.79,(16.73),n.a.
+US,J,Jacobs Solutions Inc,JACOBS SOLUTIONS INC,USD,3,工業,0.79,22.58,12.57,n.a.
+US,JACK,盒子裡的傑克公司,JACK IN THE BOX INC,USD,5,非核心消費,1.85,20.89,39.65,n.a.
+US,JBHT,JB Hunt Transport Services I,HUNT (JB) TRANSPRT SVCS INC,USD,3,工業,0.98,19.16,(1.91),n.a.
+US,JBL,捷普公司,JABIL INC,USD,3,資訊技術,0.40,11.09,18.24,n.a.
+US,JBLU,捷藍航空公司,JETBLUE AIRWAYS CORP,USD,4,工業,n.a.,n.a.,5.09,n.a.
+US,JD,京東集團,JD.COM INC-ADR,USD,4,非核心消費,1.63,18.59,(32.44),n.a.
+US,JEF,傑富瑞金融集團公司,JEFFERIES FINANCIAL GROUP IN,USD,3,金融,4.07,12.63,(9.94),n.a.
+US,JHG,駿利亨德森集團公開有限公司,JANUS HENDERSON GROUP PLC,USD,4,金融,6.01,12.18,10.42,ESG增強型
+US,JJSF,強生休閒食品公司,J & J SNACK FOODS CORP,USD,4,核心消費,1.77,62.51,5.94,n.a.
+US,JKHY,Jack Henry & Associates公司,JACK HENRY & ASSOCIATES INC,USD,3,金融,1.41,30.62,(15.76),n.a.
+US,JKS,晶科能源,JINKOSOLAR HOLDING CO-ADR,USD,4,資訊技術,n.a.,11.19,0.54,n.a.
+US,JNJ,嬌生公司,JOHNSON & JOHNSON,USD,3,醫療保健,2.99,18.80,(9.80),n.a.
+US,JNPR,瞻博網路,JUNIPER NETWORKS INC,USD,3,資訊技術,3.05,20.01,(9.67),n.a.
+US,JPM,摩根大通銀行,JPMORGAN CHASE & CO,USD,3,金融,2.98,9.76,0.16,n.a.
+US,JWN,諾德斯特龍公司,NORDSTROM INC,USD,4,非核心消費,5.24,7.79,(10.16),n.a.
+US,K,家樂氏,KELLOGG CO,USD,3,核心消費,3.40,18.08,(2.44),n.a.
+US,KAR,OPENLANE公司,OPENLANE INC,USD,4,工業,n.a.,57.01,13.72,ESG增強型
+US,KB,韓國國民銀行金融集團公司,KB FINANCIAL GROUP INC-ADR,USD,3,金融,1.05,n.a.,(4.99),n.a.
+US,KBH,KB 居家,KB HOME,USD,4,非核心消費,1.32,4.77,43.20,ESG增強型
+US,KBR,KBR公司,KBR INC,USD,3,工業,0.92,25.71,10.80,n.a.
+US,KD,Kyndryl Holdings Inc,KYNDRYL HOLDINGS INC,USD,4,資訊技術,n.a.,1.38,29.32,n.a.
+US,KDP,克里格胡椒博士公司,KEURIG DR PEPPER INC,USD,3,核心消費,2.51,19.25,(10.66),ESG增強型
+US,KEN,Kenon控股有限公司,KENON HOLDINGS LTD,USD,5,公用事業,9.42,1.80,(10.21),n.a.
+US,KEX,柯比公司,KIRBY CORP,USD,4,工業,n.a.,29.45,10.54,n.a.
+US,KEY,科凱國際集團,KEYCORP,USD,3,金融,8.75,5.20,(46.21),n.a.
+US,KEYS,是德科技公司,KEYSIGHT TECHNOLOGIES IN,USD,3,資訊技術,n.a.,21.74,(14.35),n.a.
+US,KGC,金羅斯黃金公司,KINROSS GOLD CORP,USD,3,原材料,2.28,17.58,28.85,n.a.
+US,KHC,卡夫亨氏公司,KRAFT HEINZ CO/THE,USD,3,核心消費,4.10,13.66,(4.20),n.a.
+US,KIM,KRC臨時公司,KIMCO REALTY CORP,USD,3,房地產,5.09,19.25,(14.73),n.a.
+US,KIRK,柯克蘭公司,KIRKLAND'S INC,USD,5,非核心消費,n.a.,n.a.,(13.64),n.a.
+US,KLAC,科磊公司,KLA CORP,USD,3,資訊技術,1.27,15.95,8.43,n.a.
+US,KLIC,庫利索法工業,KULICKE & SOFFA INDUSTRIES,USD,4,資訊技術,1.55,13.59,11.03,n.a.
+US,KMB,金百利克拉克,KIMBERLY-CLARK CORP,USD,3,核心消費,3.26,24.46,6.56,n.a.
+US,KMI,金德摩根公司(德拉瓦州),KINDER MORGAN INC,USD,3,能源,6.93,14.51,(9.85),n.a.
+US,KMPR,Kemper公司,KEMPER CORP,USD,4,金融,2.78,n.a.,(9.21),n.a.
+US,KMT,肯納金屬公司,KENNAMETAL INC,USD,4,工業,3.19,16.71,4.28,n.a.
+US,KMX,車美仕公司,CARMAX INC,USD,3,非核心消費,n.a.,22.79,13.42,n.a.
+US,KNDI,康迪科技集團,KANDI TECHNOLOGIES GROUP INC,USD,5,非核心消費,n.a.,n.a.,34.78,n.a.
+US,KNX,騎士斯威夫特運輸控股公司,KNIGHT-SWIFT TRANSPORTATION,USD,3,工業,1.02,12.27,5.17,n.a.
+US,KO,可口可樂公司,COCA-COLA CO/THE,USD,3,核心消費,2.91,24.87,(0.61),n.a.
+US,KOD,Kodiak Sciences Inc,KODIAK SCIENCES INC,USD,5,醫療保健,n.a.,n.a.,(18.72),n.a.
+US,KODK,伊士曼柯達,EASTMAN KODAK CO,USD,5,資訊技術,n.a.,6.48,29.18,n.a.
+US,KOPN,高平磊晶科技股份有限公司,KOPIN CORP,USD,5,資訊技術,n.a.,n.a.,4.03,n.a.
+US,KOS,科斯摩斯能源能源有限公司,KOSMOS ENERGY LTD,USD,4,能源,n.a.,8.52,(5.50),n.a.
+US,KPTI,Karyopharm治療公司,KARYOPHARM THERAPEUTICS INC,USD,5,醫療保健,n.a.,n.a.,(30.00),n.a.
+US,KR,克羅格公司,KROGER CO,USD,3,核心消費,2.13,11.62,9.76,n.a.
+US,KSS,柯爾公司,KOHLS CORP,USD,4,非核心消費,10.30,n.a.,(23.09),n.a.
+US,KURA,Kura Oncology公司,KURA ONCOLOGY INC,USD,4,醫療保健,n.a.,n.a.,0.89,n.a.
+US,KVUE,Kenvue Inc,KENVUE INC,USD,3,核心消費,3.99,17.74,(6.83),n.a.
+US,KYMR,Kymera Therapeutics Inc,KYMERA THERAPEUTICS INC,USD,4,醫療保健,,,67.32,n.a.
+US,L,洛斯公司,LOEWS CORP,USD,3,金融,0.43,14.10,(0.86),n.a.
+US,LAC,0,0,USD,4,-,-,-,-,n.a.
+US,LAD,利西亞車行公司,LITHIA MOTORS INC,USD,3,非核心消費,0.94,5.21,3.58,n.a.
+US,LAUR,桂冠教育公司,LAUREATE EDUCATION INC,USD,4,非核心消費,n.a.,26.05,24.22,n.a.
+US,LAZR,Luminar科技公司,LUMINAR TECHNOLOGIES INC,USD,5,非核心消費,n.a.,n.a.,21.41,n.a.
+US,LBTYA,自由全球公司,LIBERTY GLOBAL PLC-A,USD,5,通訊服務,n.a.,n.a.,(9.56),n.a.
+US,LCID,Lucid集團公司,LUCID GROUP INC,USD,5,非核心消費,n.a.,n.a.,2.20,n.a.
+US,LDOS,雷多斯控股公司,LEIDOS HOLDINGS INC,USD,3,工業,1.18,21.39,19.40,n.a.
+US,LECO,Lincoln Electric Holdings In,LINCOLN ELECTRIC HOLDINGS,USD,3,工業,1.53,20.17,15.88,n.a.
+US,LEG,Leggett & Platt Inc,LEGGETT & PLATT INC,USD,4,非核心消費,5.76,16.12,(0.90),n.a.
+US,LEN,萊納房屋公司,LENNAR CORP-A,USD,3,非核心消費,1.32,6.66,25.88,n.a.
+US,LEVI,利惠公司,LEVI STRAUSS & CO- CLASS A,USD,4,非核心消費,3.62,10.13,(14.50),n.a.
+US,LGND,Ligand製藥公司,LIGAND PHARMACEUTICALS,USD,4,醫療保健,n.a.,n.a.,15.48,n.a.
+US,LGVN,Longeveron Inc,LONGEVERON INC,USD,5,醫療保健,n.a.,n.a.,(7.45),n.a.
+US,LH,美國控股實驗室公司,LABORATORY CRP OF AMER HLDGS,USD,3,醫療保健,1.32,14.00,(7.60),ESG增強型
+US,LHX,L3哈里斯科技公司,L3HARRIS TECHNOLOGIES INC,USD,3,工業,2.48,17.73,(11.64),n.a.
+US,LI,理想汽車,LI AUTO INC - ADR,USD,4,非核心消費,n.a.,n.a.,46.86,主題型
+US,LICY,Li-Cycle Holdings Corp,LI-CYCLE HOLDINGS CORP,USD,4,工業,n.a.,n.a.,(5.67),n.a.
+US,LIDR,AEye Inc,AEYE INC,USD,5,資訊技術,n.a.,n.a.,(58.41),n.a.
+US,LITE,魯門特姆控股公司,LUMENTUM HOLDINGS INC,USD,4,資訊技術,n.a.,34.48,(15.03),n.a.
+US,LIVN,LivaNova有限公司,LIVANOVA PLC,USD,4,醫療保健,n.a.,62.21,(15.79),n.a.
+US,LKQ,LKQ公司,LKQ CORP,USD,3,非核心消費,1.97,14.68,4.59,n.a.
+US,LLY,禮來公司,ELI LILLY & CO,USD,3,醫療保健,1.04,60.70,19.36,n.a.
+US,LMND,Lemonade公司,LEMONADE INC,USD,4,金融,n.a.,n.a.,8.55,n.a.
+US,LMT,洛克希德馬丁,LOCKHEED MARTIN CORP,USD,3,工業,2.68,16.05,(7.97),n.a.
+US,LNC,林肯全國保險,LINCOLN NATIONAL CORP,USD,4,金融,9.29,n.a.,(36.91),n.a.
+US,LNT,聯合能源公司,ALLIANT ENERGY CORP,USD,3,公用事業,3.40,20.16,(3.51),ESG增強型
+US,LOB,萊夫奧克銀行公司,LIVE OAK BANCSHARES INC,USD,4,金融,0.54,6.96,(26.92),n.a.
+US,LOGC,ContextLogic Inc,CONTEXTLOGIC INC - A,USD,5,非核心消費,,,(4.20),n.a.
+US,LOPE,大峽谷教育公司,GRAND CANYON EDUCATION INC,USD,4,非核心消費,n.a.,17.50,3.29,n.a.
+US,LOW,羅威公司,LOWE'S COS INC,USD,3,非核心消費,2.11,14.62,(0.01),n.a.
+US,LPX,路易斯安那太平洋,LOUISIANA-PACIFIC CORP,USD,4,原材料,1.53,10.05,6.18,n.a.
+US,LRCX,科林研發股份有限公司,LAM RESEARCH CORP,USD,3,資訊技術,1.23,15.20,32.98,n.a.
+US,LTC,LTC房地產公司,LTC PROPERTIES INC,USD,4,房地產,6.95,19.52,(7.71),n.a.
+US,LTRX,Lantronix Inc,LANTRONIX INC,USD,5,資訊技術,n.a.,n.a.,14.12,n.a.
+US,LU,陸金所控股有限公司,LUFAX HOLDING LTD-ADR,USD,5,金融,5.71,1.34,(9.79),n.a.
+US,LULU,露露檸檬公司,LULULEMON ATHLETICA INC,USD,3,非核心消費,n.a.,38.25,15.96,n.a.
+US,LUMN,流明科技公司,LUMEN TECHNOLOGIES INC,USD,5,通訊服務,n.a.,2.05,(51.53),n.a.
+US,LUNR,Intuitive Machines Inc,INTUITIVE MACHINES INC,USD,5,工業,,1.88,118.00,n.a.
+US,LUV,西南航空,SOUTHWEST AIRLINES CO,USD,3,工業,2.52,24.40,(15.24),n.a.
+US,LVLU,Lulu's Fashion Lounge Holdin,LULU'S FASHION LOUNGE HOLDIN,USD,5,非核心消費,n.a.,n.a.,(2.79),n.a.
+US,LVS,拉斯維加斯金沙集團,LAS VEGAS SANDS CORP,USD,4,非核心消費,n.a.,n.a.,21.51,n.a.
+US,LW,藍威斯頓控股公司,LAMB WESTON HOLDINGS INC,USD,3,核心消費,0.99,28.67,27.17,n.a.
+US,LXP,LXP工業信託,LXP INDUSTRIAL TRUST,USD,4,房地產,5.08,59.83,(1.70),n.a.
+US,LYFT,來福車公司,LYFT INC-A,USD,5,工業,n.a.,n.a.,(25.23),n.a.
+US,LYV,理想國演藝股份有限公司,LIVE NATION ENTERTAINMENT IN,USD,3,通訊服務,n.a.,92.02,15.79,n.a.
+US,M,梅西百貨公司,MACY'S INC,USD,4,非核心消費,4.48,3.63,(28.52),n.a.
+US,MA,萬事達卡,MASTERCARD INC - A,USD,3,金融,0.60,35.49,9.35,n.a.
+US,MAA,"Mid-America Apartment
+Commun",MID-AMERICA APARTMENT COMM,USD,3,房地產,3.77,40.04,(5.40),n.a.
+US,MAC,馬賽里奇房產公司,MACERICH CO/THE,USD,4,房地產,7.46,n.a.,(19.09),n.a.
+US,MAIN,Main Street Capital Corp,MAIN STREET CAPITAL CORP,USD,4,金融,7.07,12.10,6.14,n.a.
+US,MAN,萬寶華,MANPOWERGROUP INC,USD,4,工業,4.16,9.03,(15.14),n.a.
+US,MANH,曼哈頓軟體公司,MANHATTAN ASSOCIATES INC,USD,3,資訊技術,n.a.,78.49,40.82,n.a.
+US,MAR,萬豪國際集團(馬里蘭),MARRIOTT INTERNATIONAL -CL A,USD,3,非核心消費,1.19,21.06,17.25,n.a.
+US,MAS,馬斯可,MASCO CORP,USD,3,工業,2.22,14.02,10.22,n.a.
+US,MASI,Masimo公司,MASIMO CORP,USD,4,醫療保健,n.a.,52.16,15.16,n.a.
+US,MAT,美泰兒公司,MATTEL INC,USD,3,非核心消費,n.a.,24.35,6.39,n.a.
+US,MATX,美森公司,MATSON INC,USD,4,工業,1.84,3.48,7.97,n.a.
+US,MBLY,Mobileye Global Inc,MOBILEYE GLOBAL INC-A,USD,5,非核心消費,n.a.,n.a.,13.32,n.a.
+US,MC,美馳公司,MOELIS & CO - CLASS A,USD,4,金融,6.93,27.48,(9.77),n.a.
+US,MCD,麥當勞公司,MCDONALD'S CORP,USD,3,非核心消費,2.07,26.80,11.62,n.a.
+US,MCHP,超捷國際股份有限公司,MICROCHIP TECHNOLOGY INC,USD,3,資訊技術,2.07,18.30,5.41,n.a.
+US,MCK,麥卡遜,MCKESSON CORP,USD,3,醫療保健,0.55,15.03,5.58,n.a.
+US,MCO,穆迪,MOODY'S CORP,USD,3,金融,1.00,39.07,10.34,n.a.
+US,MD,Pediatrix醫療集團公司,PEDIATRIX MEDICAL GROUP INC,USD,4,醫療保健,n.a.,10.08,(7.34),n.a.
+US,MDB,MongoDB公司,MONGODB INC,USD,5,資訊技術,n.a.,n.a.,39.95,n.a.
+US,MDLZ,億滋國際,MONDELEZ INTERNATIONAL INC-A,USD,3,核心消費,1.98,25.93,16.73,n.a.
+US,MDRX,Veradigm公司,VERADIGM INC,USD,4,醫療保健,n.a.,11.44,(33.05),n.a.
+US,MDU,MDU資源集團公司,MDU RESOURCES GROUP INC,USD,3,工業,3.08,15.73,(4.61),n.a.
+US,MED,快驗保公司,MEDIFAST INC,USD,4,核心消費,7.34,7.04,(22.10),n.a.
+US,MEDP,美捷控股公司,MEDPACE HOLDINGS INC,USD,4,醫療保健,n.a.,26.18,(2.61),n.a.
+US,MELI,美卡多公司,MERCADOLIBRE INC,USD,5,非核心消費,n.a.,103.52,50.71,n.a.
+US,MET,大都會人壽,METLIFE INC,USD,3,金融,4.24,8.52,(32.13),n.a.
+US,META,Meta平台公司,META PLATFORMS INC-CLASS A,USD,4,通訊服務,n.a.,21.60,98.45,n.a.
+US,MFA,MFA金融公司,MFA FINANCIAL INC,USD,4,金融,13.67,n.a.,3.96,n.a.
+US,MFC,宏利金融,MANULIFE FINANCIAL CORP,USD,3,金融,5.67,n.a.,7.17,n.a.
+US,MGM,美高梅度假村國際,MGM RESORTS INTERNATIONAL,USD,3,非核心消費,n.a.,n.a.,22.73,n.a.
+US,MGRC,McGrath RentCorp,MCGRATH RENTCORP,USD,4,工業,2.06,29.33,(8.35),n.a.
+US,MHK,Mohawk工業公司,MOHAWK INDUSTRIES INC,USD,4,非核心消費,n.a.,8.38,(7.89),n.a.
+US,MIDD,Middleby公司,MIDDLEBY CORP,USD,3,工業,n.a.,16.31,2.52,n.a.
+US,MKC,麥科明克公司(馬里蘭州),MCCORMICK & CO-NON VTG SHRS,USD,3,核心消費,1.74,35.72,8.22,n.a.
+US,MKSI,萬機科技股份有限公司,MKS INSTRUMENTS INC,USD,3,資訊技術,1.04,21.70,(0.37),n.a.
+US,MKTX,MarketAxess控股公司,MARKETAXESS HOLDINGS INC,USD,3,金融,0.99,42.24,4.51,n.a.
+US,MLM,Martin Marietta Materials In,MARTIN MARIETTA MATERIALS,USD,3,原材料,0.66,30.05,19.08,n.a.
+US,MMC,馬什麥克倫南,MARSH & MCLENNAN COS,USD,3,金融,1.31,25.68,8.82,n.a.
+US,MMM,3M,3M CO,USD,3,工業,6.12,9.69,(18.27),n.a.
+US,MMS,MAXIMUS公司,MAXIMUS INC,USD,3,工業,1.41,29.62,8.41,n.a.
+US,MMSI,麥瑞通醫療系統公司,MERIT MEDICAL SYSTEMS INC,USD,4,醫療保健,n.a.,37.03,19.02,n.a.
+US,MNDY,Monday.com有限公司,MONDAY.COM LTD,USD,5,資訊技術,n.a.,n.a.,22.82,n.a.
+US,MNRO,門羅公司,MONRO INC,USD,4,非核心消費,2.31,33.28,7.12,n.a.
+US,MNST,怪獸飲料公司,MONSTER BEVERAGE CORP,USD,3,核心消費,n.a.,49.15,18.07,n.a.
+US,MO,高特利集團,ALTRIA GROUP INC,USD,3,核心消費,8.34,9.21,(1.36),n.a.
+US,MOH,莫利納醫療保健公司,MOLINA HEALTHCARE INC,USD,3,醫療保健,,19.95,5.60,n.a.
+US,MOMO,摯文集團,HELLO GROUP INC -SPN ADR,USD,5,通訊服務,n.a.,9.13,12.05,n.a.
+US,MOS,美盛公司,MOSAIC CO/THE,USD,3,原材料,2.27,3.82,(19.20),n.a.
+US,MP,MP材料公司,MP MATERIALS CORP,USD,4,原材料,n.a.,15.68,(12.81),n.a.
+US,MPC,馬拉松石油公司,MARATHON PETROLEUM CORP,USD,3,能源,2.81,3.42,(8.28),n.a.
+US,MPW,Medical Properties Trust Inc,MEDICAL PROPERTIES TRUST INC,USD,4,房地產,15.98,7.43,(34.83),n.a.
+US,MPWR,芯源系統有限公司,MONOLITHIC POWER SYSTEMS INC,USD,4,資訊技術,0.99,41.26,13.84,n.a.
+US,MQ,馬爾凱塔公司,MARQETA INC-A,USD,5,金融,n.a.,n.a.,(28.15),n.a.
+US,MRAM,愛維斯品科技公司,EVERSPIN TECHNOLOGIES INC,USD,5,資訊技術,n.a.,31.20,33.81,n.a.
+US,MRCY,水星系統公司,MERCURY SYSTEMS INC,USD,4,工業,n.a.,154.05,(7.24),n.a.
+US,MRK,默克藥廠,MERCK & CO. INC.,USD,3,醫療保健,2.52,18.94,4.62,n.a.
+US,MRNA,莫德納公司,MODERNA INC,USD,4,醫療保健,n.a.,10.80,(30.35),n.a.
+US,MRO,馬拉松石油公司,MARATHON OIL CORP,USD,3,能源,1.82,5.40,(18.84),n.a.
+US,MRVL,Marvell Technology Inc,MARVELL TECHNOLOGY INC,USD,4,資訊技術,0.58,74.98,12.50,n.a.
+US,MS,摩根士丹利,MORGAN STANLEY,USD,3,金融,3.79,13.46,(3.72),n.a.
+US,MSCI,MSCI 明晟,MSCI INC,USD,3,金融,1.21,42.14,(1.76),n.a.
+US,MSFT,微軟公司,MICROSOFT CORP,USD,3,資訊技術,0.87,33.26,29.99,n.a.
+US,MSI,摩托羅拉系統公司,MOTOROLA SOLUTIONS INC,USD,3,資訊技術,1.21,31.41,13.07,n.a.
+US,MSM,MSC工業直接公司,MSC INDUSTRIAL DIRECT CO-A,USD,4,工業,3.47,13.90,11.37,n.a.
+US,MTB,M&T銀行公司,M & T BANK CORP,USD,3,金融,4.60,7.74,(22.14),n.a.
+US,MTCH,Match Group Inc,MATCH GROUP INC,USD,5,通訊服務,n.a.,16.00,(24.13),n.a.
+US,MTD,Mettler-Toledo國際公司,METTLER-TOLEDO INTERNATIONAL,USD,3,醫療保健,n.a.,34.56,(5.02),ESG增強型
+US,MTDR,Matador資源公司,MATADOR RESOURCES CO,USD,4,能源,1.41,4.38,(25.58),n.a.
+US,MTG,MGIC 投資,MGIC INVESTMENT CORP,USD,4,金融,2.71,5.15,13.38,n.a.
+US,MTH,Meritage住宅公司,MERITAGE HOMES CORP,USD,4,非核心消費,0.88,5.01,33.04,n.a.
+US,MTN,韋爾度假村公司,VAIL RESORTS INC,USD,3,非核心消費,3.47,30.52,(0.28),n.a.
+US,MTSI,和康電訊,"MACOM TECHNOLOGY SOLUTIONS
+H",USD,4,資訊技術,n.a.,33.11,(9.27),n.a.
+US,MTTR,麥特波特公司,MATTERPORT INC,USD,5,資訊技術,n.a.,n.a.,1.79,n.a.
+US,MTZ,MasTec公司,MASTEC INC,USD,3,工業,n.a.,252.27,12.09,n.a.
+US,MU,美光科技公司,MICRON TECHNOLOGY INC,USD,3,資訊技術,0.72,36.96,27.51,n.a.
+US,MUR,墨菲石油公司,MURPHY OIL CORP,USD,4,能源,3.31,5.25,(22.74),n.a.
+US,MUSA,美國墨菲公司,MURPHY USA INC,USD,3,非核心消費,0.55,10.39,(0.35),n.a.
+US,MVIS,MicroVision Inc,MICROVISION INC,USD,5,資訊技術,n.a.,n.a.,22.98,n.a.
+US,MVLA,Movella Holdings Inc,MOVELLA HOLDINGS INC,USD,5,資訊技術,n.a.,n.a.,(74.38),n.a.
+US,MX,美格納半導體公司,"MAGNACHIP SEMICONDUCTOR
+CORP",USD,5,資訊技術,n.a.,n.a.,(6.50),n.a.
+US,MXL,MaxLinear Inc,MAXLINEAR INC,USD,4,資訊技術,n.a.,17.32,(26.24),n.a.
+US,NABL,N-able Inc,N-ABLE INC,USD,4,資訊技術,n.a.,126.95,38.91,n.a.
+US,NATR,自然陽光產品公司,NATURES SUNSHINE PRODS INC,USD,5,核心消費,n.a.,57.10,28.00,n.a.
+US,NAVI,Navient Corp,NAVIENT CORP,USD,4,金融,4.26,4.06,(8.69),n.a.
+US,NBIX,Neurocrine生物科學公司,NEUROCRINE BIOSCIENCES INC,USD,3,醫療保健,n.a.,48.87,(21.02),n.a.
+US,NBR,Nabors工業有限公司,NABORS INDUSTRIES LTD,USD,4,能源,n.a.,n.a.,(44.78),n.a.
+US,NCLH,挪威郵輪控股有限公司,NORWEGIAN CRUISE LINE HOLDIN,USD,5,非核心消費,n.a.,n.a.,10.13,n.a.
+US,NDAQ,那斯達克有限公司,NASDAQ INC,USD,3,金融,1.61,21.72,(11.10),n.a.
+US,NDSN,諾信公司,NORDSON CORP,USD,3,工業,1.00,30.68,2.68,n.a.
+US,NEE,NextEra Energy Inc,NEXTERA ENERGY INC,USD,3,公用事業,2.47,25.89,(9.28),n.a.
+US,NEM,紐蒙特公司,NEWMONT CORP,USD,3,原材料,3.55,29.95,(4.41),n.a.
+US,NET,Cloudflare公司,CLOUDFLARE INC - CLASS A,USD,5,資訊技術,n.a.,n.a.,13.27,n.a.
+US,NEU,NewMarket Corp,NEWMARKET CORP,USD,4,原材料,2.29,11.97,26.21,n.a.
+US,NFG,National Fuel Gas公司,NATIONAL FUEL GAS CO,USD,3,公用事業,3.77,7.97,(20.35),n.a.
+US,NFLX,網飛公司,NETFLIX INC,USD,4,通訊服務,n.a.,38.55,13.18,n.a.
+US,NGG,國家電網公開有限公司,NATIONAL GRID PLC-SP ADR,USD,3,公用事業,2.83,n.a.,20.76,n.a.
+US,NHI,全國健康投資者公司,NATL HEALTH INVESTORS INC,USD,4,房地產,6.87,30.36,0.34,n.a.
+US,NI,NiSource公司,NISOURCE INC,USD,3,公用事業,3.63,18.50,0.44,ESG增強型
+US,NIO,蔚來汽車公司,NIO INC - ADR,USD,5,非核心消費,n.a.,n.a.,(18.87),主題型
+US,NIU,牛電科技,NIU TECHNOLOGIES-SPONS ADR,USD,5,非核心消費,n.a.,n.a.,(32.89),n.a.
+US,NJR,紐澤西資源公司,NEW JERSEY RESOURCES CORP,USD,4,公用事業,3.17,17.26,(0.85),n.a.
+US,NKE,耐吉公司,NIKE INC -CL B,USD,3,非核心消費,1.17,33.57,(0.45),n.a.
+US,NKLA,Nikola Corp,NIKOLA CORP,USD,5,工業,n.a.,n.a.,(67.36),n.a.
+US,NKTR,內克塔治療,NEKTAR THERAPEUTICS,USD,5,醫療保健,n.a.,n.a.,(68.36),n.a.
+US,NLY,安納利資本管理公司,ANNALY CAPITAL MANAGEMENT IN,USD,3,金融,13.94,n.a.,(11.53),n.a.
+US,NNDM,Nano Dimension有限公司,NANO DIMENSION LTD - ADR,USD,5,資訊技術,n.a.,n.a.,6.96,n.a.
+US,NNN,NNN REIT公司,NNN REIT INC,USD,3,房地產,5.08,23.25,(5.38),n.a.
+US,NNOX,Nano-X Imaging Ltd,NANO-X IMAGING LTD,USD,5,醫療保健,n.a.,n.a.,137.26,n.a.
+US,NOC,諾斯洛普格拉曼,NORTHROP GRUMMAN CORP,USD,3,工業,1.72,17.70,(20.16),n.a.
+US,NOV,國民油井華高公司,NOV INC,USD,3,能源,1.37,14.37,(30.25),n.a.
+US,NOVA,聖爾諾瓦能源國際公司,SUNNOVA ENERGY INTERNATIONAL,USD,5,公用事業,n.a.,n.a.,(15.21),n.a.
+US,NOW,ServiceNow公司,SERVICENOW INC,USD,3,資訊技術,n.a.,226.99,20.60,n.a.
+US,NPWR,Net Power Inc,NET POWER INC,USD,4,-,-,-,-,n.a.
+US,NRG,NRG Energy Inc,NRG ENERGY INC,USD,3,公用事業,4.51,17.56,5.31,n.a.
+US,NSA,全國保管關係企業信託,NATIONAL STORAGE AFFILIATES,USD,4,房地產,5.87,38.77,3.68,n.a.
+US,NSC,諾福克南方公司,NORFOLK SOUTHERN CORP,USD,3,工業,2.54,16.68,(13.78),n.a.
+US,NSIT,Insight企業公司,INSIGHT ENTERPRISES INC,USD,4,-,-,-,-,n.a.
+US,NSP,Insperity公司,INSPERITY INC,USD,5,工業,1.91,20.53,(4.38),n.a.
+US,NTAP,網路應用公司,NETAPP INC,USD,3,資訊技術,3.12,15.46,6.64,n.a.
+US,NTES,網易,NETEASE INC-ADR,USD,3,通訊服務,1.20,21.00,23.42,n.a.
+US,NTGR,網件公司,NETGEAR INC,USD,5,-,-,-,-,n.a.
+US,NTNX,Nutanix公司,NUTANIX INC - A,USD,5,資訊技術,n.a.,n.a.,(1.42),n.a.
+US,NTRA,那提拉公司,NATERA INC,USD,5,醫療保健,n.a.,n.a.,26.96,n.a.
+US,NTRS,北方信託公司,NORTHERN TRUST CORP,USD,3,金融,4.31,11.85,(21.29),n.a.
+US,NU,NU控股有限公司(開曼群島),NU HOLDINGS LTD/CAYMAN ISL-A,USD,5,金融,n.a.,n.a.,49.88,n.a.
+US,NUE,諾可公司,NUCOR CORP,USD,3,原材料,1.49,5.13,3.77,n.a.
+US,NUS,如新企業公司,NU SKIN ENTERPRISES INC - A,USD,4,核心消費,4.26,15.43,(13.19),n.a.
+US,NVAX,諾瓦瓦克斯公司,NOVAVAX INC,USD,5,醫療保健,n.a.,n.a.,(25.68),n.a.
+US,NVCR,Novocure有限公司,NOVOCURE LTD,USD,4,醫療保健,n.a.,n.a.,9.94,n.a.
+US,NVDA,微狄亞視訊,NVIDIA CORP,USD,5,資訊技術,0.05,127.22,99.90,n.a.
+US,NVR,NVR Inc,NVR INC,USD,3,非核心消費,n.a.,12.38,27.64,n.a.
+US,NVRO,Nevro公司,NEVRO CORP,USD,4,醫療保健,n.a.,n.a.,(30.40),n.a.
+US,NVS,諾華公司,NOVARTIS AG-SPONSORED ADR,USD,3,醫療保健,3.40,n.a.,13.33,n.a.
+US,NVTS,Navitas Semiconductor Corp,NAVITAS SEMICONDUCTOR CORP,USD,5,資訊技術,n.a.,n.a.,127.64,n.a.
+US,NVVE,Nuvve控股公司,NUVVE HOLDING CORP,USD,5,工業,n.a.,n.a.,(31.64),n.a.
+US,NWL,紐厄爾品牌公司,NEWELL BRANDS INC,USD,4,非核心消費,3.20,9.10,(33.10),n.a.
+US,NWS,新聞集團,NEWS CORP - CLASS B,USD,3,通訊服務,0.75,38.35,3.11,n.a.
+US,NWSA,新聞集團,NEWS CORP - CLASS A,USD,3,通訊服務,1.09,117.08,0.93,n.a.
+US,NXST,Nexstar媒體集團公司,NEXSTAR MEDIA GROUP INC,USD,3,通訊服務,3.39,6.72,(9.06),n.a.
+US,NXT,NEXTracker Inc,NEXTRACKER INC-CL A,USD,5,工業,,59.30,26.28,n.a.
+US,NYCB,"New York Community
+Bancorp I",NEW YORK COMMUNITY BANCORP,USD,3,金融,6.67,7.31,18.37,n.a.
+US,NYMT,紐約抵押信託公司,NEW YORK MORTGAGE TRUST INC,USD,4,金融,16.72,n.a.,(6.54),n.a.
+US,NYT,紐約時報公司,NEW YORK TIMES CO-A,USD,3,通訊服務,1.22,30.84,11.40,n.a.
+US,O,Realty Income Corp,REALTY INCOME CORP,USD,3,房地產,5.08,45.33,(4.95),n.a.
+US,OC,歐文斯科寧公司,OWENS CORNING,USD,3,工業,1.95,8.73,25.04,n.a.
+US,ODFL,Old Dominion Freight Line公,OLD DOMINION FREIGHT LINE,USD,3,工業,0.54,24.62,5.16,n.a.
+US,OGN,歐嘉隆公司,ORGANON & CO,USD,3,醫療保健,5.49,4.92,(26.92),n.a.
+US,OHI,歐米茄健康照護投資人公司,OMEGA HEALTHCARE INVESTORS,USD,3,房地產,9.24,33.14,3.83,n.a.
+US,OI,O-I玻璃公司,O-I GLASS INC,USD,4,原材料,n.a.,5.30,26.25,n.a.
+US,OKE,ONEOK Inc,ONEOK INC,USD,3,能源,6.75,11.79,(13.88),n.a.
+US,OKTA,Okta公司,OKTA INC,USD,4,資訊技術,n.a.,n.a.,14.31,n.a.
+US,OLLI,奧利斯廉價暢貨中心控股公司,OLLIE'S BARGAIN OUTLET HOLDI,USD,4,非核心消費,n.a.,40.75,40.37,n.a.
+US,OLN,Olin Corp,OLIN CORP,USD,3,原材料,1.55,6.43,(2.46),n.a.
+US,OMC,奧姆尼康集團,OMNICOM GROUP,USD,3,通訊服務,3.05,13.21,12.64,n.a.
+US,OMI,Owens & Minor公司,OWENS & MINOR INC,USD,4,醫療保健,n.a.,n.a.,(1.18),ESG增強型
+US,ON,安森美半導體,ON SEMICONDUCTOR,USD,4,資訊技術,n.a.,15.86,33.14,n.a.
+US,ONL,Orion Office REIT Inc,ORION OFFICE REIT INC,USD,5,房地產,7.34,n.a.,(36.18),n.a.
+US,ONON,昂跑控股股份有限公司,ON HOLDING AG-CLASS A,USD,3,非核心消費,,120.08,26.21,n.a.
+US,OPEN,Opendoor Technologies Inc,OPENDOOR TECHNOLOGIES INC,USD,5,房地產,n.a.,n.a.,75.00,n.a.
+US,ORA,奧瑪特科技公司,ORMAT TECHNOLOGIES INC,USD,4,公用事業,0.57,46.61,(3.41),n.a.
+US,ORCL,甲骨文公司,ORACLE CORP,USD,3,資訊技術,1.63,30.70,20.20,n.a.
+US,ORI,Old Republic國際公司,OLD REPUBLIC INTL CORP,USD,3,金融,3.84,9.19,5.59,n.a.
+US,ORLY,奧賴利汽車公司,O'REILLY AUTOMOTIVE INC,USD,3,非核心消費,n.a.,27.10,11.08,n.a.
+US,OSK,豪士科公司,OSHKOSH CORP,USD,4,工業,2.25,15.48,(17.34),n.a.
+US,OTIS,奧的斯電梯公司,OTIS WORLDWIDE CORP,USD,3,工業,1.64,25.86,5.91,n.a.
+US,OUT,Outfront媒體公司,OUTFRONT MEDIA INC,USD,4,房地產,8.57,20.72,(15.56),n.a.
+US,OVID,歐維德治療公司,OVID THERAPEUTICS INC,USD,5,醫療保健,n.a.,n.a.,88.17,n.a.
+US,OXY,西方石油,OCCIDENTAL PETROLEUM CORP,USD,3,能源,1.24,6.74,(7.70),n.a.
+US,PAAS,Pan American Silver Corp,PAN AMERICAN SILVER CORP,USD,5,原材料,2.47,n.a.,(0.92),n.a.
+US,PACB,加州太平洋生技科技公司,PACIFIC BIOSCIENCES OF CALIF,USD,5,醫療保健,n.a.,n.a.,49.51,n.a.
+US,PAG,Penske Automotive Group Inc,PENSKE AUTOMOTIVE GROUP INC,USD,4,非核心消費,1.92,7.60,19.39,n.a.
+US,PANW,Palo Alto Networks Inc,PALO ALTO NETWORKS INC,USD,3,資訊技術,n.a.,"1,563.59",37.19,n.a.
+US,PARA,派拉蒙全球,PARAMOUNT GLOBAL-CLASS B,USD,4,通訊服務,1.34,8.35,(11.43),n.a.
+US,PATH,UiPath公司,UIPATH INC - CLASS A,USD,4,資訊技術,n.a.,n.a.,17.23,n.a.
+US,PAYC,Paycom軟體公司,PAYCOM SOFTWARE INC,USD,3,工業,0.57,49.19,(14.51),n.a.
+US,PAYX,Paychex公司,PAYCHEX INC,USD,3,工業,3.36,25.73,(8.22),n.a.
+US,PB,Prosperity Bancshares公司,PROSPERITY BANCSHARES INC,USD,3,金融,3.74,10.25,(18.96),n.a.
+US,PBF,PBF Energy Inc,PBF ENERGY INC-CLASS A,USD,4,能源,2.25,1.47,(12.97),n.a.
+US,PBR,巴西石油公司,PETROLEO BRASILEIRO-SPON ADR,USD,3,能源,19.66,4.35,10.61,n.a.
+US,PBYI,彪馬生物技術公司,PUMA BIOTECHNOLOGY INC,USD,5,醫療保健,n.a.,9.03,(32.39),n.a.
+US,PCAR,帕卡公司,PACCAR INC,USD,3,工業,1.42,11.73,6.88,n.a.
+US,PCG,太平洋電力瓦斯,P G & E CORP,USD,3,公用事業,n.a.,14.26,3.69,n.a.
+US,PCTY,Paylocity Holding Corp,PAYLOCITY HOLDING CORP,USD,3,工業,n.a.,78.45,(13.45),n.a.
+US,PDD,拼多多控股公司,PDD HOLDINGS INC,USD,5,非核心消費,n.a.,83.67,(19.06),n.a.
+US,PDM,Piedmont辦公室物業信託公司,PIEDMONT OFFICE REALTY TRU-A,USD,5,房地產,13.75,73.83,(33.37),n.a.
+US,PEB,Pebblebrook飯店信託,PEBBLEBROOK HOTEL TRUST,USD,4,房地產,0.29,n.a.,3.81,n.a.
+US,PEG,大眾服務企業集團,PUBLIC SERVICE ENTERPRISE GP,USD,3,公用事業,3.69,17.46,0.80,n.a.
+US,PEN,半影公司,PENUMBRA INC,USD,3,醫療保健,n.a.,"1,415.37",41.95,n.a.
+US,PENN,佩恩娛樂公司,PENN ENTERTAINMENT INC,USD,4,非核心消費,n.a.,10.89,(21.95),n.a.
+US,PEP,百事可樂公司,PEPSICO INC,USD,3,核心消費,2.62,27.71,7.07,ESG增強型
+US,PFBC,保富銀行(加州洛杉磯),PREFERRED BANK/LOS ANGELES,USD,4,金融,4.92,4.67,(40.02),n.a.
+US,PFE,輝瑞大藥廠股份有限公司,PFIZER INC,USD,5,醫療保健,4.43,6.58,(27.77),n.a.
+US,PFG,信安金融保險集團,PRINCIPAL FINANCIAL GROUP,USD,3,金融,3.81,18.93,(19.85),n.a.
+US,PFGC,性能食品集團公司,PERFORMANCE FOOD GROUP CO,USD,3,核心消費,n.a.,23.56,(0.12),n.a.
+US,PG,寶僑公司,PROCTER & GAMBLE CO/THE,USD,3,核心消費,2.42,27.14,2.76,n.a.
+US,PGR,先進公司,PROGRESSIVE CORP,USD,3,金融,0.31,20.78,0.04,n.a.
+US,PH,派克漢尼汾公司,PARKER HANNIFIN CORP,USD,3,工業,1.84,18.96,10.49,n.a.
+US,PHI,PLDT公司,PLDT INC-SPON ADR,USD,5,通訊服務,9.91,n.a.,(6.10),n.a.
+US,PHM,普得集團公司,PULTEGROUP INC,USD,3,非核心消費,0.92,5.97,52.34,n.a.
+US,PII,北極星公司,POLARIS INC,USD,3,非核心消費,2.53,9.39,1.74,n.a.
+US,PINC,Premier公司,PREMIER INC-CLASS A,USD,4,醫療保健,3.11,13.96,(22.90),n.a.
+US,PINS,繽趣公司,PINTEREST INC- CLASS A,USD,4,通訊服務,n.a.,n.a.,(11.08),n.a.
+US,PK,公園酒店及度假村公司,PARK HOTELS & RESORTS INC,USD,4,房地產,4.45,13.07,14.25,n.a.
+US,PKG,美國包裝公司,PACKAGING CORP OF AMERICA,USD,3,原材料,3.94,11.96,(0.71),n.a.
+US,PKX,浦項鋼鐵控股公司,POSCO HOLDINGS INC -SPON ADR,USD,3,原材料,2.23,n.a.,25.28,n.a.
+US,PLAY,戴夫及巴斯特娛樂公司,DAVE & BUSTER'S ENTERTAINMEN,USD,4,非核心消費,n.a.,10.35,(4.74),n.a.
+US,PLBY,PLBY Group Inc,PLBY GROUP INC,USD,5,非核心消費,n.a.,n.a.,(41.45),n.a.
+US,PLCE,兒童園地公司,CHILDREN'S PLACE INC/THE,USD,5,非核心消費,n.a.,n.a.,(32.87),n.a.
+US,PLD,普洛斯,PROLOGIS INC,USD,3,房地產,2.87,42.63,7.56,n.a.
+US,PLNT,星球健身公司,PLANET FITNESS INC - CL A,USD,3,非核心消費,n.a.,51.24,(12.36),n.a.
+US,PLTR,帕蘭提爾科技公司,PALANTIR TECHNOLOGIES INC-A,USD,4,資訊技術,n.a.,n.a.,47.51,n.a.
+US,PLUG,普拉格能源公司,PLUG POWER INC,USD,4,工業,n.a.,n.a.,(38.97),主題型
+US,PLXS,Plexus公司,PLEXUS CORP,USD,4,資訊技術,n.a.,14.15,(16.85),n.a.
+US,PM,菲利浦莫里斯國際公司,PHILIP MORRIS INTERNATIONAL,USD,3,核心消費,5.41,16.64,(7.26),n.a.
+US,PMT,PennyMac抵押投資信託基金,"PENNYMAC MORTGAGE
+INVESTMENT",USD,4,金融,13.95,n.a.,(7.43),n.a.
+US,PNC,PNC金融服務集團,PNC FINANCIAL SERVICES GROUP,USD,3,金融,5.38,7.61,(29.35),n.a.
+US,PNW,皮那可資本公司,PINNACLE WEST CAPITAL,USD,3,公用事業,4.40,19.22,3.41,n.a.
+US,PODD,Insulet公司,INSULET CORP,USD,3,醫療保健,n.a.,360.19,8.66,n.a.
+US,POLA,Polar Power Inc,POLAR POWER INC,USD,5,工業,n.a.,n.a.,3.88,n.a.
+US,POOL,普爾公司,POOL CORP,USD,3,非核心消費,1.11,29.95,(0.47),n.a.
+US,POR,波特蘭通用電氣公司,PORTLAND GENERAL ELECTRIC CO,USD,4,公用事業,3.78,18.33,2.47,n.a.
+US,PPG,匹茲堡工業,PPG INDUSTRIES INC,USD,3,原材料,1.78,25.01,10.81,n.a.
+US,PPL,PPL公司,PPL CORP,USD,3,公用事業,3.48,18.58,(5.65),n.a.
+US,PRI,普瑞瑪瑞卡公司,PRIMERICA INC,USD,3,金融,1.44,14.06,27.25,n.a.
+US,PRSO,Peraso公司,PERASO INC,USD,5,資訊技術,n.a.,n.a.,(58.90),n.a.
+US,PRU,保德信金融,PRUDENTIAL FINANCIAL INC,USD,3,金融,6.41,4.79,(21.54),n.a.
+US,PSA,公共存儲公司,PUBLIC STORAGE,USD,3,房地產,4.15,25.28,3.09,n.a.
+US,PSTG,PureStorage公司,PURE STORAGE INC - CLASS A,USD,3,資訊技術,n.a.,102.94,(11.47),n.a.
+US,PSX,菲利浦66,PHILLIPS 66,USD,3,能源,4.57,3.99,(11.71),n.a.
+US,PTC,參數科技公司,PTC INC,USD,3,資訊技術,,88.62,6.54,n.a.
+US,PTCT,PTC治療公司,PTC THERAPEUTICS INC,USD,5,醫療保健,n.a.,n.a.,42.00,n.a.
+US,PTEN,Patterson-UTI Energy Inc,PATTERSON-UTI ENERGY INC,USD,4,能源,3.18,8.03,(40.20),n.a.
+US,PTLO,Portillo's Inc,PORTILLO'S INC-CL A,USD,4,非核心消費,n.a.,66.78,27.88,n.a.
+US,PTON,派樂騰健康科技公司,PELOTON INTERACTIVE INC-A,USD,5,非核心消費,n.a.,n.a.,(12.09),n.a.
+US,PVH,PVH公司,PVH CORP,USD,4,非核心消費,0.18,10.10,17.85,ESG增強型
+US,PWR,廣達服務公司,QUANTA SERVICES INC,USD,3,工業,0.19,42.09,19.08,n.a.
+US,PYPL,Paypal控股有限公司,PAYPAL HOLDINGS INC,USD,4,金融,n.a.,19.27,(14.63),n.a.
+US,PZZA,棒約翰國際公司,PAPA JOHN'S INTL INC,USD,5,非核心消費,2.33,27.14,(12.44),n.a.
+US,QCOM,高通公司,QUALCOMM INC,USD,3,資訊技術,3.08,10.40,(5.59),n.a.
+US,QD,趣店公司,QUDIAN INC-SPON ADR,USD,5,金融,n.a.,n.a.,30.12,n.a.
+US,QDEL,QuidelOrtho公司,QUIDELORTHO CORP,USD,4,醫療保健,n.a.,19.48,0.63,n.a.
+US,QLYS,科力斯公司,QUALYS INC,USD,4,資訊技術,n.a.,40.05,3.14,n.a.
+US,QRTEA,Qurate零售公司,QURATE RETAIL INC-SERIES A,USD,5,非核心消費,n.a.,n.a.,(44.96),n.a.
+US,QRVO,科沃公司,QORVO INC,USD,3,資訊技術,n.a.,24.38,(0.06),n.a.
+US,QS,QuantumScape Corp,QUANTUMSCAPE CORP,USD,5,非核心消費,n.a.,n.a.,3.35,n.a.
+US,QSR,餐廳品牌國際公司,RESTAURANT BRANDS INTERN,USD,3,非核心消費,3.01,31.04,13.19,n.a.
+US,QTWO,Q2控股公司,Q2 HOLDINGS INC,USD,4,資訊技術,n.a.,n.a.,(3.76),n.a.
+US,R,萊德系統,RYDER SYSTEM INC,USD,4,工業,3.13,5.39,(5.06),n.a.
+US,RAMP,LiveRamp Holdings Inc,LIVERAMP HOLDINGS INC,USD,4,資訊技術,n.a.,n.a.,6.14,n.a.
+US,RARE,Ultragenyx製藥公司,ULTRAGENYX PHARMACEUTICAL IN,USD,4,醫療保健,n.a.,n.a.,0.78,n.a.
+US,RBBN,Ribbon Communications Inc,RIBBON COMMUNICATIONS INC,USD,5,資訊技術,n.a.,n.a.,(4.66),n.a.
+US,RBLX,Roblox公司,ROBLOX CORP -CLASS A,USD,5,通訊服務,n.a.,n.a.,37.91,n.a.
+US,RCL,皇家加勒比國際游輪,ROYAL CARIBBEAN CRUISES LTD,USD,4,非核心消費,n.a.,n.a.,54.68,n.a.
+US,RDDT,Reddit公司,REDDIT INC-CL A,USD,5,通訊服務,,,,n.a.
+US,RDFN,雷德芬公司,REDFIN CORP,USD,5,房地產,n.a.,n.a.,138.92,n.a.
+US,RDN,瑞迪安保險集團公司,RADIAN GROUP INC,USD,4,金融,3.60,5.41,30.94,n.a.
+US,REAL,RealReal Inc/The,REALREAL INC/THE,USD,5,非核心消費,n.a.,n.a.,1.60,n.a.
+US,REG,Regency Centers公司,REGENCY CENTERS CORP,USD,3,房地產,4.56,25.94,(8.77),n.a.
+US,REGN,Regeneron Pharmaceuticals In,REGENERON PHARMACEUTICALS,USD,3,醫療保健,n.a.,18.48,2.88,n.a.
+US,REXR,Rexford工業不動產公司,REXFORD INDUSTRIAL REALTY IN,USD,3,房地產,2.81,60.49,(1.12),n.a.
+US,REZI,Resideo Technologies Inc,RESIDEO TECHNOLOGIES INC,USD,4,工業,n.a.,8.69,(0.36),n.a.
+US,RF,區域金融公司,REGIONS FINANCIAL CORP,USD,3,金融,5.04,6.35,(26.35),n.a.
+US,RGEN,雷普理根公司,REPLIGEN CORP,USD,4,醫療保健,n.a.,56.19,(10.31),n.a.
+US,RGNX,REGENXBIO公司,REGENXBIO INC,USD,4,醫療保健,n.a.,n.a.,(13.05),n.a.
+US,RGR,Sturm Ruger & Co Inc,STURM RUGER & CO INC,USD,4,非核心消費,2.40,13.06,5.18,n.a.
+US,RH,RH,RH,USD,4,非核心消費,n.a.,10.80,(9.65),n.a.
+US,RHI,羅致恒富公司,ROBERT HALF INTL INC,USD,3,工業,2.90,11.50,(10.33),ESG增強型
+US,RHP,Ryman餐旅不動產公司,RYMAN HOSPITALITY PROPERTIES,USD,3,房地產,4.28,24.49,14.42,n.a.
+US,RIG,Transocean有限公司,TRANSOCEAN LTD,USD,5,能源,n.a.,n.a.,26.97,n.a.
+US,RIO,力拓公開有限公司,RIO TINTO PLC-SPON ADR,USD,3,原材料,7.33,n.a.,(13.75),n.a.
+US,RITM,Rithm資本公司,RITHM CAPITAL CORP,USD,5,金融,12.67,14.08,(3.43),n.a.
+US,RIVN,Rivian汽車公司,RIVIAN AUTOMOTIVE INC-A,USD,5,非核心消費,n.a.,n.a.,(29.03),n.a.
+US,RJF,Raymond James Financial Inc,RAYMOND JAMES FINANCIAL INC,USD,3,金融,1.96,10.94,(19.77),n.a.
+US,RKLB,Rocket Lab USA Inc,ROCKET LAB USA INC,USD,4,工業,n.a.,n.a.,13.53,n.a.
+US,RKT,洛基特集團股份有限公司,ROCKET COS INC-CLASS A,USD,5,金融,n.a.,n.a.,13.71,n.a.
+US,RL,雷夫羅倫公司,RALPH LAUREN CORP,USD,4,非核心消費,2.74,12.85,3.61,n.a.
+US,RLI,RLI公司,RLI CORP,USD,3,金融,0.82,23.01,0.19,n.a.
+US,RLJ,RLJ Lodging Trust,RLJ LODGING TRUST,USD,4,房地產,3.03,40.07,(0.28),n.a.
+US,RLX,RLX科技公司,RLX TECHNOLOGY INC-ADR,USD,5,核心消費,n.a.,32.30,2.17,n.a.
+US,RMCF,"Rocky Mountain Chocolate
+Fac",ROCKY MOUNTAIN CHOC FACT INC,USD,5,核心消費,n.a.,n.a.,(5.09),n.a.
+US,RMD,瑞斯邁股份有限公司,RESMED INC,USD,3,醫療保健,0.77,37.99,9.90,n.a.
+US,RNAC,笛卡兒療法公司,CARTESIAN THERAPEUTICS INC,USD,5,醫療保健,n.a.,n.a.,(23.63),n.a.
+US,RNG,鈴盛公司,RINGCENTRAL INC-CLASS A,USD,5,資訊技術,n.a.,n.a.,(24.04),n.a.
+US,ROAD,Construction Partners Inc,CONSTRUCTION PARTNERS INC-A,USD,4,工業,n.a.,85.38,3.03,n.a.
+US,ROIC,零售機會投資公司,RETAIL OPPORTUNITY INVESTMEN,USD,4,房地產,4.98,37.95,(19.76),n.a.
+US,ROK,洛克威爾自動化公司,ROCKWELL AUTOMATION INC,USD,3,工業,1.75,24.16,4.82,n.a.
+US,ROKU,Roku公司,ROKU INC,USD,5,通訊服務,n.a.,n.a.,28.33,n.a.
+US,ROL,羅林斯公司,ROLLINS INC,USD,3,工業,1.24,55.68,14.89,n.a.
+US,ROOT,Caret Holdings Inc,ROOT INC/OH -CLASS A,USD,5,金融,,,299.81,n.a.
+US,ROP,Roper科技公司,ROPER TECHNOLOGIES INC,USD,3,資訊技術,0.59,45.82,6.42,n.a.
+US,ROST,羅斯百貨公司,ROSS STORES INC,USD,3,非核心消費,1.30,23.45,(11.32),n.a.
+US,RPTX,Repare Therapeutics Inc,REPARE THERAPEUTICS INC,USD,5,醫療保健,n.a.,n.a.,(36.23),n.a.
+US,RRC,Range資源-路易斯安那公司,RANGE RESOURCES CORP,USD,4,能源,1.18,6.71,8.67,n.a.
+US,RS,Reliance鋼鋁公司,RELIANCE STEEL & ALUMINUM,USD,3,原材料,1.66,8.59,18.71,n.a.
+US,RSG,共和服務公司,REPUBLIC SERVICES INC,USD,3,工業,1.35,29.21,13.76,主題型
+US,RTX,雷神科技公司,RAYTHEON TECHNOLOGIES CORP,USD,3,工業,2.47,19.79,(5.41),n.a.
+US,RUN,Sunrun公司,SUNRUN INC,USD,5,工業,n.a.,218.86,(36.22),主題型
+US,RVLV,Revolve Group Inc,REVOLVE GROUP INC,USD,4,非核心消費,n.a.,23.12,(22.82),n.a.
+US,RVTY,珀金埃爾默公司,PERKINELMER INC,USD,5,醫療保健,n.a.,n.a.,n.a.,n.a.
+US,RWT,紅木信託公司,REDWOOD TRUST INC,USD,4,金融,16.46,n.a.,(17.31),n.a.
+US,RXRX,Recursion Pharma.,RECURSION PHARMACEUTICALS-A,USD,5,醫療保健,n.a.,n.a.,105.71,n.a.
+US,S,SentinelOne公司,SENTINELONE INC -CLASS A,USD,4,資訊技術,n.a.,n.a.,24.47,n.a.
+US,SABR,薩柏瑞公司,SABRE CORP,USD,5,非核心消費,n.a.,n.a.,(47.57),n.a.
+US,SAGE,Sage治療公司,SAGE THERAPEUTICS INC,USD,4,醫療保健,n.a.,n.a.,34.98,n.a.
+US,SAIA,Saia公司,SAIA INC,USD,4,工業,n.a.,20.41,29.16,n.a.
+US,SAIC,科學應用國際公司,SCIENCE APPLICATIONS INTE,USD,3,工業,1.51,16.94,(11.53),n.a.
+US,SAM,波士頓啤酒有限公司,BOSTON BEER COMPANY INC-A,USD,4,核心消費,n.a.,46.85,(3.14),n.a.
+US,SATS,艾科思達公司,ECHOSTAR CORP-A,USD,5,-,-,-,-,n.a.
+US,SAVA,卡薩瓦科學公司,CASSAVA SCIENCES INC,USD,5,醫療保健,n.a.,n.a.,(14.42),n.a.
+US,SAVE,精靈航空公司,SPIRIT AIRLINES INC,USD,4,工業,n.a.,n.a.,(18.25),n.a.
+US,SBAC,SBA通訊公司,SBA COMMUNICATIONS CORP,USD,3,房地產,1.47,57.02,(17.31),ESG增強型
+US,SBGI,辛克萊廣播集團公司,SINCLAIR BROADCAST GROUP -A,USD,4,通訊服務,6.22,5.14,3.61,n.a.
+US,SBH,莎莉美容控股公司,SALLY BEAUTY HOLDINGS INC,USD,4,非核心消費,n.a.,5.55,(11.66),n.a.
+US,SBLK,明星散貨船公司,STAR BULK CARRIERS CORP,USD,4,工業,7.70,4.19,(5.41),n.a.
+US,SBRA,Sabra醫療保健不動產信託公司,SABRA HEALTH CARE REIT INC,USD,4,房地產,10.87,392.95,(11.18),n.a.
+US,SBSW,西班伊靜水有限公司,SIBANYE-STILLWATER LTD-ADR,USD,3,原材料,6.79,n.a.,(26.45),n.a.
+US,SBUX,星巴克公司,STARBUCKS CORP,USD,3,非核心消費,2.01,33.46,6.13,n.a.
+US,SCCO,Southern Copper Corp,SOUTHERN COPPER CORP,USD,3,原材料,5.76,19.31,14.99,n.a.
+US,SCHW,嘉信理財公司,SCHWAB (CHARLES) CORP,USD,5,金融,2.00,13.08,(39.84),n.a.
+US,SDGR,Schrodinger Inc/United State,SCHRODINGER INC,USD,4,醫療保健,n.a.,n.a.,44.52,n.a.
+US,SE,海洋有限公司,SEA LTD-ADR,USD,5,通訊服務,n.a.,n.a.,39.25,n.a.
+US,SEB,Seaboard公司,SEABOARD CORP,USD,4,核心消費,0.24,9.51,0.10,n.a.
+US,SEDG,所樂太陽能科技,SOLAREDGE TECHNOLOGIES INC,USD,4,資訊技術,n.a.,96.63,4.18,主題型
+US,SEE,希悅爾,SEALED AIR CORP,USD,3,原材料,1.93,13.06,(16.94),n.a.
+US,SENS,Senseonics控股公司,SENSEONICS HOLDINGS INC,USD,5,醫療保健,n.a.,n.a.,(31.07),n.a.
+US,SFIX,Stitch Fix Inc,STITCH FIX INC-CLASS A,USD,5,非核心消費,n.a.,n.a.,(9.65),n.a.
+US,SFL,SFL有限公司,SFL CORP LTD,USD,4,-,-,-,-,n.a.
+US,SFM,豆芽農夫市場公司,SPROUTS FARMERS MARKET INC,USD,4,核心消費,n.a.,13.84,12.02,n.a.
+US,SGMO,Sangamo生物科學公司,SANGAMO THERAPEUTICS INC,USD,5,醫療保健,n.a.,n.a.,(58.60),n.a.
+US,SHAK,搖克夏公司,SHAKE SHACK INC - CLASS A,USD,4,非核心消費,n.a.,n.a.,61.91,n.a.
+US,SHEL,殼牌公開有限公司,SHELL PLC-ADR,USD,3,能源,3.84,n.a.,5.20,n.a.
+US,SHG,新韓金融集團,SHINHAN FINANCIAL GROUP-ADR,USD,5,金融,1.53,n.a.,(8.02),n.a.
+US,SHO,Sunstone Hotel Investors Inc,SUNSTONE HOTEL INVESTORS INC,USD,4,房地產,1.97,28.94,4.87,n.a.
+US,SHOO,史蒂夫馬登有限公司,STEVEN MADDEN LTD,USD,4,非核心消費,2.61,13.53,0.72,n.a.
+US,Shop,Shopify公司,SHOPIFY INC - CLASS A,USD,5,資訊技術,n.a.,n.a.,73.21,n.a.
+US,SHW,薛文威廉公司,SHERWIN-WILLIAMS CO/THE,USD,3,原材料,1.09,26.72,(6.37),n.a.
+US,SIG,西格內特珠寶有限公司,SIGNET JEWELERS LTD,USD,5,非核心消費,1.30,6.88,3.91,n.a.
+US,SIGI,Selective保險集團公司,SELECTIVE INSURANCE GROUP,USD,3,金融,1.17,20.37,16.19,n.a.
+US,SIMO,慧榮科技,SILICON MOTION TECHNOL-ADR,USD,4,資訊技術,3.76,12.55,(18.25),n.a.
+US,SIRI,天狼星XM控股,SIRIUS XM HOLDINGS INC,USD,5,通訊服務,2.73,11.68,(39.38),n.a.
+US,SITC,場地中心公司,SITE CENTERS CORP,USD,4,房地產,4.55,21.36,(16.25),n.a.
+US,SITE,賽萬園藝供應公司,SITEONE LANDSCAPE SUPPLY INC,USD,3,工業,n.a.,31.62,26.38,n.a.
+US,SITM,SiTime Corp,SITIME CORP,USD,5,資訊技術,n.a.,n.a.,(15.88),n.a.
+US,SJM,J M Smucker Co/The,JM SMUCKER CO/THE,USD,3,核心消費,2.63,22.81,(2.24),n.a.
+US,SKLZ,Skillz Inc,SKILLZ INC,USD,5,通訊服務,n.a.,n.a.,8.98,n.a.
+US,SKT,Tanger Factory Outlet Center,TANGER FACTORY OUTLET CENTER,USD,4,房地產,5.11,24.80,6.80,n.a.
+US,SKWD,Skyward Specialty Insurance,SKYWARD SPECIALTY INSURANCE,USD,5,金融,,14.63,6.64,n.a.
+US,SKX,美商思凱捷股份有限公司,SKECHERS USA INC-CL A,USD,3,非核心消費,n.a.,20.32,27.41,n.a.
+US,SLB,斯倫貝謝公眾有限公司,SCHLUMBERGER LTD,USD,3,能源,2.31,17.48,(19.10),ESG增強型
+US,SLDP,Solid Power Inc,SOLID POWER INC,USD,5,非核心消費,n.a.,n.a.,(26.77),n.a.
+US,SLG,SL格林不動產公司,SL GREEN REALTY CORP,USD,5,房地產,15.77,n.a.,(38.91),n.a.
+US,SLI,標準鋰業有限公司,STANDARD LITHIUM LTD,USD,5,原材料,n.a.,n.a.,21.69,n.a.
+US,SLM,SLM公司,SLM CORP,USD,4,金融,2.90,8.82,(8.61),n.a.
+US,SM,SM能源公司,SM ENERGY CO,USD,4,能源,2.34,3.62,(26.27),n.a.
+US,SMAR,Smartsheet公司,SMARTSHEET INC-CLASS A,USD,4,資訊技術,n.a.,n.a.,12.12,n.a.
+US,SMCI,超微電腦公司,SUPER MICRO COMPUTER INC,USD,4,資訊技術,n.a.,13.75,77.64,n.a.
+US,SMG,Scotts Miracle-Gro Co/The,SCOTTS MIRACLE-GRO CO,USD,5,原材料,4.03,20.94,34.86,n.a.
+US,SMPL,簡略好食品公司,SIMPLY GOOD FOODS CO/THE,USD,4,核心消費,n.a.,30.65,4.34,n.a.
+US,SMR,NuScale Power Corp,NUSCALE POWER CORP,USD,5,工業,n.a.,n.a.,(22.71),n.a.
+US,SMTC,Semtech Corp,SEMTECH CORP,USD,4,資訊技術,n.a.,n.a.,(32.76),n.a.
+US,SNA,實耐寶公司,SNAP-ON INC,USD,3,工業,2.55,14.61,11.42,n.a.
+US,SNAP,Snap公司,SNAP INC - A,USD,5,通訊服務,n.a.,n.a.,(3.80),n.a.
+US,SNBR,Sleep Number公司,SLEEP NUMBER CORP,USD,5,非核心消費,n.a.,9.61,(24.56),n.a.
+US,SNOW,Snowflake公司,SNOWFLAKE INC-CLASS A,USD,4,資訊技術,n.a.,n.a.,19.63,n.a.
+US,SNPS,新思科技公司,SYNOPSYS INC,USD,3,資訊技術,n.a.,59.77,17.49,n.a.
+US,SNV,西諾佛金融,SYNOVUS FINANCIAL CORP,USD,4,金融,5.95,4.97,(32.01),n.a.
+US,SNX,新聚思科技公司,TD SYNNEX CORP,USD,4,資訊技術,1.59,9.43,(7.00),n.a.
+US,SO,南方公司,SOUTHERN CO/THE,USD,3,公用事業,3.95,20.95,(0.71),n.a.
+US,SOFI,索菲科技公司,SOFI TECHNOLOGIES INC,USD,4,金融,n.a.,n.a.,3.25,n.a.
+US,SOL,Emeren集團有限公司,EMEREN GROUP LTD,USD,5,工業,n.a.,37.10,(17.92),n.a.
+US,SOLV,Solventum Corp,SOLVENTUM CORP,USD,5,醫療保健,,"#N/A Field
+Not",,n.a.
+US,SON,索那可產品公司,SONOCO PRODUCTS CO,USD,3,原材料,3.49,9.65,(3.62),n.a.
+US,SONO,Sonos Inc,SONOS INC,USD,4,非核心消費,n.a.,n.a.,(10.12),n.a.
+US,SONY,索尼,SONY GROUP CORP - SP ADR,USD,3,非核心消費,0.55,n.a.,22.98,n.a.
+US,SOUN,SoundHound AI Inc,SOUNDHOUND AI INC-A,USD,5,資訊技術,n.a.,n.a.,27.68,n.a.
+US,SPB,品譜控股公司,SPECTRUM BRANDS HOLDINGS INC,USD,4,核心消費,2.35,n.a.,17.32,n.a.
+US,SPCE,維珍銀河控股公司,VIRGIN GALACTIC HOLDINGS INC,USD,4,工業,n.a.,n.a.,20.98,n.a.
+US,SPG,賽門物業集團,SIMON PROPERTY GROUP INC,USD,3,房地產,7.13,17.64,(11.70),n.a.
+US,SPGI,標準普爾全球公司,S&P GLOBAL INC,USD,3,金融,1.00,41.66,7.08,n.a.
+US,SPIR,Spire Global Inc,SPIRE GLOBAL INC,USD,5,工業,n.a.,n.a.,(27.09),n.a.
+US,SPR,勢必銳航太有限公司,SPIRIT AEROSYSTEMS HOLD-CL A,USD,5,工業,n.a.,n.a.,(20.27),n.a.
+US,SPTN,SpartanNash公司,SPARTANNASH CO,USD,4,核心消費,3.74,23.10,(23.88),n.a.
+US,SPXC,斯必克科技公司,SPX TECHNOLOGIES INC,USD,4,工業,n.a.,62.19,9.55,n.a.
+US,SQ,布洛克公司,BLOCK INC,USD,5,金融,n.a.,n.a.,(11.62),n.a.
+US,SQM,智利化工礦業公司,QUIMICA Y MINERA CHIL-SP ADR,USD,4,原材料,17.54,n.a.,(7.90),n.a.
+US,SR,Spire公司,SPIRE INC,USD,4,公用事業,4.28,14.64,(2.35),n.a.
+US,SRCL,適力公司,STERICYCLE INC,USD,4,工業,n.a.,44.76,(14.19),n.a.
+US,SRE,桑普拉能源,SEMPRA ENERGY,USD,3,公用事業,3.27,16.74,(5.85),ESG增強型
+US,SRPT,Sarepta Therapeutics Inc,SAREPTA THERAPEUTICS INC,USD,3,醫療保健,n.a.,n.a.,15.09,n.a.
+US,SSYS,Stratasys有限公司,STRATASYS LTD,USD,4,資訊技術,n.a.,n.a.,46.46,n.a.
+US,STAG,STAG工業公司,STAG INDUSTRIAL INC,USD,3,房地產,4.29,49.83,5.94,n.a.
+US,STEM,Stem Inc,STEM INC,USD,5,工業,n.a.,n.a.,(54.14),n.a.
+US,STLD,鋼鐵動態公司,STEEL DYNAMICS INC,USD,3,原材料,1.78,5.08,(2.27),n.a.
+US,STNG,天蠍座油輪公司,SCORPIO TANKERS INC,USD,4,能源,2.12,3.17,(12.37),n.a.
+US,STRA,策略教育公司,STRATEGIC EDUCATION INC,USD,4,非核心消費,3.01,37.35,1.75,n.a.
+US,STT,道富銀行,STATE STREET CORP,USD,3,金融,3.78,9.01,(14.06),n.a.
+US,STWD,史塔屋資產信託,STARWOOD PROPERTY TRUST INC,USD,3,金融,11.93,8.38,(12.22),n.a.
+US,STZ,星座品牌公司,CONSTELLATION BRANDS INC-A,USD,3,核心消費,1.57,19.81,(2.18),n.a.
+US,SUM,尖峰材料公司,SUMMIT MATERIALS INC -CL A,USD,4,原材料,n.a.,26.42,12.15,n.a.
+US,SUPN,Supernus製藥公司,SUPERNUS PHARMACEUTICALS INC,USD,4,醫療保健,n.a.,41.11,(1.43),n.a.
+US,SWBI,史密斯威森品牌公司,SMITH & WESSON BRANDS INC,USD,4,非核心消費,3.39,8.15,35.94,n.a.
+US,SWI,SolarWinds Corp,SOLARWINDS CORP,USD,5,資訊技術,n.a.,649.58,(7.37),n.a.
+US,SWK,史丹利百得公司,STANLEY BLACK & DECKER INC,USD,3,工業,4.06,18.03,4.83,n.a.
+US,SWKS,思佳訊半導體有限公司,SKYWORKS SOLUTIONS INC,USD,3,資訊技術,2.57,12.46,5.82,n.a.
+US,SYF,同步金融,SYNCHRONY FINANCIAL,USD,3,金融,3.30,4.91,(15.16),ESG增強型
+US,SYK,史賽克,STRYKER CORP,USD,3,醫療保健,1.05,34.81,16.95,n.a.
+US,SYNA,新思國際公司,SYNAPTICS INC,USD,4,資訊技術,n.a.,9.62,(18.91),n.a.
+US,SYY,西斯柯公司,SYSCO CORP,USD,3,核心消費,2.72,19.71,(3.96),n.a.
+US,T,AT&T公司,AT&T INC,USD,3,通訊服務,6.72,6.49,(10.21),n.a.
+US,TAK,武田藥品有限公司,TAKEDA PHARMACEUTIC-SP ADR,USD,3,醫療保健,4.01,n.a.,5.45,n.a.
+US,TAL,好未來教育集團,TAL EDUCATION GROUP- ADR,USD,5,非核心消費,n.a.,n.a.,(15.04),n.a.
+US,TAP,摩紳庫爾斯飲料公司,MOLSON COORS BEVERAGE CO - B,USD,3,核心消費,2.60,12.82,22.65,n.a.
+US,TCBI,德州資本Bancshares,TEXAS CAPITAL BANCSHARES INC,USD,4,金融,n.a.,19.88,(22.19),n.a.
+US,TD,多倫多道明銀行,TORONTO-DOMINION BANK,USD,3,金融,4.71,n.a.,(6.66),n.a.
+US,TDC,天睿資訊公司,TERADATA CORP,USD,4,資訊技術,n.a.,76.99,30.99,n.a.
+US,TDG,TransDigm集團公司,TRANSDIGM GROUP INC,USD,3,工業,n.a.,45.51,28.18,n.a.
+US,TDOC,Teladoc公司,TELADOC HEALTH INC,USD,5,醫療保健,n.a.,n.a.,1.10,n.a.
+US,TDS,電話及資料系統公司,TELEPHONE AND DATA SYSTEMS,USD,5,通訊服務,10.60,n.a.,(33.46),n.a.
+US,TDUP,ThredUp Inc,THREDUP INC - CLASS A,USD,5,非核心消費,n.a.,n.a.,117.56,n.a.
+US,TDY,得立達科技公司,TELEDYNE TECHNOLOGIES INC,USD,3,資訊技術,n.a.,26.70,2.51,n.a.
+US,TEAM,Atlassian Corp,ATLASSIAN CORP-CL A,USD,5,資訊技術,n.a.,n.a.,8.19,n.a.
+US,TECH,Bio-Techne Corp,BIO-TECHNE CORP,USD,3,醫療保健,0.47,47.74,(11.59),n.a.
+US,TEL,TE Connectivity Ltd,TE CONNECTIVITY LTD,USD,3,資訊技術,1.97,17.29,4.54,n.a.
+US,TENB,Tenable控股公司,TENABLE HOLDINGS INC,USD,4,資訊技術,n.a.,n.a.,(0.39),n.a.
+US,TER,泰瑞達公司,TERADYNE INC,USD,3,資訊技術,0.47,18.28,6.96,n.a.
+US,TEVA,梯瓦製藥工業有限公司,TEVA PHARMACEUTICAL-SP ADR,USD,3,醫療保健,n.a.,n.a.,(10.86),n.a.
+US,TEX,特雷克斯公司,TEREX CORP,USD,4,工業,1.30,8.82,7.68,n.a.
+US,TFC,Truist金融公司,TRUIST FINANCIAL CORP,USD,3,金融,5.35,10.17,5.23,n.a.
+US,TFX,Teleflex Inc,TELEFLEX INC,USD,3,醫療保健,0.55,21.88,(1.17),n.a.
+US,TGI,凱旋集團公司,TRIUMPH GROUP INC,USD,5,工業,n.a.,13.33,(0.10),n.a.
+US,TGT,目標百貨公司,TARGET CORP,USD,3,核心消費,2.75,26.03,5.28,ESG增強型
+US,TGTX,TG治療公司,TG THERAPEUTICS INC,USD,5,醫療保健,n.a.,n.a.,156.89,n.a.
+US,THC,泰尼特健保公司,TENET HEALTHCARE CORP,USD,4,醫療保健,n.a.,13.00,46.55,n.a.
+US,THG,漢諾威保險集團公司,HANOVER INSURANCE GROUP INC/,USD,4,金融,2.71,n.a.,(11.49),n.a.
+US,THO,Thor工業公司,THOR INDUSTRIES INC,USD,4,非核心消費,2.30,5.43,3.48,n.a.
+US,THS,樹屋食品公司,TREEHOUSE FOODS INC,USD,4,核心消費,n.a.,22.09,3.77,n.a.
+US,TJX,TJX公司,TJX COMPANIES INC,USD,3,非核心消費,1.70,27.34,(1.73),n.a.
+US,TKR,Timken Co/The,TIMKEN CO,USD,4,工業,1.81,10.14,3.08,n.a.
+US,TM,豐田汽車公司,TOYOTA MOTOR CORP -SPON ADR,USD,3,非核心消費,2.50,n.a.,3.33,n.a.
+US,TME,騰訊音樂娛樂集團,TENCENT MUSIC ENTERTAINM-ADR,USD,4,通訊服務,n.a.,20.96,(7.37),n.a.
+US,TMHC,泰勒莫里森家居公司,TAYLOR MORRISON HOME CORP,USD,4,非核心消費,n.a.,4.55,44.88,n.a.
+US,TMO,賽默飛世爾科技有限公司,THERMO FISHER SCIENTIFIC INC,USD,3,醫療保健,0.27,32.50,(5.62),n.a.
+US,TMUS,T-Mobile美國公司,T-MOBILE US INC,USD,3,通訊服務,n.a.,21.58,2.64,n.a.
+US,TNDM,Tandem糖尿病照護公司,TANDEM DIABETES CARE INC,USD,4,醫療保健,n.a.,n.a.,(34.06),ESG增強型
+US,TOL,Toll Brothers Inc,TOLL BROTHERS INC,USD,3,非核心消費,1.29,5.54,30.87,n.a.
+US,TPH,三點住宅公司,TRI POINTE HOMES INC,USD,4,非核心消費,n.a.,5.29,58.10,n.a.
+US,TPR,掛毯公司,TAPESTRY INC,USD,3,非核心消費,2.86,11.29,10.06,n.a.
+US,TPX,丹普席伊麗國際公司,TEMPUR SEALY INTERNATIONAL I,USD,3,非核心消費,1.15,15.92,11.59,n.a.
+US,TREE,LendingTree公司,LENDINGTREE INC,USD,5,金融,n.a.,n.a.,(20.63),n.a.
+US,TREX,Trex公司,TREX COMPANY INC,USD,4,工業,n.a.,37.01,32.20,n.a.
+US,TRGP,Targa資源公司,TARGA RESOURCES CORP,USD,3,能源,2.92,13.38,(6.79),n.a.
+US,TRIP,貓途鷹公司,TRIPADVISOR INC,USD,4,通訊服務,n.a.,n.a.,(13.18),n.a.
+US,TRMB,天寶公司,TRIMBLE INC,USD,3,資訊技術,n.a.,33.15,(7.63),n.a.
+US,TRN,三一工業公司,TRINITY INDUSTRIES INC,USD,4,工業,5.05,n.a.,(30.30),n.a.
+US,TROW,普徠仕集團公司,T ROWE PRICE GROUP INC,USD,3,金融,4.69,18.21,(4.55),ESG增強型
+US,TROX,Tronox Holdings PLC,TRONOX HOLDINGS PLC,USD,4,-,-,-,-,n.a.
+US,TRU,環聯資訊有限公司,TRANSUNION,USD,3,工業,0.61,34.31,20.63,n.a.
+US,TRV,旅行者保險公司,TRAVELERS COS INC/THE,USD,3,金融,2.20,14.73,(3.19),n.a.
+US,TSCO,曳引車供應公司,TRACTOR SUPPLY COMPANY,USD,3,非核心消費,1.82,23.28,0.59,n.a.
+US,TSLA,特斯拉公司,TESLA INC,USD,4,非核心消費,n.a.,48.41,35.18,主題型
+US,TSM,台積電,TAIWAN SEMICONDUCTOR-SP ADR,USD,3,資訊技術,2.28,n.a.,15.29,n.a.
+US,TSN,泰森食品,TYSON FOODS INC-CL A,USD,3,核心消費,3.90,11.24,(20.96),n.a.
+US,TSVT,2seventy bio Inc,2SEVENTY BIO INC,USD,5,醫療保健,n.a.,n.a.,17.72,n.a.
+US,TTD,交易台公司,TRADE DESK INC/THE -CLASS A,USD,5,通訊服務,n.a.,427.60,43.07,n.a.
+US,TTEK,德照科技公司,TETRA TECH INC,USD,3,工業,0.74,20.10,(3.24),n.a.
+US,TTWO,Take-Two互動軟體公司,TAKE-TWO INTERACTIVE SOFTWRE,USD,3,通訊服務,n.a.,n.a.,19.13,n.a.
+US,TV,特萊維薩集團公司,GRUPO TELEVISA SA-SPON ADR,USD,5,通訊服務,1.82,n.a.,6.80,n.a.
+US,TWLO,Twilio公司,TWILIO INC - A,USD,4,資訊技術,n.a.,n.a.,(3.27),n.a.
+US,TWO,雙港投資公司,TWO HARBORS INVESTMENT CORP,USD,4,金融,20.19,n.a.,(24.60),n.a.
+US,TXN,德州儀器公司,TEXAS INSTRUMENTS INC,USD,3,資訊技術,3.04,18.25,(1.11),n.a.
+US,TXRH,德州鮮切牛排公司,TEXAS ROADHOUSE INC,USD,3,非核心消費,2.00,25.84,20.70,n.a.
+US,TXT,德事隆公司,TEXTRON INC,USD,3,工業,0.13,15.61,(10.69),n.a.
+US,TYL,Tyler Technologies Inc,TYLER TECHNOLOGIES INC,USD,3,資訊技術,,103.39,0.02,n.a.
+US,U,Unity軟體公司,UNITY SOFTWARE INC,USD,5,資訊技術,n.a.,n.a.,(1.54),n.a.
+US,UA,安德瑪公司,UNDER ARMOUR INC-CLASS C,USD,4,非核心消費,n.a.,n.a.,(23.77),n.a.
+US,UAA,安德瑪公司,UNDER ARMOUR INC-CLASS A,USD,4,非核心消費,n.a.,7.98,(27.85),n.a.
+US,UAL,聯合航空控股公司,UNITED AIRLINES HOLDINGS INC,USD,4,工業,n.a.,7.46,20.29,n.a.
+US,UBER,優步科技公司,UBER TECHNOLOGIES INC,USD,4,工業,n.a.,n.a.,51.40,n.a.
+US,UDR,UDR公司,UDR INC,USD,3,房地產,4.16,151.81,4.26,n.a.
+US,UE,城市邊陲物業,URBAN EDGE PROPERTIES,USD,4,房地產,4.67,29.88,(2.77),n.a.
+US,UEC,鈾能源公司,URANIUM ENERGY CORP,USD,5,能源,n.a.,54.52,(35.57),n.a.
+US,UHS,環球健康服務公司,UNIVERSAL HEALTH SERVICES-B,USD,3,醫療保健,0.60,13.32,(4.60),n.a.
+US,UI,優博通公司,UBIQUITI INC,USD,5,資訊技術,1.42,25.75,(38.26),n.a.
+US,UL,聯合利華公開有限公司,UNILEVER PLC-SPONSORED ADR,USD,3,核心消費,3.49,n.a.,7.13,n.a.
+US,ULTA,猶他美容公司,ULTA BEAUTY INC,USD,3,非核心消費,n.a.,20.69,6.38,n.a.
+US,UMC,聯華電子股份有限公司,UNITED MICROELECTRON-SP ADR,USD,3,資訊技術,n.a.,n.a.,20.83,n.a.
+US,UNF,麻薩諸塞第一聯合公司,UNIFIRST CORP/MA,USD,4,工業,0.76,29.87,(15.19),n.a.
+US,UNH,聯合健康集團公司,UNITEDHEALTH GROUP INC,USD,3,醫療保健,1.38,21.94,(9.52),n.a.
+US,UNM,Unum集團,UNUM GROUP,USD,3,金融,2.96,6.36,8.55,n.a.
+US,UNP,聯合太平洋公司,UNION PACIFIC CORP,USD,3,工業,2.64,17.41,(4.93),n.a.
+US,UPS,聯合包裹服務公司,UNITED PARCEL SERVICE-CL B,USD,3,工業,3.89,14.38,(4.16),n.a.
+US,UPST,Upstart Holdings Inc,UPSTART HOLDINGS INC,USD,5,金融,n.a.,n.a.,46.60,n.a.
+US,UPWK,Upwork Inc,UPWORK INC,USD,4,工業,n.a.,262.73,(22.51),n.a.
+US,URBN,Urban Outfitters公司,URBAN OUTFITTERS INC,USD,4,非核心消費,n.a.,15.21,13.63,n.a.
+US,URI,聯合租賃公司,UNITED RENTALS INC,USD,3,工業,1.81,13.47,(8.13),n.a.
+US,USB,美國合眾銀行,US BANCORP,USD,3,金融,6.69,7.31,(34.24),n.a.
+US,USFD,美國食品控股公司,US FOODS HOLDING CORP,USD,3,核心消費,n.a.,27.99,18.64,n.a.
+US,USNA,優桑那健康科學公司,USANA HEALTH SCIENCES INC,USD,4,核心消費,n.a.,18.82,19.91,n.a.
+US,UTHR,聯合治療公司,UNITED THERAPEUTICS CORP,USD,3,醫療保健,n.a.,14.18,(23.75),n.a.
+US,V,威士卡,VISA INC-CLASS A SHARES,USD,3,金融,0.78,31.82,10.93,n.a.
+US,VAC,萬豪全球度假公司,MARRIOTT VACATIONS WORLD,USD,4,非核心消費,2.32,10.97,(7.91),n.a.
+US,VALE,淡水河谷,VALE SA-SP ADR,USD,3,原材料,2.53,n.a.,(19.33),n.a.
+US,VAXX,Vaxxinity Inc,VAXXINITY INC-A,USD,5,醫療保健,n.a.,n.a.,42.86,n.a.
+US,VC,偉世通公司,VISTEON CORP,USD,4,非核心消費,n.a.,23.92,1.10,n.a.
+US,VCYT,Veracyte公司,VERACYTE INC,USD,4,醫療保健,n.a.,n.a.,3.58,n.a.
+US,VEEV,Veeva系統公司,VEEVA SYSTEMS INC-CLASS A,USD,3,醫療保健,n.a.,55.69,3.87,n.a.
+US,VERI,Veritone公司,VERITONE INC,USD,5,資訊技術,n.a.,n.a.,(31.13),n.a.
+US,VERU,Veru公司,VERU INC,USD,5,核心消費,n.a.,n.a.,(79.55),n.a.
+US,VET,Vermilion Energy Inc,VERMILION ENERGY INC,USD,4,能源,2.61,n.a.,(35.65),n.a.
+US,VFC,VF公司,VF CORP,USD,3,非核心消費,5.83,7.95,(25.39),ESG增強型
+US,VFS,Vinfast Auto Pte Ltd,VINFAST AUTO LTD,USD,5,非核心消費,n.a.,63.25,72.10,n.a.
+US,VIAV,Viavi解決方案公司,VIAVI SOLUTIONS INC,USD,4,資訊技術,n.a.,33.48,(12.27),n.a.
+US,VICI,VICI房地產公司,VICI PROPERTIES INC,USD,3,房地產,5.02,21.61,(4.01),n.a.
+US,VIPS,唯品會控股有限公司,VIPSHOP HOLDINGS LTD - ADR,USD,4,非核心消費,n.a.,11.16,18.84,n.a.
+US,VIR,Vir Biotechnology Inc,VIR BIOTECHNOLOGY INC,USD,4,醫療保健,n.a.,n.a.,(1.74),n.a.
+US,VITL,Vital Farms Inc,VITAL FARMS INC,USD,5,核心消費,n.a.,29.99,(25.60),n.a.
+US,VKTX,維京治療公司,VIKING THERAPEUTICS INC,USD,5,醫療保健,,,307.74,n.a.
+US,VLO,瓦勒羅能源,VALERO ENERGY CORP,USD,3,能源,3.72,3.07,(13.57),n.a.
+US,VLY,Valley National Bancorp,VALLEY NATIONAL BANCORP,USD,4,金融,6.58,5.39,(40.85),n.a.
+US,VMC,瓦爾坎材料公司,VULCAN MATERIALS CO,USD,3,原材料,0.88,37.44,11.36,n.a.
+US,VNO,維納多不動產信託公司,VORNADO REALTY TRUST,USD,4,房地產,n.a.,26.35,(40.51),主題型
+US,VNT,Vontier Corp,VONTIER CORP,USD,4,資訊技術,0.35,11.44,47.34,n.a.
+US,VRM,Vroom Inc,VROOM INC,USD,5,非核心消費,n.a.,n.a.,(23.93),n.a.
+US,VRNT,威瑞特系統公司,VERINT SYSTEMS INC,USD,4,資訊技術,n.a.,74.30,(6.34),n.a.
+US,VRRM,Verra Mobility Corp,VERRA MOBILITY CORP,USD,4,工業,n.a.,36.06,24.95,n.a.
+US,VRSK,Verisk Analytics Inc,VERISK ANALYTICS INC,USD,3,工業,0.62,42.56,23.63,n.a.
+US,VRSN,維聖公司,VERISIGN INC,USD,3,資訊技術,n.a.,34.43,9.26,n.a.
+US,VRT,維諦技術控股公司,VERTIV HOLDINGS CO,USD,4,工業,0.03,73.82,171.08,n.a.
+US,VRTX,福泰製藥公司,VERTEX PHARMACEUTICALS INC,USD,3,醫療保健,n.a.,24.37,19.52,n.a.
+US,VSAT,Viasat公司,VIASAT INC,USD,4,資訊技術,n.a.,n.a.,16.46,n.a.
+US,VST,維斯達能源公司,VISTRA CORP,USD,3,公用事業,3.35,32.68,4.96,n.a.
+US,VTR,Ventas公司,VENTAS INC,USD,3,房地產,3.95,n.a.,1.29,ESG增強型
+US,VTRS,暉致公司,VIATRIS INC,USD,3,醫療保健,5.25,5.33,(17.79),n.a.
+US,VVV,華孚蘭公司,VALVOLINE INC,USD,3,非核心消費,1.31,33.62,17.27,n.a.
+US,VXRT,Vaxart公司,VAXART INC,USD,5,醫療保健,n.a.,n.a.,32.17,n.a.
+US,VZ,威瑞森電信公司,VERIZON COMMUNICATIONS INC,USD,5,通訊服務,7.24,7.39,(8.50),ESG增強型
+US,W,Wayfair公司,WAYFAIR INC- CLASS A,USD,5,非核心消費,n.a.,n.a.,8.21,n.a.
+US,WAB,西屋空氣制動技術公司,WABTEC CORP,USD,3,工業,0.70,25.31,(3.16),n.a.
+US,WAL,西方聯盟金控,WESTERN ALLIANCE BANCORP,USD,4,金融,4.56,3.23,(46.96),n.a.
+US,WAT,沃特斯公司,WATERS CORP,USD,3,醫療保健,n.a.,22.84,(22.30),ESG增強型
+US,WB,微博公司,WEIBO CORP-SPON ADR,USD,4,通訊服務,n.a.,6.11,(9.99),n.a.
+US,WBA,沃博聯公司,WALGREENS BOOTS ALLIANCE INC,USD,3,核心消費,6.12,10.36,(16.09),n.a.
+US,WBD,華納兄弟探索公司,WARNER BROS DISCOVERY INC,USD,4,通訊服務,n.a.,n.a.,28.16,n.a.
+US,WCC,WESCO國際公司,WESCO INTERNATIONAL INC,USD,3,工業,1.17,7.67,2.28,n.a.
+US,WDAY,Workday公司,WORKDAY INC-CLASS A,USD,3,資訊技術,n.a.,n.a.,10.75,n.a.
+US,WDC,威騰電子公司,WESTERN DIGITAL CORP,USD,3,資訊技術,n.a.,n.a.,16.04,n.a.
+US,WDS,伍德賽德能源集團有限公司,WOODSIDE ENERGY GROUP-ADR,USD,3,能源,12.87,n.a.,(7.56),n.a.
+US,WEAV,Weave Communications Inc,WEAVE COMMUNICATIONS INC,USD,5,資訊技術,n.a.,n.a.,45.41,n.a.
+US,WEC,WEC能源集團公司,WEC ENERGY GROUP INC,USD,3,公用事業,3.46,21.05,(3.90),ESG增強型
+US,WELL,Welltower Inc,WELLTOWER INC,USD,3,房地產,3.15,243.34,18.28,ESG增強型
+US,WEN,溫蒂公司,WENDY'S CO/THE,USD,4,非核心消費,4.26,26.85,3.76,n.a.
+US,WFC,富國銀行,WELLS FARGO & CO,USD,3,金融,3.13,11.00,(7.02),n.a.
+US,WFG,西弗雷澤木業有限公司,WEST FRASER TIMBER CO LTD,USD,5,原材料,1.59,n.a.,4.26,n.a.
+US,WGO,Winnebago產業公司,WINNEBAGO INDUSTRIES,USD,4,非核心消費,1.96,5.52,4.80,n.a.
+US,WH,溫德姆酒店及度假酒店公司,WYNDHAM HOTELS & RESORTS INC,USD,3,非核心消費,2.15,18.19,(8.64),n.a.
+US,WHR,惠而浦公司,WHIRLPOOL CORP,USD,3,非核心消費,5.46,34.18,(9.44),n.a.
+US,WIMI,微美全息軟件有限公司,WIMI HOLOGRAM CLOUD INC-ADR,USD,5,通訊服務,n.a.,n.a.,18.92,n.a.
+US,WING,溫斯特普餐館有限公司,WINGSTOP INC,USD,5,非核心消費,0.38,99.76,46.08,n.a.
+US,WIX,Wix.com有限公司,WIX.COM LTD,USD,5,資訊技術,n.a.,n.a.,6.01,n.a.
+US,WKHS,主力集團公司,WORKHORSE GROUP INC,USD,5,非核心消費,n.a.,n.a.,(42.51),n.a.
+US,WM,廢棄物管理,WASTE MANAGEMENT INC,USD,3,工業,1.67,29.98,6.92,主題型
+US,WMB,威廉斯公司,WILLIAMS COS INC,USD,3,能源,6.25,14.27,(12.92),n.a.
+US,WMG,華納音樂集團公司,WARNER MUSIC GROUP CORP-CL A,USD,5,通訊服務,2.51,30.79,(27.18),n.a.
+US,WMT,沃爾瑪公司,WALMART INC,USD,3,核心消費,1.52,28.66,5.64,n.a.
+US,WOLF,Wolfspeed公司,WOLFSPEED INC,USD,4,資訊技術,n.a.,n.a.,(42.03),ESG增強型
+US,WOOF,沛可健康和保健公司,PETCO HEALTH AND WELLNESS CO,USD,4,非核心消費,n.a.,19.14,4.11,n.a.
+US,WPM,惠頓貴金屬公司,WHEATON PRECIOUS METALS CORP,USD,3,原材料,1.21,n.a.,27.00,n.a.
+US,WRB,W.R.柏克利公司,WR BERKLEY CORP,USD,3,金融,0.51,17.29,22.79,n.a.
+US,WSM,威廉所諾馬公司,WILLIAMS-SONOMA INC,USD,3,非核心消費,3.22,6.61,(2.84),n.a.
+US,WST,West Pharmaceutical Services,WEST PHARMACEUTICAL SERVICES,USD,3,醫療保健,0.20,48.63,11.49,ESG增強型
+US,WTFC,誠信金融公司,WINTRUST FINANCIAL CORP,USD,4,金融,2.59,7.08,(26.87),n.a.
+US,WU,西聯匯款公司,WESTERN UNION CO,USD,4,金融,7.83,7.43,(12.85),n.a.
+US,WVE,WaVe生命科學有限公司,WAVE LIFE SCIENCES LTD,USD,5,醫療保健,n.a.,n.a.,(47.00),n.a.
+US,WW,慧儷輕體國際公司,WW INTERNATIONAL INC,USD,5,非核心消費,n.a.,n.a.,85.23,n.a.
+US,WY,惠好公司,WEYERHAEUSER CO,USD,3,房地產,2.59,15.27,(2.90),n.a.
+US,WYNN,永利度假村有限公司,WYNN RESORTS LTD,USD,5,非核心消費,0.97,n.a.,24.95,n.a.
+US,X,美國鋼鐵,UNITED STATES STEEL CORP,USD,4,原材料,0.95,2.78,(16.25),n.a.
+US,XBIT,XBiotech公司,XBIOTECH INC,USD,5,醫療保健,n.a.,n.a.,(0.85),n.a.
+US,XEL,Xcel 能源,XCEL ENERGY INC,USD,3,公用事業,3.12,20.62,(5.02),ESG增強型
+US,XFOR,X4 Pharmaceuticals Inc,X4 PHARMACEUTICALS INC,USD,5,醫療保健,n.a.,n.a.,77.24,n.a.
+US,XNCR,Xencor公司,XENCOR INC,USD,4,醫療保健,n.a.,n.a.,2.00,n.a.
+US,XOM,埃克森美孚公司,EXXON MOBIL CORP,USD,3,能源,3.55,6.92,(7.05),n.a.
+US,XOS,Xos Inc,XOS INC,USD,5,-,-,-,-,n.a.
+US,XPEV,小鵬汽車,XPENG INC - ADR,USD,5,非核心消費,n.a.,n.a.,(4.33),主題型
+US,XRAY,登士柏西諾德公司,DENTSPLY SIRONA INC,USD,3,醫療保健,1.39,29.85,26.95,n.a.
+US,XRX,全錄控股公司,XEROX HOLDINGS CORP,USD,4,資訊技術,7.09,12.79,(3.42),n.a.
+US,XYL,Xylem公司,XYLEM INC,USD,3,工業,1.28,33.08,(6.61),主題型
+US,YELP,Yelp公司,YELP INC,USD,4,通訊服務,n.a.,48.36,15.69,n.a.
+US,YETI,雪人控股公司,YETI HOLDINGS INC,USD,4,非核心消費,n.a.,20.53,(1.55),n.a.
+US,YEXT,葉克斯特公司,YEXT INC,USD,4,資訊技術,n.a.,n.a.,17.00,n.a.
+US,YGMZ,明珠貨運控股有限公司,MINGZHU LOGISTICS HOLDINGS L,USD,5,工業,n.a.,10.83,46.17,n.a.
+US,YPF,YPF有限責任公司,YPF S.A.-SPONSORED ADR,USD,4,能源,n.a.,n.a.,17.52,n.a.
+US,YQ,一起教育科技,17 EDUCATION & TECHNOLOGY GR,USD,5,非核心消費,n.a.,n.a.,(43.63),n.a.
+US,YSG,逸仙控股有限公司,YATSEN HOLDING LTD-ADR,USD,5,核心消費,n.a.,n.a.,(40.41),n.a.
+US,YUM,百勝餐飲,YUM! BRANDS INC,USD,3,非核心消費,1.74,31.57,8.35,n.a.
+US,YUMC,百勝中國,YUM CHINA HOLDINGS INC,USD,3,非核心消費,0.85,38.36,12.28,n.a.
+US,YY,歡聚集團,JOYY INC-ADR,USD,5,通訊服務,6.85,n.a.,(5.73),n.a.
+US,Z,Zillow集團公司,ZILLOW GROUP INC - C,USD,4,房地產,n.a.,n.a.,39.55,n.a.
+US,ZBH,捷邁邦美控股公司,ZIMMER BIOMET HOLDINGS INC,USD,3,醫療保健,0.71,26.13,5.76,n.a.
+US,ZBRA,斑馬科技公司,ZEBRA TECHNOLOGIES CORP-CL A,USD,3,資訊技術,n.a.,20.63,3.89,n.a.
+US,ZI,ZoomInfo科技公司,ZOOMINFO TECHNOLOGIES INC,USD,4,通訊服務,n.a.,78.95,(24.44),n.a.
+US,ZIM,ZIM整合運輸服務有限公司,ZIM INTEGRATED SHIPPING SERV,USD,5,工業,151.12,0.44,(1.45),n.a.
+US,ZIMV,Zimvie Inc,ZIMVIE INC,USD,5,醫療保健,n.a.,n.a.,7.28,n.a.
+US,ZION,齊昂銀行,ZIONS BANCORP NA,USD,4,金融,6.91,4.11,(51.67),n.a.
+US,ZM,Zoom視訊通訊有限公司,ZOOM VIDEO COMMUNICATIONS-A,USD,4,資訊技術,n.a.,130.84,(2.58),主題型
+US,ZS,Zscaler公司,ZSCALER INC,USD,5,資訊技術,n.a.,n.a.,5.76,n.a.
+US,ZTS,碩騰股份有限公司,ZOETIS INC,USD,3,醫療保健,0.83,37.46,23.81,n.a.
+US,ZUMZ,Zumiez公司,ZUMIEZ INC,USD,5,非核心消費,n.a.,13.59,(26.68),n.a.
+US,ZUO,Zuora Inc,ZUORA INC - CLASS A,USD,4,資訊技術,n.a.,n.a.,27.83,n.a.
+US,ZYME,Zymeworks Inc,ZYMEWORKS INC,USD,5,醫療保健,n.a.,3.49,14.89,n.a.
