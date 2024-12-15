@@ -74,16 +74,26 @@ const actions = {
   async fetchSMAChartData({ commit }, symbol) {
     commit("SET_LOADING", true);
     commit("SET_ERROR", null);
+    
     try {
       const data = await apiService.stock.getSMAData(symbol);
-      if (data.error) {
-        commit("SET_ERROR", data.error);
-        return data;
-      } else {
-        commit("SET_CHART_DATA", data);
-      }
+      
+      // 清理和驗證數據
+      const cleanedData = {
+        ...data,
+        values: Array.isArray(data.values) 
+          ? data.values.map(val => 
+              val === null || val === 'NaN' || Number.isNaN(val) ? null : val
+            )
+          : []
+      };
+  
+      commit("SET_CHART_DATA", cleanedData);
+      return cleanedData;
+  
     } catch (error) {
-      commit("SET_ERROR", "Failed to fetch SMA chart data");
+      commit("SET_ERROR", error.message || "Failed to fetch SMA data");
+      return null;
     } finally {
       commit("SET_LOADING", false);
     }

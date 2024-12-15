@@ -1,193 +1,289 @@
 <template>
   <div class="stock-analysis">
-    <h1>Stock Data</h1>
+    <h1>股票分析</h1>
 
-    <!-- 股票列表 -->
-    <ul class="stock-list">
-      <li
-        v-for="stock in stockData"
-        :key="stock.symbol"
-        @click="handleStockClick(stock)"
-        class="stock-item"
+    <!-- 搜尋框 -->
+    <div class="search-section">
+      <div class="search-box">
+        <input
+          v-model="stockSymbol"
+          placeholder="輸入股票代號..."
+          class="search-input"
+          @input="handleInput"
+          @keyup.enter="handleSearch"
+        />
+        <div
+          v-if="showSuggestions && filteredStocks.length"
+          class="suggestions"
+        >
+          <div
+            v-for="stock in filteredStocks"
+            :key="stock"
+            @click="selectStock(stock)"
+            class="suggestion-item"
+          >
+            {{ stock }}
+          </div>
+        </div>
+        <button @click="handleSearch" class="search-button">搜尋</button>
+      </div>
+
+      <button
+        v-if="stockSymbol"
+        @click="navigateToSMAChart(stockSymbol)"
+        class="analysis-button"
       >
-        {{ stock.symbol }} - ${{ stock.price !== null ? stock.price : 'N/A' }}
-      </li>
-    </ul>
+        技術分析
+      </button>
+    </div>
 
-    <!-- 顯示加載中提示 -->
+    <!-- 載入中和錯誤提示 -->
     <loading-spinner v-if="loading" />
-    <error-message v-else-if="error" :message="error" retryable @retry="fetchStockChartData" />
+    <error-message v-else-if="error" :message="error" @retry="handleSearch" />
 
-    <!-- 顯示選中的股票 -->
-    <div v-if="selectedStock" class="selected-stock">
-      <h2>Selected Stock</h2>
-      <p>{{ selectedStock.symbol }}: ${{ selectedStock.price }}</p>
-      <button @click="navigateToSMAChart(selectedStock.symbol)" class="deep-analysis-button">Deep Analysis</button>
+    <!-- 預測區塊 -->
+    <div v-if="chartData" class="predict-section">
+      <button @click="predictStockPrice(stockSymbol)" class="predict-button">
+        預測股價
+      </button>
+      <p v-if="predictedPrice !== null" class="predicted-price">
+        預測價格: ${{ predictedPrice }}
+      </p>
     </div>
 
-    <!-- 股票符號輸入 -->
-    <div class="stock-input">
-      <input v-model="stockSymbol" placeholder="Enter stock symbol" />
-      <button @click="fetchStockChartData(stockSymbol)" class="fetch-button">Fetch Stock Chart</button>
-    </div>
-
-    <!-- 預測股票價格 -->
-    <div class="stock-predict">
-      <button @click="predictStockPrice(stockSymbol)" class="fetch-button">Predict Stock Price</button>
-      <p v-if="predictedPrice !== null">Predicted Price: ${{ predictedPrice }}</p>
-    </div>
-
-    <!-- 顯示股票圖表 -->
-    <stock-chart v-if="chartData" :symbol="stockSymbol" :chartData="chartData" />
+    <!-- 股票圖表 -->
+    <stock-chart
+      v-if="chartData"
+      :symbol="stockSymbol"
+      :chartData="chartData"
+    />
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
-import StockChart from './StockChart.vue';
-import LoadingSpinner from '../common/LoadingSpinner.vue';
-import ErrorMessage from '../common/ErrorMessage.vue';
+  import { mapState, mapActions } from "vuex";
+  import StockChart from "./StockChart.vue";
+  import LoadingSpinner from "../common/LoadingSpinner.vue";
+  import ErrorMessage from "../common/ErrorMessage.vue";
 
-export default {
-  components: {
-    StockChart,
-    LoadingSpinner,
-    ErrorMessage
-  },
-  data() {
-    return {
-      stockSymbol: '',
-      selectedStock: null
-    };
-  },
-  computed: {
-    ...mapState('stockApp', {
-      loading: (state) => state.loading,
-      error: (state) => state.error,
-      stockData: (state) => state.stockData,
-      chartData: (state) => state.chartData,
-      predictedPrice: (state) => state.predictedPrice
-    })
-  },
-  methods: {
-    ...mapActions('stockApp', ['fetchStockChartData', 'predictStockPrice', 'resetPredictedPrice']),
-    async handleStockClick(stock) {
-      this.resetPredictedPrice(); // 重置預測價格
-      this.selectedStock = stock; // 更新選中的股票
-      this.stockSymbol = stock.symbol;
-      await this.fetchStockChartData(stock.symbol);
+  export default {
+    components: {
+      StockChart,
+      LoadingSpinner,
+      ErrorMessage,
     },
-    async fetchStockChartData(symbol) {
-      if (!symbol) {
-        this.error = 'Please enter a stock symbol';
-        return;
-      }
-      this.stockSymbol = symbol;
-      const response = await this.$store.dispatch('stockApp/fetchStockChartData', symbol);
-      if (response && response.error) {
-        this.error = response.error;
-      }
+    data() {
+      return {
+        stockSymbol: "",
+        stockList: [],
+        showSuggestions: false,
+        filteredStocks: [],
+      };
     },
-    async predictStockPrice(symbol) {
-      if (!symbol) {
-        this.error = 'Please enter a stock symbol';
-        return;
-      }
-      await this.$store.dispatch('stockApp/predictStockPrice', symbol);
+    computed: {
+      ...mapState("stockApp", {
+        loading: (state) => state.loading,
+        error: (state) => state.error,
+        chartData: (state) => state.chartData,
+        predictedPrice: (state) => state.predictedPrice,
+      }),
     },
-    navigateToSMAChart(symbol) {
-      this.$router.push({ name: 'MovingAvgChart', params: { symbol } });
-    }
-  },
-  mounted() {
-    // 預設顯示的股票列表
-    this.$store.dispatch('stockApp/fetchStockData');
-  }
-};
+    async created() {
+      await this.fetchStockList();
+    },
+    methods: {
+      ...mapActions("stockApp", [
+        "fetchStockChartData",
+        "predictStockPrice",
+        "resetPredictedPrice",
+      ]),
+      async fetchStockList() {
+        try {
+          const response = await fetch(
+            "http://127.0.0.1:5000/stock_app/api/categories"
+          );
+          const data = await response.json();
+          this.stockList = data.map((item) => item.ticker).filter(Boolean);
+        } catch (error) {
+          console.error("Error fetching stock list:", error);
+          this.stockList = [];
+        }
+      },
+      async handleSearch() {
+        if (!this.stockSymbol) {
+          this.error = "請輸入股票代號";
+          return;
+        }
+        this.resetPredictedPrice();
+        await this.fetchStockChartData(this.stockSymbol);
+      },
+      handleInput() {
+        if (this.stockSymbol) {
+          const query = this.stockSymbol.toUpperCase();
+          this.filteredStocks = this.stockList
+            .filter((stock) => stock.startsWith(query))
+            // .slice(0, 8);
+          this.showSuggestions = this.filteredStocks.length > 0;
+        } else {
+          this.showSuggestions = false;
+          this.filteredStocks = [];
+        }
+      },
+      selectStock(stock) {
+        this.stockSymbol = stock;
+        this.showSuggestions = false;
+        this.handleSearch();
+      },
+      navigateToSMAChart(symbol) {
+        this.$router.push({ name: "MovingAvgChart", params: { symbol } });
+      },
+    },
+  };
 </script>
 
 <style scoped>
-.stock-analysis {
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
+  .stock-analysis {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-h1 {
-  color: #333;
-  margin-bottom: 20px;
-}
+  .search-section {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 30px;
+  }
 
-.loading {
-  color: #007bff;
-}
+  .search-box {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+  }
 
-.error {
-  color: #ff0000;
-}
+  .search-input {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+  }
 
-.stock-list {
-  list-style-type: none;
-  padding: 0;
-}
+  .search-input:focus {
+    outline: none;
+    border-color: #4a90e2;
+  }
 
-.stock-item {
-  padding: 10px;
-  margin: 5px 0;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+  .search-button,
+  .analysis-button,
+  .predict-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
 
-.stock-item:hover {
-  background-color: #e9e9e9;
-}
+  .search-button {
+    background-color: #4a90e2;
+    color: white;
+  }
 
-.selected-stock {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #f1f1f1;
-  border: 1px solid #ccc;
-}
+  .search-button:hover {
+    background-color: #357abd;
+  }
 
-.deep-analysis-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+  .search-box {
+    position: relative;
+  }
 
-.deep-analysis-button:hover {
-  background-color: #218838;
-}
+  .suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    margin-top: 5px;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+  }
 
-.stock-input {
-  margin-top: 20px;
-}
+  .suggestion-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-.stock-input input {
-  padding: 10px;
-  font-size: 16px;
-  margin-right: 10px;
-}
+  .suggestion-item:last-child {
+    border-bottom: none;
+  }
 
-.fetch-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+  .suggestion-item:hover {
+    background-color: #f5f5f5;
+  }
 
-.fetch-button:hover {
-  background-color: #0056b3;
-}
+  /* 添加滾動條樣式 */
+  .suggestions::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
 
-.stock-predict {
-  margin-top: 20px;
-}
+  .suggestions::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  .suggestions::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+
+  .suggestions::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  .analysis-button {
+    background-color: #28a745;
+    color: white;
+  }
+
+  .analysis-button:hover {
+    background-color: #218838;
+  }
+
+  .predict-section {
+    margin: 20px 0;
+  }
+
+  .predict-button {
+    background-color: #17a2b8;
+    color: white;
+  }
+
+  .predict-button:hover {
+    background-color: #138496;
+  }
+
+  .predicted-price {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #28a745;
+    font-weight: bold;
+  }
+
+  h1 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+  }
 </style>

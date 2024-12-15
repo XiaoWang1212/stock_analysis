@@ -1,17 +1,12 @@
 <template>
   <div id="app">
-    <header>
+    <header v-if="!$route.meta.hideHeader">
       <nav>
         <div class="nav-left">
-          <router-link to="/">Home</router-link>
-          <div class="dropdown">
-            <button class="dropbtn">COVID-19 Analysis</button>
-            <div class="dropdown-content">
-              <router-link to="/birth-rate">Birth Rate</router-link>
-              <router-link to="/death-rate">Death Rate</router-link>
-              <router-link to="/economic-impact">Economic Impact</router-link>
-            </div>
-          </div>
+          <router-link to="/home" class="icon-link">
+            <span class="material-icons">account_circle</span>
+          </router-link>
+          <router-link to="/stock-heatmap">Stock Maps</router-link>
           <router-link to="/stock-app">Stock Analysis</router-link>
         </div>
       </nav>
@@ -27,11 +22,25 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  min-height: 100vh;
+  position: relative;
+  background: #f5f5f7;
+}
+
+.icon-link {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.material-icons {
+  font-size: 24px;
 }
 
 header {
-  background-color: #333;
+  background-color: rgba(51, 51, 51, 0.9); 
   padding: 10px;
+  position: relative;
 }
 
 nav {

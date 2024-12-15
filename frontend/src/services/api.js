@@ -34,7 +34,6 @@ export const apiService = {
 
   // Stock endpoints
   stock: {
-    getStocks: () => apiService.get('/stock_app/api/data'),
     getStockData: (symbol) => apiService.get(`/stock_app/api/stock_data/${symbol}`),
     getSMAData: (symbol) => apiService.get(`/stock_app/api/ma/${symbol}`),
     getBIASData: (symbol) => apiService.get(`/stock_app/api/bias/${symbol}`),

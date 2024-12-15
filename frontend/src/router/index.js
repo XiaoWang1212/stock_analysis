@@ -1,32 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import BirthRateView from '../views/BirthRateView.vue'
-import DeathRateView from '../views/DeathRateView.vue'
-import EconomicView from '../views/EconomicView.vue'
-import StockApp from '../views/StockApp.vue'
-import MovingAvgChart from '../components/stock/MovingAvgChart.vue'
-import StockHeatMap from '../components/stock/StockHeatmap.vue'
+import HomeView from '@/views/HomeView.vue'
+import StockApp from '@/views/StockApp.vue'
+import MovingAvgChart from '@/components/stock/MovingAvgChart.vue'
+import StockHeatMap from '@/components/stock/StockHeatmap.vue'
+import LoginView from '@/views/LoginView.vue'
 
 const routes = [
   {
     path: '/',
+    name: 'Login',
+    component: LoginView,
+    meta: {
+      hideHeader: true
+    }
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: HomeView
-  },
-  {
-    path: '/birth-rate',
-    name: 'BirthRate',
-    component: BirthRateView
-  },
-  {
-    path: '/death-rate',
-    name: 'DeathRate',
-    component: DeathRateView
-  },
-  {
-    path: '/economic-impact',
-    name: 'EconomicImpact',
-    component: EconomicView
   },
   {
     path: '/stock-app',
