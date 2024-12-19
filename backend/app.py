@@ -1,10 +1,10 @@
-from flask import Flask
-from flask_cors import CORS
-from flask_pymongo import PyMongo
-from flask import jsonify, request
-from bson.objectid import ObjectId
-from werkzeug.security import generate_password_hash, check_password_hash
-import jwt
+from flask import Flask, jsonify, request # type: ignore
+from flask_cors import CORS # type: ignore
+from flask_pymongo import PyMongo # type: ignore
+from bson.objectid import ObjectId # type: ignore
+from werkzeug.security import generate_password_hash, check_password_hash # type: ignore
+from bson.errors import InvalidId # type: ignore
+import jwt # type: ignore
 import datetime
 
 app = Flask(__name__)

@@ -1,15 +1,15 @@
-import requests
+import requests # type: ignore
 import json
 import math
 import random
 import time
 import os
-from flask import jsonify
-from sklearn.linear_model import LinearRegression
-import yfinance as yf
-import pandas as pd
+from flask import jsonify # type: ignore
+from sklearn.linear_model import LinearRegression # type: ignore
+import yfinance as yf # type: ignore
+import pandas as pd # type: ignore
 from functools import wraps
-from talib import SMA, EMA, WMA, KAMA, RSI, STOCH, STOCHRSI, STOCHF, MACD
+from talib import SMA, EMA, WMA, KAMA, RSI, STOCH, STOCHRSI, STOCHF, MACD # type: ignore
 from datetime import datetime, timedelta
 from . import stock_app_blueprint
 from concurrent.futures import ThreadPoolExecutor, as_completed

@@ -131,17 +131,25 @@
         登出
       </button>
     </div>
+    <add-stock-dialog
+      :show="showAddDialog"
+      :stock-list="stockList"
+      @close="showAddDialog = false"
+      @confirm="handleAddStock"
+    />
   </div>
 </template>
 
 <script>
   import { isTokenExpired, clearAuthData } from "@/utils/auth";
   import MiniStockChart from "@/components/stock/MiniStockChart.vue";
+  import AddStockDialog from "@/components/tool/AddStockDialog.vue";
   import { cacheManager, CACHE_KEYS } from "@/services/cacheManager";
 
   export default {
     components: {
       MiniStockChart,
+      AddStockDialog,
     },
     data() {
       return {
@@ -151,9 +159,14 @@
         groups: [],
         selectedGroup: null,
         chartData: {},
+        showAddDialog: false,
+        stockList: [],
+        currentGroupIndex: null,
       };
     },
     async created() {
+      await this.fetchStockList();
+
       // 先檢查 userId 是否有效
       if (!this.userId || this.userId === "undefined") {
         console.warn("Invalid user ID");
@@ -178,29 +191,26 @@
       },
       async toggleGroup(index, event) {
         if (this.selectedGroup === index) {
-          // 收合時添加動畫class
-          const card = event.target.closest(".group-card");
+          const card = event?.target?.closest(".group-card");
           if (card) {
             card.classList.add("collapsing");
-            // 動畫結束後移除class
-            card.addEventListener(
-              "animationend",
-              () => {
-                card.classList.remove("collapsing");
-                this.selectedGroup = null;
-              },
-              { once: true }
-            );
+            setTimeout(() => {
+              this.selectedGroup = null;
+              card.classList.remove("collapsing");
+            }, 300);
+          } else {
+            this.selectedGroup = null;
           }
         } else {
-          // 展開邏輯保持不變
-          const card = event.target.closest(".group-card");
-          if (card) {
-            const rect = card.getBoundingClientRect();
-            card.style.setProperty("--original-width", `${rect.width}px`);
-            card.style.setProperty("--original-height", `${rect.height}px`);
-            card.style.setProperty("--original-top", `${rect.top}px`);
-            card.style.setProperty("--original-left", `${rect.left}px`);
+          if (event) {
+            const card = event.target.closest(".group-card");
+            if (card) {
+              const rect = card.getBoundingClientRect();
+              card.style.setProperty("--original-width", `${rect.width}px`);
+              card.style.setProperty("--original-height", `${rect.height}px`);
+              card.style.setProperty("--original-top", `${rect.top}px`);
+              card.style.setProperty("--original-left", `${rect.left}px`);
+            }
           }
           this.selectedGroup = index;
         }
@@ -279,42 +289,57 @@
           console.error("Error updating group name:", error);
         }
       },
-      async addStock(index) {
+      async fetchStockList() {
+        try {
+          const response = await fetch(
+            "http://127.0.0.1:5000/stock_app/api/categories"
+          );
+          const data = await response.json();
+          this.stockList = data.map((item) => item.ticker).filter(Boolean);
+        } catch (error) {
+          console.error("Error fetching stock list:", error);
+        }
+      },
+      addStock(index) {
+        this.currentGroupIndex = index;
+        this.showAddDialog = true;
+      },
+      async handleAddStock(stock) {
         if (isTokenExpired()) {
           this.handleTokenExpired();
           return;
         }
-      
-        const stock = prompt("請輸入股票代碼:");
+
+        const index = this.currentGroupIndex;
         if (stock) {
           try {
             const currentStocks = [...this.groups[index].stocks];
-      
+
             if (currentStocks.includes(stock)) {
               alert("此股票已在群組中");
               return;
             }
-      
+
             // 先取得股票數據
             try {
               const stockResponse = await fetch(
                 `http://localhost:5000/stock_app/api/stock_data/${stock}`
               );
               const stockData = await stockResponse.json();
-      
+
               // 儲存到快取
               const cacheKey = CACHE_KEYS.STOCK_DATA + stock;
               cacheManager.setCache(cacheKey, stockData);
-      
+
               // 更新股票數據
               this.chartData = {
                 ...this.chartData,
                 [stock]: {
                   ...stockData,
-                  change: stockData.change
-                }
+                  change: stockData.change,
+                },
               };
-      
+
               // 更新群組
               const response = await fetch(
                 `http://localhost:5000/groups/${this.userId}`,
@@ -330,16 +355,16 @@
                   }),
                 }
               );
-      
+
               if (response.status === 401) {
                 this.handleTokenExpired();
                 return;
               }
-      
+
               if (response.ok) {
                 // 更新本地數據
                 this.groups[index].stocks = [...currentStocks, stock];
-                
+
                 // 強制更新視圖
                 await this.$nextTick();
                 this.$forceUpdate();
@@ -694,6 +719,10 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
+  .stock-item:hover .stock-code {
+    color: #4a90e2;
+  }
+
   /* 移除未展開時的圖表相關樣式 */
   .mini-chart-container {
     display: none; /* 或完全移除這個樣式 */
@@ -741,10 +770,6 @@
 
   .negative {
     color: #f44336;
-  }
-
-  .stock-code:hover {
-    color: #4a90e2;
   }
 
   .remove-stock-btn {
