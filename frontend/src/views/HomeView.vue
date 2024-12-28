@@ -2,6 +2,9 @@
   <div class="profile-container">
     <div class="profile-card">
       <!-- 用戶基本資訊區塊 -->
+      <div v-if="isLoading" class="loading-overlay">
+        <loading-spinner />
+      </div>
       <div class="profile-section">
         <div class="profile-header">
           <span class="material-icons profile-icon">account_circle</span>
@@ -145,11 +148,13 @@
   import MiniStockChart from "@/components/stock/MiniStockChart.vue";
   import AddStockDialog from "@/components/tool/AddStockDialog.vue";
   import { cacheManager, CACHE_KEYS } from "@/services/cacheManager";
+  import LoadingSpinner from "@/components/common/LoadingSpinner.vue";
 
   export default {
     components: {
       MiniStockChart,
       AddStockDialog,
+      LoadingSpinner,
     },
     data() {
       return {
@@ -162,6 +167,8 @@
         showAddDialog: false,
         stockList: [],
         currentGroupIndex: null,
+        isLoading: false,
+        loadedStocks: new Set(), // 追蹤已載入的股票
       };
     },
     async created() {
@@ -177,14 +184,21 @@
       if (!isTokenExpired()) {
         await this.fetchGroups();
         await this.preloadAllChartData();
+        this.startGroupsUpdateInterval();
       } else {
         this.handleTokenExpired();
       }
     },
     methods: {
+      startGroupsUpdateInterval() {
+        this.groupsUpdateInterval = setInterval(async () => {
+          await this.fetchGroups();
+        }, 60 * 60 * 1000);
+      },
       async preloadAllChartData() {
         for (const group of this.groups) {
           for (const stock of group.stocks) {
+            await new Promise((resolve) => setTimeout(resolve, 1000));
             await this.getChartData(stock);
           }
         }
@@ -221,6 +235,7 @@
         console.warn("Session expired. Please login again.");
       },
       async fetchGroups() {
+        this.isLoading = true;
         try {
           if (!this.userId || this.userId === "undefined") {
             throw new Error("Invalid user ID");
@@ -228,6 +243,17 @@
 
           if (isTokenExpired()) {
             this.handleTokenExpired();
+            return;
+          }
+
+          const cacheKey = CACHE_KEYS.USER_GROUPS + this.userId;
+          const cachedGroups = cacheManager.getCache(cacheKey);
+
+          if (cachedGroups) {
+            console.log("Using cached groups data");
+            this.groups = cachedGroups;
+            await this.batchLoadChartData(); 
+            this.isLoading = false;
             return;
           }
 
@@ -249,12 +275,15 @@
           const data = await response.json();
           if (response.ok) {
             this.groups = data.groups;
-            await this.preloadAllChartData();
+            await this.batchLoadChartData();
+            cacheManager.setCache(cacheKey, data.groups);
           } else {
             console.error(data.error);
           }
         } catch (error) {
           console.error("Error fetching groups:", error);
+        } finally {
+          this.isLoading = false;
         }
       },
       async updateGroupName(index, name) {
@@ -282,7 +311,17 @@
           }
 
           const data = await response.json();
-          if (!response.ok) {
+
+          if (response.ok) {
+            this.groups = data.groups;
+            // 確保每個群組都有 stocks 陣列
+            this.groups = this.groups.map((group) => ({
+              ...group,
+              stocks: group.stocks || [],
+            }));
+            await this.preloadAllChartData();
+            this.$forceUpdate(); // 強制更新視圖
+          } else {
             console.error(data.error);
           }
         } catch (error) {
@@ -435,13 +474,21 @@
 
           try {
             const response = await fetch(
-              `http://localhost:5000/stock_app/api/stock_data/${symbol}`
+              `http://localhost:5000/stock_app/api/stock_data/${symbol}`,
+              {
+                method: "GET",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+                },
+              }
             );
             const data = await response.json();
 
             // 儲存到快取
             cacheManager.setCache(cacheKey, data);
             this.chartData[symbol] = data;
+            return data;
           } catch (error) {
             console.error("Error fetching chart data:", error);
           }
@@ -457,16 +504,96 @@
         });
         this.chartData = {};
       },
+
+      // 新增批次載入方法
+      async batchLoadChartData() {
+        const allStocks = new Set();
+        this.groups.forEach(group => {
+          group.stocks.forEach(stock => allStocks.add(stock));
+        });
+
+        const stocksArray = Array.from(allStocks);
+        const batchSize = 5;  // 每批次處理5個股票
+        const batches = [];
+
+        // 將股票分組
+        for (let i = 0; i < stocksArray.length; i += batchSize) {
+          batches.push(stocksArray.slice(i, i + batchSize));
+        }
+
+        // 暫存所有數據
+        const tempChartData = {};
+
+        // 批次處理
+        for (const batch of batches) {
+          await Promise.all(
+            batch.map(async (stock) => {
+              const data = await this.fetchStockData(stock);
+              if (data) {
+                tempChartData[stock] = data;
+              }
+            })
+          );
+        }
+
+        // 一次性更新視圖
+        this.chartData = { ...tempChartData };
+      },
+
+      // 優化股票數據獲取
+      async fetchStockData(symbol) {
+        const cacheKey = CACHE_KEYS.STOCK_DATA + symbol;
+        const cachedData = cacheManager.getCache(cacheKey);
+
+        if (cachedData) {
+          return cachedData;
+        }
+
+        try {
+          const response = await fetch(
+            `http://localhost:5000/stock_app/api/stock_data/${symbol}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+              },
+            }
+          );
+          const data = await response.json();
+          cacheManager.setCache(cacheKey, data);
+          return data;
+        } catch (error) {
+          console.error(`Error fetching data for ${symbol}:`, error);
+          return null;
+        }
+      },
     },
 
     // 組件銷毀時檢查快取
     beforeUnmount() {
+      if (this.groupsUpdateInterval) {
+        clearInterval(this.groupsUpdateInterval);
+      }
       cacheManager.checkAndCleanCache();
     },
   };
 </script>
 
 <style scoped>
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
   .profile-container {
     min-height: calc(100vh - 60px);
     padding: 40px;
