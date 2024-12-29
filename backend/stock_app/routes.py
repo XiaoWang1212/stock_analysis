@@ -25,6 +25,13 @@ headers = {
     "Cache-Control": "max-age=0"
 }
 
+_cache = {
+    'categories': {
+        'data': None,
+        'timestamp': None
+    }
+}
+
 # 建立 session 並更新 headers
 session = requests.Session()
 session.headers.update(headers)
@@ -52,6 +59,30 @@ def retry_on_429(max_retries=5, initial_delay=1):
                         delay *= 2  # 指數增長延遲時間
                     else:
                         raise e
+        return wrapper
+    return decorator
+
+def cache_categories(duration=24*60*60):  # 預設24小時
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            cache = _cache['categories']
+            now = datetime.now()
+            
+            # 檢查快取是否有效
+            if (cache['data'] is not None and 
+                cache['timestamp'] is not None and 
+                (now - cache['timestamp']).total_seconds() < duration):
+                return cache['data']
+            
+            # 執行原始函數獲取新數據
+            result = func(*args, **kwargs)
+            
+            # 更新快取
+            _cache['categories']['data'] = result
+            _cache['categories']['timestamp'] = now
+            
+            return result
         return wrapper
     return decorator
 
@@ -227,6 +258,7 @@ def get_stock_biaschart_data(symbol):
 
 @stock_app_blueprint.route('/api/categories', methods=['GET'])
 @retry_on_429(max_retries=10, initial_delay=2)  # 增加重試次數和初始延遲
+@cache_categories(duration=1*60*60) 
 def get_stock_categories():
     try:
         base_dir = os.path.abspath(os.path.dirname(__file__))

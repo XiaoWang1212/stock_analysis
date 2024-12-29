@@ -73,9 +73,7 @@
         </div>
       </div>
     </div>
-    <button v-if="showReloadButton" @click="handleReload" class="reload-button">
-      重新載入
-    </button>
+    <button @click="handleReload" class="reload-button">重新載入</button>
   </div>
 </template>
 
@@ -86,7 +84,7 @@
   import MiniStockChart from "./MiniStockChart.vue";
   import LoadingSpinner from "../common/LoadingSpinner.vue";
   import ErrorMessage from "../common/ErrorMessage.vue";
-  import { CACHE_KEYS } from "@/services/cacheManager.js";
+  import { CACHE_KEYS, cacheManager } from "@/services/cacheManager.js";
 
   export default {
     components: {
@@ -97,13 +95,14 @@
     data() {
       return {
         stockData: [],
+        failedStocks: new Set(), // 追蹤失敗的股票
         hoveredInfo: null,
         chartPosition: {
           top: "0px",
           left: "0px",
         },
         stockChartDataMap: new Map(),
-        preloadedData: null, // 新增: 用於存儲預加載的數據
+        preloadedData: null, // 用於存儲預加載的數據
         cachedData: null,
         cacheExpiry: null,
         CACHE_DURATION: 24 * 60 * 60 * 1000, // 改為一天的毫秒數
@@ -111,8 +110,8 @@
         totalApiRequests: 0,
         show404Error: false,
         showReloadButton: false,
-        isLocalLoading: false, // 新增：本地 loading 狀態
-        dataReady: false, // 新增：本地 ready 狀態
+        isLocalLoading: false, // 本地 loading 狀態
+        dataReady: false, // 本地 ready 狀態
       };
     },
     computed: {
@@ -138,11 +137,44 @@
     methods: {
       ...mapActions("stockApp", ["fetchStockCategories"]),
       async handleReload() {
-        if (confirm("確定要重新載入所有資料嗎？")) {
-          this.clearCache();
-          await this.preloadAllData();
-          this.show404Error = false;
-          this.showReloadButton = false;
+        if (this.failedStocks.size === 0) {
+          return;
+        }
+
+        try {
+          this.isLocalLoading = true;
+          const failedStocksArray = Array.from(this.failedStocks);
+
+          for (let i = 0; i < failedStocksArray.length; i++) {
+            const ticker = failedStocksArray[i];
+            try {
+              const response = await fetch(
+                `/stock_app/api/stock_data/${ticker}`
+              );
+
+              if (response.ok) {
+                const data = await response.json();
+                // 更新 Map
+                this.stockChartDataMap.set(ticker, data);
+                // 更新快取
+                const cacheKey = `${CACHE_KEYS.STOCK_DATA}${ticker}`;
+                cacheManager.setCache(cacheKey, data);
+                // 從失敗列表中移除
+                this.failedStocks.delete(ticker);
+              }
+            } catch (error) {
+              console.error(`Error reloading ${ticker}:`, error);
+            }
+          }
+
+          if (this.failedStocks.size === 0) {
+            this.showReloadButton = false;
+          }
+
+          // 重新渲染圖表
+          await this.renderHeatmap();
+        } finally {
+          this.isLocalLoading = false;
         }
       },
       clearCache() {
@@ -235,12 +267,16 @@
                     const response = await fetch(
                       `/stock_app/api/stock_data/${stock.ticker}`
                     );
-                    const data = await response.json();
-                    this.stockChartDataMap.set(stock.ticker, data);
-                  } catch (error) {
-                    if (error.response?.status === 404) {
-                      this.show404Error = true;
+                    if (response.status === 429) {
+                      this.failedStocks.add(stock.ticker);
+                      this.showReloadButton = true;
+                    } else {
+                      const data = await response.json();
+                      this.stockChartDataMap.set(stock.ticker, data);
                     }
+                  } catch (error) {
+                    this.failedStocks.add(stock.ticker);
+                    this.showReloadButton = true;
                     console.error(
                       `Error fetching data for ${stock.ticker}:`,
                       error
@@ -671,7 +707,7 @@
   }
 
   .heatmap-container {
-    height: 1000px;
+    height: 800px;
   }
 
   .loading {

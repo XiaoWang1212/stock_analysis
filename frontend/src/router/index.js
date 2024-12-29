@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
+import HomeView2 from '@/views/HomeView2.vue'
 import StockApp from '@/views/StockApp.vue'
 import MovingAvgChart from '@/components/stock/MovingAvgChart.vue'
 import StockHeatMap from '@/components/stock/StockHeatmap.vue'
@@ -34,6 +35,11 @@ const routes = [
     path: '/stock-heatmap',
     name: 'StockHeatMap',
     component: StockHeatMap
+  },
+  {
+    path: '/home2',
+    name: 'Home2',
+    component: HomeView2
   }
 ]
 

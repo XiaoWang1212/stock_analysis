@@ -1,6 +1,7 @@
 const CACHE_KEYS = {
     STOCK_HEATMAP: "stockHeatmapCache",
     STOCK_DATA: "stockDataCache_",
+    USER_GROUPS: "userGroupsCache_",
   };
   
   export const cacheManager = {
