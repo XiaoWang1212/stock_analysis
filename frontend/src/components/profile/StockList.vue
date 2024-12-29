@@ -221,8 +221,10 @@
     text-overflow: ellipsis;
     font-weight: 500;
     font-size: 0.9em;
-    min-width: 60px;
+    min-width: 50px;
+    max-width: 50px;
     text-align: right;
+    margin-right: 20px;
   }
 
   .positive {
@@ -277,6 +279,7 @@
     display: flex;
     flex-direction: column;
     height: 220px;
+    cursor: pointer;
     position: relative;
   }
 

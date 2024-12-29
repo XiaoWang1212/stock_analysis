@@ -10,13 +10,18 @@
       <div
         v-if="selectedGroup !== null"
         class="overlay"
-        @click="$emit('toggle-group', null)"
+        @click="handleOverlayClick"
       ></div>
 
       <div class="groups-grid">
         <group-card
           v-for="(group, index) in groups"
           :key="index"
+          :ref="
+            (el) => {
+              if (el) cardRefs[index] = el;
+            }
+          "
           :group="group"
           :index="index"
           :is-expanded="selectedGroup === index"
@@ -54,6 +59,11 @@
         default: () => ({}),
       },
     },
+    data() {
+      return {
+        cardRefs: [],
+      };
+    },
     emits: [
       "toggle-group",
       "update-group-name",
@@ -61,6 +71,13 @@
       "remove-stock",
       "navigate",
     ],
+    methods: {
+      handleOverlayClick() {
+        if (this.selectedGroup !== null && this.cardRefs[this.selectedGroup]) {
+          this.cardRefs[this.selectedGroup].handleCardClick();
+        }
+      },
+    },
   };
 </script>
 

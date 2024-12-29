@@ -2,7 +2,8 @@
   <div
     class="group-card"
     :class="{ expanded: isExpanded, collapsing: isCollapsing }"
-    @click="handleCardClick"
+    @click="!isExpanded && handleCardClick($event)"
+    :style="{ cursor: isExpanded ? 'default' : 'pointer' }"
   >
     <div class="expand-handle">
       <span class="material-icons">
@@ -92,7 +93,6 @@
     padding: 20px;
     border: 1px solid #e9ecef;
     min-height: 200px;
-    cursor: pointer;
     width: auto;
     box-sizing: border-box;
     position: relative;
