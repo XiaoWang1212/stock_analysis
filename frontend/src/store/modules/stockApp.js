@@ -135,6 +135,9 @@ const actions = {
   resetPredictedPrice({ commit }) {
     commit("RESET_PREDICTED_PRICE");
   },
+  resetChartData({ commit }) {
+    commit("SET_CHART_DATA", null);
+  },
 };
 
 const getters = {

@@ -4,19 +4,14 @@
         <h1>Stock Application</h1>
       </header>
       <main>
-        <stock-analysis />
+        <router-view />
       </main>
     </div>
   </template>
   
   <script>
-  import StockAnalysis from '@/components/stock/StockAnalysis.vue';
-  
   export default {
     name: 'StockApp',
-    components: {
-      StockAnalysis
-    }
   };
   </script>
   

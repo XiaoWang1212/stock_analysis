@@ -2,6 +2,10 @@
   <div class="moving-avg-chart">
     <h2>{{ symbol }} Moving Averages Chart</h2>
     <div class="chart-header">
+      <button @click="goBack" class="back-btn">
+        <span class="material-icons">arrow_back</span>
+        返回
+      </button>
       <div class="add-to-group">
         <LoadingSpinner v-if="loading" />
         <ErrorMessage v-else-if="error" :message="error" @retry="fetchGroups" />
@@ -149,6 +153,28 @@
       await this.fetchGroups();
     },
     methods: {
+      goBack() {
+        // 返回時帶上股票代號
+        console.log("初始化股票代號:", this.$route.params.symbol);
+        this.$router.push({
+          name: "StockAnalysis",
+          params: { symbol: this.symbol },
+          query: { keepData: "true" },
+        });
+      },
+      // 監聽瀏覽器的後退按鈕
+      handleBrowserBack() {
+        window.addEventListener("popstate", () => {
+          // 在用戶點擊瀏覽器的後退按鈕時執行相同邏輯
+          const symbol = this.symbol;
+          if (symbol) {
+            this.$router.replace({
+              name: "StockAnalysis",
+              params: { symbol: symbol, keepData: "true" },
+            });
+          }
+        });
+      },
       selectAnalysis(analysis) {
         this.selectedAnalysis = analysis;
       },
@@ -232,6 +258,12 @@
         }
       },
     },
+    mounted() {
+      this.handleBrowserBack();
+    },
+    beforeUnmount() {
+      window.removeEventListener("popstate", this.handleBrowserBack);
+    },
   };
 </script>
 
@@ -246,6 +278,24 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+  }
+
+  .back-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 16px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+  }
+
+  .back-btn:hover {
+    background: #5a6268;
   }
 
   .add-to-group {

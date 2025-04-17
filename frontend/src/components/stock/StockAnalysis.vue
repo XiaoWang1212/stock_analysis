@@ -52,11 +52,13 @@
     </div>
 
     <!-- 股票圖表 -->
-    <stock-chart
-      v-if="chartData"
-      :symbol="stockSymbol"
-      :chartData="chartData"
-    />
+    <div class="stock-chart-container">
+      <stock-chart
+        v-if="chartData"
+        :symbol="stockSymbol"
+        :chartData="chartData"
+      />
+    </div>
   </div>
 </template>
 
@@ -72,9 +74,16 @@
       LoadingSpinner,
       ErrorMessage,
     },
+    props: {
+      symbol: {
+        type: String,
+        default: "",
+      },
+    },
     data() {
       return {
-        stockSymbol: "",
+        stockSymbol: this.symbol || "",
+        previousSymbol: "",
         stockList: [],
         showSuggestions: false,
         filteredStocks: [],
@@ -88,14 +97,54 @@
         predictedPrice: (state) => state.predictedPrice,
       }),
     },
-    async created() {
-      await this.fetchStockList();
+    watch: {
+      $route(to, from) {
+        if (from.name === "MovingAvgChart" && to.name === "StockAnalysis") {
+          const symbol = to.params.symbol;
+          const keepData = to.query.keepData === "true";
+
+          if (symbol) {
+            this.stockSymbol = symbol;
+            this.previousSymbol = symbol;
+
+            if (keepData && this.chartData) {
+              this.$nextTick(() => {
+                this.fixLayout();
+              });
+            } else {
+              this.handleSearch();
+            }
+          }
+        }
+      },
+      symbol(newSymbol) {
+        if (newSymbol && newSymbol !== this.stockSymbol) {
+          this.stockSymbol = newSymbol;
+          this.handleSearch();
+        }
+      },
+    },
+    created() {
+      this.fetchStockList();
+
+      // 如果有 symbol prop，初始化搜索
+      if (this.symbol) {
+        this.stockSymbol = this.symbol;
+        this.handleSearch();
+      }
+
+      // 檢查 query 參數
+      const keepData = this.$route.query.keepData === "true";
+      if (!keepData && this.chartData) {
+        this.resetChartData();
+      }
     },
     methods: {
       ...mapActions("stockApp", [
         "fetchStockChartData",
         "predictStockPrice",
         "resetPredictedPrice",
+        "resetChartData",
       ]),
       async fetchStockList() {
         try {
@@ -115,18 +164,29 @@
           return;
         }
         this.resetPredictedPrice();
+        this.previousSymbol = this.stockSymbol;
         await this.fetchStockChartData(this.stockSymbol);
       },
       handleInput() {
         if (this.stockSymbol) {
           const query = this.stockSymbol.toUpperCase();
-          this.filteredStocks = this.stockList
-            .filter((stock) => stock.startsWith(query))
-            // .slice(0, 8);
+          this.filteredStocks = this.stockList.filter((stock) =>
+            stock.startsWith(query)
+          );
           this.showSuggestions = this.filteredStocks.length > 0;
+
+          // 如果用戶修改了搜索內容（與上次搜索不同），則清除圖表
+          if (this.previousSymbol && this.stockSymbol !== this.previousSymbol) {
+            this.resetChartData();
+          }
         } else {
           this.showSuggestions = false;
           this.filteredStocks = [];
+
+          if (this.previousSymbol) {
+            this.resetChartData();
+            this.previousSymbol = ""; // 重置上一次搜索的符號
+          }
         }
       },
       selectStock(stock) {
@@ -137,28 +197,59 @@
       navigateToSMAChart(symbol) {
         this.$router.push({ name: "MovingAvgChart", params: { symbol } });
       },
+      fixLayout() {
+        const container = document.querySelector(".stock-analysis");
+        if (container) {
+          container.style.display = "none";
+          container.offsetHeight;
+          container.style.display = "";
+        }
+      },
+    },
+    activated() {
+      if (this.$route.query.keepData !== "true") {
+        this.resetChartData();
+      }
+    },
+    mounted() {
+      console.log("組件掛載，當前股票代號:", this.stockSymbol);
+    },
+    beforeUnmount() {
+      if (!this.$route.name || !["MovingAvgChart"].includes(this.$route.name)) {
+        this.resetChartData();
+      }
     },
   };
 </script>
 
 <style scoped>
   .stock-analysis {
+    display: flex;
+    flex-direction: column;
     padding: 30px;
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
+    box-sizing: border-box;
   }
 
   .search-section {
     display: flex;
     gap: 20px;
+    justify-content: center;
     align-items: center;
     margin-bottom: 30px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .search-box {
     display: flex;
     gap: 10px;
-    flex: 1;
+    flex: 0 1 auto;
+    width: 60%;
+    max-width: 400px;
+    position: relative;
   }
 
   .search-input {
@@ -168,6 +259,9 @@
     border: 2px solid #ddd;
     border-radius: 6px;
     transition: border-color 0.3s;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .search-input:focus {
@@ -280,6 +374,14 @@
     font-size: 18px;
     color: #28a745;
     font-weight: bold;
+  }
+
+  .stock-chart-container {
+    flex: 0 1 auto;
+    width: 60%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow-x: hidden;
   }
 
   h1 {
