@@ -1,11 +1,13 @@
 <template>
   <div class="moving-avg-chart">
-    <h2>{{ symbol }} Moving Averages Chart</h2>
     <div class="chart-header">
       <button @click="goBack" class="back-btn">
         <span class="material-icons">arrow_back</span>
         返回
       </button>
+      <h2>
+        {{ symbol }} {{ effectiveMarket === "TW" ? "(台股)" : "" }} 技術分析
+      </h2>
       <div class="add-to-group">
         <LoadingSpinner v-if="loading" />
         <ErrorMessage v-else-if="error" :message="error" @retry="fetchGroups" />
@@ -39,10 +41,10 @@
       <label> <input type="checkbox" v-model="showKAMA" /> KAMA </label>
     </div>
     <div class="chart-container">
-      <SMAChart v-if="showSMA" :symbol="symbol" />
-      <EMAChart v-if="showEMA" :symbol="symbol" />
-      <WMAChart v-if="showWMA" :symbol="symbol" />
-      <KAMAChart v-if="showKAMA" :symbol="symbol" />
+      <SMAChart v-if="showSMA" :symbol="symbol" :market="effectiveMarket" />
+      <EMAChart v-if="showEMA" :symbol="symbol" :market="effectiveMarket" />
+      <WMAChart v-if="showWMA" :symbol="symbol" :market="effectiveMarket" />
+      <KAMAChart v-if="showKAMA" :symbol="symbol" :market="effectiveMarket" />
       <div class="analysis-selector">
         <button
           @click="selectAnalysis('BIAS')"
@@ -82,18 +84,36 @@
         </button>
       </div>
       <div class="analysis-container">
-        <SMAAndBIASChart v-if="selectedAnalysis === 'BIAS'" :symbol="symbol" />
-        <RSIChart v-else-if="selectedAnalysis === 'RSI'" :symbol="symbol" />
-        <STOCHChart v-else-if="selectedAnalysis === 'STOCH'" :symbol="symbol" />
+        <SMAAndBIASChart
+          v-if="selectedAnalysis === 'BIAS'"
+          :symbol="symbol"
+          :market="effectiveMarket"
+        />
+        <RSIChart
+          v-else-if="selectedAnalysis === 'RSI'"
+          :symbol="symbol"
+          :market="effectiveMarket"
+        />
+        <STOCHChart
+          v-else-if="selectedAnalysis === 'STOCH'"
+          :symbol="symbol"
+          :market="effectiveMarket"
+        />
         <STOCHRSIChart
           v-else-if="selectedAnalysis === 'STOCHRSI'"
           :symbol="symbol"
+          :market="effectiveMarket"
         />
         <STOCHFChart
           v-else-if="selectedAnalysis === 'STOCHF'"
           :symbol="symbol"
+          :market="effectiveMarket"
         />
-        <MACDChart v-else-if="selectedAnalysis === 'MACD'" :symbol="symbol" />
+        <MACDChart
+          v-else-if="selectedAnalysis === 'MACD'"
+          :symbol="symbol"
+          :market="effectiveMarket"
+        />
       </div>
     </div>
   </div>
@@ -135,6 +155,10 @@
         type: String,
         required: true,
       },
+      market: {
+        type: String,
+        required: true,
+      },
     },
     data() {
       return {
@@ -147,7 +171,27 @@
         groups: [],
         loading: false,
         error: null,
+        fetchError: null,
       };
+    },
+    computed: {
+      // 確保市場參數有正確的值
+      effectiveMarket() {
+        if (this.market && (this.market === "US" || this.market === "TW")) {
+          return this.market;
+        }
+
+        const storedMarket = localStorage.getItem("selectedMarket");
+        if (storedMarket && (storedMarket === "US" || storedMarket === "TW")) {
+          return storedMarket;
+        }
+
+        return this.market || "US"; // 如果都沒有，默認使用美股
+      },
+
+      marketName() {
+        return this.effectiveMarket === "TW" ? "台股" : "美股";
+      },
     },
     async created() {
       await this.fetchGroups();
@@ -155,11 +199,13 @@
     methods: {
       goBack() {
         // 返回時帶上股票代號
-        console.log("初始化股票代號:", this.$route.params.symbol);
+        console.log(
+          `返回 StockAnalysis: 股票=${this.symbol}, 市場=${this.effectiveMarket}`
+        );
         this.$router.push({
           name: "StockAnalysis",
           params: { symbol: this.symbol },
-          query: { keepData: "true" },
+          query: { keepData: "true", market: this.effectiveMarket },
         });
       },
       // 監聽瀏覽器的後退按鈕
@@ -170,7 +216,8 @@
           if (symbol) {
             this.$router.replace({
               name: "StockAnalysis",
-              params: { symbol: symbol, keepData: "true" },
+              params: { symbol: this.symbol, market: this.effectiveMarket },
+              query: { keepData: "true" },
             });
           }
         });

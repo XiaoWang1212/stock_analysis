@@ -18,30 +18,83 @@
         type: String,
         required: true,
       },
+      market: {
+        type: String,
+        required: true,
+      },
     },
     data() {
       return {
         chartData: null,
+        isInitialLoad: true,
+        localError: null,
       };
     },
     computed: {
       ...mapState("stockApp", {
         loading: (state) => state.loading,
-        error: (state) => state.error,
+        storeError: (state) => state.error,
+        storeChartData: (state) => state.chartData,
       }),
+
+      error() {
+        return this.storeError || this.localError;
+      },
     },
     watch: {
-      symbol: "fetchChartData",
+      symbol() {
+        this.fetchChartData();
+      },
+      market() {
+        this.fetchChartData();
+      },
+      storeChartData: {
+        handler(newData) {
+          if (newData && !this.chartData) {
+            this.processChartData(newData);
+          }
+        },
+        deep: true,
+      },
     },
     methods: {
-      ...mapActions("stockApp", ["fetchSMAChartData"]),
+      ...mapActions("stockApp", ["fetchSMAChartData", "setCurrentMarket"]),
+
       async fetchChartData() {
-        this.chartData = null;
-        await this.fetchSMAChartData(this.symbol);
-        if (!this.error) {
-          this.chartData = this.$store.state.stockApp.chartData;
-          await nextTick(); // 確保 DOM 更新完成
-          this.renderChart();
+        try {
+          this.chartData = null;
+          this.localError = null;
+
+          this.setCurrentMarket(this.market);
+
+          await this.fetchSMAChartData(this.symbol);
+
+          if (!this.storeError && this.storeChartData) {
+            this.processChartData(this.storeChartData);
+          } else if (this.storeError) {
+            console.error(
+              `獲取 ${this.symbol} 的 EMA 數據出錯: ${this.storeError}`
+            );
+          }
+        } catch (error) {
+          console.error(`獲取 EMA 圖表數據時發生錯誤:`, error);
+          this.localError = `獲取圖表數據失敗: ${error.message}`;
+        }
+      },
+      processChartData(data) {
+        try {
+          if (!data || !data.dates) {
+            throw new Error("圖表數據不完整或格式不正確");
+          }
+
+          this.chartData = data;
+
+          this.$nextTick(() => {
+            this.renderChart();
+          });
+        } catch (error) {
+          console.error("處理圖表數據時出錯:", error);
+          this.localError = `處理圖表數據失敗: ${error.message}`;
         }
       },
       async renderChart() {
@@ -104,19 +157,45 @@
     mounted() {
       this.fetchChartData();
     },
+    beforeUnmount() {
+      // 清理圖表資源
+      if (this.$refs.chartContainer) {
+        Plotly.purge(this.$refs.chartContainer);
+      }
+    },
   };
 </script>
 
 <style scoped>
   .ema-chart {
-    margin-top: 20px;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+
+  h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 15px;
   }
 
   .loading {
     color: #007bff;
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
   }
 
   .error {
-    color: #ff0000;
+    color: #dc3545;
+    text-align: center;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #f8d7da;
+    border-radius: 4px;
   }
 </style>

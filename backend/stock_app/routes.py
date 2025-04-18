@@ -11,8 +11,9 @@ import pandas as pd # type: ignore
 from functools import wraps
 from talib import SMA, EMA, WMA, KAMA, RSI, STOCH, STOCHRSI, STOCHF, MACD # type: ignore
 from datetime import datetime, timedelta
-from . import stock_app_blueprint
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+from . import stock_app_blueprint
 
 # 更完整的 headers
 headers = {

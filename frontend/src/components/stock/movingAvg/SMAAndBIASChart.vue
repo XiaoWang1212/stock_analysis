@@ -18,6 +18,10 @@
         type: String,
         required: true,
       },
+      market: {
+        type: String,
+        required: true,
+      },
     },
     data() {
       return {
@@ -28,18 +32,29 @@
       ...mapState("stockApp", {
         loading: (state) => state.loading,
         error: (state) => state.error,
+        storeChartData: (state) => state.chartData,
       }),
     },
     watch: {
-      symbol: "fetchChartData",
+      symbol() {
+        this.fetchChartData();
+      },
+      market() {
+        this.fetchChartData();
+      },
     },
     methods: {
-      ...mapActions("stockApp", ["fetchBIASChartData"]),
+      ...mapActions("stockApp", ["fetchBIASChartData", "setCurrentMarket"]),
       async fetchChartData() {
         this.chartData = null;
+
+        this.setCurrentMarket(this.market);
+
         await this.fetchBIASChartData(this.symbol);
+
+        this.chartData = this.$store.state.stockApp.chartData;
+
         if (!this.error) {
-          this.chartData = this.$store.state.stockApp.chartData;
           await nextTick(); // 確保 DOM 更新完成
           this.renderChart();
         }
@@ -59,7 +74,6 @@
           bias_20,
           bias_diff,
         } = this.chartData;
-
         // 僅包括有數據的日期
         const validDates = dates.filter(
           (_, index) => bias_diff[index] !== null

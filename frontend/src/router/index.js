@@ -6,6 +6,7 @@ import MovingAvgChart from "@/components/stock/MovingAvgChart.vue";
 import StockHeatMap from "@/components/stock/StockHeatmap.vue";
 import LoginView from "@/views/LoginView.vue";
 import StockAnalysis from "@/components/stock/StockAnalysis.vue";
+import TwStockCategories from "@/components/stock/TwStockCategories.vue";
 
 const routes = [
   {
@@ -27,21 +28,30 @@ const routes = [
     component: StockApp,
     children: [
       {
-        path: ':symbol?', 
-        name: 'StockAnalysis',
+        path: ":symbol?",
+        name: "StockAnalysis",
         component: StockAnalysis,
         props: (route) => ({
           symbol: route.params.symbol,
-          keepData: route.query.keepData === 'true'
-        })
-      }
-    ]
+          market: route.params.market,
+          keepData: route.query.keepData === "true",
+        }),
+      },
+    ],
   },
   {
-    path: "/moving-avg/:symbol",
+    path: "/moving-avg/:symbol/:market?",
     name: "MovingAvgChart",
     component: MovingAvgChart,
-    props: true,
+    props: (route) => {
+      const market =
+        route.query.market || localStorage.getItem("selectedMarket") || "US";
+
+      return {
+        symbol: route.params.symbol,
+        market: market,
+      };
+    },
   },
   {
     path: "/stock-heatmap",
@@ -53,11 +63,16 @@ const routes = [
     name: "Home2",
     component: HomeView2,
   },
+  {
+    path: "/tw-stock-categories",
+    name: "TwStockCategories",
+    component: TwStockCategories,
+  },
   // 重定向
   {
-    path: '/',
-    redirect: '/stock-app'
-  }
+    path: "/",
+    redirect: "/stock-app",
+  },
 ];
 
 const router = createRouter({

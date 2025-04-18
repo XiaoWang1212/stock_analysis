@@ -2,12 +2,23 @@
   <div class="stock-analysis">
     <h1>股票分析</h1>
 
+    <!-- 市場選擇器 -->
+    <div class="market-container">
+      <market-selector
+        :model-value="market"
+        @update:model-value="updateMarket"
+        @market-change="handleMarketChange"
+      />
+    </div>
+
     <!-- 搜尋框 -->
     <div class="search-section">
       <div class="search-box">
         <input
           v-model="stockSymbol"
-          placeholder="輸入股票代號..."
+          :placeholder="
+            market === 'US' ? 'Enter US stock symbol...' : '輸入台股代號...'
+          "
           class="search-input"
           @input="handleInput"
           @keyup.enter="handleSearch"
@@ -43,7 +54,11 @@
 
     <!-- 預測區塊 -->
     <div v-if="chartData" class="predict-section">
-      <button @click="predictStockPrice(stockSymbol)" class="predict-button">
+      <button
+        v-if="market === 'US'"
+        @click="predictStockPrice(stockSymbol)"
+        class="predict-button"
+      >
         預測股價
       </button>
       <p v-if="predictedPrice !== null" class="predicted-price">
@@ -63,28 +78,33 @@
 </template>
 
 <script>
-  import { mapState, mapActions } from "vuex";
+  import { mapState, mapActions, mapGetters } from "vuex";
   import StockChart from "./StockChart.vue";
   import LoadingSpinner from "../common/LoadingSpinner.vue";
   import ErrorMessage from "../common/ErrorMessage.vue";
+  import MarketSelector from "../common/MarketSelector.vue";
 
   export default {
     components: {
       StockChart,
       LoadingSpinner,
       ErrorMessage,
+      MarketSelector,
     },
     props: {
       symbol: {
         type: String,
         default: "",
       },
+      keepData: {
+        type: Boolean,
+        default: false,
+      },
     },
     data() {
       return {
         stockSymbol: this.symbol || "",
         previousSymbol: "",
-        stockList: [],
         showSuggestions: false,
         filteredStocks: [],
       };
@@ -96,18 +116,50 @@
         chartData: (state) => state.chartData,
         predictedPrice: (state) => state.predictedPrice,
       }),
+      ...mapGetters("stockApp", ["stockList", "currentMarket"]),
+      market: {
+        get() {
+          return this.currentMarket;
+        },
+        set(value) {
+          this.setCurrentMarket(value);
+        },
+      },
+      filteredStocksComputed() {
+        // 如果沒有股票清單或不是數組，則返回空數組
+        if (!this.stockList || !Array.isArray(this.stockList)) {
+          console.warn(`股票清單無效: ${JSON.stringify(this.stockList)}`);
+          return [];
+        }
+
+        // 如果沒有輸入搜索詞，則返回空數組
+        if (!this.stockSymbol) {
+          return [];
+        }
+
+        const query = this.stockSymbol.toUpperCase();
+        const filtered = this.stockList.filter(
+          (stock) =>
+            stock &&
+            typeof stock === "string" &&
+            stock.toUpperCase().startsWith(query)
+        );
+        return filtered;
+      },
     },
     watch: {
       $route(to, from) {
         if (from.name === "MovingAvgChart" && to.name === "StockAnalysis") {
-          const symbol = to.params.symbol;
-          const keepData = to.query.keepData === "true";
+          if (to.params.symbol) {
+            this.stockSymbol = to.params.symbol;
+            this.previousSymbol = to.params.symbol;
 
-          if (symbol) {
-            this.stockSymbol = symbol;
-            this.previousSymbol = symbol;
+            // 設置正確的市場
+            if (to.params.market) {
+              this.market = to.params.market;
+            }
 
-            if (keepData && this.chartData) {
+            if (to.query.keepData && this.chartData) {
               this.$nextTick(() => {
                 this.fixLayout();
               });
@@ -124,8 +176,17 @@
         }
       },
     },
-    created() {
-      this.fetchStockList();
+    async created() {
+      try {
+        // 強制重新獲取股票清單
+        this.$store.state.stockApp.categoriesLoaded[this.market] = false;
+        await this.fetchStockCategories({ force : true});
+      } catch (error) {
+        console.error(
+          `載入${this.market === "US" ? "美股" : "台股"}列表失敗:`,
+          error
+        );
+      }
 
       // 如果有 symbol prop，初始化搜索
       if (this.symbol) {
@@ -134,28 +195,76 @@
       }
 
       // 檢查 query 參數
-      const keepData = this.$route.query.keepData === "true";
-      if (!keepData && this.chartData) {
-        this.resetChartData();
+      const urlParams = new URLSearchParams(window.location.search);
+      const symbolParam = urlParams.get("symbol");
+      const marketParam = urlParams.get("market");
+
+      if (marketParam) {
+        const normalizedMarket = marketParam.toUpperCase();
+        if (normalizedMarket !== this.market) {
+          this.market = normalizedMarket;
+
+          // 市場變更後重新獲取股票列表
+          try {
+            await this.fetchStockCategories({ force : true });
+          } catch (error) {
+            console.error(`載入${this.market}股票列表失敗:`, error);
+          }
+        }
+      }
+
+      let symbolToSearch = null;
+
+      if (this.symbol) {
+        symbolToSearch = this.symbol;
+      } else if (symbolParam) {
+        symbolToSearch = symbolParam;
+      }
+
+      if (symbolToSearch) {
+        this.stockSymbol = symbolToSearch;
+        await this.handleSearch();
       }
     },
     methods: {
       ...mapActions("stockApp", [
+        "fetchStockCategories",
         "fetchStockChartData",
         "predictStockPrice",
         "resetPredictedPrice",
         "resetChartData",
+        "setCurrentMarket",
       ]),
       async fetchStockList() {
         try {
-          const response = await fetch(
-            "http://127.0.0.1:5000/stock_app/api/categories"
-          );
-          const data = await response.json();
-          this.stockList = data.map((item) => item.ticker).filter(Boolean);
+          await this.fetchStockCategories({force : true});
         } catch (error) {
           console.error("Error fetching stock list:", error);
-          this.stockList = [];
+        }
+      },
+      async handleMarketChange(market) {
+
+        // 先重置相關狀態
+        this.resetChartData();
+        this.stockSymbol = "";
+        this.previousSymbol = "";
+        this.showSuggestions = false;
+        this.filteredStocks = [];
+
+        // 更新市場設置
+        this.updateMarket(market);
+
+        // 強制重新獲取股票列表，不使用緩存
+        try {
+          // 先將 categoriesLoaded 重置為 false，這樣可以強制重新獲取
+          if (this.$store.state.stockApp.categoriesLoaded) {
+            // 直接修改 store 中的 categoriesLoaded 狀態
+            this.$store.state.stockApp.categoriesLoaded[market] = false;
+          }
+
+          await this.fetchStockCategories({ force: true });
+        } catch (error) {
+          console.error(`載入 ${market} 股票列表失敗:`, error);
         }
       },
       async handleSearch() {
@@ -165,14 +274,18 @@
         }
         this.resetPredictedPrice();
         this.previousSymbol = this.stockSymbol;
-        await this.fetchStockChartData(this.stockSymbol);
+
+        try {
+          const cleanSymbol = this.stockSymbol.split(/\s+/)[0].trim();
+
+          await this.fetchStockChartData(cleanSymbol);
+        } catch (error) {
+          console.error(`Error fetching ${this.market} stock data:`, error);
+        }
       },
       handleInput() {
         if (this.stockSymbol) {
-          const query = this.stockSymbol.toUpperCase();
-          this.filteredStocks = this.stockList.filter((stock) =>
-            stock.startsWith(query)
-          );
+          this.filteredStocks = this.filteredStocksComputed;
           this.showSuggestions = this.filteredStocks.length > 0;
 
           // 如果用戶修改了搜索內容（與上次搜索不同），則清除圖表
@@ -190,12 +303,26 @@
         }
       },
       selectStock(stock) {
-        this.stockSymbol = stock;
+        if (this.market === "TW" && typeof stock === "string") {
+          this.stockSymbol = stock.split(" ")[0];
+        } else {
+          this.stockSymbol = stock;
+        }
+
         this.showSuggestions = false;
         this.handleSearch();
       },
       navigateToSMAChart(symbol) {
-        this.$router.push({ name: "MovingAvgChart", params: { symbol } });
+        localStorage.setItem('selectedMarket', this.market);
+
+        this.$router.push({
+          name: "MovingAvgChart",
+          params: { symbol },
+          query: { market: this.market },
+        });
+      },
+      updateMarket(market) {
+        this.market = market;
       },
       fixLayout() {
         const container = document.querySelector(".stock-analysis");
@@ -207,7 +334,7 @@
       },
     },
     activated() {
-      if (this.$route.query.keepData !== "true") {
+      if (!this.keepData) {
         this.resetChartData();
       }
     },
@@ -231,6 +358,12 @@
     width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
+  }
+
+  .market-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
   }
 
   .search-section {

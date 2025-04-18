@@ -7,6 +7,7 @@
             <span class="material-icons">account_circle</span>
           </router-link>
           <router-link to="/stock-heatmap">Stock Maps</router-link>
+          <router-link to="/tw-stock-categories"> 台股分類 </router-link>
           <router-link to="/stock-app">Stock Analysis</router-link>
         </div>
       </nav>
