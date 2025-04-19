@@ -96,22 +96,32 @@
         await nextTick(); // 確保 DOM 更新完成
         const { dates, stochf_fastk, stochf_fastd } = this.chartData;
 
+        const indices = Array.from({ length: dates.length }, (_, i) => i);
+
         const traceK = {
-          x: dates,
+          x: indices,
           y: stochf_fastk,
           type: "scatter",
           mode: "lines",
           name: "K值",
           line: { color: "purple" },
+          customdata: dates,
+          hovertemplate:
+            "<b>%{customdata}</b><br>" +
+            "<b>K值:</b> %{y:.4f}<br>" +
+            "<extra></extra>",
         };
 
         const traceD = {
-          x: dates,
+          x: indices,
           y: stochf_fastd,
           type: "scatter",
           mode: "lines",
           name: "D值",
           line: { color: "gray" },
+          hovertemplate:
+            "<br><b>MACD:</b> %{y:.4f}<br>"+
+            "<extra></extra>",
         };
 
         let chartTitle = `${this.symbol}`;
@@ -124,6 +134,7 @@
           title: chartTitle,
           xaxis: { title: "Date" },
           showlegend: true,
+          hovermode: "x unified",
         };
 
         Plotly.newPlot(this.$refs.chartContainer, [traceK, traceD], layout);

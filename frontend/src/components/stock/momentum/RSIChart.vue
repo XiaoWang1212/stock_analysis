@@ -93,22 +93,32 @@
         await nextTick(); // 確保 DOM 更新完成
         const { dates, rsi_6, rsi_24 } = this.chartData;
 
+        const indices = Array.from({ length: dates.length }, (_, i) => i);
+
         const traceRSI6 = {
-          x: dates,
+          x: indices,
           y: rsi_6,
           type: "scatter",
           mode: "lines",
           name: "RSI 6",
           line: { color: "black" },
+          customdata: dates,
+          hovertemplate:
+            "<b>%{customdata}</b><br>" +
+            "<b>RSI 6:</b> %{y:.4f}<br>" +
+            "<extra></extra>",
         };
 
         const traceRSI24 = {
-          x: dates,
+          x: indices,
           y: rsi_24,
           type: "scatter",
           mode: "lines",
           name: "RSI 24",
           line: { color: "blue" },
+          hovertemplate:
+            "<br><b>RSI 24:</b> %{y:.4f}<br>"+
+            "<extra></extra>",
         };
 
         let chartTitle = `${this.symbol}`;
@@ -122,6 +132,7 @@
           xaxis: { title: "Date" },
           yaxis: { title: "RSI" },
           showlegend: true,
+          hovermode: "x unified",
         };
 
         Plotly.newPlot(

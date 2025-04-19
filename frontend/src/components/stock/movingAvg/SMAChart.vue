@@ -67,7 +67,6 @@
         try {
           this.chartData = null;
 
-
           // 如果是台股且沒有名稱映射，先獲取名稱映射
           if (
             this.market === "TW" &&
@@ -101,8 +100,10 @@
           sma_60,
         } = this.chartData;
 
+        const indices = Array.from({ length: dates.length }, (_, i) => i);
+
         const traceCandlestick = {
-          x: dates,
+          x: indices,
           close: close_prices,
           high: high_prices,
           low: low_prices,
@@ -111,10 +112,11 @@
           name: "Candlestick",
           increasing: { line: { color: "#FF0000" }, fillcolor: "#FFCCCC" },
           decreasing: { line: { color: "#008000" }, fillcolor: "#CCFFCC" },
+          text: dates,
         };
 
         const traceSMA5 = {
-          x: dates,
+          x: indices,
           y: sma_5,
           type: "scatter",
           mode: "lines",
@@ -123,7 +125,7 @@
         };
 
         const traceSMA20 = {
-          x: dates,
+          x: indices,
           y: sma_20,
           type: "scatter",
           mode: "lines",
@@ -132,7 +134,7 @@
         };
 
         const traceSMA60 = {
-          x: dates,
+          x: indices,
           y: sma_60,
           type: "scatter",
           mode: "lines",
@@ -152,6 +154,11 @@
           yaxis: { title: "Price" },
           showlegend: true,
           hovermode: "x unified", // 提供更友好的 hover 效果
+          hoverlabel: {
+            bgcolor: "#FFF",
+            bordercolor: "#999",
+            font: { size: 12 },
+          },
         };
 
         Plotly.newPlot(

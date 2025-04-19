@@ -72,7 +72,10 @@
       market: "fetchChartData",
     },
     methods: {
-      ...mapActions("stockApp", ["fetchSMAChartData", "generateTwStockNameMap"]),
+      ...mapActions("stockApp", [
+        "fetchSMAChartData",
+        "generateTwStockNameMap",
+      ]),
 
       async fetchChartData() {
         this.chartData = null;
@@ -86,7 +89,7 @@
         }
 
         await this.fetchSMAChartData(this.symbol, this.market);
-        
+
         if (!this.error) {
           this.chartData = this.$store.state.stockApp.chartData;
           await nextTick(); // 確保 DOM 更新完成
@@ -97,22 +100,88 @@
         await nextTick(); // 確保 DOM 更新完成
         const { dates, stochrsi_fastk, stochrsi_fastd } = this.chartData;
 
+        const indices = Array.from({ length: dates.length }, (_, i) => i);
+
         const traceK = {
-          x: dates,
+          x: indices,
           y: stochrsi_fastk,
           type: "scatter",
           mode: "lines",
           name: "K值",
           line: { color: "green" },
+          customdata: dates,
+          hovertemplate:
+            "<b>%{customdata}</b><br>" +
+            "<b>K值:</b> %{y:.4f}<br>" +
+            "<extra></extra>",
         };
 
         const traceD = {
-          x: dates,
+          x: indices,
           y: stochrsi_fastd,
           type: "scatter",
           mode: "lines",
           name: "D值",
           line: { color: "red" },
+          hovertemplate: "<br><b>D值:</b> %{y:.4f}<br>" + "<extra></extra>",
+        };
+
+        const overboughtArea = {
+          x: [indices[0], indices[indices.length - 1]],
+          y: [80, 80],
+          mode: "lines",
+          line: {
+            color: "red",
+            width: 1,
+            dash: "dash",
+          },
+          name: "超買區",
+          hoverinfo: "none",
+        };
+
+        const oversoldArea = {
+          x: [indices[0], indices[indices.length - 1]],
+          y: [20, 20],
+          mode: "lines",
+          line: {
+            color: "blue",
+            width: 1,
+            dash: "dash",
+          },
+          name: "超賣區",
+          hoverinfo: "none",
+        };
+
+        const overboughtRegion = {
+          x: [
+            indices[0],
+            indices[indices.length - 1],
+            indices[indices.length - 1],
+            indices[0],
+          ],
+          y: [80, 80, 100, 100],
+          fill: "toself",
+          fillcolor: "rgba(255, 200, 200, 0.2)",
+          line: { width: 0 },
+          name: "超買區域",
+          hoverinfo: "none",
+          showlegend: false,
+        };
+
+        const oversoldRegion = {
+          x: [
+            indices[0],
+            indices[indices.length - 1],
+            indices[indices.length - 1],
+            indices[0],
+          ],
+          y: [0, 0, 20, 20],
+          fill: "toself",
+          fillcolor: "rgba(200, 200, 255, 0.2)",
+          line: { width: 0 },
+          name: "超賣區域",
+          hoverinfo: "none",
+          showlegend: false,
         };
 
         let chartTitle = `${this.symbol}`;
@@ -120,18 +189,61 @@
           chartTitle += ` (${this.displayName})`;
         }
         chartTitle += ` STOCHRSI Chart`;
-        
+
         const layout = {
           title: chartTitle,
           xaxis: { title: "Date" },
           showlegend: true,
+          hovermode: "x unified",
+          annotations: [
+            {
+              x: indices[0],
+              y: 80,
+              xref: "x",
+              yref: "y",
+              text: "超買區",
+              showarrow: false,
+              font: {
+                color: "red",
+                size: 10,
+              },
+              xanchor: "left",
+            },
+            {
+              x: indices[0],
+              y: 20,
+              xref: "x",
+              yref: "y",
+              text: "超賣區",
+              showarrow: false,
+              font: {
+                color: "blue",
+                size: 10,
+              },
+              xanchor: "left",
+            },
+          ],
         };
 
-        Plotly.newPlot(this.$refs.chartContainer, [traceK, traceD], layout);
+        Plotly.newPlot(
+          this.$refs.chartContainer,
+          [
+            traceK,
+            traceD,
+            oversoldRegion, 
+            overboughtRegion,
+            oversoldArea,
+            overboughtArea,
+          ],
+          layout
+        );
       },
     },
     async mounted() {
-      if (this.market === "TW" && (!this.twStockNameMap || Object.keys(this.twStockNameMap).length === 0)) {
+      if (
+        this.market === "TW" &&
+        (!this.twStockNameMap || Object.keys(this.twStockNameMap).length === 0)
+      ) {
         try {
           await this.generateTwStockNameMap();
         } catch (error) {
@@ -141,11 +253,11 @@
 
       this.fetchChartData();
     },
-    beforeUnmount(){
+    beforeUnmount() {
       if (this.$refs.chartContainer) {
         Plotly.purge(this.$refs.chartContainer);
       }
-    }
+    },
   };
 </script>
 

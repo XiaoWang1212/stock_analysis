@@ -97,9 +97,11 @@
           ema_5,
           ema_20,
         } = this.chartData;
+        
+        const indices = Array.from({ length: dates.length }, (_, i) => i);
 
         const traceCandlestick = {
-          x: dates,
+          x: indices,
           close: close_prices,
           high: high_prices,
           low: low_prices,
@@ -111,7 +113,7 @@
         };
 
         const traceEMA5 = {
-          x: dates,
+          x: indices,
           y: ema_5,
           type: "scatter",
           mode: "lines",
@@ -120,7 +122,7 @@
         };
 
         const traceEMA20 = {
-          x: dates,
+          x: indices,
           y: ema_20,
           type: "scatter",
           mode: "lines",
@@ -140,6 +142,11 @@
           yaxis: { title: "Price" },
           showlegend: true,
           hovermode: "x unified", // 提供更友好的 hover 效果
+          hoverlabel: {
+            bgcolor: "#FFF",
+            bordercolor: "#999",
+            font: { size: 12 },
+          },
         };
 
         Plotly.newPlot(

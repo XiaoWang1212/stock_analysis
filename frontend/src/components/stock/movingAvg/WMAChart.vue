@@ -97,8 +97,10 @@
           wma_20,
         } = this.chartData;
 
+        const indices = Array.from({ length: dates.length }, (_, i) => i);
+
         const traceCandlestick = {
-          x: dates,
+          x: indices,
           close: close_prices,
           high: high_prices,
           low: low_prices,
@@ -110,7 +112,7 @@
         };
 
         const traceWMA5 = {
-          x: dates,
+          x: indices,
           y: wma_5,
           type: "scatter",
           mode: "lines",
@@ -119,7 +121,7 @@
         };
 
         const traceWMA20 = {
-          x: dates,
+          x: indices,
           y: wma_20,
           type: "scatter",
           mode: "lines",
@@ -139,6 +141,11 @@
           yaxis: { title: "Price" },
           showlegend: true,
           hovermode: "x unified",
+          hoverlabel: {
+            bgcolor: "#FFF",
+            bordercolor: "#999",
+            font: { size: 12 },
+          },
         };
 
         Plotly.newPlot(
