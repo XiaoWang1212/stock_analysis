@@ -89,13 +89,7 @@ const actions = {
     commit("SET_ERROR", null);
 
     try {
-      let data;
-
-      if (market === "US") {
-        data = await apiService.stock.getSMAData(symbol);
-      } else {
-        data = await apiService.stock.getTwMaData(symbol);
-      }
+      const data = await apiService.stock.getSMAData(symbol, market);
 
       if (!data || !data.dates) {
         throw new Error(`獲取 ${symbol} 的均線數據失敗`);
@@ -118,13 +112,7 @@ const actions = {
     commit("SET_ERROR", null);
 
     try {
-      let data;
-
-      if (market === "US") {
-        data = await apiService.stock.getStockData(symbol);
-      } else {
-        data = await apiService.stock.getTwStockData(symbol);
-      }
+      const data = await apiService.stock.getStockData(symbol, market);
 
       commit("SET_CHART_DATA", data);
       return data;
@@ -147,13 +135,7 @@ const actions = {
     commit("SET_ERROR", null);
 
     try {
-      let data;
-
-      if (market === "US") {
-        data = await apiService.stock.getSMAData(symbol);
-      } else {
-        data = await apiService.stock.getTwMaData(symbol);
-      }
+      const data = await apiService.stock.getSMAData(symbol, market);
 
       // 清理和驗證數據
       const cleanedData = {
@@ -183,13 +165,7 @@ const actions = {
     commit("SET_ERROR", null);
 
     try {
-      let data;
-
-      if (market === "US") {
-        data = await apiService.stock.getBIASData(symbol);
-      } else {
-        data = await apiService.stock.getTwBiasData(symbol);
-      }
+      const data = await apiService.stock.getBIASData(symbol, market);
 
       if (!data || !data.dates || !data.bias_10) {
         throw new Error(`獲取 ${symbol} 的乖離率數據格式不完整`);
@@ -225,7 +201,16 @@ const actions = {
       commit("SET_LOADING", false);
     }
   },
-  async generateTwStockNameMap({ state, commit }) {
+  async generateTwStockNameMap({ state, commit, dispatch }) {
+    // 如果已經有名稱映射且不為空，直接返回
+    if (state.twStockNameMap && Object.keys(state.twStockNameMap).length > 0) {
+      return;
+    }
+
+    if (!state.stockCategories || state.stockCategories.length === 0) {
+      await dispatch("fetchStockCategories", { market: "TW" });
+    }
+
     const nameMap = {};
 
     if (state.stockData && Array.isArray(state.stockData)) {

@@ -1,6 +1,5 @@
 <template>
   <div class="sma-chart">
-    <h3>{{ symbol }} SMA Chart</h3>
     <p v-if="loading" class="loading">Loading chart data...</p>
     <p v-if="error" class="error">{{ error }}</p>
     <div v-if="chartData" ref="chartContainer"></div>
@@ -22,79 +21,71 @@
         type: String,
         required: true,
       },
+      stockName: {
+        type: String,
+        default: "",
+      },
     },
     data() {
       return {
         chartData: null,
-        isInitialLoad: true,
-        localError: null,
       };
     },
     computed: {
       ...mapState("stockApp", {
         loading: (state) => state.loading,
-        storeError: (state) => state.error,
-        storeChartData: (state) => state.chartData,
+        error: (state) => state.error,
+        twStockNameMap: (state) => state.twStockNameMap,
       }),
 
-      error() {
-        return this.storeError || this.localError;
-      }
+      displayName() {
+        // 如果已經從父組件接收了名稱，則使用它
+        if (this.stockName) {
+          return this.stockName;
+        }
+
+        // 如果是台股
+        if (this.market === "TW" && this.twStockNameMap) {
+          return this.twStockNameMap[this.symbol] || "";
+        }
+
+        return ""; // 預設空字串
+      },
     },
     watch: {
-      symbol() {
-        this.fetchChartData();
-      },
-      market() {
-        this.fetchChartData();
-      },
-      storeChartData: {
-        handler(newData) {
-          if (newData && !this.chartData) {
-            this.processChartData(newData);
-          }
-        },
-        deep: true,
-      },
+      symbol: "fetchChartData",
+      market: "fetchChartData",
     },
     methods: {
-      ...mapActions("stockApp", ["fetchSMAChartData", "setCurrentMarket"]),
+      ...mapActions("stockApp", [
+        "fetchSMAChartData",
+        "generateTwStockNameMap",
+        "setCurrentMarket",
+      ]),
 
       async fetchChartData() {
         try {
           this.chartData = null;
-          this.localError = null;
 
-          this.setCurrentMarket(this.market);
 
-          await this.fetchSMAChartData(this.symbol);
+          // 如果是台股且沒有名稱映射，先獲取名稱映射
+          if (
+            this.market === "TW" &&
+            (!this.twStockNameMap ||
+              Object.keys(this.twStockNameMap).length === 0)
+          ) {
+            await this.generateTwStockNameMap();
+          }
 
-          if (!this.storeError && this.storeChartData) {
-            this.processChartData(this.storeChartData);
-          } else if (this.storeError) {
-            console.error(
-              `獲取 ${this.symbol} 的 EMA 數據出錯: ${this.storeError}`
-            );
+          await this.fetchSMAChartData(this.symbol, this.market);
+
+          if (!this.error) {
+            this.chartData = this.$store.state.stockApp.chartData;
+            await nextTick();
+            this.renderChart();
           }
         } catch (error) {
           console.error(`獲取 EMA 圖表數據時發生錯誤:`, error);
-          this.localError = `獲取圖表數據失敗: ${error.message}`;
-        }
-      },
-      processChartData(data) {
-        try {
-          if (!data || !data.dates) {
-            throw new Error("圖表數據不完整或格式不正確");
-          }
-
-          this.chartData = data;
-
-          this.$nextTick(() => {
-            this.renderChart();
-          });
-        } catch (error) {
-          console.error("處理圖表數據時出錯:", error);
-          this.localError = `處理圖表數據失敗: ${error.message}`;
         }
       },
       async renderChart() {
@@ -149,8 +140,14 @@
           line: { color: "aqua" },
         };
 
+        let chartTitle = `${this.symbol}`;
+        if (this.market === "TW" && this.displayName) {
+          chartTitle += ` (${this.displayName})`;
+        }
+        chartTitle += ` SMA Chart(簡單)`;
+
         const layout = {
-          title: `${this.symbol} SMA Chart(簡單)`,
+          title: chartTitle,
           xaxis: { title: "Date" },
           yaxis: { title: "Price" },
           showlegend: true,
@@ -164,8 +161,22 @@
         );
       },
     },
-    mounted() {
+    async mounted() {
+      if (
+        this.market === "TW" &&
+        (!this.twStockNameMap || Object.keys(this.twStockNameMap).length === 0)
+      ) {
+        try {
+          await this.generateTwStockNameMap();
+        } catch (error) {
+          console.error("獲取台股名稱映射時出錯:", error);
+        }
+      }
+
       this.fetchChartData();
+    },
+    created() {
+      this.setCurrentMarket(this.market);
     },
     beforeUnmount() {
       // 清理圖表資源

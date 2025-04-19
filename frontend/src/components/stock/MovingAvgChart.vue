@@ -5,9 +5,6 @@
         <span class="material-icons">arrow_back</span>
         返回
       </button>
-      <h2>
-        {{ symbol }} {{ effectiveMarket === "TW" ? "(台股)" : "" }} 技術分析
-      </h2>
       <div class="add-to-group">
         <LoadingSpinner v-if="loading" />
         <ErrorMessage v-else-if="error" :message="error" @retry="fetchGroups" />
@@ -33,6 +30,9 @@
         </template>
       </div>
     </div>
+    <h2>
+      {{ symbol }} {{ effectiveMarket === "TW" ? `(${getStockName() || '台股'})` : "" }} 技術分析
+    </h2>
 
     <div class="chart-selector">
       <label> <input type="checkbox" v-model="showSMA" /> SMA </label>
@@ -132,6 +132,7 @@
   import MACDChart from "./momentum/MACDChart.vue";
 
   import { isTokenExpired } from "@/utils/auth";
+  import { mapState } from "vuex";
   import LoadingSpinner from "../common/LoadingSpinner.vue";
   import ErrorMessage from "../common/ErrorMessage.vue";
 
@@ -175,7 +176,10 @@
       };
     },
     computed: {
-      // 確保市場參數有正確的值
+      ...mapState("stockApp", {
+        twStockNameMap: (state) => state.twStockNameMap, 
+      }),
+      
       effectiveMarket() {
         if (this.market && (this.market === "US" || this.market === "TW")) {
           return this.market;
@@ -195,6 +199,10 @@
     },
     async created() {
       await this.fetchGroups();
+
+      if (this.effectiveMarket === "TW") {
+        await this.loadTwStockNameMap();
+      }
     },
     methods: {
       goBack() {
@@ -302,6 +310,23 @@
         } catch (error) {
           console.error("Error adding stock to group:", error);
           alert("加入群組時發生錯誤");
+        }
+      },
+      getStockName() {
+        if (this.effectiveMarket === "TW" && this.twStockNameMap) {
+          // 返回該股票的中文名稱
+          return this.twStockNameMap[this.symbol] || "";
+        }
+        return ""; // 如果是美股或沒有找到名稱，返回空字符串
+      },
+      async loadTwStockNameMap() {
+        try {
+          // 檢查是否已經有台股名稱映射
+          if (!this.twStockNameMap || Object.keys(this.twStockNameMap).length === 0) {
+            await this.$store.dispatch("stockApp/generateTwStockNameMap");
+          }
+        } catch (error) {
+          console.error("載入台股名稱映射時出錯:", error);
         }
       },
     },

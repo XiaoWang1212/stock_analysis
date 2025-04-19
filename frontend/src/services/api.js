@@ -69,10 +69,5 @@ export const apiService = {
         throw error;
       }
     },
-    getTwStockData: (symbol) =>
-      apiService.get(`/stock_app/api/tw_stock_data/${symbol}`),
-    getTwMaData: (symbol) => apiService.get(`/stock_app/api/tw_ma/${symbol}`),
-    getTwBiasData: (symbol) =>
-      apiService.get(`/stock_app/api/tw_bias/${symbol}`),
   },
 };

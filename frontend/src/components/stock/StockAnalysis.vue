@@ -224,7 +224,18 @@
     },
     async created() {
       try {
-        // 強制重新獲取股票清單
+        const urlParams = new URLSearchParams(window.location.search);
+        const marketParam = urlParams.get("market");
+
+        if (marketParam) {
+          const normalizedMarket = marketParam.toUpperCase();
+          if (normalizedMarket === "TW" || normalizedMarket === "US") {
+            this.market = normalizedMarket;
+
+            this.setCurrentMarket(normalizedMarket);
+          }
+        }
+
         this.$store.state.stockApp.categoriesLoaded[this.market] = false;
         await this.fetchStockCategories({ force: true });
       } catch (error) {

@@ -1,6 +1,5 @@
 <template>
   <div class="sma-bias-chart">
-    <h3>{{ symbol }} SMA and BIAS Analysis</h3>
     <p v-if="loading" class="loading">Loading chart data...</p>
     <p v-if="error" class="error">{{ error }}</p>
     <div v-if="chartData" ref="chartContainer"></div>
@@ -22,6 +21,10 @@
         type: String,
         required: true,
       },
+      stockName: {
+        type: String,
+        default: "",
+      },
     },
     data() {
       return {
@@ -32,25 +35,46 @@
       ...mapState("stockApp", {
         loading: (state) => state.loading,
         error: (state) => state.error,
-        storeChartData: (state) => state.chartData,
+        twStockNameMap: (state) => state.twStockNameMap,
       }),
+
+      displayName() {
+        // 如果已經從父組件接收了名稱，則使用它
+        if (this.stockName) {
+          return this.stockName;
+        }
+
+        // 如果是台股
+        if (this.market === "TW" && this.twStockNameMap) {
+          return this.twStockNameMap[this.symbol] || "";
+        }
+
+        return ""; // 預設空字串
+      },
     },
     watch: {
-      symbol() {
-        this.fetchChartData();
-      },
-      market() {
-        this.fetchChartData();
-      },
+      symbol: "fetchChartData",
+      market: "fetchChartData",
     },
     methods: {
-      ...mapActions("stockApp", ["fetchBIASChartData", "setCurrentMarket"]),
+      ...mapActions("stockApp", [
+        "fetchBIASChartData",
+        "generateTwStockNameMap",
+        "setCurrentMarket",
+      ]),
+
       async fetchChartData() {
         this.chartData = null;
 
-        this.setCurrentMarket(this.market);
+        if (
+          this.market === "TW" &&
+          (!this.twStockNameMap ||
+            Object.keys(this.twStockNameMap).length === 0)
+        ) {
+          await this.generateTwStockNameMap();
+        }
 
-        await this.fetchBIASChartData(this.symbol);
+        await this.fetchBIASChartData(this.symbol, this.market);
 
         this.chartData = this.$store.state.stockApp.chartData;
 
@@ -160,8 +184,14 @@
           },
         };
 
+        let chartTitle = `${this.symbol}`;
+        if (this.market === "TW" && this.displayName) {
+          chartTitle += ` (${this.displayName})`;
+        }
+        chartTitle += ` SMA and BIAS Chart`;
+
         const layout = {
-          title: `${this.symbol} SMA and BIAS Chart`,
+          title: chartTitle,
           grid: { rows: 2, columns: 1, pattern: "independent" },
           xaxis: { title: "Date", rangeslider: { visible: false } },
           yaxis: { title: "Price" },
@@ -185,8 +215,19 @@
         );
       },
     },
-    mounted() {
+    async mounted() {
+      if (this.market === "TW" && (!this.twStockNameMap || Object.keys(this.twStockNameMap).length === 0)) {
+        try {
+          await this.generateTwStockNameMap();
+        } catch (error) {
+          console.error("獲取台股名稱映射時出錯:", error);
+        }
+      }
+
       this.fetchChartData();
+    },
+    created() {
+      this.setCurrentMarket(this.market);
     },
     beforeUnmount() {
       if (this.$refs.chartContainer) {
