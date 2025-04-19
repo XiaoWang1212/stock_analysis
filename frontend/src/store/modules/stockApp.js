@@ -11,6 +11,7 @@ const state = {
     US: false,
     TW: false,
   },
+  twStockNameMap: {},
 };
 
 const mutations = {
@@ -36,6 +37,9 @@ const mutations = {
   SET_CURRENT_MARKET(state, market) {
     state.currentMarket = market;
   },
+  SET_TW_STOCK_NAME_MAP(state, map) {
+    state.twStockNameMap = map;
+  },
 };
 
 const actions = {
@@ -46,7 +50,11 @@ const actions = {
   async fetchStockCategories({ commit, state }, { force = false } = {}) {
     const market = state.currentMarket;
 
-    if (!force && state.categoriesLoaded[market] && state.stockData.length > 0) {
+    if (
+      !force &&
+      state.categoriesLoaded[market] &&
+      state.stockData.length > 0
+    ) {
       return state.stockData;
     }
 
@@ -216,6 +224,30 @@ const actions = {
     } finally {
       commit("SET_LOADING", false);
     }
+  },
+  async generateTwStockNameMap({ state, commit }) {
+    const nameMap = {};
+
+    if (state.stockData && Array.isArray(state.stockData)) {
+      try {
+        state.stockData.forEach((category) => {
+          if (category.stocks && Array.isArray(category.stocks)) {
+            category.stocks.forEach((stock) => {
+              if (stock.ticker && stock.name) {
+                nameMap[stock.ticker] = stock.name;
+              }
+            });
+          }
+        });
+      } catch (error) {
+        console.error("處理台股資料時發生錯誤:", error);
+      }
+    } else {
+      console.warn("無可用的台股資料");
+    }
+
+    commit("SET_TW_STOCK_NAME_MAP", nameMap);
+    return nameMap;
   },
   resetPredictedPrice({ commit }) {
     commit("RESET_PREDICTED_PRICE");

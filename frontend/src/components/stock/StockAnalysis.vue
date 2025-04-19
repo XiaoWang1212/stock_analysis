@@ -3,7 +3,7 @@
     <h1>股票分析</h1>
 
     <!-- 市場選擇器 -->
-    <div class="market-container">
+    <div class="market-container" v-if="showMarketSelector">
       <market-selector
         :model-value="market"
         @update:model-value="updateMarket"
@@ -17,7 +17,9 @@
         <input
           v-model="stockSymbol"
           :placeholder="
-            market === 'US' ? 'Enter US stock symbol...' : '輸入台股代號...'
+            market === 'US'
+              ? 'Enter US stock symbol...'
+              : '輸入台股代號或中文名稱...'
           "
           class="search-input"
           @input="handleInput"
@@ -31,9 +33,15 @@
             v-for="stock in filteredStocks"
             :key="stock"
             @click="selectStock(stock)"
-            class="suggestion-item"
+            :class="['suggestion-item', { 'us-stock': market === 'US' }]"
           >
-            {{ stock }}
+            <template v-if="market === 'TW' && stock.includes(' ')">
+              <span class="stock-name">{{ getStockName(stock) }}</span>
+              <span class="stock-code">{{ getStockCode(stock) }}</span>
+            </template>
+            <template v-else>
+              <span class="us-symbol">{{ stock }}</span>
+            </template>
           </div>
         </div>
         <button @click="handleSearch" class="search-button">搜尋</button>
@@ -107,6 +115,8 @@
         previousSymbol: "",
         showSuggestions: false,
         filteredStocks: [],
+        switchingMarket: false,
+        showMarketSelector: false, // 測試用
       };
     },
     computed: {
@@ -137,14 +147,50 @@
           return [];
         }
 
-        const query = this.stockSymbol.toUpperCase();
-        const filtered = this.stockList.filter(
-          (stock) =>
-            stock &&
-            typeof stock === "string" &&
-            stock.toUpperCase().startsWith(query)
-        );
-        return filtered;
+        const query = this.stockSymbol.trim().toLowerCase();
+        let filteredStocks = [];
+
+        if (this.market === "TW") {
+          const twStockNameMap =
+            this.$store.state.stockApp.twStockNameMap || {};
+
+          // 1. 先按照代號搜尋
+          const codeMatches = this.stockList.filter(
+            (stock) => stock && stock.toLowerCase().startsWith(query)
+          );
+
+          // 為匹配的代號添加中文名稱
+          filteredStocks = codeMatches.map((code) => {
+            const name = twStockNameMap[code];
+            return name ? `${code} ${name}` : code;
+          });
+
+          // 2. 如果輸入包含中文，搜尋股票名稱
+          if (/[\u4e00-\u9fa5]/.test(query)) {
+            Object.entries(twStockNameMap).forEach(([code, name]) => {
+              if (name && name.toLowerCase().includes(query)) {
+                const formattedStock = `${code} ${name}`;
+                // 避免重複添加
+                if (!filteredStocks.some((s) => s.startsWith(code + " "))) {
+                  filteredStocks.push(formattedStock);
+                }
+              }
+            });
+          }
+
+          return filteredStocks.slice(0, 10);
+        } else {
+          // 美股搜索邏輯
+          const upperQuery = query.toUpperCase();
+          return this.stockList
+            .filter(
+              (stock) =>
+                stock &&
+                typeof stock === "string" &&
+                stock.toUpperCase().startsWith(upperQuery)
+            )
+            .slice(0, 20);
+        }
       },
     },
     watch: {
@@ -180,7 +226,7 @@
       try {
         // 強制重新獲取股票清單
         this.$store.state.stockApp.categoriesLoaded[this.market] = false;
-        await this.fetchStockCategories({ force : true});
+        await this.fetchStockCategories({ force: true });
       } catch (error) {
         console.error(
           `載入${this.market === "US" ? "美股" : "台股"}列表失敗:`,
@@ -206,7 +252,7 @@
 
           // 市場變更後重新獲取股票列表
           try {
-            await this.fetchStockCategories({ force : true });
+            await this.fetchStockCategories({ force: true });
           } catch (error) {
             console.error(`載入${this.market}股票列表失敗:`, error);
           }
@@ -234,16 +280,16 @@
         "resetPredictedPrice",
         "resetChartData",
         "setCurrentMarket",
+        "generateTwStockNameMap",
       ]),
       async fetchStockList() {
         try {
-          await this.fetchStockCategories({force : true});
+          await this.fetchStockCategories({ force: true });
         } catch (error) {
           console.error("Error fetching stock list:", error);
         }
       },
       async handleMarketChange(market) {
-
         // 先重置相關狀態
         this.resetChartData();
         this.stockSymbol = "";
@@ -263,33 +309,75 @@
           }
 
           await this.fetchStockCategories({ force: true });
+
+          if (market === "TW") {
+            this.generateTwStockNameMap();
+          }
         } catch (error) {
           console.error(`載入 ${market} 股票列表失敗:`, error);
         }
       },
       async handleSearch() {
         if (!this.stockSymbol) {
-          this.error = "請輸入股票代號";
+          this.error = "請輸入股票代號或名稱";
           return;
         }
+
         this.resetPredictedPrice();
-        this.previousSymbol = this.stockSymbol;
+
+        // 處理可能的中文名稱搜索
+        let symbolToSearch = this.stockSymbol.trim();
+
+        if (this.market === "TW") {
+          const twStockNameMap =
+            this.$store.state.stockApp.twStockNameMap || {};
+
+          // 如果包含中文，查找對應的股票代號
+          if (/[\u4e00-\u9fa5]/.test(symbolToSearch)) {
+            const foundEntry = Object.entries(twStockNameMap).find(
+              ([name]) => name && name.includes(symbolToSearch)
+            );
+
+            if (foundEntry) {
+              symbolToSearch = foundEntry[0]; // 使用股票代號
+              console.log(
+                `找到中文名稱 "${this.stockSymbol}" 對應的股票代號: ${symbolToSearch}`
+              );
+            }
+          } else if (symbolToSearch.includes(" ")) {
+            // 如果是 "代號 名稱" 格式，提取代號部分
+            symbolToSearch = symbolToSearch.split(" ")[0].trim();
+          }
+        } else {
+          // 美股處理：去除可能的空格等
+          symbolToSearch = symbolToSearch.split(/\s+/)[0].trim();
+        }
+
+        this.previousSymbol = symbolToSearch;
 
         try {
-          const cleanSymbol = this.stockSymbol.split(/\s+/)[0].trim();
-
-          await this.fetchStockChartData(cleanSymbol);
+          await this.fetchStockChartData(symbolToSearch);
         } catch (error) {
           console.error(`Error fetching ${this.market} stock data:`, error);
         }
       },
       handleInput() {
         if (this.stockSymbol) {
-          this.filteredStocks = this.filteredStocksComputed;
-          this.showSuggestions = this.filteredStocks.length > 0;
+          this.detectInputTypeAndSwitchMarket();
+
+          if (!this.switchingMarket) {
+            // 防護措施：只有在 stockList 可用時才計算過濾結果
+            if (this.stockList && Array.isArray(this.stockList)) {
+              this.filteredStocks = this.filteredStocksComputed;
+              this.showSuggestions = this.filteredStocks.length > 0;
+            } else {
+              this.filteredStocks = [];
+              this.showSuggestions = false;
+            }
+          }
 
           // 如果用戶修改了搜索內容（與上次搜索不同），則清除圖表
-          if (this.previousSymbol && this.stockSymbol !== this.previousSymbol) {
+          if (this.chartData) {
             this.resetChartData();
           }
         } else {
@@ -304,7 +392,7 @@
       },
       selectStock(stock) {
         if (this.market === "TW" && typeof stock === "string") {
-          this.stockSymbol = stock.split(" ")[0];
+          this.stockSymbol = this.getStockCode(stock);
         } else {
           this.stockSymbol = stock;
         }
@@ -313,7 +401,7 @@
         this.handleSearch();
       },
       navigateToSMAChart(symbol) {
-        localStorage.setItem('selectedMarket', this.market);
+        localStorage.setItem("selectedMarket", this.market);
 
         this.$router.push({
           name: "MovingAvgChart",
@@ -331,6 +419,74 @@
           container.offsetHeight;
           container.style.display = "";
         }
+      },
+      getStockCode(stock) {
+        return stock.split(" ")[0];
+      },
+      getStockName(stock) {
+        return stock.split(" ").slice(1).join(" ");
+      },
+      detectInputTypeAndSwitchMarket() {
+        const input = this.stockSymbol.trim();
+
+        // 檢測是否包含中文
+        const containsChinese = /[\u4e00-\u9fa5]/.test(input);
+
+        // 檢測是否以數字開頭（台股特徵）
+        const startsWithDigit = /^\d+/.test(input);
+
+        // 檢測是否需要切換市場
+        let targetMarket = null;
+
+        // 如果包含中文或以數字開頭，應該是台股
+        if ((containsChinese || startsWithDigit) && this.market !== "TW") {
+          targetMarket = "TW";
+        }
+        // 如果以英文字母開頭，應該是美股
+        else if (
+          !containsChinese &&
+          !startsWithDigit &&
+          /^[A-Za-z]/.test(input) &&
+          this.market !== "US"
+        ) {
+          targetMarket = "US";
+        }
+
+        if (targetMarket) {
+          this.performMarketSwitch(targetMarket);
+        }
+      },
+      async performMarketSwitch(targetMarket) {
+        this.switchingMarket = true;
+
+        // 先清空建議列表，避免錯誤
+        this.filteredStocks = [];
+        this.showSuggestions = false;
+
+        if (this.$store.state.stockApp.categoriesLoaded) {
+          this.$store.state.stockApp.categoriesLoaded[targetMarket] = false;
+        }
+
+        // 切換市場
+        this.market = targetMarket;
+
+        // 獲取新市場的股票列表
+        await this.fetchStockCategories({ force: true });
+
+        // 如果是台股，生成名稱映射
+        if (targetMarket === "TW") {
+          await this.generateTwStockNameMap();
+        }
+        setTimeout(() => {
+          this.switchingMarket = false;
+
+          try {
+            this.filteredStocks = this.filteredStocksComputed;
+            this.showSuggestions = this.filteredStocks.length > 0;
+          } catch (err) {
+            console.error("更新建議列表時出錯:", err);
+          }
+        }, 100);
       },
     },
     activated() {
@@ -450,6 +606,15 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 48px;
+    box-sizing: border-box;
+  }
+
+  .suggestion-item.us-stock {
+    justify-content: center;
   }
 
   .suggestion-item:last-child {
@@ -515,6 +680,28 @@
     max-width: 600px;
     margin: 0 auto;
     overflow-x: hidden;
+  }
+
+  .stock-code {
+    font-weight: bold;
+    color: #666;
+    margin-right: 10px;
+    flex-shrink: 0;
+    min-width: 50px;
+  }
+
+  .stock-name {
+    font-weight: bold;
+    color: #333;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .us-symbol {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
   }
 
   h1 {

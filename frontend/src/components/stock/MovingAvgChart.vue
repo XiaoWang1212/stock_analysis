@@ -216,8 +216,8 @@
           if (symbol) {
             this.$router.replace({
               name: "StockAnalysis",
-              params: { symbol: this.symbol, market: this.effectiveMarket },
-              query: { keepData: "true" },
+              params: { symbol: this.symbol },
+              query: { keepData: "true", market: this.effectiveMarket },
             });
           }
         });
