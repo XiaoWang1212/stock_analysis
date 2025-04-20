@@ -7,6 +7,7 @@ const state = {
   stockData: [],
   chartData: null,
   predictedPrice: null,
+  lstmPrediction: null,
   categoriesLoaded: {
     US: false,
     TW: false,
@@ -39,6 +40,12 @@ const mutations = {
   },
   SET_TW_STOCK_NAME_MAP(state, map) {
     state.twStockNameMap = map;
+  },
+  SET_LSTM_PREDICTION(state, data) {
+    state.lstmPrediction = data;
+  },
+  RESET_LSTM_PREDICTION(state) {
+    state.lstmPrediction = null;
   },
 };
 
@@ -201,6 +208,29 @@ const actions = {
       commit("SET_LOADING", false);
     }
   },
+  async fetchLstmPrediction({ commit }, symbol) {
+    if (!symbol) return;
+
+    commit("SET_LOADING", true);
+    commit("SET_ERROR", null);
+
+    try {
+      const data = await apiService.stock.predictStockPrice(symbol);
+
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      commit("SET_LSTM_PREDICTION", data);
+      return data;
+    } catch (error) {
+      console.error(`Error fetching LSTM prediction for ${symbol}:`, error);
+      commit("SET_ERROR", `無法獲取 ${symbol} 的AI預測數據: ${error.message}`);
+      return null;
+    } finally {
+      commit("SET_LOADING", false);
+    }
+  },
   async generateTwStockNameMap({ state, commit, dispatch }) {
     // 如果已經有名稱映射且不為空，直接返回
     if (state.twStockNameMap && Object.keys(state.twStockNameMap).length > 0) {
@@ -236,6 +266,9 @@ const actions = {
   },
   resetPredictedPrice({ commit }) {
     commit("RESET_PREDICTED_PRICE");
+  },
+  resetLstmPrediction({ commit }) {
+    commit("RESET_LSTM_PREDICTION");
   },
   resetChartData({ commit }) {
     commit("SET_CHART_DATA", null);

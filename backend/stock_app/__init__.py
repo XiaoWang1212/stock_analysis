@@ -14,3 +14,4 @@ CORS(stock_app_blueprint, resources={
 
 from . import routes
 from . import stockTW
+from . import stockLSTM
