@@ -1,6 +1,5 @@
 <template>
   <div class="rsi-chart">
-    <h3>{{ symbol }} RSI Chart</h3>
     <p v-if="loading" class="loading">Loading chart data...</p>
     <p v-if="error" class="error">{{ error }}</p>
     <div v-if="chartData" ref="chartContainer" class="chart-container"></div>
@@ -29,6 +28,14 @@
         type: String,
         required: true,
       },
+      market: {
+        type: String,
+        required: true,
+      },
+      stockName: {
+        type: String,
+        default: "",
+      },
     },
     data() {
       return {
@@ -40,16 +47,42 @@
       ...mapState("stockApp", {
         loading: (state) => state.loading,
         error: (state) => state.error,
+        twStockNameMap: (state) => state.twStockNameMap,
       }),
+
+      displayName() {
+        // 如果已經從父組件接收了名稱，則使用它
+        if (this.stockName) {
+          return this.stockName;
+        }
+
+        // 如果是台股
+        if (this.market === "TW" && this.twStockNameMap) {
+          return this.twStockNameMap[this.symbol] || "";
+        }
+
+        return ""; // 預設空字串
+      },
     },
     watch: {
       symbol: "fetchChartData",
+      market: "fetchChartData",
     },
     methods: {
-      ...mapActions("stockApp", ["fetchSMAChartData"]),
+      ...mapActions("stockApp", ["fetchSMAChartData", "generateTwStockNameMap"]),
+
       async fetchChartData() {
         this.chartData = null;
-        await this.fetchSMAChartData(this.symbol);
+
+        if (
+          this.market === "TW" &&
+          (!this.twStockNameMap ||
+            Object.keys(this.twStockNameMap).length === 0)
+        ) {
+          await this.generateTwStockNameMap();
+        }
+
+        await this.fetchSMAChartData(this.symbol, this.market);
         if (!this.error) {
           this.chartData = this.$store.state.stockApp.chartData;
           await nextTick(); // 確保 DOM 更新完成
@@ -60,29 +93,46 @@
         await nextTick(); // 確保 DOM 更新完成
         const { dates, rsi_6, rsi_24 } = this.chartData;
 
+        const indices = Array.from({ length: dates.length }, (_, i) => i);
+
         const traceRSI6 = {
-          x: dates,
+          x: indices,
           y: rsi_6,
           type: "scatter",
           mode: "lines",
           name: "RSI 6",
           line: { color: "black" },
+          customdata: dates,
+          hovertemplate:
+            "<b>%{customdata}</b><br>" +
+            "<b>RSI 6:</b> %{y:.4f}<br>" +
+            "<extra></extra>",
         };
 
         const traceRSI24 = {
-          x: dates,
+          x: indices,
           y: rsi_24,
           type: "scatter",
           mode: "lines",
           name: "RSI 24",
           line: { color: "blue" },
+          hovertemplate:
+            "<br><b>RSI 24:</b> %{y:.4f}<br>"+
+            "<extra></extra>",
         };
 
+        let chartTitle = `${this.symbol}`;
+        if (this.market === "TW" && this.displayName) {
+          chartTitle += ` (${this.displayName})`;
+        }
+        chartTitle += ` RSI Chart`;
+
         const layout = {
-          title: `${this.symbol} RSI Chart`,
+          title: chartTitle,
           xaxis: { title: "Date" },
           yaxis: { title: "RSI" },
           showlegend: true,
+          hovermode: "x unified",
         };
 
         Plotly.newPlot(
@@ -92,7 +142,15 @@
         );
       },
     },
-    mounted() {
+    async mounted() {
+      if (this.market === "TW" && (!this.twStockNameMap || Object.keys(this.twStockNameMap).length === 0)) {
+        try {
+          await this.generateTwStockNameMap();
+        } catch (error) {
+          console.error("獲取台股名稱映射時出錯:", error);
+        }
+      }
+      
       this.fetchChartData();
     },
   };

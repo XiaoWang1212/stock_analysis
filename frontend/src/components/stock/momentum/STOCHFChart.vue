@@ -1,6 +1,5 @@
 <template>
   <div class="stochf-chart">
-    <h3>{{ symbol }} STOCHF Chart</h3>
     <p v-if="loading" class="loading">Loading chart data...</p>
     <p v-if="error" class="error">{{ error }}</p>
     <div v-if="chartData" ref="chartContainer" class="chart-container"></div>
@@ -32,6 +31,14 @@
         type: String,
         required: true,
       },
+      market: {
+        type: String,
+        required: true,
+      },
+      stockName: {
+        type: String,
+        default: "",
+      },
     },
     data() {
       return {
@@ -43,16 +50,42 @@
       ...mapState("stockApp", {
         loading: (state) => state.loading,
         error: (state) => state.error,
+        twStockNameMap: (state) => state.twStockNameMap,
       }),
+
+      displayName() {
+        // 如果已經從父組件接收了名稱，則使用它
+        if (this.stockName) {
+          return this.stockName;
+        }
+
+        // 如果是台股
+        if (this.market === "TW" && this.twStockNameMap) {
+          return this.twStockNameMap[this.symbol] || "";
+        }
+
+        return ""; // 預設空字串
+      },
     },
     watch: {
       symbol: "fetchChartData",
+      market: "fetchChartData",
     },
     methods: {
-      ...mapActions("stockApp", ["fetchSMAChartData"]),
+      ...mapActions("stockApp", ["fetchSMAChartData", "generateTwStockNameMap"]),
       async fetchChartData() {
         this.chartData = null;
-        await this.fetchSMAChartData(this.symbol);
+
+        if (
+          this.market === "TW" &&
+          (!this.twStockNameMap ||
+            Object.keys(this.twStockNameMap).length === 0)
+        ) {
+          await this.generateTwStockNameMap();
+        }
+
+        await this.fetchSMAChartData(this.symbol, this.market);
+
         if (!this.error) {
           this.chartData = this.$store.state.stockApp.chartData;
           await nextTick(); // 確保 DOM 更新完成
@@ -63,40 +96,66 @@
         await nextTick(); // 確保 DOM 更新完成
         const { dates, stochf_fastk, stochf_fastd } = this.chartData;
 
+        const indices = Array.from({ length: dates.length }, (_, i) => i);
+
         const traceK = {
-          x: dates,
+          x: indices,
           y: stochf_fastk,
           type: "scatter",
           mode: "lines",
           name: "K值",
           line: { color: "purple" },
+          customdata: dates,
+          hovertemplate:
+            "<b>%{customdata}</b><br>" +
+            "<b>K值:</b> %{y:.4f}<br>" +
+            "<extra></extra>",
         };
 
         const traceD = {
-          x: dates,
+          x: indices,
           y: stochf_fastd,
           type: "scatter",
           mode: "lines",
           name: "D值",
           line: { color: "gray" },
+          hovertemplate:
+            "<br><b>MACD:</b> %{y:.4f}<br>"+
+            "<extra></extra>",
         };
+
+        let chartTitle = `${this.symbol}`;
+        if (this.market === "TW" && this.displayName) {
+          chartTitle += ` (${this.displayName})`;
+        }
+        chartTitle += ` STOCHF Chart`;
 
         const layout = {
-          title: `${this.symbol} STOCHF Chart`,
+          title: chartTitle,
           xaxis: { title: "Date" },
           showlegend: true,
+          hovermode: "x unified",
         };
 
-        Plotly.newPlot(
-          this.$refs.chartContainer,
-          [traceK, traceD],
-          layout
-        );
+        Plotly.newPlot(this.$refs.chartContainer, [traceK, traceD], layout);
       },
     },
-    mounted() {
+    async mounted() {
+      if (this.market === "TW" && (!this.twStockNameMap || Object.keys(this.twStockNameMap).length === 0)) {
+        try {
+          await this.generateTwStockNameMap();
+        } catch (error) {
+          console.error("獲取台股名稱映射時出錯:", error);
+        }
+      }
+
       this.fetchChartData();
     },
+    beforeUnmount(){
+      if (this.$refs.chartContainer) {
+        Plotly.purge(this.$refs.chartContainer);
+      }
+    }
   };
 </script>
 

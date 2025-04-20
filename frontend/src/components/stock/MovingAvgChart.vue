@@ -1,7 +1,10 @@
 <template>
   <div class="moving-avg-chart">
-    <h2>{{ symbol }} Moving Averages Chart</h2>
     <div class="chart-header">
+      <button @click="goBack" class="back-btn">
+        <span class="material-icons">arrow_back</span>
+        返回
+      </button>
       <div class="add-to-group">
         <LoadingSpinner v-if="loading" />
         <ErrorMessage v-else-if="error" :message="error" @retry="fetchGroups" />
@@ -27,6 +30,9 @@
         </template>
       </div>
     </div>
+    <h2>
+      {{ symbol }} {{ effectiveMarket === "TW" ? `(${getStockName() || '台股'})` : "" }} 技術分析
+    </h2>
 
     <div class="chart-selector">
       <label> <input type="checkbox" v-model="showSMA" /> SMA </label>
@@ -35,10 +41,10 @@
       <label> <input type="checkbox" v-model="showKAMA" /> KAMA </label>
     </div>
     <div class="chart-container">
-      <SMAChart v-if="showSMA" :symbol="symbol" />
-      <EMAChart v-if="showEMA" :symbol="symbol" />
-      <WMAChart v-if="showWMA" :symbol="symbol" />
-      <KAMAChart v-if="showKAMA" :symbol="symbol" />
+      <SMAChart v-if="showSMA" :symbol="symbol" :market="effectiveMarket" />
+      <EMAChart v-if="showEMA" :symbol="symbol" :market="effectiveMarket" />
+      <WMAChart v-if="showWMA" :symbol="symbol" :market="effectiveMarket" />
+      <KAMAChart v-if="showKAMA" :symbol="symbol" :market="effectiveMarket" />
       <div class="analysis-selector">
         <button
           @click="selectAnalysis('BIAS')"
@@ -78,18 +84,36 @@
         </button>
       </div>
       <div class="analysis-container">
-        <SMAAndBIASChart v-if="selectedAnalysis === 'BIAS'" :symbol="symbol" />
-        <RSIChart v-else-if="selectedAnalysis === 'RSI'" :symbol="symbol" />
-        <STOCHChart v-else-if="selectedAnalysis === 'STOCH'" :symbol="symbol" />
+        <SMAAndBIASChart
+          v-if="selectedAnalysis === 'BIAS'"
+          :symbol="symbol"
+          :market="effectiveMarket"
+        />
+        <RSIChart
+          v-else-if="selectedAnalysis === 'RSI'"
+          :symbol="symbol"
+          :market="effectiveMarket"
+        />
+        <STOCHChart
+          v-else-if="selectedAnalysis === 'STOCH'"
+          :symbol="symbol"
+          :market="effectiveMarket"
+        />
         <STOCHRSIChart
           v-else-if="selectedAnalysis === 'STOCHRSI'"
           :symbol="symbol"
+          :market="effectiveMarket"
         />
         <STOCHFChart
           v-else-if="selectedAnalysis === 'STOCHF'"
           :symbol="symbol"
+          :market="effectiveMarket"
         />
-        <MACDChart v-else-if="selectedAnalysis === 'MACD'" :symbol="symbol" />
+        <MACDChart
+          v-else-if="selectedAnalysis === 'MACD'"
+          :symbol="symbol"
+          :market="effectiveMarket"
+        />
       </div>
     </div>
   </div>
@@ -108,6 +132,7 @@
   import MACDChart from "./momentum/MACDChart.vue";
 
   import { isTokenExpired } from "@/utils/auth";
+  import { mapState } from "vuex";
   import LoadingSpinner from "../common/LoadingSpinner.vue";
   import ErrorMessage from "../common/ErrorMessage.vue";
 
@@ -131,6 +156,10 @@
         type: String,
         required: true,
       },
+      market: {
+        type: String,
+        required: true,
+      },
     },
     data() {
       return {
@@ -143,12 +172,64 @@
         groups: [],
         loading: false,
         error: null,
+        fetchError: null,
       };
+    },
+    computed: {
+      ...mapState("stockApp", {
+        twStockNameMap: (state) => state.twStockNameMap, 
+      }),
+      
+      effectiveMarket() {
+        if (this.market && (this.market === "US" || this.market === "TW")) {
+          return this.market;
+        }
+
+        const storedMarket = localStorage.getItem("selectedMarket");
+        if (storedMarket && (storedMarket === "US" || storedMarket === "TW")) {
+          return storedMarket;
+        }
+
+        return this.market || "US"; // 如果都沒有，默認使用美股
+      },
+
+      marketName() {
+        return this.effectiveMarket === "TW" ? "台股" : "美股";
+      },
     },
     async created() {
       await this.fetchGroups();
+
+      if (this.effectiveMarket === "TW") {
+        await this.loadTwStockNameMap();
+      }
     },
     methods: {
+      goBack() {
+        // 返回時帶上股票代號
+        console.log(
+          `返回 StockAnalysis: 股票=${this.symbol}, 市場=${this.effectiveMarket}`
+        );
+        this.$router.push({
+          name: "StockAnalysis",
+          params: { symbol: this.symbol },
+          query: { keepData: "true", market: this.effectiveMarket },
+        });
+      },
+      // 監聽瀏覽器的後退按鈕
+      handleBrowserBack() {
+        window.addEventListener("popstate", () => {
+          // 在用戶點擊瀏覽器的後退按鈕時執行相同邏輯
+          const symbol = this.symbol;
+          if (symbol) {
+            this.$router.replace({
+              name: "StockAnalysis",
+              params: { symbol: this.symbol },
+              query: { keepData: "true", market: this.effectiveMarket },
+            });
+          }
+        });
+      },
       selectAnalysis(analysis) {
         this.selectedAnalysis = analysis;
       },
@@ -231,6 +312,29 @@
           alert("加入群組時發生錯誤");
         }
       },
+      getStockName() {
+        if (this.effectiveMarket === "TW" && this.twStockNameMap) {
+          // 返回該股票的中文名稱
+          return this.twStockNameMap[this.symbol] || "";
+        }
+        return ""; // 如果是美股或沒有找到名稱，返回空字符串
+      },
+      async loadTwStockNameMap() {
+        try {
+          // 檢查是否已經有台股名稱映射
+          if (!this.twStockNameMap || Object.keys(this.twStockNameMap).length === 0) {
+            await this.$store.dispatch("stockApp/generateTwStockNameMap");
+          }
+        } catch (error) {
+          console.error("載入台股名稱映射時出錯:", error);
+        }
+      },
+    },
+    mounted() {
+      this.handleBrowserBack();
+    },
+    beforeUnmount() {
+      window.removeEventListener("popstate", this.handleBrowserBack);
     },
   };
 </script>
@@ -246,6 +350,24 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+  }
+
+  .back-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 16px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+  }
+
+  .back-btn:hover {
+    background: #5a6268;
   }
 
   .add-to-group {

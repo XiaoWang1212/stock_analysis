@@ -11,8 +11,9 @@ import pandas as pd # type: ignore
 from functools import wraps
 from talib import SMA, EMA, WMA, KAMA, RSI, STOCH, STOCHRSI, STOCHF, MACD # type: ignore
 from datetime import datetime, timedelta
-from . import stock_app_blueprint
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+from . import stock_app_blueprint
 
 # 更完整的 headers
 headers = {
@@ -159,8 +160,8 @@ def get_stock_machart_data(symbol):
         data['EMA_20'] = EMA(data['Close'], timeperiod=20)
         data['WMA_5'] = WMA(data['Close'], timeperiod=5)
         data['WMA_20'] = WMA(data['Close'], timeperiod=20)
-        data['KAMA_5'] = KAMA(data['Close'], timeperiod=10)
-        data['KAMA_20'] = KAMA(data['Close'], timeperiod=10)
+        data['KAMA_5'] = KAMA(data['Close'], timeperiod=5)
+        data['KAMA_20'] = KAMA(data['Close'], timeperiod=20)
         data['RSI_6'] = RSI(data['Close'], timeperiod=6)
         data['RSI_24'] = RSI(data['Close'], timeperiod=24)
         macd, macd_signal, macd_hist = MACD(data['Close'], fastperiod=12, slowperiod=26, signalperiod=9)
