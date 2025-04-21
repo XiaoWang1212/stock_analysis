@@ -208,14 +208,14 @@ const actions = {
       commit("SET_LOADING", false);
     }
   },
-  async fetchLstmPrediction({ commit }, symbol) {
+  async fetchLstmPrediction({ commit, state }, symbol) {
     if (!symbol) return;
 
     commit("SET_LOADING", true);
     commit("SET_ERROR", null);
 
     try {
-      const data = await apiService.stock.predictStockPrice(symbol);
+      const data = await apiService.stock.predictStockPrice(symbol, state.currentMarket);
 
       if (data.error) {
         throw new Error(data.error);
