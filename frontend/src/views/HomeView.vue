@@ -32,17 +32,28 @@
       @close="showAddDialog = false"
       @confirm="handleAddStock"
     />
+
+    <confirm-dialog
+      v-if="showLoginDialog"
+      :title="'尚未登入'"
+      :message="'您尚未登入或身分驗證已過期。是否前往登入頁面？'"
+      :confirmText="'前往登入'"
+      :cancelText="'返回股票分析'"
+      @confirm="goToLogin"
+      @cancel="goToStockAnalysis"
+    />
   </div>
 </template>
 
 <script>
-  import { isTokenExpired, clearAuthData } from "@/utils/auth";
+  import { isTokenExpired, clearAuthData, isGuestMode } from "@/utils/auth";
   import AddStockDialog from "@/components/tool/AddStockDialog.vue";
   import { cacheManager, CACHE_KEYS } from "@/services/cacheManager";
   import LoadingSpinner from "@/components/common/LoadingSpinner.vue";
   import GroupsList from "@/components/profile/GroupsList.vue";
   import ProfileHeader from "@/components/profile/ProfileHeader.vue";
   import LogoutButton from "@/components/common/LogoutButton.vue";
+  import ConfirmDialog from "@/components/common/ConfirmDialog.vue";
 
   export default {
     components: {
@@ -51,6 +62,7 @@
       GroupsList,
       ProfileHeader,
       LogoutButton,
+      ConfirmDialog,
     },
     data() {
       return {
@@ -65,15 +77,24 @@
         currentGroupIndex: null,
         isLoading: false,
         loadedStocks: new Set(), // 追蹤已載入的股票
+        showLoginDialog: false,
+        isSessionExpired: false,
+        groupsUpdateInterval: null,
       };
     },
     async created() {
       await this.fetchStockList();
 
+      if (isGuestMode()) {
+        this.handleGuestMode();
+        return;
+      }
+      
       // 先檢查 userId 是否有效
       if (!this.userId || this.userId === "undefined") {
         console.warn("Invalid user ID");
-        this.handleTokenExpired();
+        this.isSessionExpired = false;
+        this.showLoginDialog = true;
         return;
       }
 
@@ -82,10 +103,19 @@
         await this.preloadAllChartData();
         this.startGroupsUpdateInterval();
       } else {
+        this.isSessionExpired = true;
         this.handleTokenExpired();
       }
     },
     methods: {
+      goToLogin() {
+        this.showLoginDialog = false;
+        this.$router.push("/");
+      },
+      goToStockAnalysis() {
+        this.showLoginDialog = false;
+        this.$router.push("/stock-app");
+      },
       startGroupsUpdateInterval() {
         this.groupsUpdateInterval = setInterval(async () => {
           await this.fetchGroups();
@@ -127,8 +157,14 @@
       },
       handleTokenExpired() {
         clearAuthData();
-        this.$router.push("/");
-        console.warn("Session expired. Please login again.");
+
+        if (this.isSessionExpired) {
+          this.$router.push("/");
+          console.warn("Session expired. Please login again.");
+        } else {
+          // 如果是未登入，顯示對話框
+          this.showLoginDialog = true;
+        }
       },
       async fetchGroups() {
         this.isLoading = true;
@@ -464,14 +500,41 @@
           return null;
         }
       },
+      handleGuestMode() {
+        // 訪客體驗
+        this.groups = [
+          {
+            name: "訪客範例群組",
+            stocks: ["AAPL", "MSFT", "TSLA", "GOOGL"],
+          },
+        ];
+        this.selectedGroup = 0;
+        this.batchLoadChartData();
+      },
     },
-
+    beforeMount() {
+      // 檢查是否為訪客模式，如果是則總是顯示登入對話框
+      if (isGuestMode()) {
+        this.showLoginDialog = true;
+        return;
+      }
+    },
     // 組件銷毀時檢查快取
     beforeUnmount() {
       if (this.groupsUpdateInterval) {
         clearInterval(this.groupsUpdateInterval);
+        this.groupsUpdateInterval = null;
       }
+
       cacheManager.checkAndCleanCache();
+    },
+    errorCaptured(err, vm, info) {
+      console.error(`Error in HomeView: ${err.toString()}\nInfo: ${info}`);
+      // 確保清理 interval 即使在錯誤發生時
+      if (this.groupsUpdateInterval) {
+        clearInterval(this.groupsUpdateInterval);
+      }
+      return false; // 防止錯誤繼續傳播
     },
   };
 </script>

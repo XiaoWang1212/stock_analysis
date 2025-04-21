@@ -4,6 +4,14 @@
       {{ message }}
     </div>
 
+    <!-- 添加直接訪問按鈕 -->
+    <div class="guest-access">
+      <button class="guest-button" @click="accessAsGuest">
+        <span>訪客模式</span>
+        <span class="material-symbols-outlined"> accessibility </span>
+      </button>
+    </div>
+
     <div class="forms-container" :class="{ 'sign-up-mode': isSignUp }">
       <div class="left-panel">
         <form
@@ -82,6 +90,13 @@
       };
     },
     methods: {
+      accessAsGuest() {
+        clearAuthData();
+
+        localStorage.setItem("guestMode", "true");
+
+        this.$router.push("/stock-app");
+      },
       async handleLogin() {
         try {
           const response = await fetch("http://localhost:5000/login", {
@@ -199,6 +214,44 @@
   .success {
     background-color: #4caf50;
     color: white;
+  }
+
+  .guest-access {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+  }
+
+  .guest-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: #f8f9fa;
+    border: 2px solid #4a90e2;
+    color: #4a90e2;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .guest-button:hover {
+    background: #4a90e2;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .guest-button i {
+    transition: transform 0.3s ease;
+  }
+
+  .guest-button:hover i {
+    transform: translateX(5px);
   }
 
   @keyframes fadeIn {

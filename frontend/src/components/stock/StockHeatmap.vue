@@ -149,7 +149,7 @@
             const ticker = failedStocksArray[i];
             try {
               const response = await fetch(
-                `/stock_app/api/stock_data/${ticker}`
+                `/stock_app/api/stock_data/${ticker}/US`
               );
 
               if (response.ok) {
@@ -265,7 +265,7 @@
                 batch.map(async (stock) => {
                   try {
                     const response = await fetch(
-                      `/stock_app/api/stock_data/${stock.ticker}`
+                      `/stock_app/api/stock_data/${stock.ticker}/US`
                     );
                     if (response.status === 429) {
                       this.failedStocks.add(stock.ticker);

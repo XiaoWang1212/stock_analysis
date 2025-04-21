@@ -10,7 +10,7 @@ import TwStockCategories from "@/components/stock/TwStockCategories.vue";
 
 const routes = [
   {
-    path: "/",
+    path: "/login",
     name: "Login",
     component: LoginView,
     meta: {
@@ -71,7 +71,7 @@ const routes = [
   // 重定向
   {
     path: "/",
-    redirect: "/stock-app",
+    redirect: "/login",
   },
 ];
 
