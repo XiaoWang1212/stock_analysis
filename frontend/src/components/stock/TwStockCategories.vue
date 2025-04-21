@@ -38,11 +38,6 @@
       LoadingSpinner,
       ErrorMessage,
     },
-    data() {
-      return {
-        error: null,
-      };
-    },
     computed: {
       ...mapState("stockApp", [
         "loading",
@@ -51,9 +46,6 @@
         "currentMarket",
       ]),
       ...mapGetters("stockApp", ["categories"]),
-      localizedError() {
-        return this.error || this.localError || "";
-      },
     },
     methods: {
       ...mapActions("stockApp", ["fetchStockCategories", "setCurrentMarket"]),
@@ -68,15 +60,12 @@
       },
       async fetchStockList() {
         try {
-          this.localError = null;
-
           await this.setCurrentMarket("TW");
 
           await this.fetchStockCategories({ force: true });
 
         } catch (error) {
           console.error("獲取台股列表失敗:", error);
-          this.localError = `無法載入台股列表: ${error.message}`;
         }
       },
     },

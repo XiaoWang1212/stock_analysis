@@ -18,27 +18,12 @@ export const apiService = {
 
   // Stock endpoints
   stock: {
-    getStockData: (symbol, market = "US") => {
-      if (market === "US") {
-        return apiService.get(`/stock_app/api/stock_data/${symbol}`);
-      } else {
-        return apiService.get(`/stock_app/api/tw_stock_data/${symbol}`);
-      }
-    },
-    getSMAData: (symbol, market = "US") => {
-      if (market === "US") {
-        return apiService.get(`/stock_app/api/ma/${symbol}`);
-      } else {
-        return apiService.get(`/stock_app/api/tw_ma/${symbol}`);
-      }
-    },
-    getBIASData: (symbol, market = "US") => {
-      if (market === "US") {
-        return apiService.get(`/stock_app/api/bias/${symbol}`);
-      } else {
-        return apiService.get(`/stock_app/api/tw_bias/${symbol}`);
-      }
-    },
+    getStockData: (symbol, market = "US") => 
+      apiService.get(`/stock_app/api/stock_data/${symbol}/${market}`),
+    getSMAData: (symbol, market = "US") => 
+      apiService.get(`/stock_app/api/ma/${symbol}/${market}`),
+    getBIASData: (symbol, market = "US") => 
+      apiService.get(`/stock_app/api/bias/${symbol}/${market}`),
     predictStockPrice: (symbol, market = "US") =>
       apiService.get(`/stock_app/api/lstm_predict/${symbol}/${market}`),
     getStockCategories: (market = "US") => {

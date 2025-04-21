@@ -208,16 +208,14 @@ const actions = {
       commit("SET_LOADING", false);
     }
   },
-  async fetchLstmPrediction({ commit, state }, symbol) {
+  async fetchLstmPrediction({ commit }, symbol) {
     if (!symbol) return;
 
-    const market = state.currentMarket;
-    
     commit("SET_LOADING", true);
     commit("SET_ERROR", null);
 
     try {
-      const data = await apiService.stock.predictStockPrice(symbol, market);
+      const data = await apiService.stock.predictStockPrice(symbol);
 
       if (data.error) {
         throw new Error(data.error);
@@ -226,7 +224,7 @@ const actions = {
       commit("SET_LSTM_PREDICTION", data);
       return data;
     } catch (error) {
-      console.error(`Error fetching LSTM prediction for ${symbol} (${market}):`, error);
+      console.error(`Error fetching LSTM prediction for ${symbol}:`, error);
       commit("SET_ERROR", `無法獲取 ${symbol} 的AI預測數據: ${error.message}`);
       return null;
     } finally {
@@ -239,8 +237,8 @@ const actions = {
       return;
     }
 
-    if (!state.stockCategories || state.stockCategories.length === 0) {
-      await dispatch("fetchStockCategories", { market: "TW" });
+    if (!state.stockCategories || state.stockCategories.length === 0 || state.currentMarket !== "TW") {
+      await dispatch("fetchStockCategories");
     }
 
     const nameMap = {};

@@ -206,10 +206,6 @@
     },
     methods: {
       goBack() {
-        // 返回時帶上股票代號
-        console.log(
-          `返回 StockAnalysis: 股票=${this.symbol}, 市場=${this.effectiveMarket}`
-        );
         this.$router.push({
           name: "StockAnalysis",
           params: { symbol: this.symbol },
@@ -225,7 +221,7 @@
             this.$router.replace({
               name: "StockAnalysis",
               params: { symbol: this.symbol },
-              query: { keepData: "true", market: this.effectiveMarket },
+              query: { market: this.effectiveMarket },
             });
           }
         });

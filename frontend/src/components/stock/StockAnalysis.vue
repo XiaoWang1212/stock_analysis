@@ -243,6 +243,14 @@
       try {
         const urlParams = new URLSearchParams(window.location.search);
         const marketParam = urlParams.get("market");
+        const symbolParam = urlParams.get("symbol");
+
+        if (!symbolParam && !this.symbol && this.$route.path === "/stock-app") {
+          this.resetChartData();
+          this.previousSymbol = "";
+          this.stockSymbol = "";
+          this.showPrediction = false;
+        }
 
         if (marketParam) {
           const normalizedMarket = marketParam.toUpperCase();
@@ -409,7 +417,7 @@
             this.resetChartData();
           }
 
-          if (this.showPrediction){
+          if (this.showPrediction) {
             this.showPrediction = false;
           }
         } else {
@@ -509,6 +517,7 @@
         if (targetMarket === "TW") {
           await this.generateTwStockNameMap();
         }
+
         setTimeout(() => {
           this.switchingMarket = false;
 
@@ -531,7 +540,6 @@
     },
     mounted() {
       this.showPrediction = false;
-      console.log("組件掛載，當前股票代號:", this.stockSymbol);
     },
     beforeUnmount() {
       if (!this.$route.name || !["MovingAvgChart"].includes(this.$route.name)) {
@@ -756,33 +764,33 @@
     transition: all 0.3s ease;
     display: block;
     margin: 0 auto;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
-  
+
   .predict-button:hover {
     background-color: #138496;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
   }
-  
+
   .predict-button.active {
     background-color: #dc3545;
   }
-  
+
   .predict-button.active:hover {
     background-color: #c82333;
   }
-  
+
   .prediction-container {
     margin-top: 20px;
     padding: 20px;
     border-radius: 8px;
     background-color: #f8f9fa;
     border: 1px solid #e9ecef;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     max-width: 100%;
   }
-  
+
   .prediction-header {
     display: flex;
     justify-content: space-between;
@@ -791,13 +799,13 @@
     border-bottom: 1px solid #dee2e6;
     padding-bottom: 10px;
   }
-  
+
   .prediction-header h3 {
     margin: 0;
     color: #343a40;
     font-size: 18px;
   }
-  
+
   .tech-badge {
     background-color: #6610f2;
     color: white;
@@ -806,12 +814,14 @@
     font-size: 12px;
     font-weight: bold;
   }
-  
-  .fade-enter-active, .fade-leave-active {
+
+  .fade-enter-active,
+  .fade-leave-active {
     transition: opacity 0.5s, transform 0.5s;
   }
-  
-  .fade-enter-from, .fade-leave-to {
+
+  .fade-enter-from,
+  .fade-leave-to {
     opacity: 0;
     transform: translateY(-20px);
   }

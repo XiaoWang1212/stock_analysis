@@ -2,10 +2,10 @@ import requests # type: ignore
 import json
 import math
 import random
+import numpy as np
 import time
 import os
-from flask import jsonify # type: ignore
-from sklearn.linear_model import LinearRegression # type: ignore
+from flask import jsonify, request # type: ignore
 import yfinance as yf # type: ignore
 import pandas as pd # type: ignore
 from functools import wraps
@@ -26,8 +26,13 @@ headers = {
     "Cache-Control": "max-age=0"
 }
 
+# 整合快取機制
 _cache = {
     'categories': {
+        'data': None,
+        'timestamp': None
+    },
+    'tw_categories': {
         'data': None,
         'timestamp': None
     }
@@ -39,6 +44,19 @@ session.headers.update(headers)
 
 # 傳入自定義 session 給 yfinance
 yf.Ticker.session = session
+
+# 自定義 JSON 編碼器，處理 NaN 值
+class NpEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        elif isinstance(obj, np.floating):
+            return float(obj) if not np.isnan(obj) else None
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        elif pd.isna(obj):
+            return None
+        return super(NpEncoder, self).default(obj)
 
 # 請求重試裝飾器
 def retry_on_429(max_retries=5, initial_delay=1):
@@ -63,46 +81,58 @@ def retry_on_429(max_retries=5, initial_delay=1):
         return wrapper
     return decorator
 
-def cache_categories(duration=24*60*60):  # 預設24小時
+# 快取裝飾器 
+def cache_data(cache_key, duration=24*60*60):  # 預設24小時
     def decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
-            cache = _cache['categories']
+            cache = _cache[cache_key]
             now = datetime.now()
             
             # 檢查快取是否有效
             if (cache['data'] is not None and 
                 cache['timestamp'] is not None and 
                 (now - cache['timestamp']).total_seconds() < duration):
+                print(f"返回快取的 {cache_key} 資料，更新於 {cache['timestamp']}")
                 return cache['data']
             
             # 執行原始函數獲取新數據
             result = func(*args, **kwargs)
             
             # 更新快取
-            _cache['categories']['data'] = result
-            _cache['categories']['timestamp'] = now
+            _cache[cache_key]['data'] = result
+            _cache[cache_key]['timestamp'] = now
             
             return result
         return wrapper
     return decorator
 
-@stock_app_blueprint.route('/api/stock_data/<symbol>', methods=['GET'])
+# 快取美股分類資料
+def cache_categories(duration=24*60*60):
+    return cache_data('categories', duration)
+
+# 快取台股分類資料
+def cache_tw_categories(duration=24*60*60):
+    return cache_data('tw_categories', duration)
+
+@stock_app_blueprint.route('/api/stock_data/<symbol>/<market>', methods=['GET'])
 @retry_on_429(max_retries=10, initial_delay=2) 
-def get_stock_chart_data(symbol):
+def get_stock_chart_data(symbol, market = 'US'):
+    if market == 'TW':
+        symbol = f"{symbol}.TW"
+    
     stock = yf.Ticker(symbol)
     data = stock.history(period="1mo")  # 獲取過去一個月的數據
     info = stock.info
     
     if not info:
         print(f"Invalid symbol: {symbol}")
-        return None
+        return jsonify({"error": f"無效的股票代號: {symbol}"}), 404
     
     previous_close = info.get("previousClose", 0)
     current_price = info.get("currentPrice", 0)
     change = round((current_price - previous_close) / previous_close * 100, 2)
                     
-
     if data.empty:
         return jsonify({"error": "No data found for symbol"}), 429
     
@@ -110,42 +140,19 @@ def get_stock_chart_data(symbol):
     dates = data.index.strftime('%Y-%m-%d').tolist()
     close_prices = data['Close'].tolist()
 
-    return jsonify({"dates": dates, 
-                    "close_prices": close_prices, 
-                    "change": change, 
-                    "current_price": current_price
+    return jsonify({
+        "dates": dates, 
+        "close_prices": close_prices, 
+        "change": change, 
+        "current_price": current_price
     })
 
-@stock_app_blueprint.route('/api/predict/<symbol>', methods=['GET'])
-def predict_stock(symbol):
-    stock = yf.Ticker(symbol)
-    data = stock.history(period="1y")  # 獲取過去一年的數據
-
-    if data.empty:
-        return jsonify({"error": "No data found for symbol"}), 404
-
-     # 準備數據
-    data['Date'] = data.index
-    data['Date'] = pd.to_datetime(data['Date'])
-    data['Date'] = data['Date'].map(datetime.toordinal)
-
-    X = data[['Date']]
-    y = data['Close']
-
-    # 訓練模型
-    model = LinearRegression()
-    model.fit(X, y)
-
-    # 預測未來價格
-    future_date = datetime.now() + timedelta(days=1)
-    future_date_ordinal = datetime.toordinal(future_date)
-    predicted_price = model.predict([[future_date_ordinal]])[0]
-
-    return jsonify({"symbol": symbol, "predicted_price": round(predicted_price, 2)})
-
-@stock_app_blueprint.route('/api/ma/<symbol>', methods=['GET'])
-def get_stock_machart_data(symbol):
+@stock_app_blueprint.route('/api/ma/<symbol>/<market>', methods=['GET'])
+def get_stock_machart_data(symbol, market = 'US'):
     try:
+        if market == 'TW':
+            symbol = f"{symbol}.TW"
+        
         # 獲取股票數據
         stock = yf.Ticker(symbol)
         data = stock.history(period="6mo")  # 過去6個月的數據
@@ -213,10 +220,12 @@ def get_stock_machart_data(symbol):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-@stock_app_blueprint.route('/api/bias/<symbol>', methods=['GET'])
-def get_stock_biaschart_data(symbol):
+@stock_app_blueprint.route('/api/bias/<symbol>/<market>', methods=['GET'])
+def get_stock_biaschart_data(symbol, market = 'US'):
     try:
         # 獲取股票數據
+        if market == 'TW':
+            symbol = f"{symbol}.TW"
         stock = yf.Ticker(symbol)
         data = stock.history(period="6mo")  # 過去6個月的數據
         if data.empty:
@@ -257,6 +266,7 @@ def get_stock_biaschart_data(symbol):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# API 路由：獲取美股分類資料
 @stock_app_blueprint.route('/api/categories', methods=['GET'])
 @retry_on_429(max_retries=10, initial_delay=2)  # 增加重試次數和初始延遲
 @cache_categories(duration=1*60*60) 
@@ -309,7 +319,6 @@ def get_stock_categories():
                 if progress_data.get('date') == datetime.now().strftime('%Y-%m-%d'):
                     stock_data = progress_data.get('data', [])
                     last_processed = progress_data.get('last_processed')
-
 
         def fetch_stock_data(symbol):
             retries = 10
@@ -383,16 +392,145 @@ def get_stock_categories():
         with open(progress_path, 'w') as f:
             json.dump(final_progress, f)
 
-        # 更新 CSV，移除無效的股票代碼
-        # if invalid_symbols:
-        #     df = df[~df['Symbol'].isin(invalid_symbols)]
-        #     df.to_csv(csv_path, index=False)
-
         # 保存最終結果
         with open(json_path, 'w') as f:
             json.dump(sorted_data, f)
 
         return jsonify(sorted_data)
 
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# 從 stockTW.py 整合的函數：更新台股列表
+def update_twse_stock_list():
+    """
+    從台灣證券交易所更新上市公司資料
+    """
+    try:
+        base_dir = os.path.abspath(os.path.dirname(__file__))
+        csv_path = os.path.join(base_dir, 'data', 'twse_listed_stocks.csv')
+        
+        # 使用 pandas 直接從證交所獲取資料
+        url = "https://www.twse.com.tw/exchangeReport/STOCK_DAY_ALL?response=open_data"
+        stock_list_df = pd.read_csv(url)
+        
+        # 保存到本地
+        stock_list_df.to_csv(csv_path, index=False, encoding='utf-8')
+        
+        return True
+    except Exception as e:
+        print(f"更新台股列表失敗: {str(e)}")
+        return False
+
+# API 路由：手動更新台股列表
+@stock_app_blueprint.route('/api/tw_update_stocks', methods=['GET'])
+def update_tw_stocks():
+    """API路由用於手動更新台股列表"""
+    try:
+        success = update_twse_stock_list()
+        if success:
+            return jsonify({"status": "success", "message": "台股列表更新成功"})
+        else:
+            return jsonify({"status": "error", "message": "台股列表更新失敗"}), 500
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+
+# API 路由：獲取台股分類資料
+@stock_app_blueprint.route('/api/tw_categories', methods=['GET'])
+@retry_on_429(max_retries=5, initial_delay=2)
+@cache_tw_categories(duration=24*60*60)  
+def get_tw_stock_categories():
+    try:
+        base_dir = os.path.abspath(os.path.dirname(__file__))
+        csv_path = os.path.join(base_dir, 'data', 'twse_listed_stocks.csv')
+        json_path = os.path.join(base_dir, 'data', 'tw_stock_categories.json')
+        
+        # 檢查是否已有處理過的 JSON 檔案
+        if os.path.exists(json_path):
+            with open(json_path, 'r', encoding='utf-8') as f:
+                try:
+                    data = json.load(f)
+                    # 檢查資料是否還有效 (1天內)
+                    if data and 'last_updated' in data:
+                        last_updated = datetime.strptime(data['last_updated'], '%Y-%m-%d')
+                        if (datetime.now() - last_updated).days < 1:
+                            return jsonify(data['categories'])
+                except:
+                    pass  # 如果讀取失敗，重新處理資料
+        
+        # 讀取 CSV 檔案，如果不存在則嘗試獲取
+        if not os.path.exists(csv_path):
+            success = update_twse_stock_list()
+            if not success:
+                return jsonify({"error": "無法獲取台股列表資料"}), 500
+        
+        df = pd.read_csv(csv_path, encoding='utf-8')
+        
+        # 確保必要的列名存在
+        required_columns = ['有價證券代號', '有價證券名稱', '產業別']
+        if not all(col in df.columns for col in required_columns):
+            return jsonify({"error": "CSV 檔案缺少必要的欄位"}), 400
+        
+        # 重新命名欄位以方便使用
+        df = df.rename(columns={
+            '有價證券代號': 'symbol',
+            '有價證券名稱': 'name',
+            '產業別': 'industry'
+        })
+        
+        # 按產業分類股票
+        industry_groups = {}
+        for industry in df['industry'].unique():
+            if pd.isna(industry):
+                continue
+                
+            industry_stocks = []
+            for _, row in df[df['industry'] == industry].iterrows():
+                symbol = str(row['symbol']).strip()
+                name = row['name']
+                
+                stock_info = {
+                    "ticker": symbol,
+                    "name": name,
+                    "industry": industry
+                }
+                industry_stocks.append(stock_info)
+            
+            if industry_stocks:
+                industry_groups[industry] = industry_stocks
+        
+        # 清理 NaN 值
+        def clean_nan(obj):
+            if isinstance(obj, dict):
+                return {k: clean_nan(v) for k, v in obj.items()}
+            elif isinstance(obj, list):
+                return [clean_nan(i) for i in obj]
+            elif isinstance(obj, float) and np.isnan(obj):
+                return None
+            else:
+                return obj
+        
+        # 整理為需要的輸出格式
+        categories = []
+        for industry, stocks in industry_groups.items():
+            categories.append({
+                "industry": industry,
+                "stocks": stocks
+            })
+        
+        # 按產業名稱排序
+        categories = sorted(categories, key=lambda x: x['industry'])
+        
+        # 保存結果
+        result = {
+            "categories": clean_nan(categories),
+            "last_updated": datetime.now().strftime('%Y-%m-%d')
+        }
+        
+        with open(json_path, 'w', encoding='utf-8') as f:
+            json.dump(result, f, ensure_ascii=False, indent=2)
+        
+        return jsonify(categories)
+        
     except Exception as e:
         return jsonify({"error": str(e)}), 500
