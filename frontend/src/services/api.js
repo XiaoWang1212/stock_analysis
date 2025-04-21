@@ -39,8 +39,8 @@ export const apiService = {
         return apiService.get(`/stock_app/api/tw_bias/${symbol}`);
       }
     },
-    predictStockPrice: (symbol) =>
-      apiService.get(`/stock_app/api/lstm_predict/${symbol}`),
+    predictStockPrice: (symbol, market = "US") =>
+      apiService.get(`/stock_app/api/lstm_predict/${symbol}/${market}`),
     getStockCategories: (market = "US") => {
       if (market === "US") {
         return apiService.get("/stock_app/api/categories");

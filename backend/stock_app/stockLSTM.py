@@ -69,9 +69,13 @@ def generate_future_dates(start_date, days=7):
     
     return future_dates
 
-@stock_app_blueprint.route('/api/lstm_predict/<symbol>', methods=['GET'])
-def lstm_predict_stock(symbol):
+# @stock_app_blueprint.route('/api/lstm_predict/<symbol>', methods=['GET'])
+@stock_app_blueprint.route('/api/lstm_predict/<symbol>/<market>', methods=['GET'])
+def lstm_predict_stock(symbol, market='US'):
     try:
+        if market == 'TW' :
+            symbol = f"{symbol}.TW"
+            
         model_path = get_model_path(symbol)
         scaler_path = get_scaler_path(symbol)
         prediction_days = 60  # 預測窗口大小，與訓練時一致
@@ -94,7 +98,11 @@ def lstm_predict_stock(symbol):
                 
             # 只獲取近期數據用於預測
             stock = yf.Ticker(symbol)
-            recent_data = stock.history(period="3mo")
+            
+            if market == 'TW' :
+                recent_data = stock.history(period="6mo")
+            else :
+                recent_data = stock.history(period="3mo")
             
             if recent_data.empty:
                 return jsonify({"error": f"No recent data found for symbol: {symbol}"}), 404

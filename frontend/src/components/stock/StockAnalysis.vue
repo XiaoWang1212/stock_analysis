@@ -91,7 +91,7 @@
     <!-- 股票圖表 -->
     <div class="stock-chart-container">
       <stock-chart
-        v-if="chartData"
+        v-if="chartData && !showPrediction"
         :symbol="stockSymbol"
         :chartData="chartData"
       />
@@ -408,6 +408,10 @@
           if (this.chartData) {
             this.resetChartData();
           }
+
+          if (this.showPrediction){
+            this.showPrediction = false;
+          }
         } else {
           this.showSuggestions = false;
           this.filteredStocks = [];
@@ -526,6 +530,7 @@
       }
     },
     mounted() {
+      this.showPrediction = false;
       console.log("組件掛載，當前股票代號:", this.stockSymbol);
     },
     beforeUnmount() {
