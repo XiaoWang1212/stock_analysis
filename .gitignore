@@ -12,3 +12,38 @@ Thumbs.db
 # 忽略 IDE 配置資料夾
 .vscode/
 .idea/
+
+# 忽略機器學習模型和數據檔案
+backend/stock_app/models/*.pkl
+backend/stock_app/models/*.keras
+
+# 忽略快取和暫存檔案
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# 忽略日誌檔案
+*.log
+logs/
+
+# 忽略產生的數據和暫存檔案
+tmp/
+backend/stock_app/data/*.csv
+backend/stock_app/data/*.json
+*.npy
+*.npz
+
+# 忽略環境設定檔案
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 忽略 Node.js 相關檔案
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
