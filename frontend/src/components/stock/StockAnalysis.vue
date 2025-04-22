@@ -1,6 +1,5 @@
 <template>
   <div class="stock-analysis">
-    <h1>股票分析</h1>
 
     <!-- 市場選擇器 -->
     <div class="market-container" v-if="showMarketSelector">
@@ -45,15 +44,18 @@
           </div>
         </div>
         <button @click="handleSearch" class="search-button">搜尋</button>
+
+        <button
+          v-if="stockSymbol"
+          @click="navigateToSMAChart(stockSymbol)"
+          class="analysis-button"
+        >
+          技術分析
+        </button>
       </div>
 
-      <button
-        v-if="stockSymbol"
-        @click="navigateToSMAChart(stockSymbol)"
-        class="analysis-button"
-      >
-        技術分析
-      </button>
+      
+
     </div>
 
     <!-- 載入中和錯誤提示 -->
@@ -96,6 +98,7 @@
         :chartData="chartData"
       />
     </div>
+    
   </div>
 </template>
 
@@ -692,6 +695,7 @@
   .analysis-button {
     background-color: #28a745;
     color: white;
+    
   }
 
   .analysis-button:hover {

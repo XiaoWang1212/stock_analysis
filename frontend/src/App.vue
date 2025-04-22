@@ -6,9 +6,9 @@
           <router-link to="/home" class="icon-link">
             <span class="material-icons">account_circle</span>
           </router-link>
-          <router-link to="/stock-heatmap">Stock Maps</router-link>
+          <router-link to="/stock-heatmap">股票行情</router-link>
           <router-link to="/tw-stock-categories"> 台股分類 </router-link>
-          <router-link to="/stock-app">Stock Analysis</router-link>
+          <router-link to="/stock-app">股票分析</router-link>
         </div>
       </nav>
     </header>
@@ -27,7 +27,7 @@
     color: #2c3e50;
     min-height: 100vh;
     position: relative;
-    background: #f5f5f7;
+    background: #ECF5FF;
   }
 
   .stock-analysis {
@@ -49,7 +49,9 @@
   }
 
   header {
-    background-color: rgba(51, 51, 51, 0.9);
+    background-color: white;
+    border-bottom: 2px solid #97CBFF;
+    box-shadow : 0px 0px 5px 3px #D0D0D0;
     padding: 10px;
     position: relative;
   }
@@ -67,16 +69,25 @@
   }
 
   nav a {
-    color: white;
     text-decoration: none;
     padding: 10px;
     font-size: 16px;
+    font-weight: bold;
+    border-radius: 20px;
     transition: background-color 0.3s, font-size 0.3s;
   }
 
   nav a:hover {
-    background-color: #555;
+    background-color: #84C1FF;
+    color: white;
+    border-radius: 20px;
     font-size: 18px;
+  }
+
+  .router-link-active{
+    background-color: #97CBFF;
+    color: white;
+    border-radius: 20px;
   }
 
   .dropdown {
