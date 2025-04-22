@@ -82,8 +82,6 @@
             :symbol="stockSymbol"
             :market="market"
           />
-
-          <!-- <stock-news-sentiment v-if="showPrediction" :symbol="stockSymbol" /> -->
         </div>
       </transition>
     </div>
