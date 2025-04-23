@@ -33,7 +33,6 @@
   .stock-analysis {
     padding: var(--content-padding);
     max-width: var(--container-max-width);
-    width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
   }
@@ -50,13 +49,14 @@
 
   header {
     background-color: white;
-    border-bottom: 2px solid #97CBFF;
+    border-bottom: 3px solid #97CBFF;
     box-shadow : 0px 0px 5px 3px #D0D0D0;
     padding: 10px;
     position: relative;
   }
 
   nav {
+    padding-left: 20px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
