@@ -1,4 +1,5 @@
 import os
+import re
 from urllib.parse import urljoin
 import warnings
 import sys
@@ -81,6 +82,7 @@ def analysis_stock_sentiment(symbol, days=30):
         article_contents = []
         news_links = []
         news_impacts = []
+        news_times = []
         
         try:
             # 高級請求配置
@@ -103,34 +105,49 @@ def analysis_stock_sentiment(symbol, days=30):
             
             # 1. 先獲取所有新聞標題和對應的連結
             news_items = []
+            news_containers = []
             
             # 嘗試多種選擇器來獲取標題和連結
-            for selector in [
+            selectors = [   
                 'li.js-stream-content', 
-                'div.Ov\\(h\\).Pend\\(44px\\)', 
-                'h3.Mb\\(5px\\)',
-                'a[data-test="mega-headline"]'
-            ]:
+                'content yf-1y7058a',
+                'div.content.yf-1y7058a, li.js-stream-content'
+            ]
+            for selector in selectors:
                 elements = soup.select(selector)
                 if elements:
-                    for element in elements:
-                        title_element = element.find('h3') or element.find('a')
-                        if not title_element:
-                            continue
-                            
-                        title = title_element.get_text().strip()
-                        
-                        # 找尋連結
-                        link_element = element.find('a', href=True) or title_element if hasattr(title_element, 'get') and title_element.get('href') else None
-                        link = link_element.get('href') if link_element else None
-                        
-                        # 確保是完整URL
-                        if link and not link.startswith(('http://', 'https://')):
-                            link = urljoin(base_url, link)
-                        
-                        if title and len(title) > 10 and link:
-                            news_items.append({'title': title, 'link': link})
-            
+                    news_containers.extend(elements)
+                    print(f"使用選擇器 {selector} 獲取新聞項目")
+                
+            for container in news_containers:
+                title_element = container.find('h3') or container.find('a[data-test="mega-headline"]')
+                if not title_element:
+                    continue
+                    
+                title = title_element.get_text().strip()
+                
+                # 找尋連結
+                link_element = container.select_one('a[href]')
+                link = link_element.get('href') if link_element else None
+                if link and not link.startswith(('http://', 'https://')):
+                    link = urljoin(base_url, link)
+
+                # 查找發布時間和來源
+                time_text = ""
+                time_element = container.select_one('.caas-attr-time-style') or container.select_one('.publishing') or container.select_one('div[class*="Fz(12px)"]')
+                
+                if time_element:
+                    time_text = time_element.get_text().strip()
+                
+                publish_time = process_time_text(time_text)
+
+                if title and len(title) > 10 and link:
+                    news_items.append({
+                        'title': title,
+                        'link': link,
+                        'publish_time': publish_time
+                    })
+        
             # 如果主選擇器沒有找到足夠的新聞，嘗試備用選擇器
             if len(news_items) < 5:
                 for headline in soup.select('h3, h4'):
@@ -147,14 +164,17 @@ def analysis_stock_sentiment(symbol, days=30):
             
             print(f"找到 {len(news_items)} 條新聞項目")
             
-            # 2. 獲取文章內容（最多10篇文章）
-            article_count = min(len(news_items), 10)
+            # 2. 獲取文章內容（最多20篇文章）
+            article_count = min(len(news_items), 20)
             for i, news in enumerate(news_items[:article_count]):
                 try:
                     title = news['title']
-                    link = news['link']
+                    link = news['link'] 
+                    publish_time = news.get('publish_time', "")
+
                     titles.append(title)
                     news_links.append(link)
+                    news_times.append(publish_time)
                     
                     print(f"嘗試獲取文章 {i+1}/{article_count}: {title[:30]}...")
                     
@@ -207,13 +227,17 @@ def analysis_stock_sentiment(symbol, days=30):
         # 移除重複標題
         titles = list(set(titles))
 
-        title_link_map = {}
+        title_link_time_map = {}
         for i, title in enumerate(titles):
-            if i < len(news_links):
-                title_link_map[title] = news_links[i]
+            if i < len(news_links) and i < len(news_times):
+                title_link_time_map[title] = {
+                    "link": news_links[i],
+                    "publish_time": news_times[i]
+                }
                 
-        titles = list(title_link_map.keys())
-        news_links = list(title_link_map.values())
+        titles = list(title_link_time_map.keys())
+        news_links = [title_link_time_map[title]["link"] for title in titles]
+        news_times = [title_link_time_map[title]["publish_time"] for title in titles]
         
         print(f"去重後剩餘 {len(titles)} 條新聞標題")
         print(f"成功獲取 {len(article_contents)} 篇文章內容")
@@ -237,6 +261,11 @@ def analysis_stock_sentiment(symbol, days=30):
                 score = sid.polarity_scores(title)
                 compound_score = score['compound']
                 
+                # 發布時間
+                pub_time = ""
+                if title in title_link_time_map:
+                    pub_time = title_link_time_map[title]["publish_time"]
+                
                 # 金融詞彙增強
                 title_lower = title.lower()
                 pos_matches = sum(1 for term in finance_pos_terms if term in title_lower)
@@ -259,7 +288,8 @@ def analysis_stock_sentiment(symbol, days=30):
                 title_impact_links.append({
                     "title": title,
                     "impact": adjusted_score,
-                    "link": news_links[i]
+                    "link": news_links[i],
+                    "publish_time": pub_time
                 })
                 
                 print(f"標題: {title[:30]}... 原始分數: {compound_score:.4f}, 調整後: {adjusted_score:.4f}")
@@ -308,22 +338,25 @@ def analysis_stock_sentiment(symbol, days=30):
         # 標題:文章 = 1:2 的權重比例（因為文章包含更多內容細節）
         combined_scores = []
         
-        for title_score in title_scores:
-            combined_scores.append(title_score * 0.35)  # 標題權重 35%
-            
-        for article_score in article_scores:
-            combined_scores.append(article_score * 0.65)  # 文章權重 65%
+        for title_score, article_score in zip(title_scores, article_scores):
+            combined_scores.append(title_score * 0.35 + article_score * 0.65)  # 標題權重 35%, 文章權重 65%
         
         # 如果沒有找到新聞或文章，使用備用方案
         if not combined_scores:
             print(f"警告: 沒有為 {symbol} 找到新聞分析結果，使用模擬數據")
             return generate_simulated_sentiment(symbol, days)
+
+        news_times_list = []
+        news_titles = []
+
+        for i, title in enumerate(titles):
+            if i < len(news_times):
+                news_times_list.append(news_times[i])
+            news_titles.append(title)
             
         # 計算最終加權平均情感分數
-        # 強調極端情感（無論正負）的影響
-        weighted_scores = [abs(score) * score for score in combined_scores]
-        total_weight = sum(abs(score) for score in combined_scores) or 1  # 避免除以零
-        avg_sentiment = sum(weighted_scores) / total_weight
+        print(len(combined_scores), len(news_times_list), len(news_titles))
+        avg_sentiment = calculate_balanced_sentiment(combined_scores, news_times_list, news_titles)
         
         print(f"{symbol} 最終平均情感分數: {avg_sentiment:.4f}")
         
@@ -347,7 +380,157 @@ def analysis_stock_sentiment(symbol, days=30):
             "top_news": [],
             "avg_sentiment": sum(simulated_data) / len(simulated_data) if simulated_data else 0
         }
+
+# 新增：處理時間文本的輔助函數
+def process_time_text(time_text):
+    """處理從Yahoo Finance獲取的時間文本，轉換為標準格式"""
+    if not time_text:
+        return ""
+        
+    try:
+        # 解析來源和時間
+        source_time_parts = time_text.split('•')
+        if len(source_time_parts) > 1:
+            source = source_time_parts[0].strip()
+            time_part = source_time_parts[1].strip()
+        else:
+            source = ""
+            time_part = time_text.strip()
+        
+        # 處理時間格式
+        if "hours ago" in time_part or "hour ago" in time_part:
+            hour_match = re.search(r'(\d+)\s*hour', time_part)
+            if hour_match:
+                hours = int(hour_match.group(1))
+                result = f"{hours}小時前"
+                return f"{source} • {result}" if source else result
+                
+        elif "minutes ago" in time_part or "minute ago" in time_part:
+            minute_match = re.search(r'(\d+)\s*minute', time_part)
+            if minute_match:
+                minutes = int(minute_match.group(1))
+                result = f"{minutes}分鐘前"
+                return f"{source} • {result}" if source else result
+                
+        elif "days ago" in time_part or "day ago" in time_part:
+            day_match = re.search(r'(\d+)\s*day', time_part)
+            if day_match:
+                days = int(day_match.group(1))
+                result = f"{days}天前"
+                return f"{source} • {result}" if source else result
+        
+        return time_text
+    except Exception as e:
+        print(f"處理時間文本出錯: {str(e)}")
+        return time_text
+
+def calculate_balanced_sentiment(scores, times=None, titles=None):
+    """
+    計算更均衡的情感平均值，考慮時間衰減和負面新聞放大
     
+    參數:
+    - scores: 情感分數列表
+    - times: 對應的發布時間信息（可選）
+    - titles: 對應的標題（可選，用於調試）
+    """
+    if not scores:
+        return 0.0
+    
+    # 1. 時間權重：根據是否有時間信息計算時間衰減權重
+    time_weights = []
+    if times:
+        # 解析時間信息并計算相對權重
+        for time_info in times:
+            if "小時前" in str(time_info):
+                try:
+                    hours = int(re.search(r'(\d+)小時前', str(time_info)).group(1))
+                    # 新聞越新權重越大，24小時內權重遞減
+                    # 24小時前權重0.5，1小時前權重接近1.0
+                    time_weight = 0.5 + 0.5 * (1.0 - min(24.0, float(hours)) / 24.0)
+                except:
+                    time_weight = 0.7  # 默認時間權重
+            elif "分鐘前" in str(time_info):
+                time_weight = 1.0  # 非常新的新聞
+            else:
+                time_weight = 0.7  # 默認時間權重
+            time_weights.append(time_weight)
+    else:
+        # 沒有時間信息，使用平等權重
+        time_weights = [1.0] * len(scores)
+    
+    # 2. 情感權重：負面消息給予更大權重
+    sentiment_weights = []
+    for score in scores:
+        if score < -0.2:  # 明顯負面
+            # 負面程度越高，權重越大 (-1的權重為2.5，-0.2的權重為1.1)
+            sentiment_weight = 1.0 + min(1.5, abs(score) * 1.5)
+        elif score < 0:  # 輕微負面
+            sentiment_weight = 1.0 + abs(score) * 0.5
+        elif score > 0.5:  # 強烈正面
+            sentiment_weight = 0.9  # 降低強烈正面的權重
+        elif score > 0:  # 輕微正面
+            sentiment_weight = 0.95
+        else:  # 中性
+            sentiment_weight = 0.8
+        sentiment_weights.append(sentiment_weight)
+    
+    # 3. 計算加權分數
+    weighted_scores = []
+    total_weight = 0
+    
+    # 調試信息
+    debug_info = []
+    
+    for i, score in enumerate(scores):
+        # 計算這個分數的綜合權重
+        combined_weight = time_weights[i] * sentiment_weights[i]
+        weighted_score = score * combined_weight
+        
+        weighted_scores.append(weighted_score)
+        total_weight += combined_weight
+        
+        # 收集調試信息
+        if titles and i < len(titles):
+            short_title = titles[i][:30] + "..." if len(titles[i]) > 30 else titles[i]
+            debug_info.append({
+                "title": short_title,
+                "score": score,
+                "time_weight": time_weights[i],
+                "sentiment_weight": sentiment_weights[i],
+                "combined_weight": combined_weight,
+                "weighted_score": weighted_score
+            })
+    
+    # 計算加權平均
+    if total_weight > 0:
+        final_score = sum(weighted_scores) / total_weight
+    else:
+        final_score = 0.0
+    
+    # 強負面懲罰：如果有多個顯著負面文章(20%文章強烈負面),進一步降低分數
+    strong_negative_count = sum(1 for s in scores if s < -0.5)
+    if strong_negative_count >= max(2, len(scores) * 0.2):
+        negative_penalty = min(0.15, 0.05 * strong_negative_count)
+        final_score -= negative_penalty
+    
+    # 打印調試信息
+    print("\n情感分析權重細節:")
+    print(f"{'標題':<35} {'原始分數':>10} {'時間權重':>10} {'情感權重':>10} {'綜合權重':>10} {'加權分數':>10}")
+    print("-" * 90)
+    
+    for item in debug_info[:10]:  # 只顯示前10項
+        print(f"{item['title']:<35} {item['score']:>10.4f} {item['time_weight']:>10.4f} {item['sentiment_weight']:>10.4f} {item['combined_weight']:>10.4f} {item['weighted_score']:>10.4f}")
+    
+    if len(debug_info) > 10:
+        print(f"...以及其他 {len(debug_info)-10} 項")
+    
+    print(f"\n強負面文章數量: {strong_negative_count}")
+    print(f"總權重: {total_weight:.4f}")
+    print(f"最終情感分數: {final_score:.4f}")
+    
+    # 限制最終分數在 -1 到 1 之間
+    return max(-1.0, min(1.0, final_score))
+
 # 生成情感趨勢模式函數
 def generate_sentiment_trend_pattern(avg_sentiment, days):
     """生成更自然的情感趨勢模式"""
@@ -936,7 +1119,8 @@ def format_response(symbol, current_price, next_price, price_change, accuracy,
                 "title": item["title"],
                 "impact": float(item["impact"]),
                 "impact_direction": "正面" if item["impact"] > 0 else "負面" if item["impact"] < 0 else "中性",
-                "link": item["link"]
+                "link": item["link"],
+                "publish_time": item["publish_time"],
             }
             for item in top_5_news
         ]

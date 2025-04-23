@@ -1,8 +1,6 @@
 <template>
     <div class="stock-app">
-      <header>
-        <h1>Stock Application</h1>
-      </header>
+      
       <main>
         <router-view />
       </main>
@@ -22,12 +20,12 @@
     padding: 20px;
   }
   
-  header {
+  /*header {
     background-color: #333;
     color: white;
     padding: 10px 0;
     margin-bottom: 20px;
-  }
+  }*/
   
   main {
     display: flex;

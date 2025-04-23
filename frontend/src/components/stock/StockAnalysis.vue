@@ -1,6 +1,5 @@
 <template>
   <div class="stock-analysis">
-    <h1>股票分析</h1>
 
     <!-- 市場選擇器 -->
     <div class="market-container" v-if="showMarketSelector">
@@ -11,42 +10,7 @@
       />
     </div>
 
-    <!-- 搜尋框 -->
-    <div class="search-section">
-      <div class="search-box">
-        <input
-          v-model="stockSymbol"
-          :placeholder="
-            market === 'US'
-              ? 'Enter US stock symbol...'
-              : '輸入台股代號或中文名稱...'
-          "
-          class="search-input"
-          @input="handleInput"
-          @keyup.enter="handleSearch"
-        />
-        <div
-          v-if="showSuggestions && filteredStocks.length"
-          class="suggestions"
-        >
-          <div
-            v-for="stock in filteredStocks"
-            :key="stock"
-            @click="selectStock(stock)"
-            :class="['suggestion-item', { 'us-stock': market === 'US' }]"
-          >
-            <template v-if="market === 'TW' && stock.includes(' ')">
-              <span class="stock-name">{{ getStockName(stock) }}</span>
-              <span class="stock-code">{{ getStockCode(stock) }}</span>
-            </template>
-            <template v-else>
-              <span class="us-symbol">{{ stock }}</span>
-            </template>
-          </div>
-        </div>
-        <button @click="handleSearch" class="search-button">搜尋</button>
-      </div>
-
+    <div class="analysis-button-flame">
       <button
         v-if="stockSymbol"
         @click="navigateToSMAChart(stockSymbol)"
@@ -55,10 +19,6 @@
         技術分析
       </button>
     </div>
-
-    <!-- 載入中和錯誤提示 -->
-    <loading-spinner v-if="loading" />
-    <error-message v-else-if="error" :message="error" @retry="handleSearch" />
 
     <!-- 預測區塊 -->
     <div v-if="chartData" class="predict-section">
@@ -86,15 +46,67 @@
       </transition>
     </div>
 
-    <!-- 股票圖表 -->
-    <div class="stock-chart-container">
-      <stock-chart
-        v-if="chartData && !showPrediction"
-        :symbol="stockSymbol"
-        :chartData="chartData"
+      <!-- 載入中和錯誤提示 -->
+      <loading-spinner v-if="loading" class="loading-spinner"/>
+      <error-message v-else-if="error" :message="error" @retry="handleSearch" />
+
+      <!-- 股票圖表 -->
+      <div class="stock-chart-container">
+        <stock-chart
+          v-if="chartData && !showPrediction"
+          :symbol="stockSymbol"
+          :chartData="chartData"
+        />
+      </div>
+  </div>
+
+  <!-- 搜尋框 -->
+  <div class="search-section">
+    <div class="search-box">
+      <input
+        v-model="stockSymbol"
+        :placeholder="
+          market === 'US'
+            ? 'Enter US stock symbol...'
+            : '輸入台股代號或中文名稱...'
+        "
+        class="search-input"
+        @input="handleInput"
+        @keyup.enter="handleSearch"
       />
+      <div
+        v-if="showSuggestions && filteredStocks.length"
+        class="suggestions"
+      >
+        <div
+          v-for="stock in filteredStocks"
+          :key="stock"
+          @click="selectStock(stock)"
+          :class="['suggestion-item', { 'us-stock': market === 'US' }]"
+        >
+          <template v-if="market === 'TW' && stock.includes(' ')">
+            <span class="stock-name">{{ getStockName(stock) }}</span>
+            <span class="stock-code">{{ getStockCode(stock) }}</span>
+          </template>
+          <template v-else>
+            <span class="us-symbol">{{ stock }}</span>
+          </template>
+        </div>
+      </div>
+      <button @click="handleSearch" class="search-button">搜尋</button>
+
+      <!--
+      <button
+        v-if="stockSymbol"
+        @click="navigateToSMAChart(stockSymbol)"
+        class="analysis-button"
+      >
+        技術分析
+      </button>
+      -->
     </div>
   </div>
+
 </template>
 
 <script>
@@ -550,13 +562,14 @@
 
 <style scoped>
   .stock-analysis {
-    display: flex;
-    flex-direction: column;
     padding: 30px;
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .market-container {
@@ -568,8 +581,8 @@
   .search-section {
     display: flex;
     gap: 20px;
-    justify-content: center;
-    align-items: center;
+    justify-content: end;
+    align-items: start;
     margin-bottom: 30px;
     width: 100%;
     max-width: 100%;
@@ -579,16 +592,17 @@
     display: flex;
     gap: 10px;
     flex: 0 1 auto;
-    width: 60%;
+    width: 100%;
     max-width: 400px;
     position: relative;
+    right: 5%;
   }
 
   .search-input {
     flex: 1;
     padding: 12px;
     font-size: 16px;
-    border: 2px solid #ddd;
+    border: 2px solid #66B3FF;
     border-radius: 6px;
     transition: border-color 0.3s;
     width: 100%;
@@ -605,22 +619,24 @@
   .analysis-button {
     padding: 12px 24px;
     font-size: 16px;
+    font-weight: bold;
     border: none;
-    border-radius: 6px;
+    border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s;
   }
 
   .search-button {
-    background-color: #4a90e2;
+    background-color: #66B3FF;
     color: white;
   }
 
   .search-button:hover {
-    background-color: #357abd;
+    background-color: #2894FF;
   }
 
   .search-box {
+    padding: 30px;
     position: relative;
   }
 
@@ -628,8 +644,9 @@
     position: absolute;
     top: 100%;
     left: 0;
+    right: 5%;
     width: 100%;
-    max-height: 150px;
+    max-height: 250px;
     overflow-y: auto;
     background: white;
     border: 1px solid #ddd;
@@ -687,13 +704,19 @@
     background: #555;
   }
 
+  .analysis-button-flame{
+    display: flex;
+    justify-content: center;
+  }
+
   .analysis-button {
-    background-color: #28a745;
+    background-color: #66B3FF;
     color: white;
+    width: 120px;
   }
 
   .analysis-button:hover {
-    background-color: #218838;
+    background-color: #2894FF;
   }
 
   .predict-section {
@@ -716,9 +739,13 @@
     font-weight: bold;
   }
 
+  .loading-spinner{
+    height: 60vh;
+  }
+
   .stock-chart-container {
     flex: 0 1 auto;
-    width: 60%;
+    width: 100%;
     max-width: 600px;
     margin: 0 auto;
     overflow-x: hidden;

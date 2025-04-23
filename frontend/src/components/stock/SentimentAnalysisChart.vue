@@ -51,6 +51,10 @@
               {{ news.title }}
               <i class="external-link-icon">↗</i>
             </a>
+            <div v-if="news.publish_time" class="news-time">
+              <i class="time-icon">⏱</i>
+              <span>{{ formatPublishTime(news.publish_time) }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -152,6 +156,55 @@
         if (absImpact > 0.7) return "high-impact-news";
         if (absImpact > 0.3) return "medium-impact-news";
         return "low-impact-news";
+      },
+
+      formatPublishTime(timeStr) {
+        if (!timeStr) return "";
+
+        // 處理"小時前"格式
+        if (timeStr.includes("小時前")) {
+          return timeStr; // 已經是易讀格式
+        }
+
+        // 處理"分鐘前"格式
+        if (timeStr.includes("分鐘前")) {
+          return timeStr; // 已經是易讀格式
+        }
+
+        // 處理包含"•"的格式 (來源 • 時間)
+        if (timeStr.includes("•")) {
+          const parts = timeStr.split("•");
+          const source = parts[0].trim();
+          const time = parts[1].trim();
+
+          // 如果時間部分包含日期格式，進行進一步處理
+          if (time.match(/\d{1,2}\/\d{1,2}\/\d{4}/)) {
+            return `${source} • ${time}`;
+          }
+
+          return timeStr; // 保持原格式
+        }
+
+        // 嘗試將日期字符串轉換為更友好的格式
+        try {
+          if (timeStr.includes("/")) {
+            const date = new Date(timeStr);
+            if (!isNaN(date.getTime())) {
+              // 格式化為 "YYYY年MM月DD日 HH:MM"
+              return date.toLocaleString("zh-TW", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              });
+            }
+          }
+        } catch (e) {
+          console.warn("無法解析日期:", timeStr);
+        }
+
+        return timeStr; // 如果無法解析，返回原始字符串
       },
 
       async renderSentimentChart() {
@@ -318,7 +371,14 @@
               newsMarkers.x.push(recentDate);
               // 使用新聞的情感影響值作為Y坐標
               newsMarkers.y.push(news.impact);
-              newsMarkers.text.push(news.title);
+
+              const hoverText = news.publish_time
+                ? `${news.title}<br><i>發佈時間: ${this.formatPublishTime(
+                    news.publish_time
+                  )}</i>`
+                : news.title;
+
+              newsMarkers.text.push(hoverText);
             });
 
             // 添加到圖表
@@ -555,6 +615,29 @@
     color: #6c757d;
     font-size: 14px;
     line-height: 1.6;
+  }
+
+  .news-time {
+    font-size: 13px;
+    color: #6c757d;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 15px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    border-left: 4px solid transparent;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .time-icon {
+    font-style: normal;
+    font-size: 14px;
+    opacity: 0.8;
   }
 
   @media (max-width: 768px) {
