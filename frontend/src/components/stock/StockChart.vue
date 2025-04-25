@@ -60,6 +60,10 @@ export default {
   margin-top: 20px;
 }
 
+h3{
+  font-size: 25px;
+}
+
 .loading {
   color: #007bff;
 }

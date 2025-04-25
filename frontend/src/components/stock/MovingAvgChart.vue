@@ -5,6 +5,7 @@
         <span class="material-icons">arrow_back</span>
         返回
       </button>
+      <div class="analysis-title">技術分析</div>
       <div class="add-to-group">
         <LoadingSpinner v-if="loading" />
         <ErrorMessage v-else-if="error" :message="error" @retry="fetchGroups" />
@@ -31,7 +32,7 @@
       </div>
     </div>
     <h2>
-      {{ symbol }} {{ effectiveMarket === "TW" ? `(${getStockName() || '台股'})` : "" }} 技術分析
+      {{ symbol }} {{ effectiveMarket === "TW" ? `- ${getStockName() || '台股'}` : "" }} 
     </h2>
 
     <div class="chart-selector">
@@ -342,32 +343,36 @@
   }
 
   .chart-header {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin: 20px;
+    margin-top: 0;
   }
 
   .back-btn {
+    width: 100px;
     display: flex;
     align-items: center;
     gap: 5px;
     padding: 8px 16px;
-    background: #6c757d;
+    background: #66B3FF;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: 14px;
     transition: background 0.3s ease;
   }
 
   .back-btn:hover {
-    background: #5a6268;
+    background: #2894FF;
   }
 
   .add-to-group {
     display: flex;
+    justify-content: end;
     gap: 10px;
     align-items: center;
   }
@@ -407,6 +412,12 @@
     font-size: 18px;
   }
 
+  .analysis-title{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
+
   .chart-selector {
     margin-bottom: 20px;
   }
@@ -429,9 +440,10 @@
 
   .analysis-selector button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #46A3FF;
     color: white;
     border: none;
+    border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s;
     margin: 0 5px;

@@ -3,14 +3,14 @@
     <header v-if="!$route.meta.hideHeader">
       <nav>
         <div class="nav-left">
-          <router-link to="/home" class="icon-link">
-            <span class="material-icons">account_circle</span>
-          </router-link>
           <router-link to="/stock-heatmap">股票行情</router-link>
           <router-link to="/tw-stock-categories"> 台股分類 </router-link>
           <router-link to="/stock-app">股票分析</router-link>
         </div>
       </nav>
+      <router-link to="/home" class="icon-link">
+        <span class="material-icons">account_circle</span>
+      </router-link>
     </header>
     <router-view />
   </div>
@@ -30,6 +30,11 @@
     background: #ECF5FF;
   }
 
+  header{
+    display: flex;
+    justify-content: space-between;
+  }
+
   .stock-analysis {
     padding: var(--content-padding);
     max-width: var(--container-max-width);
@@ -38,13 +43,25 @@
   }
 
   .icon-link {
+    margin-right: 20px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 8px;
+    text-decoration: none;
   }
 
   .material-icons {
-    font-size: 24px;
+    font-size: 30px; 
+    transition: transform 0.3s ease-in-out; 
+  }
+
+  .material-icons:hover{
+    color: #84C1FF;
+    transform: scale(1.5);
+  }
+
+  .material-icons-click {
+    color: #84C1FF;
   }
 
   header {
@@ -64,6 +81,7 @@
 
   .nav-left {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 10px;
   }
@@ -85,9 +103,9 @@
   }
 
   .router-link-active{
-    background-color: #97CBFF;
-    color: white;
     border-radius: 20px;
+    background-color: #84C1FF;
+    color: white;
   }
 
   .dropdown {
