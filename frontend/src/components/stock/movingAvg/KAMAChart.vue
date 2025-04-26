@@ -101,8 +101,8 @@
           open: open_prices,
           type: "candlestick",
           name: "Candlestick",
-          increasing: { line: { color: "#FF0000" }, fillcolor: "#FFCCCC" },
-          decreasing: { line: { color: "#008000" }, fillcolor: "#CCFFCC" },
+          increasing: { line: { color: "#FF2D2D" }, fillcolor: "#FFCCCC" },
+          decreasing: { line: { color: "#02DF82" }, fillcolor: "#CCFFCC" },
         };
 
         const traceKAMA5 = {
@@ -111,7 +111,7 @@
           type: "scatter",
           mode: "lines",
           name: "KAMA 5",
-          line: { color: "black" },
+          line: { color: "#FF79BC" },
         };
 
         const traceKAMA20 = {
@@ -120,19 +120,29 @@
           type: "scatter",
           mode: "lines",
           name: "KAMA 20",
-          line: { color: "blue" },
+          line: { color: "#66B3FF" },
         };
 
         let chartTitle = `${this.symbol}`;
         if (this.market === "TW" && this.displayName) {
-          chartTitle += ` (${this.displayName})`;
+          chartTitle += ` - ${this.displayName}`;
         }
-        chartTitle += ` KAMA Chart(考夫曼自適應)`;
+        chartTitle += ` KAMA Chart - 考夫曼自適應`;
 
         const layout = {
-          title: chartTitle,
-          xaxis: { title: "Date" },
-          yaxis: { title: "Price" },
+          title: {
+            text: chartTitle,
+            font: {
+              color: 'white',
+            }
+          },
+          legend: {
+            font: {
+              color: "#BEBEBE"
+            },
+          },
+          xaxis: { title: "Date", color: '#BEBEBE', gridcolor: '#7B7B7B'},
+          yaxis: { title: "Price", color: '#BEBEBE', gridcolor: '#7B7B7B'},
           showlegend: true,
           hovermode: "x unified", // 提供更友好的 hover 效果
           hoverlabel: {
@@ -140,6 +150,8 @@
             bordercolor: "#999",
             font: { size: 12 },
           },
+          paper_bgcolor: '#4F4F4F',
+          plot_bgcolor: '#4F4F4F',
         };
 
         Plotly.newPlot(
@@ -173,8 +185,8 @@
     margin: 20px 0;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    border-bottom: 2px solid #7B7B7B;
+    background-color: #4F4F4F;
   }
 
   h3 {

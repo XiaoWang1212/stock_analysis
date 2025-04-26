@@ -24,10 +24,10 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
+    color: white;
     min-height: 100vh;
     position: relative;
-    background: #ECF5FF;
+    background: #272727;
   }
 
   header{
@@ -51,6 +51,7 @@
   }
 
   .material-icons {
+    color: white;
     font-size: 30px; 
     transition: transform 0.3s ease-in-out; 
   }
@@ -65,8 +66,7 @@
   }
 
   header {
-    background-color: white;
-    border-bottom: 3px solid #97CBFF;
+    background-color: #5B5B5B;
     box-shadow : 0px 0px 5px 3px #D0D0D0;
     padding: 10px;
     position: relative;
@@ -87,6 +87,7 @@
   }
 
   nav a {
+    color: white;
     text-decoration: none;
     padding: 10px;
     font-size: 16px;
@@ -96,7 +97,7 @@
   }
 
   nav a:hover {
-    background-color: #84C1FF;
+    background-color: #66B3FF;
     color: white;
     border-radius: 20px;
     font-size: 18px;
@@ -104,7 +105,7 @@
 
   .router-link-active{
     border-radius: 20px;
-    background-color: #84C1FF;
+    background-color: #66B3FF;
     color: white;
   }
 

@@ -31,90 +31,93 @@
         </template>
       </div>
     </div>
-    <h2>
-      {{ symbol }} {{ effectiveMarket === "TW" ? `- ${getStockName() || '台股'}` : "" }} 
-    </h2>
 
-    <div class="chart-selector">
-      <label> <input type="checkbox" v-model="showSMA" /> SMA </label>
-      <label> <input type="checkbox" v-model="showEMA" /> EMA </label>
-      <label> <input type="checkbox" v-model="showWMA" /> WMA </label>
-      <label> <input type="checkbox" v-model="showKAMA" /> KAMA </label>
-    </div>
     <div class="chart-container">
-      <SMAChart v-if="showSMA" :symbol="symbol" :market="effectiveMarket" />
-      <EMAChart v-if="showEMA" :symbol="symbol" :market="effectiveMarket" />
-      <WMAChart v-if="showWMA" :symbol="symbol" :market="effectiveMarket" />
-      <KAMAChart v-if="showKAMA" :symbol="symbol" :market="effectiveMarket" />
-      <div class="analysis-selector">
-        <button
-          @click="selectAnalysis('BIAS')"
-          :class="{ active: selectedAnalysis === 'BIAS' }"
-        >
-          BIAS
-        </button>
-        <button
-          @click="selectAnalysis('RSI')"
-          :class="{ active: selectedAnalysis === 'RSI' }"
-        >
-          RSI
-        </button>
-        <button
-          @click="selectAnalysis('STOCH')"
-          :class="{ active: selectedAnalysis === 'STOCH' }"
-        >
-          STOCH
-        </button>
-        <button
-          @click="selectAnalysis('STOCHRSI')"
-          :class="{ active: selectedAnalysis === 'STOCHRSI' }"
-        >
-          STOCH RSI
-        </button>
-        <button
-          @click="selectAnalysis('STOCHF')"
-          :class="{ active: selectedAnalysis === 'STOCHF' }"
-        >
-          STOCH F
-        </button>
-        <button
-          @click="selectAnalysis('MACD')"
-          :class="{ active: selectedAnalysis === 'MACD' }"
-        >
-          MACD
-        </button>
+      <h2>
+        {{ symbol }} {{ effectiveMarket === "TW" ? `- ${getStockName() || '台股'}` : "" }} 
+      </h2>
+
+      <div class="chart-selector">
+        <label> <input type="checkbox" v-model="showSMA" /> SMA </label>
+        <label> <input type="checkbox" v-model="showEMA" /> EMA </label>
+        <label> <input type="checkbox" v-model="showWMA" /> WMA </label>
+        <label> <input type="checkbox" v-model="showKAMA" /> KAMA </label>
       </div>
-      <div class="analysis-container">
-        <SMAAndBIASChart
-          v-if="selectedAnalysis === 'BIAS'"
-          :symbol="symbol"
-          :market="effectiveMarket"
-        />
-        <RSIChart
-          v-else-if="selectedAnalysis === 'RSI'"
-          :symbol="symbol"
-          :market="effectiveMarket"
-        />
-        <STOCHChart
-          v-else-if="selectedAnalysis === 'STOCH'"
-          :symbol="symbol"
-          :market="effectiveMarket"
-        />
-        <STOCHRSIChart
-          v-else-if="selectedAnalysis === 'STOCHRSI'"
-          :symbol="symbol"
-          :market="effectiveMarket"
-        />
-        <STOCHFChart
-          v-else-if="selectedAnalysis === 'STOCHF'"
-          :symbol="symbol"
-          :market="effectiveMarket"
-        />
-        <MACDChart
-          v-else-if="selectedAnalysis === 'MACD'"
-          :symbol="symbol"
-          :market="effectiveMarket"
-        />
+      <div class="chart-container">
+        <SMAChart v-if="showSMA" :symbol="symbol" :market="effectiveMarket" />
+        <EMAChart v-if="showEMA" :symbol="symbol" :market="effectiveMarket" />
+        <WMAChart v-if="showWMA" :symbol="symbol" :market="effectiveMarket" />
+        <KAMAChart v-if="showKAMA" :symbol="symbol" :market="effectiveMarket" />
+        <div class="analysis-selector">
+          <button
+            @click="selectAnalysis('BIAS')"
+            :class="{ active: selectedAnalysis === 'BIAS' }"
+          >
+            BIAS
+          </button>
+          <button
+            @click="selectAnalysis('RSI')"
+            :class="{ active: selectedAnalysis === 'RSI' }"
+          >
+            RSI
+          </button>
+          <button
+            @click="selectAnalysis('STOCH')"
+            :class="{ active: selectedAnalysis === 'STOCH' }"
+          >
+            STOCH
+          </button>
+          <button
+            @click="selectAnalysis('STOCHRSI')"
+            :class="{ active: selectedAnalysis === 'STOCHRSI' }"
+          >
+            STOCH RSI
+          </button>
+          <button
+            @click="selectAnalysis('STOCHF')"
+            :class="{ active: selectedAnalysis === 'STOCHF' }"
+          >
+            STOCH F
+          </button>
+          <button
+            @click="selectAnalysis('MACD')"
+            :class="{ active: selectedAnalysis === 'MACD' }"
+          >
+            MACD
+          </button>
+        </div>
+        <div class="analysis-container">
+          <SMAAndBIASChart
+            v-if="selectedAnalysis === 'BIAS'"
+            :symbol="symbol"
+            :market="effectiveMarket"
+          />
+          <RSIChart
+            v-else-if="selectedAnalysis === 'RSI'"
+            :symbol="symbol"
+            :market="effectiveMarket"
+          />
+          <STOCHChart
+            v-else-if="selectedAnalysis === 'STOCH'"
+            :symbol="symbol"
+            :market="effectiveMarket"
+          />
+          <STOCHRSIChart
+            v-else-if="selectedAnalysis === 'STOCHRSI'"
+            :symbol="symbol"
+            :market="effectiveMarket"
+          />
+          <STOCHFChart
+            v-else-if="selectedAnalysis === 'STOCHF'"
+            :symbol="symbol"
+            :market="effectiveMarket"
+          />
+          <MACDChart
+            v-else-if="selectedAnalysis === 'MACD'"
+            :symbol="symbol"
+            :market="effectiveMarket"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -412,6 +415,17 @@
     font-size: 18px;
   }
 
+  .chart-container{
+    background-color: #4F4F4F;
+    border-radius: 8px;
+    padding-bottom: 20px;
+  }
+
+  h2{
+    padding-bottom: 20px;
+    border-bottom: 2px solid #7B7B7B;
+  }
+
   .analysis-title{
     font-size: 30px;
     font-weight: bold;
@@ -419,7 +433,7 @@
   }
 
   .chart-selector {
-    margin-bottom: 20px;
+    
   }
 
   .chart-selector label {
@@ -459,6 +473,7 @@
 
   .analysis-container {
     margin-top: 20px;
+    
   }
 
   .fade-enter-active,

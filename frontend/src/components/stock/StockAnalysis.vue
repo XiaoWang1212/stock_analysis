@@ -623,7 +623,8 @@
     flex: 1;
     padding: 12px;
     font-size: 16px;
-    border: 2px solid #66B3FF;
+    background-color: #F0F0F0;
+    border: 2px solid #5B5B5B;
     border-radius: 6px;
     transition: border-color 0.3s;
     width: 100%;
@@ -648,7 +649,7 @@
   }
 
   .search-button {
-    background-color: #66B3FF;
+    background-color: #5B5B5B;
     color: white;
   }
 
@@ -679,6 +680,7 @@
   }
 
   .suggestion-item {
+    background-color: #F0F0F0;
     padding: 12px 15px;
     cursor: pointer;
     border-bottom: 1px solid #eee;
@@ -730,7 +732,7 @@
   }
 
   .analysis-button {
-    background-color: #66B3FF;
+    background-color: #5B5B5B;
     color: white;
     width: 130px;
     transition: all 0.3s ease;
@@ -772,6 +774,8 @@
   }
 
   .stock-chart-container {
+    background-color: #4F4F4F;
+    border-radius: 8px;
     flex: 0 1 auto;
     width: 100%;
     max-width: 600px;
@@ -807,7 +811,7 @@
   }
 
   .predict-button {
-    background-color: #66B3FF;
+    background-color: #5B5B5B;
     color: white;
     width: 130px;
     padding: 12px 24px;
