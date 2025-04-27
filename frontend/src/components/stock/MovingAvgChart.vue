@@ -49,42 +49,42 @@
         <WMAChart v-if="showWMA" :symbol="symbol" :market="effectiveMarket" />
         <KAMAChart v-if="showKAMA" :symbol="symbol" :market="effectiveMarket" />
         <div class="analysis-selector">
-          <button
+          <div class="analysis-selector-button"
             @click="selectAnalysis('BIAS')"
-            :class="{ active: selectedAnalysis === 'BIAS' }"
+            :class="{ 'analysis-selector-button-click': selectedAnalysis === 'BIAS' }"
           >
             BIAS
-          </button>
-          <button
+          </div>
+          <div class="analysis-selector-button"
             @click="selectAnalysis('RSI')"
-            :class="{ active: selectedAnalysis === 'RSI' }"
+            :class="{ 'analysis-selector-button-click': selectedAnalysis === 'RSI' }"
           >
             RSI
-          </button>
-          <button
+          </div>
+          <div class="analysis-selector-button"
             @click="selectAnalysis('STOCH')"
-            :class="{ active: selectedAnalysis === 'STOCH' }"
+            :class="{ 'analysis-selector-button-click': selectedAnalysis === 'STOCH' }"
           >
             STOCH
-          </button>
-          <button
+          </div>
+          <div class="analysis-selector-button"
             @click="selectAnalysis('STOCHRSI')"
-            :class="{ active: selectedAnalysis === 'STOCHRSI' }"
+            :class="{ 'analysis-selector-button-click': selectedAnalysis === 'STOCHRSI' }"
           >
             STOCH RSI
-          </button>
-          <button
+          </div>
+          <div class="analysis-selector-button"
             @click="selectAnalysis('STOCHF')"
-            :class="{ active: selectedAnalysis === 'STOCHF' }"
+            :class="{ 'analysis-selector-button-click': selectedAnalysis === 'STOCHF' }"
           >
             STOCH F
-          </button>
-          <button
+          </div>
+          <div class="analysis-selector-button"
             @click="selectAnalysis('MACD')"
-            :class="{ active: selectedAnalysis === 'MACD' }"
+            :class="{ 'analysis-selector-button-click': selectedAnalysis === 'MACD' }"
           >
             MACD
-          </button>
+          </div>
         </div>
         <div class="analysis-container">
           <SMAAndBIASChart
@@ -423,6 +423,7 @@
 
   h2{
     padding-bottom: 20px;
+    margin-bottom: 0;
     border-bottom: 2px solid #7B7B7B;
   }
 
@@ -432,11 +433,14 @@
     text-align: center;
   }
 
-  .chart-selector {
-    
+  .chart-selector{
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    text-align: center;
   }
 
   .chart-selector label {
+    padding: 10px;
     margin-right: 10px;
   }
 
@@ -447,28 +451,26 @@
   }
 
   .analysis-selector {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(6, 16.7%);
     justify-content: center;
+    text-align: center;
     margin-top: 20px;
   }
 
-  .analysis-selector button {
+  .analysis-selector-button {
     padding: 10px 20px;
-    background-color: #46A3FF;
+    background-color: #5B5B5B;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
     margin: 0 5px;
   }
 
-  .analysis-selector button.active {
-    background-color: #0056b3;
-  }
-
-  .analysis-selector button:hover {
-    background-color: #0056b3;
+  .analysis-selector-button-click{
+    background-color: #66B3FF;
   }
 
   .analysis-container {

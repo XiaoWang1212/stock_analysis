@@ -266,10 +266,11 @@
   }
 
   .container {
+    height: 100vh;
     position: relative;
     width: 100%;
     min-height: calc(100vh - 60px);
-    background: #f6f5f7;
+    background: #272727;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -279,7 +280,7 @@
     position: relative;
     width: 900px;
     height: 500px;
-    background: #fff;
+    background: #F0F0F0;
     border-radius: 10px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
     display: flex;
@@ -297,14 +298,15 @@
 
   .left-panel {
     left: 0;
-    background: #fff;
+    background: #5b5b5b;
+    color: white;
     z-index: 2;
   }
 
   .right-panel {
     left: 50%;
-    background: #4a90e2;
-    color: #fff;
+    background: #66B3FF;
+    color: white;
   }
 
   /* 滑動效果 */
@@ -346,7 +348,7 @@
     padding: 12px;
     border: none;
     border-radius: 25px;
-    background: #4a90e2;
+    background: #66B3FF;
     color: #fff;
     font-size: 14px;
     cursor: pointer;
@@ -370,6 +372,11 @@
     border-radius: 25px;
     outline: none;
     font-size: 14px;
+    background-color: #F0F0F0;
+  }
+
+  input:focus{
+    border: 2px solid #66B3FF;
   }
 
   h2 {

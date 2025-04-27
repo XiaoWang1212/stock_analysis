@@ -616,7 +616,6 @@
     width: 100%;
     max-width: 400px;
     position: relative;
-    
   }
 
   .search-input {
@@ -654,7 +653,7 @@
   }
 
   .search-button:hover {
-    background-color: #2894FF;
+    background-color: #66B3FF;
   }
 
   .search-box {
@@ -739,7 +738,7 @@
   }
 
   .analysis-button:hover {
-    background-color: #2894FF;
+    background-color: #66B3FF;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
   }
@@ -755,7 +754,7 @@
   }
 
   .predict-button:hover {
-    background-color: #2894FF;
+    background-color: #66B3FF;
   }
 
   .predicted-price {
@@ -827,7 +826,7 @@
   }
 
   .predict-button:hover {
-    background-color: #2894FF;
+    background-color: #66B3FF;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
   }

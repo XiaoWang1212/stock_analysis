@@ -104,7 +104,7 @@
           type: "scatter",
           mode: "lines",
           name: "K值",
-          line: { color: "purple" },
+          line: { color: "#FF79BC" },
           customdata: dates,
           hovertemplate:
             "<b>%{customdata}</b><br>" +
@@ -118,7 +118,7 @@
           type: "scatter",
           mode: "lines",
           name: "D值",
-          line: { color: "gray" },
+          line: { color: "#66B3FF" },
           hovertemplate:
             "<br><b>MACD:</b> %{y:.4f}<br>"+
             "<extra></extra>",
@@ -126,15 +126,27 @@
 
         let chartTitle = `${this.symbol}`;
         if (this.market === "TW" && this.displayName) {
-          chartTitle += ` (${this.displayName})`;
+          chartTitle += ` - ${this.displayName}`;
         }
         chartTitle += ` STOCHF Chart`;
 
         const layout = {
-          title: chartTitle,
-          xaxis: { title: "Date" },
+          title: {
+            text: chartTitle,
+            font: {
+              color: 'white',
+            }
+          },
+          legend: {
+            font: {
+              color: "#BEBEBE"
+            },
+          },
+          xaxis: { title: "Date", color: '#BEBEBE', gridcolor: '#7B7B7B'},
           showlegend: true,
           hovermode: "x unified",
+          paper_bgcolor: '#4F4F4F',
+          plot_bgcolor: '#4F4F4F',
         };
 
         Plotly.newPlot(this.$refs.chartContainer, [traceK, traceD], layout);
@@ -161,8 +173,9 @@
 
 <style scoped>
   .stochf-chart {
-    margin-top: 20px;
-    position: relative;
+    border-radius: 8px;
+    border-top: 2px solid #7B7B7B;
+    background-color: #4F4F4F;
   }
 
   .chart-container {

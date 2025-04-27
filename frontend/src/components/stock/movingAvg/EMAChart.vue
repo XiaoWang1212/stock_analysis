@@ -192,8 +192,6 @@
 
 <style scoped>
   .ema-chart {
-    margin: 20px 0;
-    padding: 15px;
     border-radius: 8px;
     border-bottom: 2px solid #7B7B7B;
     background-color: #4F4F4F;

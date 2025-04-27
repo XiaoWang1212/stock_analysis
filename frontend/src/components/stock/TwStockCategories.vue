@@ -11,7 +11,7 @@
         :key="category.industry"
         class="category-card"
       >
-        <h3 class="category-title" @click="toggle_list(index)">{{ category.industry }}</h3>
+        <h3 class="category-title" @click="toggle_list(index)" :class="{'category-title-click' : active_index === index}">{{ category.industry }}</h3>
         <transition name="show-stock-list">
           <div class="stock-list" v-if="active_index === index">
             <div
@@ -111,7 +111,7 @@
 }*/
 
 .category-title {
-  background: #4a6bff;
+  background: #5B5B5B;
   color: white;
   padding: 15px;
   margin: 0;
@@ -119,12 +119,13 @@
   border-radius: 8px;
 }
 
-.category-title-active{
+.category-title-click{
   border-radius: 0;
+  background-color: #66B3FF;
 }
 
 .stock-list{
-  background-color: white;
+  background-color: #F0F0F0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 15px;
   max-height: 300px;

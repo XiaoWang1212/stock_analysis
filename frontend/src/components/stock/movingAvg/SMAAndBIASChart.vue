@@ -122,8 +122,8 @@
           name: "Candlestick",
           xaxis: "x",
           yaxis: "y",
-          increasing: { line: { color: "#FF0000" }, fillcolor: "#FFCCCC" },
-          decreasing: { line: { color: "#008000" }, fillcolor: "#CCFFCC" },
+          increasing: { line: { color: "#FF2D2D" }, fillcolor: "#FFCCCC" },
+          decreasing: { line: { color: "#02DF82" }, fillcolor: "#CCFFCC" },
           text: dates,
         };
 
@@ -135,7 +135,7 @@
           name: "SMA 5",
           xaxis: "x",
           yaxis: "y",
-          line: { color: "black" },
+          line: { color: "#FF79BC" },
         };
 
         const traceSMA20 = {
@@ -146,7 +146,7 @@
           name: "SMA 20",
           xaxis: "x",
           yaxis: "y",
-          line: { color: "blue" },
+          line: { color: "#66B3FF" },
         };
 
         const traceSMA60 = {
@@ -157,7 +157,7 @@
           name: "SMA 60",
           xaxis: "x",
           yaxis: "y",
-          line: { color: "aqua" },
+          line: { color: "#9F35FF" },
         };
 
         const traceBIAS10 = {
@@ -168,7 +168,7 @@
           name: "BIAS 10",
           xaxis: "x2",
           yaxis: "y2",
-          line: { color: "black" },
+          line: { color: "#FF79BC" },
           hoverinfo: "skip",
         };
 
@@ -180,7 +180,7 @@
           name: "BIAS 20",
           xaxis: "x2",
           yaxis: "y2",
-          line: { color: "blue" },
+          line: { color: "#66B3FF" },
           hoverinfo: "skip",
         };
 
@@ -193,7 +193,7 @@
           yaxis: "y2",
           marker: {
             color: biasDiffValues.map((value) =>
-              value >= 0 ? "red" : "green"
+              value >= 0 ? "#FF2D2D" : "#02DF82"
             ),
           },
           text: biasDiffIndices.map((i) => dates[i]), // 為每個點添加日期文本
@@ -206,12 +206,22 @@
 
         let chartTitle = `${this.symbol}`;
         if (this.market === "TW" && this.displayName) {
-          chartTitle += ` (${this.displayName})`;
+          chartTitle += ` - ${this.displayName}`;
         }
         chartTitle += ` SMA and BIAS Chart`;
 
         const layout = {
-          title: chartTitle,
+          title: {
+            text: chartTitle,
+            font: {
+              color: 'white',
+            }
+          },
+          legend: {
+            font: {
+              color: "#BEBEBE"
+            },
+          },
           grid: { rows: 2, columns: 1, pattern: "independent" },
           xaxis: {
             title: "Date",
@@ -233,8 +243,10 @@
               )
               .map((i) => dates[i]),
             tickangle: -45,
+            color: '#BEBEBE', 
+            gridcolor: '#7B7B7B'
           },
-          yaxis: { title: "Price" },
+          yaxis: { title: "Price", color: '#BEBEBE', gridcolor: '#7B7B7B'},
           xaxis2: {
             title: "Date",
             tickmode: "array",
@@ -253,10 +265,14 @@
               )
               .map((i) => dates[i]),
             tickangle: -45,
+            color: '#BEBEBE', 
+            gridcolor: '#7B7B7B'
           },
-          yaxis2: { title: "BIAS %" },
+          yaxis2: { title: "BIAS %", color: '#BEBEBE', gridcolor: '#7B7B7B'},
           showlegend: true,
           hovermode: "x unified",
+          paper_bgcolor: '#4F4F4F',
+          plot_bgcolor: '#4F4F4F',
         };
 
         Plotly.newPlot(
@@ -301,7 +317,9 @@
 
 <style scoped>
   .sma-bias-chart {
-    margin-top: 20px;
+    border-radius: 8px;
+    border-top: 2px solid #7B7B7B;
+    background-color: #4F4F4F;
   }
 
   .loading {
