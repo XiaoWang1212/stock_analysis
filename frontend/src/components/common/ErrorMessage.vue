@@ -27,10 +27,11 @@ export default {
 
 <style scoped>
 .error-message {
+  color: black;
   text-align: center;
   padding: 20px;
   background-color: #fff3f3;
-  border: 1px solid #ffcdd2;
+  border: 2px solid #ffcdd2;
   border-radius: 4px;
 }
 

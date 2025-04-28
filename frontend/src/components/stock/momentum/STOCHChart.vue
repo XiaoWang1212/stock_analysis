@@ -106,7 +106,7 @@
           type: "scatter",
           mode: "lines",
           name: "K值",
-          line: { color: "orange" },
+          line: { color: "#FFA042" },
           customdata: dates,
           hovertemplate:
             "<b>%{customdata}</b><br>" +
@@ -120,7 +120,7 @@
           type: "scatter",
           mode: "lines",
           name: "D值",
-          line: { color: "green" },
+          line: { color: "#02DF82" },
           hovertemplate: "<br><b>MACD:</b> %{y:.4f}<br>" + "<extra></extra>",
         };
 
@@ -129,7 +129,7 @@
           y: [80, 80],
           mode: "lines",
           line: {
-            color: "red",
+            color: "#FF2D2D",
             width: 1,
             dash: "dash",
           },
@@ -142,7 +142,7 @@
           y: [20, 20],
           mode: "lines",
           line: {
-            color: "blue",
+            color: "#66B3FF",
             width: 1,
             dash: "dash",
           },
@@ -184,13 +184,23 @@
 
         let chartTitle = `${this.symbol}`;
         if (this.market === "TW" && this.displayName) {
-          chartTitle += ` (${this.displayName})`;
+          chartTitle += ` - ${this.displayName}`;
         }
         chartTitle += ` STOCH Chart`;
 
         const layout = {
-          title: chartTitle,
-          xaxis: { title: "Date" },
+          title: {
+            text: chartTitle,
+            font: {
+              color: 'white',
+            }
+          },
+          legend: {
+            font: {
+              color: "#BEBEBE"
+            },
+          },
+          xaxis: { title: "Date", color: '#BEBEBE', gridcolor: '#7B7B7B'},
           showlegend: true,
           hovermode: "x unified",
           annotations: [
@@ -202,7 +212,7 @@
               text: "超買區",
               showarrow: false,
               font: {
-                color: "red",
+                color: "#FF2D2D",
                 size: 10,
               },
               xanchor: "left",
@@ -215,12 +225,14 @@
               text: "超賣區",
               showarrow: false,
               font: {
-                color: "blue",
+                color: "#66B3FF",
                 size: 10,
               },
               xanchor: "left",
             },
           ],
+          paper_bgcolor: '#4F4F4F',
+          plot_bgcolor: '#4F4F4F',
         };
 
         Plotly.newPlot(
@@ -261,8 +273,9 @@
 
 <style scoped>
   .stoch-chart {
-    margin-top: 20px;
-    position: relative;
+    border-radius: 8px;
+    border-top: 2px solid #7B7B7B;
+    background-color: #4F4F4F;
   }
 
   .chart-container {

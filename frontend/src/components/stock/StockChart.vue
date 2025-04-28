@@ -1,6 +1,6 @@
 <template>
   <div class="stock-chart">
-    <h3>{{ symbol }} Chart</h3>
+    <div class="stock-chart-title">{{ symbol }} Stock Price Chart</div>
     <p v-if="loading" class="loading">Loading chart data...</p>
     <p v-if="error" class="error">{{ error }}</p>
     <div v-if="chartData" ref="chartContainer"></div>
@@ -39,12 +39,13 @@ export default {
         type: 'scatter',
         mode: 'lines+markers',
         name: this.symbol,
-        line: { color: '#17BECF' }
+        line: { color: '#2894FF' }
       };
       const layout = {
-        title: `${this.symbol} Stock Price`,
-        xaxis: { title: 'Date' },
-        yaxis: { title: 'Close Price' }
+        xaxis: { title: 'Date', color: '#BEBEBE', gridcolor: '#7B7B7B'},
+        yaxis: { title: 'Close Price', color: '#BEBEBE', gridcolor: '#7B7B7B'},
+        paper_bgcolor: '#4F4F4F',
+        plot_bgcolor: '#4F4F4F',
       };
       Plotly.newPlot(this.$refs.chartContainer, [trace], layout);
     }
@@ -58,6 +59,15 @@ export default {
 <style scoped>
 .stock-chart {
   margin-top: 20px;
+  background-color: #4F4F4F;
+}
+
+.stock-chart-title{
+  font-size: 25px;
+  line-height: 25px;
+  padding: 10px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #7B7B7B
 }
 
 .loading {

@@ -7,22 +7,24 @@
 
     <div v-else class="categories-container">
       <div
-        v-for="category in categories"
+        v-for="(category, index) in categories"
         :key="category.industry"
         class="category-card"
       >
-        <h3 class="category-title">{{ category.industry }}</h3>
-        <div class="stock-list">
-          <div
-            v-for="stock in category.stocks"
-            :key="stock.ticker"
-            class="stock-item"
-            @click="navigateToStock(stock.ticker)"
-          >
-            <span class="stock-code">{{ stock.ticker }}</span>
-            <span class="stock-name">{{ stock.name }}</span>
+        <h3 class="category-title" @click="toggle_list(index)" :class="{'category-title-click' : active_index === index}">{{ category.industry }}</h3>
+        <transition name="show-stock-list">
+          <div class="stock-list" v-if="active_index === index">
+            <div
+              v-for="stock in category.stocks"
+              :key="stock.ticker"
+              class="stock-item"
+              @click="navigateToStock(stock.ticker)"
+            >
+              <span class="stock-code">{{ stock.ticker }}</span>
+              <span class="stock-name">{{ stock.name }}</span>
+            </div>
           </div>
-        </div>
+        </transition>
       </div>
     </div>
   </div>
@@ -34,6 +36,11 @@
   import ErrorMessage from "../common/ErrorMessage.vue";
 
   export default {
+    data (){
+      return {
+        active_index: null,
+      };
+    },
     components: {
       LoadingSpinner,
       ErrorMessage,
@@ -68,6 +75,9 @@
           console.error("獲取台股列表失敗:", error);
         }
       },
+      toggle_list (index){
+        this.active_index = this.active_index === index ? null : index;
+      }
     },
     created() {
       this.fetchStockList();
@@ -89,28 +99,34 @@
   margin-top: 30px;
 }
 
-.category-card {
-  background: white;
+.category-card{
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.2s ease;
 }
 
-.category-card:hover {
+/*.category-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-}
+}*/
 
 .category-title {
-  background: #4a6bff;
+  background: #5B5B5B;
   color: white;
   padding: 15px;
   margin: 0;
   font-size: 18px;
+  border-radius: 8px;
 }
 
-.stock-list {
+.category-title-click{
+  border-radius: 0;
+  background-color: #66B3FF;
+}
+
+.stock-list{
+  background-color: #F0F0F0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 15px;
   max-height: 300px;
   overflow-y: auto;
@@ -140,6 +156,17 @@
 
 .stock-name {
   color: #666;
+}
+
+.show-stock-list-enter-active,
+.show-stock-list-leave-active {
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.show-stock-list-enter-from,
+.show-stock-list-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 @media (max-width: 768px) {

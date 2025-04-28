@@ -1,6 +1,6 @@
 <template>
   <div class="lstm-prediction">
-    <h3>LSTM 股價預測 ({{ symbol }})</h3>
+    <h3>{{ symbol }}</h3>
     <div v-if="loading" class="loading">載入中...</div>
     <div v-else-if="error" class="error">{{ error }}</div>
     <div v-else-if="!prediction" class="no-data">無預測數據可用</div>
@@ -464,6 +464,7 @@
   }
 
   .price-info {
+    text-align: start;
     font-size: 18px;
     line-height: 1.5;
   }

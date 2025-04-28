@@ -10,18 +10,68 @@
       />
     </div>
 
-    <div class="analysis-button-flame">
-      <button
-        v-if="stockSymbol"
-        @click="navigateToSMAChart(stockSymbol)"
-        class="analysis-button"
-      >
-        技術分析
-      </button>
+    <div class="function">
+      <!-- 搜尋框 -->
+      <div class="search-section">
+        <div class="search-box">
+          <input
+            v-model="stockSymbol"
+            :placeholder="
+              market === 'US'
+                ? 'Enter US stock symbol...'
+                : '輸入台股代號或中文名稱...'
+            "
+            class="search-input"
+            @input="handleInput"
+            @keyup.enter="handleSearch"
+          />
+          <div
+            v-if="showSuggestions && filteredStocks.length"
+            class="suggestions"
+          >
+            <div
+              v-for="stock in filteredStocks"
+              :key="stock"
+              @click="selectStock(stock)"
+              :class="['suggestion-item', { 'us-stock': market === 'US' }]"
+            >
+              <template v-if="market === 'TW' && stock.includes(' ')">
+                <span class="stock-name">{{ getStockName(stock) }}</span>
+                <span class="stock-code">{{ getStockCode(stock) }}</span>
+              </template>
+              <template v-else>
+                <span class="us-symbol">{{ stock }}</span>
+              </template>
+            </div>
+          </div>
+          <button @click="handleSearch" class="search-button">搜尋</button>
+        </div>
+      </div>
+
+      <div class="function-button">
+        <div class="analysis-button-flame">
+          <button
+            
+            @click="navigateToSMAChart(stockSymbol)"
+            class="analysis-button"
+          >
+            技術分析
+          </button>
+        </div>
+
+        <button
+            @click="togglePredictionView"
+            class="predict-button"
+            :class="{ active: showPrediction }"
+          >
+            {{ showPrediction ? "隱藏預測" : "AI智能預測" }}
+          </button>
+        </div>
     </div>
 
     <!-- 預測區塊 -->
     <div v-if="chartData" class="predict-section">
+      <!--
       <button
         @click="togglePredictionView"
         class="predict-button"
@@ -29,11 +79,12 @@
       >
         {{ showPrediction ? "隱藏預測" : "AI智能預測" }}
       </button>
+      -->
 
       <transition name="fade">
         <div v-if="showPrediction" class="prediction-container">
           <div class="prediction-header">
-            <h3>LSTM預測</h3>
+            <div class="predict-title">LSTM股價預測</div>
             <span class="tech-badge">Deep Learning</span>
           </div>
 
@@ -48,7 +99,7 @@
 
       <!-- 載入中和錯誤提示 -->
       <loading-spinner v-if="loading" class="loading-spinner"/>
-      <error-message v-else-if="error" :message="error" @retry="handleSearch" />
+      <error-message v-else-if="error" :message="error" @retry="handleSearch" class="error-message"/>
 
       <!-- 股票圖表 -->
       <div class="stock-chart-container">
@@ -60,52 +111,7 @@
       </div>
   </div>
 
-  <!-- 搜尋框 -->
-  <div class="search-section">
-    <div class="search-box">
-      <input
-        v-model="stockSymbol"
-        :placeholder="
-          market === 'US'
-            ? 'Enter US stock symbol...'
-            : '輸入台股代號或中文名稱...'
-        "
-        class="search-input"
-        @input="handleInput"
-        @keyup.enter="handleSearch"
-      />
-      <div
-        v-if="showSuggestions && filteredStocks.length"
-        class="suggestions"
-      >
-        <div
-          v-for="stock in filteredStocks"
-          :key="stock"
-          @click="selectStock(stock)"
-          :class="['suggestion-item', { 'us-stock': market === 'US' }]"
-        >
-          <template v-if="market === 'TW' && stock.includes(' ')">
-            <span class="stock-name">{{ getStockName(stock) }}</span>
-            <span class="stock-code">{{ getStockCode(stock) }}</span>
-          </template>
-          <template v-else>
-            <span class="us-symbol">{{ stock }}</span>
-          </template>
-        </div>
-      </div>
-      <button @click="handleSearch" class="search-button">搜尋</button>
-
-      <!--
-      <button
-        v-if="stockSymbol"
-        @click="navigateToSMAChart(stockSymbol)"
-        class="analysis-button"
-      >
-        技術分析
-      </button>
-      -->
-    </div>
-  </div>
+  
 
 </template>
 
@@ -578,13 +584,28 @@
     margin-bottom: 20px;
   }
 
+  .function{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 60% 35%;
+    gap: 5%;   
+    justify-content: start;
+    align-items: center;
+  }
+
+  .function-button{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 49% 49%;
+    gap: 2%;   
+    justify-content: end;
+  }
+
   .search-section {
     display: flex;
     gap: 20px;
-    justify-content: end;
+    justify-content: start;
     align-items: start;
-    margin-bottom: 30px;
-    width: 100%;
     max-width: 100%;
   }
 
@@ -595,14 +616,14 @@
     width: 100%;
     max-width: 400px;
     position: relative;
-    right: 5%;
   }
 
   .search-input {
     flex: 1;
     padding: 12px;
     font-size: 16px;
-    border: 2px solid #66B3FF;
+    background-color: #F0F0F0;
+    border: 2px solid #5B5B5B;
     border-radius: 6px;
     transition: border-color 0.3s;
     width: 100%;
@@ -627,16 +648,15 @@
   }
 
   .search-button {
-    background-color: #66B3FF;
+    background-color: #5B5B5B;
     color: white;
   }
 
   .search-button:hover {
-    background-color: #2894FF;
+    background-color: #66B3FF;
   }
 
   .search-box {
-    padding: 30px;
     position: relative;
   }
 
@@ -645,8 +665,8 @@
     top: 100%;
     left: 0;
     right: 5%;
-    width: 100%;
-    max-height: 250px;
+    width: 90%;
+    max-height: 150px;
     overflow-y: auto;
     background: white;
     border: 1px solid #ddd;
@@ -659,6 +679,7 @@
   }
 
   .suggestion-item {
+    background-color: #F0F0F0;
     padding: 12px 15px;
     cursor: pointer;
     border-bottom: 1px solid #eee;
@@ -710,13 +731,16 @@
   }
 
   .analysis-button {
-    background-color: #66B3FF;
+    background-color: #5B5B5B;
     color: white;
-    width: 120px;
+    width: 130px;
+    transition: all 0.3s ease;
   }
 
   .analysis-button:hover {
-    background-color: #2894FF;
+    background-color: #66B3FF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
   }
 
   .predict-section {
@@ -724,12 +748,13 @@
   }
 
   .predict-button {
-    background-color: #17a2b8;
+    background-color: #66B3FF;
     color: white;
+    border-radius: 20px;
   }
 
   .predict-button:hover {
-    background-color: #138496;
+    background-color: #66B3FF;
   }
 
   .predicted-price {
@@ -743,7 +768,13 @@
     height: 60vh;
   }
 
+  .error-message{
+    margin-top: 30px;
+  }
+
   .stock-chart-container {
+    background-color: #4F4F4F;
+    border-radius: 8px;
     flex: 0 1 auto;
     width: 100%;
     max-width: 600px;
@@ -779,12 +810,14 @@
   }
 
   .predict-button {
-    background-color: #17a2b8;
+    background-color: #5B5B5B;
     color: white;
+    width: 130px;
     padding: 12px 24px;
     font-size: 16px;
+    font-weight: bold;
     border: none;
-    border-radius: 6px;
+    border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
     display: block;
@@ -793,7 +826,7 @@
   }
 
   .predict-button:hover {
-    background-color: #138496;
+    background-color: #66B3FF;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
   }
@@ -825,14 +858,14 @@
     padding-bottom: 10px;
   }
 
-  .prediction-header h3 {
-    margin: 0;
-    color: #343a40;
-    font-size: 18px;
+  .predict-title{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
   }
 
   .tech-badge {
-    background-color: #6610f2;
+    background-color: #0066CC;
     color: white;
     padding: 4px 8px;
     border-radius: 4px;

@@ -101,7 +101,7 @@
           type: "scatter",
           mode: "lines",
           name: "RSI 6",
-          line: { color: "black" },
+          line: { color: "#FF79BC" },
           customdata: dates,
           hovertemplate:
             "<b>%{customdata}</b><br>" +
@@ -115,7 +115,7 @@
           type: "scatter",
           mode: "lines",
           name: "RSI 24",
-          line: { color: "blue" },
+          line: { color: "#66B3FF" },
           hovertemplate:
             "<br><b>RSI 24:</b> %{y:.4f}<br>"+
             "<extra></extra>",
@@ -123,16 +123,28 @@
 
         let chartTitle = `${this.symbol}`;
         if (this.market === "TW" && this.displayName) {
-          chartTitle += ` (${this.displayName})`;
+          chartTitle += ` - ${this.displayName}`;
         }
         chartTitle += ` RSI Chart`;
 
         const layout = {
-          title: chartTitle,
-          xaxis: { title: "Date" },
-          yaxis: { title: "RSI" },
+          title: {
+            text: chartTitle,
+            font: {
+              color: 'white',
+            }
+          },
+          legend: {
+            font: {
+              color: "#BEBEBE"
+            },
+          },
+          xaxis: { title: "Date", color: '#BEBEBE', gridcolor: '#7B7B7B'},
+          yaxis: { title: "RSI", color: '#BEBEBE', gridcolor: '#7B7B7B'},
           showlegend: true,
           hovermode: "x unified",
+          paper_bgcolor: '#4F4F4F',
+          plot_bgcolor: '#4F4F4F',
         };
 
         Plotly.newPlot(
@@ -158,8 +170,9 @@
 
 <style scoped>
   .rsi-chart {
-    margin-top: 20px;
-    position: relative;
+    border-radius: 8px;
+    border-top: 2px solid #7B7B7B;
+    background-color: #4F4F4F;
   }
 
   .chart-container {

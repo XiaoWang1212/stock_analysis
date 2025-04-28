@@ -110,8 +110,8 @@
           open: open_prices,
           type: "candlestick",
           name: "Candlestick",
-          increasing: { line: { color: "#FF0000" }, fillcolor: "#FFCCCC" },
-          decreasing: { line: { color: "#008000" }, fillcolor: "#CCFFCC" },
+          increasing: { line: { color: "#FF2D2D" }, fillcolor: "#FFCCCC" },
+          decreasing: { line: { color: "#02DF82" }, fillcolor: "#CCFFCC" },
           text: dates,
         };
 
@@ -121,7 +121,7 @@
           type: "scatter",
           mode: "lines",
           name: "SMA 5",
-          line: { color: "black" },
+          line: { color: "#FF79BC" },
         };
 
         const traceSMA20 = {
@@ -130,7 +130,7 @@
           type: "scatter",
           mode: "lines",
           name: "SMA 20",
-          line: { color: "blue" },
+          line: { color: "#66B3FF" },
         };
 
         const traceSMA60 = {
@@ -139,19 +139,29 @@
           type: "scatter",
           mode: "lines",
           name: "SMA 60",
-          line: { color: "aqua" },
+          line: { color: "#9F35FF" },
         };
 
         let chartTitle = `${this.symbol}`;
         if (this.market === "TW" && this.displayName) {
-          chartTitle += ` (${this.displayName})`;
+          chartTitle += ` - ${this.displayName}`;
         }
-        chartTitle += ` SMA Chart(簡單)`;
+        chartTitle += ` SMA Chart - 簡單`;
 
         const layout = {
-          title: chartTitle,
-          xaxis: { title: "Date" },
-          yaxis: { title: "Price" },
+          title: {
+            text: chartTitle,
+            font: {
+              color: 'white',
+            }
+          },
+          legend: {
+            font: {
+              color: "#BEBEBE"
+            },
+          },
+          xaxis: { title: "Date", color: '#BEBEBE', gridcolor: '#7B7B7B'},
+          yaxis: { title: "Price", color: '#BEBEBE', gridcolor: '#7B7B7B'},
           showlegend: true,
           hovermode: "x unified", // 提供更友好的 hover 效果
           hoverlabel: {
@@ -159,6 +169,8 @@
             bordercolor: "#999",
             font: { size: 12 },
           },
+          paper_bgcolor: '#4F4F4F',
+          plot_bgcolor: '#4F4F4F',
         };
 
         Plotly.newPlot(
@@ -196,16 +208,15 @@
 
 <style scoped>
   .sma-chart {
-    margin: 20px 0;
-    padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    border-top: 2px solid #7B7B7B;
+    border-bottom: 2px solid #7B7B7B;
+    background-color: #4F4F4F;
   }
 
   h3 {
     margin-top: 0;
-    color: #333;
+    color: white;
     font-size: 1.2rem;
     text-align: center;
     margin-bottom: 15px;
@@ -219,7 +230,7 @@
   }
 
   .error {
-    color: #dc3545;
+    color: black;
     text-align: center;
     padding: 15px;
     margin: 10px 0;

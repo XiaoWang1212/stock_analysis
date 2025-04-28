@@ -118,8 +118,8 @@
           name: "K線圖",
           xaxis: "x",
           yaxis: "y",
-          increasing: { line: { color: "#FF0000" }, fillcolor: "#FFCCCC" },
-          decreasing: { line: { color: "#008000" }, fillcolor: "#CCFFCC" },
+          increasing: { line: { color: "#FF2D2D" }, fillcolor: "#FFCCCC" },
+          decreasing: { line: { color: "#02DF82" }, fillcolor: "#CCFFCC" },
           text: dates,
           customdata: dates,
           hovertemplate:
@@ -139,7 +139,7 @@
           name: "SMA 5",
           xaxis: "x",
           yaxis: "y",
-          line: { color: "black", width: 1.5 },
+          line: { color: "#FF79BC", width: 1.5 },
           text: dates,
           customdata: dates,
           hovertemplate:
@@ -156,7 +156,7 @@
           name: "SMA 20",
           xaxis: "x",
           yaxis: "y",
-          line: { color: "blue", width: 1.5 },
+          line: { color: "#66B3FF", width: 1.5 },
           text: dates,
           customdata: dates,
           hovertemplate:
@@ -173,7 +173,7 @@
           name: "SMA 60",
           xaxis: "x",
           yaxis: "y",
-          line: { color: "purple", width: 1.5 },
+          line: { color: "#9F35FF", width: 1.5 },
           text: dates,
           customdata: dates,
           hovertemplate:
@@ -226,7 +226,7 @@
           marker: {
             symbol: "circle",
             size: 8,
-            color: "red",
+            color: "#FF2D2D",
             line: { width: 1, color: "white" },
           },
           name: "價格高點",
@@ -248,7 +248,7 @@
           marker: {
             symbol: "circle",
             size: 8,
-            color: "green",
+            color: "#02DF82",
             line: { width: 1, color: "white" },
           },
           name: "價格低點",
@@ -272,10 +272,10 @@
             const value = macd[i] - macd_signal[i];
             histogram.push(value);
             // 使用紅綠對比色：正值為紅色，負值為綠色 (符合大多數台灣投資者的習慣)
-            histogramColors.push(value >= 0 ? "#FF0000" : "#008000");
+            histogramColors.push(value >= 0 ? "#FF2D2D" : "#02DF82");
           } else {
             histogram.push(null);
-            histogramColors.push("#999999"); // 缺失數據用灰色
+            histogramColors.push("#9D9D9D"); // 缺失數據用灰色
           }
         }
 
@@ -287,7 +287,7 @@
           xaxis: "x2",
           yaxis: "y2",
           marker: {
-            color: histogramColors,
+            color: 	histogramColors,
           },
           customdata: dates,
           hovertemplate:
@@ -304,7 +304,7 @@
           name: "DIF",
           xaxis: "x2",
           yaxis: "y2",
-          line: { color: "black", width: 2 },
+          line: { color: "#FF79BC", width: 2 },
           customdata: dates,
           hovertemplate:
             "<b>%{customdata}</b><br>" +
@@ -320,7 +320,7 @@
           name: "MACD",
           xaxis: "x2",
           yaxis: "y2",
-          line: { color: "blue", width: 2 },
+          line: { color: "#66B3FF", width: 2 },
           hovertemplate: "<br><b>MACD:</b> %{y:.4f}<br>" + "<extra></extra>",
         };
 
@@ -344,7 +344,7 @@
               y: macd[i],
               date: dates[i],
               text: "買入訊號 (金叉)",
-              color: "green",
+              color: "#02DF82",
               symbol: "triangle-up",
             });
           }
@@ -356,7 +356,7 @@
               y: macd[i],
               date: dates[i],
               text: "賣出訊號 (死叉)",
-              color: "red",
+              color: "#FF2D2D",
               symbol: "triangle-down",
             });
           }
@@ -395,7 +395,7 @@
           xaxis: "x2",
           yaxis: "y2",
           line: {
-            color: "gray",
+            color: "#ADADAD",
             width: 1,
             dash: "dash",
           },
@@ -530,22 +530,36 @@
         chartTitle += ` MACD Chart`;
 
         const layout = {
-          title: chartTitle,
+          title: {
+            text: chartTitle,
+            font: {
+              color: 'white',
+            }
+          },
+          legend: {
+            font: {
+              color: "#BEBEBE"
+            },
+          },
           grid: {
             rows: 2,
             columns: 1,
             pattern: "independent",
             roworder: "top to bottom",
           },
-          xaxis: { title: "Date", rangeslider: { visible: false } },
+          xaxis: { title: "Date", rangeslider: { visible: false }, color: '#BEBEBE', gridcolor: '#7B7B7B'},
           yaxis: {
             title: "Price",
             autorange: true,
+            color: '#BEBEBE', 
+            gridcolor: '#7B7B7B',
           },
-          xaxis2: { title: "Date", rangeslider: { visible: false } },
+          xaxis2: { title: "Date", rangeslider: { visible: false }, color: '#BEBEBE', gridcolor: '#7B7B7B'},
           yaxis2: {
             title: "MACD 值",
             showgrid: false,
+            color: '#BEBEBE', 
+            gridcolor: '#7B7B7B'
           },
           showlegend: true,
           hovermode: "x unified",
@@ -565,6 +579,8 @@
               yanchor: "bottom",
             },
           ],
+          paper_bgcolor: '#4F4F4F',
+          plot_bgcolor: '#4F4F4F',
         };
 
         Plotly.newPlot(
@@ -607,8 +623,9 @@
 
 <style scoped>
   .macd-chart {
-    margin-top: 20px;
-    position: relative;
+    border-radius: 8px;
+    border-top: 2px solid #7B7B7B;
+    background-color: #4F4F4F;
   }
 
   .chart-container {
