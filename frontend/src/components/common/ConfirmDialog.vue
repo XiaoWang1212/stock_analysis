@@ -53,7 +53,7 @@
   }
 
   .dialog-content {
-    background-color: white;
+    background-color: #4F4F4F;
     padding: 24px;
     border-radius: 8px;
     width: 90%;
@@ -63,12 +63,13 @@
 
   .dialog-content h3 {
     margin-top: 0;
-    color: #333;
-    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
   }
 
   .dialog-content p {
-    color: #666;
+    color: white;
     margin-bottom: 20px;
   }
 
@@ -99,7 +100,7 @@
   }
 
   .btn-secondary {
-    background-color: #f1f1f1;
+    background-color: #F0F0F0;
     color: #333;
   }
 

@@ -38,10 +38,32 @@
       </h2>
 
       <div class="chart-selector">
+        <!--
         <label> <input type="checkbox" v-model="showSMA" /> SMA </label>
         <label> <input type="checkbox" v-model="showEMA" /> EMA </label>
         <label> <input type="checkbox" v-model="showWMA" /> WMA </label>
         <label> <input type="checkbox" v-model="showKAMA" /> KAMA </label>
+        -->
+        <div class="chart-selector-button" 
+          @click="toggle_chart('showSMA')" 
+          :class="{'chart-selector-button-click' : showSMA}"
+          >SMA
+        </div>
+        <div class="chart-selector-button" 
+          @click="toggle_chart('showEMA')" 
+          :class="{'chart-selector-button-click' : showEMA}"
+          >EMA
+        </div>
+        <div class="chart-selector-button" 
+          @click="toggle_chart('showWMA')" 
+          :class="{'chart-selector-button-click' : showWMA}"
+          >WMA
+        </div>
+        <div class="chart-selector-button" 
+          @click="toggle_chart('showKAMA')" 
+          :class="{'chart-selector-button-click' : showKAMA}"
+          >KAMA
+        </div>
       </div>
       <div class="chart-container">
         <SMAChart v-if="showSMA" :symbol="symbol" :market="effectiveMarket" />
@@ -329,6 +351,9 @@
           console.error("載入台股名稱映射時出錯:", error);
         }
       },
+      toggle_chart (key){
+        this[key] = !this[key];
+      }
     },
     mounted() {
       this.handleBrowserBack();
@@ -360,7 +385,7 @@
     align-items: center;
     gap: 5px;
     padding: 8px 16px;
-    background: #66B3FF;
+    background: #5B5B5B;
     color: white;
     border: none;
     border-radius: 20px;
@@ -370,7 +395,7 @@
   }
 
   .back-btn:hover {
-    background: #2894FF;
+    background: #66B3FF;
   }
 
   .add-to-group {
@@ -439,10 +464,21 @@
     text-align: center;
   }
 
-  .chart-selector label {
+  .chart-selector-button{
+    background-color: #5B5B5B;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin: 0 10px;
+  }
+
+  .chart-selector-button-click{
+    background-color: #66B3FF;
+  }
+
+  /*.chart-selector label {
     padding: 10px;
     margin-right: 10px;
-  }
+  }*/
 
   .chart-container {
     display: flex;
@@ -466,7 +502,7 @@
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin: 0 5px;
+    margin: 0 10px;
   }
 
   .analysis-selector-button-click{

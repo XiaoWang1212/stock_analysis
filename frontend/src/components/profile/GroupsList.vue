@@ -77,11 +77,11 @@
   .groups-header h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
-    color: #2c3e50;
+    color: white;
   }
 
   .groups-description {
-    color: #666;
+    color: white;
     font-size: 1em;
   }
 

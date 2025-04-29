@@ -38,10 +38,11 @@ export default {
 .profile-section {
   margin-bottom: 40px;
   padding-bottom: 20px;
-  border-bottom: 2px solid #eee;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  background-color: #4F4F4F;
+  color: white;
 }
 
 .profile-header {
@@ -53,13 +54,12 @@ export default {
 
 .profile-header h2 {
   font-size: 1.8em;
-  color: #2c3e50;
   margin: 0;
 }
 
 .profile-icon {
   font-size: 48px;
-  color: #4a90e2;
+  color: #66B3FF;
 }
 
 .profile-info {
@@ -73,16 +73,14 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #7B7B7B;
 }
 
 .label {
-  color: #666;
   font-weight: 500;
 }
 
 .value {
-  color: #333;
 }
 
 @media (max-width: 768px) {

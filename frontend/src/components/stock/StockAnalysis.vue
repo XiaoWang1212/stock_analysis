@@ -633,7 +633,7 @@
 
   .search-input:focus {
     outline: none;
-    border-color: #4a90e2;
+    border-color: #66B3FF;
   }
 
   .search-button,
@@ -843,8 +843,8 @@
     margin-top: 20px;
     padding: 20px;
     border-radius: 8px;
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
+    background-color: #4F4F4F;
+    border: 2px solid #7B7B7B;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     max-width: 100%;
   }
@@ -854,7 +854,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
-    border-bottom: 1px solid #dee2e6;
+    border-bottom: 2px solid #dee2e6;
     padding-bottom: 10px;
   }
 

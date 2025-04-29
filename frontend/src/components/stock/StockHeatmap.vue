@@ -693,17 +693,17 @@
 
   .reload-button {
     padding: 6px 12px;
-    background-color: #4a90e2;
+    background-color: #5B5B5B;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.2s;
   }
 
   .reload-button:hover {
-    background-color: #357abd;
+    background-color: #66B3FF;
   }
 
   .heatmap-container {

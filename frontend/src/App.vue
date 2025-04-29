@@ -61,10 +61,6 @@
     transform: scale(1.5);
   }
 
-  .material-icons-click {
-    color: #84C1FF;
-  }
-
   header {
     background-color: #5B5B5B;
     box-shadow : 0px 0px 5px 3px #D0D0D0;
