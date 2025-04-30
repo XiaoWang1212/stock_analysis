@@ -276,10 +276,11 @@
     border-radius: 8px;
     border-top: 2px solid #7B7B7B;
     background-color: #4F4F4F;
+    position: relative;
   }
 
   .chart-container {
-    position: relative;
+    
   }
 
   .loading {
@@ -291,22 +292,22 @@
   }
 
   .info-container {
+    position: absolute;
+    right: 15px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    position: absolute;
-    top: 10px;
-    right: 160px;
   }
 
   .info-icon {
     font-size: 24px;
     margin-right: 5px;
+    color: #66B3FF;
   }
 
   .info-text {
     font-size: 14px;
-    color: #007bff;
+    color: white;
   }
 
   .info-box {

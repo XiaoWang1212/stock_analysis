@@ -205,7 +205,7 @@
             mode: "lines",
             name: "歷史價格",
             line: {
-              color: "rgba(33, 150, 243, 0.7)",
+              color: "#2894FF",
               width: 1.5,
             },
           };
@@ -217,13 +217,13 @@
             mode: "lines+markers",
             name: "預測價格",
             line: {
-              color: "rgba(255, 87, 34, 0.8)",
+              color: "#FFA042",
               width: 2.5,
               dash: "dash",
             },
             marker: {
               size: 8,
-              color: "rgba(255, 87, 34, 0.8)",
+              color: "#FFA042",
               symbol: "circle",
             },
           };
@@ -240,7 +240,7 @@
             name: "當前價格",
             marker: {
               size: 12,
-              color: "rgba(76, 175, 80, 1)",
+              color: "#02DF82",
               symbol: "diamond",
             },
           };
@@ -265,19 +265,21 @@
             title: `${this.symbol} 股價預測分析`,
             titlefont: {
               size: 22,
-              color: "#333",
+              color: "white",
             },
             xaxis: {
               title: "日期",
               showgrid: true,
-              gridcolor: "rgba(233, 236, 239, 0.8)",
+              color: '#BEBEBE',
+              gridcolor: "#7B7B7B",
               zeroline: true,
               zerolinecolor: "rgba(0, 0, 0, 0.1)",
             },
             yaxis: {
               title: "價格 ($)",
               showgrid: true,
-              gridcolor: "rgba(233, 236, 239, 0.8)",
+              color: '#BEBEBE',
+              gridcolor: "#7B7B7B",
               zeroline: true,
               zerolinecolor: "rgba(0, 0, 0, 0.1)",
               range: [minPrice, maxPrice],
@@ -286,9 +288,12 @@
             legend: {
               orientation: "h",
               y: -0.2,
-              bgcolor: "rgba(255, 255, 255, 0.9)",
-              bordercolor: "rgba(0, 0, 0, 0.1)",
-              borderwidth: 1,
+              //bgcolor: "rgba(255, 255, 255, 0.9)",
+              //bordercolor: "rgba(0, 0, 0, 0.1)",
+              //borderwidth: 1,
+              font: {
+                color: "#BEBEBE"
+              },
             },
             showlegend: true,
             hovermode: "closest",
@@ -297,8 +302,8 @@
               bordercolor: "#999",
               font: { size: 12, family: "Arial" },
             },
-            plot_bgcolor: "#f8f9fa",
-            paper_bgcolor: "#ffffff",
+            paper_bgcolor: '#4F4F4F',
+            plot_bgcolor: '#4F4F4F',
             shapes: [
               // 添加當前日期的垂直線
               {
@@ -314,7 +319,7 @@
                     : futureDates[0],
                 y1: maxPrice,
                 line: {
-                  color: "rgba(0, 0, 0, 0.3)",
+                  color: "white",
                   width: 1,
                   dash: "dot",
                 },
@@ -335,13 +340,13 @@
                 arrowhead: 2,
                 arrowsize: 1,
                 arrowwidth: 2,
-                arrowcolor: "#333",
+                arrowcolor: "#00DB00",
                 ax: 20,
                 ay: -40,
                 bordercolor: "#c7c7c7",
                 borderwidth: 1,
                 borderpad: 4,
-                bgcolor: "#ffffff",
+                bgcolor: "#F0F0F0",
                 opacity: 0.8,
               },
               // 添加未來預測標註
@@ -357,13 +362,13 @@
                 arrowhead: 2,
                 arrowsize: 1,
                 arrowwidth: 2,
-                arrowcolor: "#ff5722",
+                arrowcolor: "#FF8000",
                 ax: 20,
                 ay: -40,
                 bordercolor: "#ff5722",
                 borderwidth: 1,
                 borderpad: 4,
-                bgcolor: "#ffffff",
+                bgcolor: "#F0F0F0",
                 opacity: 0.8,
               },
             ],
@@ -417,9 +422,9 @@
 <style scoped>
   .lstm-prediction {
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 2px solid #7B7B7B;
     border-radius: 8px;
-    background: white;
+    background: #4F4F4F;
     margin-bottom: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   }
@@ -457,9 +462,10 @@
     align-items: center;
     margin-bottom: 25px;
     padding: 15px;
-    background-color: #f8f9fa;
+    background-color: #4F4F4F;
     border-radius: 6px;
-    border-left: 4px solid #17a2b8;
+    border: 1px solid #7B7B7B;
+    border-left: 4px solid #66B3FF;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   }
 
@@ -502,7 +508,7 @@
   .chart-container {
     height: 450px;
     margin: 25px 0;
-    border: 1px solid #e9ecef;
+    border: 1px solid #7B7B7B;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.03);
@@ -510,7 +516,8 @@
 
   .future-predictions {
     margin-top: 25px;
-    background-color: #f8f9fa;
+    background-color: #4F4F4F;
+    border: 1px solid #7B7B7B;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -518,7 +525,7 @@
 
   .future-predictions h4 {
     margin-top: 0;
-    color: #495057;
+    color: white;
     margin-bottom: 15px;
     font-size: 18px;
     border-bottom: 1px solid #dee2e6;
@@ -532,12 +539,11 @@
   }
 
   th {
-    background-color: #e9ecef;
     font-weight: 600;
     padding: 12px;
-    text-align: left;
+    text-align: center;
     border-bottom: 2px solid #dee2e6;
-    color: #495057;
+    color: white;
   }
 
   td {
@@ -547,24 +553,25 @@
 
   .model-info {
     margin-top: 25px;
-    color: #6c757d;
+    color: white;
     font-size: 14px;
     display: flex;
     justify-content: space-between;
     padding: 15px;
-    background-color: #f8f9fa;
+    background-color: #4F4F4F;
+    border: 1px solid #7B7B7B;
     border-radius: 6px;
-    border-top: 1px solid #e9ecef;
   }
 
   .current {
     font-weight: bold;
-    background-color: #fff3cd;
+    border: 4px solid #FFA042;
+    color: white;
   }
 
   h3 {
     margin-top: 0;
-    color: #343a40;
+    color: white;
     padding-bottom: 10px;
     border-bottom: 1px solid #dee2e6;
     margin-bottom: 20px;

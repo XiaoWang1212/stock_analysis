@@ -257,7 +257,7 @@
             mode: "lines",
             name: "中性基準",
             line: {
-              color: "rgba(128, 128, 128, 0.5)",
+              color: "#D0D0D0",
               width: 1,
               dash: "dot",
             },
@@ -268,17 +268,19 @@
             title: "市場情感走勢",
             titlefont: {
               size: 18,
-              color: "#333",
+              color: "white",
             },
             xaxis: {
               title: "日期",
               showgrid: true,
-              gridcolor: "rgba(233, 236, 239, 0.8)",
+              gridcolor: "#7B7B7B",
+              color: '#BEBEBE',
             },
             yaxis: {
               title: "情感分數",
               showgrid: true,
-              gridcolor: "rgba(233, 236, 239, 0.8)",
+              gridcolor: "#7B7B7B",
+              color: '#BEBEBE',
               range: [-1, 1],
               tickvals: [-1, -0.5, 0, 0.5, 1],
               ticktext: ["極度負面", "負面", "中性", "正面", "極度正面"],
@@ -287,6 +289,9 @@
             legend: {
               orientation: "h",
               y: -0.2,
+              font: {
+                color: "#BEBEBE"
+              },
             },
             showlegend: true,
             hovermode: "closest",
@@ -305,7 +310,7 @@
                     : futureDates[0],
                 y1: 1,
                 line: {
-                  color: "rgba(0, 0, 0, 0.3)",
+                  color: "white",
                   width: 1,
                   dash: "dot",
                 },
@@ -335,8 +340,8 @@
                 line: { width: 0 },
               },
             ],
-            plot_bgcolor: "#f8f9fa",
-            paper_bgcolor: "#ffffff",
+            paper_bgcolor: '#4F4F4F',
+            plot_bgcolor: '#4F4F4F',
             height: 300,
           };
 
@@ -409,13 +414,13 @@
     margin-top: 35px;
     padding: 20px;
     border-radius: 8px;
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
+    background-color: #4F4F4F;
+    border: 1px solid #7B7B7B;
   }
 
   .sentiment-analysis h4 {
     margin-top: 0;
-    color: #495057;
+    color: white;
     margin-bottom: 15px;
     font-size: 18px;
     border-bottom: 1px solid #dee2e6;
@@ -434,7 +439,8 @@
     flex: 1;
     min-width: 200px;
     padding: 15px;
-    background-color: white;
+    background-color: #4F4F4F;
+    border: 1px solid #dee2e6;
     border-radius: 6px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     margin: 5px;
@@ -442,7 +448,7 @@
 
   .sentiment-label {
     font-weight: 500;
-    color: #6c757d;
+    color: white;
     margin-bottom: 8px;
   }
 
@@ -489,7 +495,7 @@
   .chart-container {
     height: 350px;
     margin: 25px 0;
-    border: 1px solid #e9ecef;
+    border: 1px solid #dee2e6;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.03);
@@ -498,11 +504,10 @@
   .top-news-section {
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid #e9ecef;
   }
 
   .top-news-section h4 {
-    color: #495057;
+    color: white;
     margin-bottom: 20px;
     font-weight: 600;
   }
@@ -517,9 +522,9 @@
     padding: 15px;
     border-radius: 8px;
     transition: all 0.2s ease;
-    border-left: 4px solid transparent;
+    border: 1px solid #dee2e6;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    background-color: white;
+    background-color: #4F4F4F;
   }
 
   .news-item:hover {
@@ -554,7 +559,7 @@
   .impact-score {
     font-size: 13px;
     font-weight: 500;
-    color: #6c757d;
+    color: white;
   }
 
   .news-title {
@@ -563,7 +568,7 @@
   }
 
   .news-title a {
-    color: #343a40;
+    color: white;
     text-decoration: none;
     display: flex;
     justify-content: space-between;
@@ -571,7 +576,7 @@
   }
 
   .news-title a:hover {
-    color: #0d6efd;
+    color: #66B3FF;
     text-decoration: underline;
   }
 
@@ -584,15 +589,15 @@
   }
 
   .high-impact-news {
-    border-left-color: #dc3545;
+    border-left: 4px solid  #dc3545;
   }
 
   .medium-impact-news {
-    border-left-color: #ffc107;
+    border-left: 4px solid #ffc107;
   }
 
   .low-impact-news {
-    border-left-color: #6c757d;
+    border-left: 4px solid #6c757d;
   }
 
   .sentiment-explanation {
@@ -619,7 +624,7 @@
 
   .news-time {
     font-size: 13px;
-    color: #6c757d;
+    color: white;
     margin-top: 8px;
     display: flex;
     align-items: center;
@@ -629,7 +634,7 @@
     transition: all 0.2s ease;
     border-left: 4px solid transparent;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    background-color: white;
+    background-color: #6C6C6C;
     display: flex;
     flex-direction: column;
   }

@@ -92,11 +92,16 @@
   margin: 0 auto;
 }
 
+h1{
+  padding-bottom: 10px;
+  border-bottom: 2px solid white;
+  margin-bottom: 30px;
+}
+
 .categories-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 25px;
-  margin-top: 30px;
 }
 
 .category-card{

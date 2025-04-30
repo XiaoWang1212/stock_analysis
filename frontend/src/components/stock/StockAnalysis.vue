@@ -1,6 +1,6 @@
 <template>
   <div class="stock-analysis">
-
+    <h1>股票分析</h1>
     <!-- 市場選擇器 -->
     <div class="market-container" v-if="showMarketSelector">
       <market-selector
@@ -578,6 +578,13 @@
     justify-content: center;
   }
 
+  h1{
+    color: white;
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
+    margin-bottom: 30px;
+  }
+
   .market-container {
     display: flex;
     justify-content: center;
@@ -802,11 +809,6 @@
     font-weight: bold;
     font-size: 1.1rem;
     color: #333;
-  }
-
-  h1 {
-    color: #2c3e50;
-    margin-bottom: 30px;
   }
 
   .predict-button {
