@@ -474,8 +474,7 @@
   }
 
   .analysis-container {
-    margin-top: 20px;
-    
+    margin-top: 40px;
   }
 
   .fade-enter-active,

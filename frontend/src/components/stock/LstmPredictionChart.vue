@@ -94,6 +94,10 @@
         type: String,
         default: "US",
       },
+      fetchEnabled: {
+        type: Boolean,
+        default: false,
+      },
     },
 
     computed: {
@@ -102,8 +106,6 @@
       prediction() {
         return this.lstmPrediction;
       },
-
-
     },
 
     watch: {
@@ -118,6 +120,18 @@
           this.$nextTick(() => {
             this.renderChart();
           });
+        }
+      },
+
+      async "$props.symbol"(newSymbol, oldSymbol) {
+        if (newSymbol && this.fetchEnabled && newSymbol !== oldSymbol) {
+          await this.fetchPredictionData();
+        }
+      },
+
+      async fetchEnabled(newValue) {
+        if (newValue && this.symbol) {
+          await this.fetchPredictionData();
         }
       },
     },

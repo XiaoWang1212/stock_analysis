@@ -320,6 +320,12 @@
     z-index: 1000;
   }
 
+  .info-box p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+  }
+
   .info-box img {
     max-width: 100%;
     height: auto;
