@@ -271,6 +271,11 @@
           yaxis2: { title: "BIAS %", color: '#BEBEBE', gridcolor: '#7B7B7B'},
           showlegend: true,
           hovermode: "x unified",
+          hoverlabel: {
+            bgcolor: "#6C6C6C",
+            bordercolor: "#BEBEBE",
+            font: { size: 12, color: "#BEBEBE"},
+          },
           paper_bgcolor: '#4F4F4F',
           plot_bgcolor: '#4F4F4F',
         };

@@ -8,10 +8,10 @@
       <span class="info-text">什麼是相對強弱指標?</span>
     </div>
     <div v-if="showInfo" class="info-box">
-      <p>相對強弱指標(RSI)</p>
-      <p>
+      <div class="info-box-title">相對強弱指標(RSI)</div>
+      <div class="info-box-content">
         由股價的平均上漲、下跌幅度計算而得，代表股價的上漲力道強弱，數值介於0~100之間，數值越大代表上漲力道越強。
-      </p>
+      </div>
       <img src="@/assets/photos/RSI.png" alt="RSI Photo" />
     </div>
   </div>
@@ -143,6 +143,11 @@
           yaxis: { title: "RSI", color: '#BEBEBE', gridcolor: '#7B7B7B'},
           showlegend: true,
           hovermode: "x unified",
+          hoverlabel: {
+            bgcolor: "#6C6C6C",
+            bordercolor: "#BEBEBE",
+            font: { size: 12, color: "#BEBEBE"},
+          },
           paper_bgcolor: '#4F4F4F',
           plot_bgcolor: '#4F4F4F',
         };
@@ -210,12 +215,26 @@
   .info-box {
     background-color: #f9f9f9;
     border: 1px solid #ccc;
+    border-radius: 6px;
     padding: 10px;
     position: absolute;
     top: 40px;
     right: 10px;
     width: 300px;
     z-index: 1000;
+  }
+
+  .info-box-title{
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .info-box-content {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
   }
 
   .info-box img {

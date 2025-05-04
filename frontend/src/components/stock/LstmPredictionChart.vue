@@ -94,6 +94,10 @@
         type: String,
         default: "US",
       },
+      fetchEnabled: {
+        type: Boolean,
+        default: false,
+      },
     },
 
     computed: {
@@ -102,8 +106,6 @@
       prediction() {
         return this.lstmPrediction;
       },
-
-
     },
 
     watch: {
@@ -118,6 +120,18 @@
           this.$nextTick(() => {
             this.renderChart();
           });
+        }
+      },
+
+      async "$props.symbol"(newSymbol, oldSymbol) {
+        if (newSymbol && this.fetchEnabled && newSymbol !== oldSymbol) {
+          await this.fetchPredictionData();
+        }
+      },
+
+      async fetchEnabled(newValue) {
+        if (newValue && this.symbol) {
+          await this.fetchPredictionData();
         }
       },
     },
@@ -264,7 +278,7 @@
           const layout = {
             title: `${this.symbol} 股價預測分析`,
             titlefont: {
-              size: 22,
+              size: 20,
               color: "white",
             },
             xaxis: {
@@ -527,7 +541,7 @@
     margin-top: 0;
     color: white;
     margin-bottom: 15px;
-    font-size: 18px;
+    font-size: 20px;
     border-bottom: 1px solid #dee2e6;
     padding-bottom: 10px;
   }
@@ -575,7 +589,7 @@
     padding-bottom: 10px;
     border-bottom: 1px solid #dee2e6;
     margin-bottom: 20px;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 600;
     letter-spacing: 0.5px;
   }

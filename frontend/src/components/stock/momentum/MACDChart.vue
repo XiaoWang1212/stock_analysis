@@ -8,10 +8,10 @@
       <span class="info-text">什麼是平滑異同移動平均線指標?</span>
     </div>
     <div v-if="showInfo" class="info-box">
-      <p>平滑異同移動平均線指標(MACD)</p>
-      <p>
+      <div class="info-box-title">平滑異同移動平均線指標(MACD)</div>
+      <div class="info-box-content">
         MACD指標是透過DIF線與MACD線的交叉，來判斷買入與賣出的訊號。除此之外，若股價創新低，但MACD線卻出現上升的情形，常被認為是買入訊號，即為多頭背離，相反，若股價創新高，但MACD線卻出現下降的情形，常被認為是賣出訊號，即為空頭背離
-      </p>
+      </div>
       <img src="@/assets/photos/MACD.png" alt="MACD Photo" />
     </div>
   </div>
@@ -563,6 +563,11 @@
           },
           showlegend: true,
           hovermode: "x unified",
+          hoverlabel: {
+            bgcolor: "#6C6C6C",
+            bordercolor: "#BEBEBE",
+            font: { size: 12, color: "#BEBEBE"},
+          },
           annotations: [
             {
               x: indices[indices.length - 1],
@@ -663,12 +668,26 @@
   .info-box {
     background-color: #f9f9f9;
     border: 1px solid #ccc;
+    border-radius: 6px;
     padding: 10px;
     position: absolute;
     top: 40px;
     right: 10px;
     width: 300px;
     z-index: 1000;
+  }
+
+  .info-box-title{
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .info-box-content {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
   }
 
   .info-box img {

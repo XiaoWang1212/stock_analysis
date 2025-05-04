@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
 import HomeView2 from "@/views/HomeView2.vue";
+import HomePage from "@/views/HomePage.vue";
 import StockApp from "@/views/StockApp.vue";
 import MovingAvgChart from "@/components/stock/MovingAvgChart.vue";
 import StockHeatMap from "@/components/stock/StockHeatmap.vue";
@@ -21,6 +22,11 @@ const routes = [
     path: "/home",
     name: "Home",
     component: HomeView,
+  },
+  {
+    path: "/home-page",
+    name: "HomePage",
+    component: HomePage,
   },
   {
     path: "/stock-app",

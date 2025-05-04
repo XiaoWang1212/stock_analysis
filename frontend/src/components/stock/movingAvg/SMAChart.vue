@@ -165,9 +165,9 @@
           showlegend: true,
           hovermode: "x unified", // 提供更友好的 hover 效果
           hoverlabel: {
-            bgcolor: "#FFF",
-            bordercolor: "#999",
-            font: { size: 12 },
+            bgcolor: "#6C6C6C",
+            bordercolor: "#BEBEBE",
+            font: { size: 12, color: "#BEBEBE"},
           },
           paper_bgcolor: '#4F4F4F',
           plot_bgcolor: '#4F4F4F',

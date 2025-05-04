@@ -5,6 +5,8 @@
       <loading-spinner />
     </div>
 
+    <h1>股票行情</h1>
+    
     <div class="header-controls">
       <h3>S&P 500</h3>
       <button v-if="show404Error" @click="handleReload" class="reload-button">
@@ -482,7 +484,6 @@
           ];
 
           const layout = {
-            title: "Stock Market Performance",
             margin: { t: 30, l: 0, r: 0, b: 0 },
             height: 600,
             font: {
@@ -680,8 +681,22 @@
   }
 
   .stock-heatmap {
-    margin-top: 20px;
     position: relative;
+    padding: 30px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h1{
+    color: white;
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
+    margin-bottom: 30px;
   }
 
   .header-controls {
@@ -689,6 +704,11 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
+  }
+
+  h3{
+    margin: 0;
+    font-size: 24px;
   }
 
   .reload-button {

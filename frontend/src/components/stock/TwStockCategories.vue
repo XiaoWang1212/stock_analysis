@@ -89,7 +89,9 @@
 .tw-stock-categories {
   padding: 30px;
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 h1{

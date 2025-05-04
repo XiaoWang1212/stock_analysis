@@ -422,7 +422,7 @@
     margin-top: 0;
     color: white;
     margin-bottom: 15px;
-    font-size: 18px;
+    font-size: 20px;
     border-bottom: 1px solid #dee2e6;
     padding-bottom: 10px;
   }
@@ -509,7 +509,7 @@
   .top-news-section h4 {
     color: white;
     margin-bottom: 20px;
-    font-weight: 600;
+    font-size: 20px;
   }
 
   .news-list {
@@ -601,23 +601,27 @@
   }
 
   .sentiment-explanation {
-    margin-top: 20px;
+    color: white;
+    margin-top: 40px;
     padding: 15px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: #4F4F4F;
     border-radius: 6px;
-    border-left: 3px solid #17a2b8;
+    border: 1px solid #dee2e6;
+    border-left: 3px solid #66b3ff;
+    border-right: 3px solid #66b3ff;
   }
 
   .sentiment-explanation h5 {
     margin-top: 0;
-    color: #495057;
+    color: white;
     margin-bottom: 10px;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
   }
 
   .sentiment-explanation p {
     margin-bottom: 10px;
-    color: #6c757d;
+    color: white;
     font-size: 14px;
     line-height: 1.6;
   }

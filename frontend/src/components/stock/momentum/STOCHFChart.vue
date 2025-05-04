@@ -8,13 +8,13 @@
       <span class="info-text">什麼是隨機快速指標?</span>
     </div>
     <div v-if="showInfo" class="info-box">
-      <p>隨機快速指標(STOCHF)</p>
-      <p>
+      <div class="info-box-title">隨機快速指標(STOCHF)</div>
+      <div class="info-box-content">
         隨機快速指標，從隨機指標延伸而來，與隨機指標差別在於，隨機快速指標以RSV值計算公式取代隨機指標的K值計算方式，減少一次的平滑運算，因此對於短期股市趨勢反應較為敏感
-      </p>
-      <p>
+      </div>
+      <div class="info-box-content"> 
         STOCHF常用的觀察方式為，下降的K線穿越超買區域的D線時，即產生賣出信號；上升的K線穿越超賣區域的D線時，即產生買入信號
-      </p>
+      </div>
       <img src="@/assets/photos/STOCHF.png" alt="STOCHF Photo" />
     </div>
   </div>
@@ -145,6 +145,11 @@
           xaxis: { title: "Date", color: '#BEBEBE', gridcolor: '#7B7B7B'},
           showlegend: true,
           hovermode: "x unified",
+          hoverlabel: {
+            bgcolor: "#6C6C6C",
+            bordercolor: "#BEBEBE",
+            font: { size: 12, color: "#BEBEBE"},
+          },
           paper_bgcolor: '#4F4F4F',
           plot_bgcolor: '#4F4F4F',
         };
@@ -213,12 +218,26 @@
   .info-box {
     background-color: #f9f9f9;
     border: 1px solid #ccc;
+    border-radius: 6px;
     padding: 10px;
     position: absolute;
     top: 40px;
     right: 10px;
     width: 300px;
     z-index: 1000;
+  }
+
+  .info-box-title{
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .info-box-content {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
   }
 
   .info-box img {

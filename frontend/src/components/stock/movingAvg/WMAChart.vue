@@ -152,9 +152,9 @@
           showlegend: true,
           hovermode: "x unified",
           hoverlabel: {
-            bgcolor: "#FFF",
-            bordercolor: "#999",
-            font: { size: 12 },
+            bgcolor: "#6C6C6C",
+            bordercolor: "#BEBEBE",
+            font: { size: 12, color: "#BEBEBE" },
           },
           paper_bgcolor: '#4F4F4F',
           plot_bgcolor: '#4F4F4F',

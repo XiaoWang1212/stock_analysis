@@ -5,7 +5,7 @@
         <span class="material-icons">arrow_back</span>
         返回
       </button>
-      <div class="analysis-title">技術分析</div>
+      <h1>技術分析</h1>
       <div class="add-to-group">
         <LoadingSpinner v-if="loading" />
         <ErrorMessage v-else-if="error" :message="error" @retry="fetchGroups" />
@@ -388,7 +388,7 @@
     background: #5B5B5B;
     color: white;
     border: none;
-    border-radius: 20px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
     transition: background 0.3s ease;
@@ -452,10 +452,11 @@
     border-bottom: 2px solid #7B7B7B;
   }
 
-  .analysis-title{
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
+  h1{
+    color: white;
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
+    margin-bottom: 30px;
   }
 
   .chart-selector{
@@ -469,6 +470,7 @@
     border-radius: 8px;
     padding: 10px 20px;
     margin: 0 10px;
+    cursor: pointer;
   }
 
   .chart-selector-button-click{
@@ -510,8 +512,7 @@
   }
 
   .analysis-container {
-    margin-top: 20px;
-    
+    margin-top: 40px;
   }
 
   .fade-enter-active,

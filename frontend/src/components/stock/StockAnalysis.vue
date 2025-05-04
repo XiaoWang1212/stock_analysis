@@ -1,6 +1,7 @@
 <template>
   <div class="stock-analysis">
     <h1>股票分析</h1>
+
     <!-- 市場選擇器 -->
     <div class="market-container" v-if="showMarketSelector">
       <market-selector
@@ -51,7 +52,6 @@
       <div class="function-button">
         <div class="analysis-button-flame">
           <button
-            
             @click="navigateToSMAChart(stockSymbol)"
             class="analysis-button"
           >
@@ -60,13 +60,13 @@
         </div>
 
         <button
-            @click="togglePredictionView"
-            class="predict-button"
-            :class="{ active: showPrediction }"
-          >
-            {{ showPrediction ? "隱藏預測" : "AI智能預測" }}
-          </button>
-        </div>
+          @click="togglePredictionView"
+          class="predict-button"
+          :class="{ active: showPrediction }"
+        >
+          {{ showPrediction ? "隱藏預測" : "AI智能預測" }}
+        </button>
+      </div>
     </div>
 
     <!-- 預測區塊 -->
@@ -81,38 +81,43 @@
       </button>
       -->
 
-      <transition name="fade">
-        <div v-if="showPrediction" class="prediction-container">
-          <div class="prediction-header">
-            <div class="predict-title">LSTM股價預測</div>
-            <span class="tech-badge">Deep Learning</span>
-          </div>
+      <div v-if="chartData" class="predict-section">
+        <transition name="fade">
+          <div v-if="showPrediction" class="prediction-container">
+            <div class="prediction-header">
+              <div class="predict-title">LSTM股價預測</div>
+              <span class="tech-badge">Deep Learning</span>
+            </div>
 
-          <lstm-prediction-chart
-            v-if="showPrediction"
-            :symbol="stockSymbol"
-            :market="market"
-          />
-        </div>
-      </transition>
+            <lstm-prediction-chart
+              v-if="showPrediction"
+              :symbol="stockSymbol"
+              :market="market"
+              :fetch-enabled="true"
+            />
+          </div>
+        </transition>
+      </div>
     </div>
 
-      <!-- 載入中和錯誤提示 -->
-      <loading-spinner v-if="loading" class="loading-spinner"/>
-      <error-message v-else-if="error" :message="error" @retry="handleSearch" class="error-message"/>
+    <!-- 載入中和錯誤提示 -->
+    <loading-spinner v-if="loading" class="loading-spinner" />
+    <error-message
+      v-else-if="error"
+      :message="error"
+      @retry="handleSearch"
+      class="error-message"
+    />
 
-      <!-- 股票圖表 -->
-      <div class="stock-chart-container">
-        <stock-chart
-          v-if="chartData && !showPrediction"
-          :symbol="stockSymbol"
-          :chartData="chartData"
-        />
-      </div>
+    <!-- 股票圖表 -->
+    <div class="stock-chart-container">
+      <stock-chart
+        v-if="chartData && !showPrediction"
+        :symbol="stockSymbol"
+        :chartData="chartData"
+      />
+    </div>
   </div>
-
-  
-
 </template>
 
 <script>
@@ -150,6 +155,7 @@
         switchingMarket: false,
         showMarketSelector: false, // 測試用
         showPrediction: false,
+        shouldFetchPrediction: false,
       };
     },
     computed: {
@@ -547,6 +553,11 @@
       },
       togglePredictionView() {
         this.showPrediction = !this.showPrediction;
+        
+        // 只在首次開啟預測時設置請求標誌
+        if (this.showPrediction) {
+          this.shouldFetchPrediction = true;
+        }
       },
     },
     activated() {
@@ -556,11 +567,13 @@
     },
     mounted() {
       this.showPrediction = false;
+      this.shouldFetchPrediction = false;
     },
     beforeUnmount() {
       if (!this.$route.name || !["MovingAvgChart"].includes(this.$route.name)) {
         this.resetChartData();
         this.showPrediction = false;
+        this.shouldFetchPrediction = false;
       }
     },
   };
@@ -591,20 +604,20 @@
     margin-bottom: 20px;
   }
 
-  .function{
+  .function {
     width: 100%;
     display: grid;
     grid-template-columns: 60% 35%;
-    gap: 5%;   
+    gap: 5%;
     justify-content: start;
     align-items: center;
   }
 
-  .function-button{
+  .function-button {
     width: 100%;
     display: grid;
     grid-template-columns: 49% 49%;
-    gap: 2%;   
+    gap: 2%;
     justify-content: end;
   }
 
@@ -629,9 +642,9 @@
     flex: 1;
     padding: 12px;
     font-size: 16px;
-    background-color: #F0F0F0;
-    border: 2px solid #5B5B5B;
-    border-radius: 6px;
+    background-color: #f0f0f0;
+    border: 2px solid #5b5b5b;
+    border-radius: 8px;
     transition: border-color 0.3s;
     width: 100%;
     max-width: 100%;
@@ -649,18 +662,18 @@
     font-size: 16px;
     font-weight: bold;
     border: none;
-    border-radius: 20px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
   }
 
   .search-button {
-    background-color: #5B5B5B;
+    background-color: #5b5b5b;
     color: white;
   }
 
   .search-button:hover {
-    background-color: #66B3FF;
+    background-color: #66b3ff;
   }
 
   .search-box {
@@ -686,7 +699,7 @@
   }
 
   .suggestion-item {
-    background-color: #F0F0F0;
+    background-color: #f0f0f0;
     padding: 12px 15px;
     cursor: pointer;
     border-bottom: 1px solid #eee;
@@ -732,20 +745,20 @@
     background: #555;
   }
 
-  .analysis-button-flame{
+  .analysis-button-flame {
     display: flex;
     justify-content: center;
   }
 
   .analysis-button {
-    background-color: #5B5B5B;
+    background-color: #5b5b5b;
     color: white;
     width: 130px;
     transition: all 0.3s ease;
   }
 
   .analysis-button:hover {
-    background-color: #66B3FF;
+    background-color: #66b3ff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
   }
@@ -755,13 +768,13 @@
   }
 
   .predict-button {
-    background-color: #66B3FF;
+    background-color: #66b3ff;
     color: white;
-    border-radius: 20px;
+    border-radius: 8px;
   }
 
   .predict-button:hover {
-    background-color: #66B3FF;
+    background-color: #66b3ff;
   }
 
   .predicted-price {
@@ -771,16 +784,16 @@
     font-weight: bold;
   }
 
-  .loading-spinner{
+  .loading-spinner {
     height: 60vh;
   }
 
-  .error-message{
+  .error-message {
     margin-top: 30px;
   }
 
   .stock-chart-container {
-    background-color: #4F4F4F;
+    background-color: #4f4f4f;
     border-radius: 8px;
     flex: 0 1 auto;
     width: 100%;
@@ -812,14 +825,14 @@
   }
 
   .predict-button {
-    background-color: #5B5B5B;
+    background-color: #5b5b5b;
     color: white;
     width: 130px;
     padding: 12px 24px;
     font-size: 16px;
     font-weight: bold;
     border: none;
-    border-radius: 20px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
     display: block;
@@ -828,7 +841,7 @@
   }
 
   .predict-button:hover {
-    background-color: #66B3FF;
+    background-color: #66b3ff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
   }
@@ -860,14 +873,14 @@
     padding-bottom: 10px;
   }
 
-  .predict-title{
-    font-size: 20px;
+  .predict-title {
+    font-size: 24px;
     font-weight: bold;
     text-align: center;
   }
 
   .tech-badge {
-    background-color: #0066CC;
+    background-color: #0066cc;
     color: white;
     padding: 4px 8px;
     border-radius: 4px;

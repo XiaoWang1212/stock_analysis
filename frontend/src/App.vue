@@ -3,6 +3,7 @@
     <header v-if="!$route.meta.hideHeader">
       <nav>
         <div class="nav-left">
+          <router-link to="/home-page">首頁</router-link>
           <router-link to="/stock-heatmap">股票行情</router-link>
           <router-link to="/tw-stock-categories"> 台股分類 </router-link>
           <router-link to="/stock-app">股票分析</router-link>
@@ -88,19 +89,19 @@
     padding: 10px;
     font-size: 16px;
     font-weight: bold;
-    border-radius: 20px;
+    border-radius: 8px;
     transition: background-color 0.3s, font-size 0.3s;
   }
 
   nav a:hover {
     background-color: #66B3FF;
     color: white;
-    border-radius: 20px;
+    border-radius: 8px;
     font-size: 18px;
   }
 
   .router-link-active{
-    border-radius: 20px;
+    border-radius: 8px;
     background-color: #66B3FF;
     color: white;
   }
@@ -153,5 +154,9 @@
 
   .dropdown:hover .dropbtn {
     background-color: #555;
+  }
+
+  h1{
+    font-size: 35px;
   }
 </style>

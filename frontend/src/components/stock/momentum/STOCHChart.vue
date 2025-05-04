@@ -8,13 +8,13 @@
       <span class="info-text">什麼是隨機指標?</span>
     </div>
     <div v-if="showInfo" class="info-box">
-      <p>隨機指標(STOCH)</p>
-      <p>
+      <div class="info-box-title">隨機指標(STOCH)</div>
+      <div class="info-box-content">
         又稱為KD指標，顧名思義是由K值與D值組合而成。K值為快速平均值，對股市近期變化較為敏感；D值為慢速平均值，對股市近期變化較為遲緩，因此投資人多利用KD指標的相對位置作為進出場時機的判斷輔助
-      </p>
-      <p>
+      </div>
+      <div class="info-box-content">
         根據繪製出的圖表，可觀察K值（橘線）與D值（綠線）的交叉時機，判斷進出場時機，除此之外，也可透過KD值觀察市場上超買或超賣的情形，捕捉價格修正的情形
-      </p>
+      </div>
       <img src="@/assets/photos/STOCH.png" alt="STOCH Photo" />
     </div>
   </div>
@@ -203,6 +203,11 @@
           xaxis: { title: "Date", color: '#BEBEBE', gridcolor: '#7B7B7B'},
           showlegend: true,
           hovermode: "x unified",
+          hoverlabel: {
+            bgcolor: "#6C6C6C",
+            bordercolor: "#BEBEBE",
+            font: { size: 12, color: "#BEBEBE"},
+          },
           annotations: [
             {
               x: indices[0],
@@ -313,12 +318,26 @@
   .info-box {
     background-color: #f9f9f9;
     border: 1px solid #ccc;
+    border-radius: 6px;
     padding: 10px;
     position: absolute;
     top: 40px;
     right: 10px;
     width: 300px;
     z-index: 1000;
+  }
+
+  .info-box-title{
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .info-box-content {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
   }
 
   .info-box img {
