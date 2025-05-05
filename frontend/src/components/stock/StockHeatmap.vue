@@ -75,7 +75,9 @@
         </div>
       </div>
     </div>
-    <button @click="handleReload" class="reload-button">重新載入</button>
+    <div class="reload-flame">
+      <button @click="handleReload" class="reload-button">重新載入</button>
+    </div>
   </div>
 </template>
 
@@ -711,15 +713,21 @@
     font-size: 24px;
   }
 
+  .reload-flame{
+    display: flex;
+    justify-content: center;
+  }
+
   .reload-button {
-    padding: 6px 12px;
+    padding: 12px 24px;
     background-color: #5B5B5B;
     color: white;
     border: none;
-    border-radius: 20px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     transition: background-color 0.2s;
+    width: 130px;
   }
 
   .reload-button:hover {

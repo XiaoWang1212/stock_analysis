@@ -898,4 +898,14 @@
     opacity: 0;
     transform: translateY(-20px);
   }
+
+  @media (max-width: 875px){
+    .function-button{
+      grid-template-columns: 100%;
+      gap: 20px;
+    }
+    .search-section {
+      justify-content: center;
+    }
+  }
 </style>

@@ -77,7 +77,7 @@ const routes = [
   // 重定向
   {
     path: "/",
-    redirect: "/login",
+    redirect: "/home-page",
   },
 ];
 

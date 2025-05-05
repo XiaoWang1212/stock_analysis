@@ -1,18 +1,18 @@
 <template>
     <div class="home-page">
         <div class="home-title">預判市場走勢，領先一步看見市場變化</div>
-        <div class="start-button">開始分析</div>
+        <div class="start-button" @click="toLogin">開始分析</div>
     </div>
         <div class="function-flame">
             <div class="function-descript">
                 <div class="function-title">提供多種視覺化圖表</div>
                 <i class="fa-solid fa-line-chart"></i>
-                <div class="function-content">我們提供了多達10種的視覺化圖表，<br/>讓您對股市的脈動一目了然</div>
+                <div class="function-content">我們提供了多達10種的視覺化圖表，讓您對股市的脈動一目了然</div>
             </div>
             <div class="function-descript">
                 <div class="function-title">最先進的AI智能預測</div>
                 <i class="fa-solid fa-gears"></i>
-                <div class="function-content">利用AI能預測，分析未來7天的股價，<br/>以及可能影響價格相關訊息，<br/>讓您一手掌握股票趨勢</div>
+                <div class="function-content">利用AI能預測，分析未來7天的股價，以及可能影響價格相關訊息，讓您一手掌握股票趨勢</div>
             </div>
             <div class="function-descript">
                 <div class="function-title">創建專屬的股票群組</div>
@@ -25,11 +25,19 @@
 <script>
     export default {
         name: "HomePage",
+        methods: {
+            toLogin (){
+                this.$router.push({
+                    name: "Login"
+                });
+            },
+        },
     };
 </script>
 
 <style scoped>
     .home-page {
+        background: url(https://img.freepik.com/free-photo/full-shot-people-coins_23-2151027568.jpg?t=st=1746455997~exp=1746459597~hmac=92111953f19e120d771fccf07b574f65e933801b372019089a2f9feae69eb5d4&w=996);
         padding: 30px;
         max-width: 1200px;
         width: 100%;
@@ -41,6 +49,7 @@
         height: 100vh;
     }
     .home-title{
+        width: 60%;
         color: white;
         font-size: 40px;
         font-weight: bold;
@@ -71,6 +80,7 @@
         grid-template-columns: repeat(3, 30%);
         gap: 3%;
         height: 100vh;
+        padding-bottom: 50px;
     }
     .function-descript{
         background-color: #4F4F4F;
@@ -94,5 +104,21 @@
     .function-content{
         font-size: 20px;
         color: white;
+    }
+
+    @media (max-width: 1050px){
+        .function-descript{
+            height: 45%;
+        }
+    }
+
+    @media (max-width: 850px){
+        .function-flame{
+            grid-template-columns: 80%;
+            height: 150vh;
+        }
+        .function-descript{
+            height: 85%;
+        }
     }
 </style>
