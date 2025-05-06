@@ -110,7 +110,7 @@
     methods: {
       goToLogin() {
         this.showLoginDialog = false;
-        this.$router.push("/");
+        this.$router.push("/login");
       },
       goToStockAnalysis() {
         this.showLoginDialog = false;

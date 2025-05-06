@@ -2,6 +2,7 @@
   <div id="app">
     <header v-if="!$route.meta.hideHeader">
       <nav>
+        <img src="@/assets/photos/menu.png" class="menu-icon" @click="click_mobile_menu">
         <div class="nav-left">
           <router-link to="/home-page">首頁</router-link>
           <router-link to="/stock-heatmap">股票行情</router-link>
@@ -13,11 +14,34 @@
         <span class="material-icons">account_circle</span>
       </router-link>
     </header>
+    <transition name="flade">
+      <div class="mobile-selector-flame" v-if="show_mobile_menu">
+        <router-link to="/home-page" class="mobile-selector">首頁</router-link>
+        <router-link to="/stock-heatmap" class="mobile-selector">股票行情</router-link>
+        <router-link to="/tw-stock-categories" class="mobile-selector"> 台股分類 </router-link>
+        <router-link to="/stock-app" class="mobile-selector">股票分析</router-link>
+      </div>
+    </transition>
     <router-view />
   </div>
 </template>
 
 :root { --container-max-width: 1200px; --content-padding: 30px; }
+
+<script>
+  export default {
+    data (){
+      return{
+        show_mobile_menu: false,
+      }
+    },
+    methods: {
+      click_mobile_menu (){
+        this.show_mobile_menu = !this.show_mobile_menu;
+      }
+    }
+  }
+</script>
 
 <style>
   #app {
@@ -159,4 +183,64 @@
   h1{
     font-size: 35px;
   }
+
+  .menu-icon{
+    display: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .mobile-selector-flame{
+    background-color: #8E8E8E;
+    display: none;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(4, 20%);
+    gap: 5%;
+    align-items: center;
+    padding-top: 20px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    transition: transform 0.2s ease;
+  }
+
+  .mobile-selector{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    margin: 10px;
+    transition: background-color 0.3s, font-size 0.3s;
+  }
+
+  .mobile-selector:hover {
+    background-color: #66B3FF;
+    color: white;
+    border-radius: 8px;
+    font-size: 18px;
+  }
+
+  .flade-enter-active,
+  .flade-leave-active {
+    transition: opacity 0.5s, transform 0.5s;
+  }
+
+  .flade-enter-from,
+  .flade-leave-to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  @media (max-width: 550px){
+    .nav-left{
+      display: none;
+    }
+    .menu-icon{
+      display: block;
+    }
+    .mobile-selector-flame{
+      display: grid;
+    }
+  }
+
 </style>

@@ -56,7 +56,7 @@
     background-color: #4F4F4F;
     padding: 24px;
     border-radius: 8px;
-    width: 90%;
+    width: 80%;
     max-width: 400px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   }

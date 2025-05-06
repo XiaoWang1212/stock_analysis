@@ -49,4 +49,14 @@ export default {
   border-radius: 4px;
   cursor: pointer;
 }
+
+@media (max-width: 700px){
+  .error-message{
+    padding: 10px;
+  }
+  .error-text{
+    display: none;
+  }
+}
+
 </style>

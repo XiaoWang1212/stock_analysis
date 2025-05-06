@@ -37,10 +37,8 @@
 
 <style scoped>
     .home-page {
-        background: url(https://img.freepik.com/free-photo/full-shot-people-coins_23-2151027568.jpg?t=st=1746455997~exp=1746459597~hmac=92111953f19e120d771fccf07b574f65e933801b372019089a2f9feae69eb5d4&w=996);
         padding: 30px;
         max-width: 1200px;
-        width: 100%;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
@@ -49,7 +47,7 @@
         height: 100vh;
     }
     .home-title{
-        width: 60%;
+        width: 80%;
         color: white;
         font-size: 40px;
         font-weight: bold;

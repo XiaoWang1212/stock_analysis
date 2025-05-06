@@ -1,10 +1,8 @@
 <template>
   <div class="moving-avg-chart">
     <div class="chart-header">
-      <button @click="goBack" class="back-btn">
-        <span class="material-icons">arrow_back</span>
-        返回
-      </button>
+      <button @click="goBack" class="back-btn">返回</button>
+      <div class="material-icons">arrow_back</div>
       <h1>技術分析</h1>
       <div class="add-to-group">
         <LoadingSpinner v-if="loading" />
@@ -380,10 +378,10 @@
   }
 
   .back-btn {
-    width: 100px;
+    width: 80px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 5px;
     padding: 8px 16px;
     background: #5B5B5B;
     color: white;
@@ -434,10 +432,6 @@
   .add-btn:disabled {
     background: #ccc;
     cursor: not-allowed;
-  }
-
-  .material-icons {
-    font-size: 18px;
   }
 
   .chart-container{
@@ -523,5 +517,49 @@
   .fade-enter,
   .fade-leave-to {
     opacity: 0;
+  }
+
+  .material-icons {
+    display: none;
+    padding: 8px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background: #5B5B5B;
+    color: white;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+  }
+
+  .material-icons:hover {
+    background: #66B3FF;
+    transform: scale(1);
+  }
+
+  @media (max-width: 950px){
+    .analysis-selector{
+      grid-template-columns: repeat(3, 31%);
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 520px){
+    .chart-selector{
+      grid-template-columns: repeat(2, 47%);
+      gap: 20px;
+    }
+    .analysis-selector{
+      grid-template-columns: repeat(2, 47%);
+      gap: 20px;
+    }
+    .material-icons {
+      display: block;
+    }
+    .back-btn{
+      display: none;
+    }
   }
 </style>
