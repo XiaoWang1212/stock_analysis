@@ -1,7 +1,10 @@
 <template>
     <div class="home-page">
-        <div class="home-title">預判市場走勢，領先一步看見市場變化</div>
-        <div class="start-button" @click="toLogin">開始分析</div>
+        <div class="main-info">
+            <div class="home-title">預判市場走勢，領先一步看見市場變化</div>
+            <div class="start-button" @click="toLogin">開始分析</div>
+        </div>
+        <div class="home-image"></div>
     </div>
         <div class="function-flame">
             <div class="function-descript">
@@ -38,16 +41,20 @@
 <style scoped>
     .home-page {
         padding: 30px;
-        max-width: 1200px;
+        max-width: 1300px;
         margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+    }
+    .main-info{
+        padding-top: 100px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding-top: 100px;
-        height: 100vh;
     }
     .home-title{
-        width: 80%;
+        width: 100%;
         color: white;
         font-size: 40px;
         font-weight: bold;
@@ -64,12 +71,23 @@
         border-radius: 8px;
         background-color: #5b5b5b;
         cursor: pointer;
-        transition: background-color 0.3s;
+        transition: all 0.3s ease;
         position: relative;
         top: -100px;
     }
     .start-button:hover{
         background-color: #66b3ff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+    }
+    .home-image{
+        background-image: url("@/assets/photos/stock_analysis_bg.JPG");
+        background-size: cover;
+        width: 40%;
+        height: 80%;
+        border-radius: 10px 150px;
+        margin-left: 30px;
+        box-shadow: 8px 8px 8px #5B5B5B;
     }
     .function-flame{
         display: grid;
@@ -111,6 +129,9 @@
     }
 
     @media (max-width: 850px){
+        .home-image{
+            display: none;
+        }
         .function-flame{
             grid-template-columns: 80%;
             height: 150vh;
