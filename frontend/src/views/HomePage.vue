@@ -87,7 +87,7 @@
         height: 80%;
         border-radius: 10px 150px;
         margin-left: 30px;
-        box-shadow: 8px 8px 8px #5B5B5B;
+        box-shadow: 8px 8px 8px #4F4F4F;
     }
     .function-flame{
         display: grid;
